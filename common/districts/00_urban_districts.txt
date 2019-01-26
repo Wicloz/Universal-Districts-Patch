@@ -200,12 +200,18 @@ district_city = {
 	ai_weight = {
 		weight = 0
 		modifier = {
+			weight = 1
+			NOT = { has_global_flag = gai_enabled_flag }
+		}
+		# GAI #
+		modifier = {
 			weight = 200
 			planet = {
 				planet_devastation < 1
 				count_pops > 11
 				free_housing < 2
 			}
+			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
 			weight = 200
@@ -214,6 +220,28 @@ district_city = {
 				has_modifier = living_sea
 				free_housing < 5
 			}
+			has_global_flag = gai_enabled_flag
+		}
+		# VANILLA #
+		modifier = {
+			factor = 2
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value < 0
+				}
+			}
+			NOT = { has_global_flag = gai_enabled_flag }
+		}
+		modifier = {
+			factor = 5
+			free_housing < 0
+			NOT = { has_global_flag = gai_enabled_flag }
+		}
+		modifier = {
+			factor = 0
+			free_housing > 2
+			NOT = { has_global_flag = gai_enabled_flag }
 		}
 	}
 
@@ -314,12 +342,18 @@ district_hive = {
 	ai_weight = {
 		weight = 0
 		modifier = {
+			weight = 1
+			NOT = { has_global_flag = gai_enabled_flag }
+		}
+		# GAI #
+		modifier = {
 			weight = 200
 			planet = {
 				planet_devastation < 1
 				count_pops > 11
 				free_housing < 2
 			}
+			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
 			weight = 200
@@ -328,6 +362,18 @@ district_hive = {
 				has_modifier = living_sea
 				free_housing < 5
 			}
+			has_global_flag = gai_enabled_flag
+		}
+		# VANILLA #
+		modifier = {
+			factor = 4
+			free_housing < 0
+			NOT = { has_global_flag = gai_enabled_flag }
+		}
+		modifier = {
+			factor = 0
+			free_housing > 2
+			NOT = { has_global_flag = gai_enabled_flag }
 		}
 	}
 }
@@ -423,12 +469,18 @@ district_nexus = {
 	ai_weight = {
 		weight = 0
 		modifier = {
+			weight = 1
+			NOT = { has_global_flag = gai_enabled_flag }
+		}
+		# GAI #
+		modifier = {
 			weight = 200
 			planet = {
 				planet_devastation < 1
 				count_pops > 11
 				free_housing < 2
 			}
+			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
 			weight = 200
@@ -437,6 +489,18 @@ district_nexus = {
 				has_modifier = living_sea
 				free_housing < 5
 			}
+			has_global_flag = gai_enabled_flag
+		}
+		# VANILLA #
+		modifier = {
+			factor = 5
+			free_housing < 0
+			NOT = { has_global_flag = gai_enabled_flag }
+		}
+		modifier = {
+			factor = 0
+			free_housing > 2
+			NOT = { has_global_flag = gai_enabled_flag }
 		}
 	}
 }
