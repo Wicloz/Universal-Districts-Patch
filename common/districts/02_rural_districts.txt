@@ -1153,18 +1153,24 @@ district_generator_uncapped = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
-			is_planet_class = pc_ringworld_habitable
+			AND = {
+				is_planet_class = pc_ringworld_habitable
+				NOT = { has_global_flag = lrsk_megastrcutre_district_rework_mod_active }
+				NOT = { has_modifier = pm_Utopian_Paradise }
+			}
 		}
-		NOT = { has_modifier = pm_Utopian_Paradise }
 	}
 
 	potential = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
-			is_planet_class = pc_ringworld_habitable
+			AND = {
+				is_planet_class = pc_ringworld_habitable
+				NOT = { has_global_flag = lrsk_megastrcutre_district_rework_mod_active }
+				NOT = { has_modifier = pm_Utopian_Paradise }
+			}
 		}
-		NOT = { has_modifier = pm_Utopian_Paradise }
 	}
 
 	allow = {
@@ -1711,17 +1717,23 @@ district_farming_uncapped = {
 	show_on_uncolonized = {
 		OR = {
 			is_planet_class = pc_hive
-			is_planet_class = pc_ringworld_habitable
+			AND = {
+				is_planet_class = pc_ringworld_habitable
+				NOT = { has_global_flag = lrsk_megastrcutre_district_rework_mod_active }
+				NOT = { has_modifier = pm_Utopian_Paradise }
+			}
 		}
-		NOT = { has_modifier = pm_Utopian_Paradise }
 	}
 
 	potential = {
 		OR = {
 			is_planet_class = pc_hive
-			is_planet_class = pc_ringworld_habitable
+			AND = {
+				is_planet_class = pc_ringworld_habitable
+				NOT = { has_global_flag = lrsk_megastrcutre_district_rework_mod_active }
+				NOT = { has_modifier = pm_Utopian_Paradise }
+			}
 		}
-		NOT = { has_modifier = pm_Utopian_Paradise }
 	}
 
 	allow = {
