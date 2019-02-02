@@ -4,9 +4,6 @@
 district_generator = {
 	base_buildtime = 240
 
-	min_for_deposits_on_planet = 0
-	max_for_deposits_on_planet = 999
-
 	show_on_uncolonized = {
 		habitable_structure = no
 		NOT = { is_planet_class = pc_machine }
@@ -385,9 +382,6 @@ district_generator = {
 
 district_mining = {
 	base_buildtime = 240
-
-	min_for_deposits_on_planet = 0
-	max_for_deposits_on_planet = 999
 
 	show_on_uncolonized = {
 		habitable_structure = no
@@ -772,9 +766,6 @@ district_mining = {
 
 district_farming = {
 	base_buildtime = 240
-
-	min_for_deposits_on_planet = 0
-	max_for_deposits_on_planet = 999
 
 	show_on_uncolonized = {
 		habitable_structure = no
