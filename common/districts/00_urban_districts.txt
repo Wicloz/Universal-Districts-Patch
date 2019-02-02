@@ -260,6 +260,7 @@ district_hive = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
+		exists = from
 		from = { is_hive_empire = yes }
 		NOT = { is_planet_class = pc_habitat }
 		NOT = { is_planet_class = pc_city }
@@ -385,6 +386,7 @@ district_nexus = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
+		exists = from
 		from = { is_machine_empire = yes }
 		NOT = { is_planet_class = pc_habitat }
 		NOT = { is_planet_class = pc_city }
