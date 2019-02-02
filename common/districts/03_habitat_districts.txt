@@ -121,12 +121,11 @@ district_hab_energy = {
 		# GAI #
 		modifier = {
 			weight = 20000
-			num_districts = { type = district_hab_energy value < 4 }
 			OR = {
 				owner = {
 					has_monthly_income = {
 						resource = energy
-						value < 8
+						value < 10
 					}
 				}
 				planet = { has_district = district_hab_energy }
@@ -328,8 +327,10 @@ district_hab_science = {
 		modifier = {
 			weight = 9000
 			planet = {
-				NOT = { has_district = district_hab_energy }
-				num_districts = { type = district_hab_science value < 4 }
+				NOR = {
+					has_district = district_hab_energy
+					has_district = district_hab_commercial
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
@@ -374,6 +375,20 @@ district_hab_commercial = {
 		modifier = {
 			weight = 1
 			NOT = { has_global_flag = gai_enabled_flag }
+		}
+		# GAI #
+		modifier = {
+			weight = 9000
+			planet = {
+				owner = {
+					has_monthly_income = {
+						resource = energy
+						value < 10
+					}
+				}
+				NOT = { has_district = district_hab_science }
+			}
+			has_global_flag = gai_enabled_flag
 		}
 		# VANILLA #
 		modifier = {

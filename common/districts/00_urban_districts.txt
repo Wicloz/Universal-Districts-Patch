@@ -207,21 +207,41 @@ district_city = {
 		}
 		# GAI #
 		modifier = {
-			weight = 200
+			weight = 10000
 			planet = {
 				planet_devastation < 1
-				count_pops > 11
-				free_housing < 2
+				count_pops > 6
+				free_housing < 4
+				NOT = {
+					any_owned_pop = {
+						OR = {
+							is_unemployed = yes
+							has_job = servant
+						}
+					}
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 200
+			weight = 80
 			planet = {
 				planet_devastation < 1
 				has_modifier = living_sea
 				free_housing < 5
 			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 50
+			factor = 1
+			num_free_districts = { type = district_generator value = 0 }
+			num_free_districts = { type = district_mining value = 0 }
+			num_free_districts = { type = district_farming value = 0 }
+			num_free_districts = { type = district_generator_uncapped value = 0 }
+			num_free_districts = { type = district_mining_uncapped value = 0 }
+			num_free_districts = { type = district_farming_uncapped value = 0 }
+			NOT = { any_deposit = {	is_blocker = yes } }
 			has_global_flag = gai_enabled_flag
 		}
 		# VANILLA #
@@ -350,21 +370,41 @@ district_hive = {
 		}
 		# GAI #
 		modifier = {
-			weight = 200
+			weight = 10000
 			planet = {
 				planet_devastation < 1
-				count_pops > 11
-				free_housing < 2
+				count_pops > 6
+				free_housing < 4
+				NOT = {
+					any_owned_pop = {
+						OR = {
+							is_unemployed = yes
+							has_job = servant
+						}
+					}
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 200
+			weight = 80
 			planet = {
 				planet_devastation < 1
 				has_modifier = living_sea
 				free_housing < 5
 			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 50
+			factor = 1
+			num_free_districts = { type = district_generator value = 0 }
+			num_free_districts = { type = district_mining value = 0 }
+			num_free_districts = { type = district_farming value = 0 }
+			num_free_districts = { type = district_generator_uncapped value = 0 }
+			num_free_districts = { type = district_mining_uncapped value = 0 }
+			num_free_districts = { type = district_farming_uncapped value = 0 }
+			NOT = { any_deposit = {	is_blocker = yes } }
 			has_global_flag = gai_enabled_flag
 		}
 		# VANILLA #
@@ -478,21 +518,41 @@ district_nexus = {
 		}
 		# GAI #
 		modifier = {
-			weight = 200
+			weight = 10000
 			planet = {
 				planet_devastation < 1
-				count_pops > 11
-				free_housing < 2
+				count_pops > 6
+				free_housing < 4
+				NOT = {
+					any_owned_pop = {
+						OR = {
+							is_unemployed = yes
+							has_job = servant
+						}
+					}
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 200
+			weight = 80
 			planet = {
 				planet_devastation < 1
 				has_modifier = living_sea
 				free_housing < 5
 			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 50
+			factor = 1
+			num_free_districts = { type = district_generator value = 0 }
+			num_free_districts = { type = district_mining value = 0 }
+			num_free_districts = { type = district_farming value = 0 }
+			num_free_districts = { type = district_generator_uncapped value = 0 }
+			num_free_districts = { type = district_mining_uncapped value = 0 }
+			num_free_districts = { type = district_farming_uncapped value = 0 }
+			NOT = { any_deposit = {	is_blocker = yes } }
 			has_global_flag = gai_enabled_flag
 		}
 		# VANILLA #
