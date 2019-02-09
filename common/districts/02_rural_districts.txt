@@ -316,6 +316,7 @@ district_generator = {
 			planet = {
 				free_jobs < 4
 				any_owned_pop = {
+					NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
 					OR = {
 						is_unemployed = yes
 						has_job = servant
@@ -688,7 +689,7 @@ district_mining = {
 			weight = 900
 			factor = 1
 			gai_good_minerals = yes
-			planet = { count_pops = { limit = { is_sapient = yes } count > 3 } }
+			planet = { count_pops = { limit = { is_sapient = yes } count > 16 } }
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
@@ -703,6 +704,7 @@ district_mining = {
 			planet = {
 				free_jobs < 4
 				any_owned_pop = {
+					NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
 					OR = {
 						is_unemployed = yes
 						has_job = servant
@@ -1030,6 +1032,7 @@ district_farming = {
 				planet = {
 					num_free_districts = { type = district_mining value = 0 }
 					any_owned_pop = {
+						NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
 						OR = {
 							is_unemployed = yes
 							has_job = servant
@@ -1057,11 +1060,11 @@ district_farming = {
 		modifier = {
 			weight = 4000
 			factor = 1
-			gai_build_district = yes
+			gai_unemployed = yes
 			owner = {
 				has_monthly_income = {
 					resource = food
-					value < 5
+					value < 0
 				}
 			}
 			has_global_flag = gai_enabled_flag
@@ -1070,7 +1073,7 @@ district_farming = {
 			weight = 900
 			factor = 1
 			gai_good_food = yes
-			planet = { count_pops = { limit = { is_sapient = yes } count > 11 } }
+			planet = { count_pops = { limit = { is_sapient = yes } count > 16 } }
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
@@ -1079,18 +1082,6 @@ district_farming = {
 			owner = { is_hive_empire = yes }
 			planet = {
 				count_pops = { limit = { is_sapient = yes } count > 1 }
-				num_districts = { type = district_farming value < 3 }
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 5000
-			factor = 1
-			owner = { is_machine_empire = yes }
-			planet = {
-				count_pops = { limit = { is_sapient = yes } count > 1 }
-				has_district = district_mining
-				free_building_slots = 0
 				num_districts = { type = district_farming value < 3 }
 			}
 			has_global_flag = gai_enabled_flag
@@ -1360,6 +1351,7 @@ district_generator_uncapped = {
 			planet = {
 				free_jobs < 4
 				any_owned_pop = {
+					NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
 					OR = {
 						is_unemployed = yes
 						has_job = servant
@@ -1642,6 +1634,7 @@ district_mining_uncapped = {
 			planet = {
 				free_jobs < 4
 				any_owned_pop = {
+					NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
 					OR = {
 						is_unemployed = yes
 						has_job = servant
@@ -1874,6 +1867,7 @@ district_farming_uncapped = {
 				planet = {
 					num_free_districts = { type = district_mining_uncapped value = 0 }
 					any_owned_pop = {
+						NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
 						OR = {
 							is_unemployed = yes
 							has_job = servant

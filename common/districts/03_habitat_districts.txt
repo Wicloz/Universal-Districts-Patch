@@ -55,7 +55,16 @@ district_hab_housing = {
 		modifier = {
 			weight = 90000
 			planet = {
+				owner = { is_regular_empire = no }
 				num_districts = { type = district_hab_housing value < 2 }
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 90000
+			planet = {
+				owner = { is_regular_empire = yes }
+				num_districts = { type = district_hab_housing value < 3 }
 			}
 			has_global_flag = gai_enabled_flag
 		}
@@ -125,7 +134,7 @@ district_hab_energy = {
 				owner = {
 					has_monthly_income = {
 						resource = energy
-						value < 10
+						value < 40
 					}
 				}
 				planet = { has_district = district_hab_energy }
@@ -220,10 +229,14 @@ district_hab_cultural = {
 	}
 
 	ai_weight = {
-		weight = 0
+		weight = 1
+		# GAI #
 		modifier = {
-			weight = 1
-			NOT = { has_global_flag = gai_enabled_flag }
+			weight = 80000
+			planet = {
+				num_districts = { type = district_hab_cultural value < 1 }
+			}
+			has_global_flag = gai_enabled_flag
 		}
 		# VANILLA #
 		modifier = {
@@ -327,15 +340,18 @@ district_hab_science = {
 		modifier = {
 			weight = 9000
 			planet = {
-				NOR = {
-					has_district = district_hab_energy
-					has_district = district_hab_commercial
-				}
+				NOT = { has_district = district_hab_energy }
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 9000
+			planet = {
+				has_district = district_hab_cultural
 			}
 			has_global_flag = gai_enabled_flag
 		}
 	}
-
 }
 
 district_hab_commercial = {
@@ -375,20 +391,6 @@ district_hab_commercial = {
 		modifier = {
 			weight = 1
 			NOT = { has_global_flag = gai_enabled_flag }
-		}
-		# GAI #
-		modifier = {
-			weight = 9000
-			planet = {
-				owner = {
-					has_monthly_income = {
-						resource = energy
-						value < 10
-					}
-				}
-				NOT = { has_district = district_hab_science }
-			}
-			has_global_flag = gai_enabled_flag
 		}
 		# VANILLA #
 		modifier = {

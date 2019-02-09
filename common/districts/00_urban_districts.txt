@@ -218,6 +218,7 @@ district_city = {
 			weight = 10000
 			planet = {
 				planet_devastation < 1
+				years_passed > 10
 				count_pops > 6
 				free_housing < 4
 				NOT = {
@@ -235,8 +236,8 @@ district_city = {
 			weight = 80
 			planet = {
 				planet_devastation < 1
-				has_modifier = living_sea
-				free_housing < 5
+				gai_good_research = yes
+				free_housing < 6
 			}
 			has_global_flag = gai_enabled_flag
 		}
@@ -389,6 +390,7 @@ district_hive = {
 			weight = 10000
 			planet = {
 				planet_devastation < 1
+				years_passed > 10
 				count_pops > 6
 				free_housing < 4
 				NOT = {
@@ -406,8 +408,8 @@ district_hive = {
 			weight = 80
 			planet = {
 				planet_devastation < 1
-				has_modifier = living_sea
-				free_housing < 5
+				gai_good_research = yes
+				free_housing < 6
 			}
 			has_global_flag = gai_enabled_flag
 		}
@@ -545,6 +547,7 @@ district_nexus = {
 			weight = 10000
 			planet = {
 				planet_devastation < 1
+				years_passed > 10
 				count_pops > 6
 				free_housing < 4
 				NOT = {
@@ -562,8 +565,8 @@ district_nexus = {
 			weight = 80
 			planet = {
 				planet_devastation < 1
-				has_modifier = living_sea
-				free_housing < 5
+				gai_good_research = yes
+				free_housing < 6
 			}
 			has_global_flag = gai_enabled_flag
 		}
