@@ -73,10 +73,19 @@ district_city = {
 		potential = {
 			exists = owner
 			owner = {
-				OR = {
-					has_valid_civic = civic_keepers_harmony
-					has_valid_civic = civic_agrarian_idyll
-				}
+				has_valid_civic = civic_keepers_harmony
+			}
+		}
+		modifier = {
+			planet_housing_add = -1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_agrarian_idyll
 			}
 		}
 		modifier = {
@@ -184,7 +193,10 @@ district_city = {
 			exists = owner
 			owner = {
 				has_technology = tech_housing_2
-				NOT = { has_valid_civic = civic_agrarian_idyll }
+				NOR = {
+					has_valid_civic = civic_keepers_harmony
+					has_valid_civic = civic_agrarian_idyll
+				}
 			}
 		}
 		modifier = {
