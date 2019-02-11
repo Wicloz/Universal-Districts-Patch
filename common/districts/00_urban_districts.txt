@@ -73,7 +73,10 @@ district_city = {
 		potential = {
 			exists = owner
 			owner = {
-				has_valid_civic = civic_agrarian_idyll
+				OR = {
+					has_valid_civic = civic_keepers_harmony
+					has_valid_civic = civic_agrarian_idyll
+				}
 			}
 		}
 		modifier = {
