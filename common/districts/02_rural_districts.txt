@@ -456,6 +456,57 @@ district_mining = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
+			owner = { has_tradition = tr_plentiful_industry_3 }
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_mining_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_tradition = tr_plentiful_industry_3 }
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_mining_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_tradition = tr_plentiful_industry_3 }
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_miner_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_tradition = tr_plentiful_industry_3 }
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_fe_acolyte_mine_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
 			owner = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
@@ -1459,6 +1510,57 @@ district_mining_uncapped = {
 
 	planet_modifier = {
 		planet_housing_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_tradition = tr_plentiful_industry_3 }
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_mining_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_tradition = tr_plentiful_industry_3 }
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_mining_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_tradition = tr_plentiful_industry_3 }
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_miner_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_tradition = tr_plentiful_industry_3 }
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_fe_acolyte_mine_add = 1
+		}
 	}
 
 	triggered_planet_modifier = {
