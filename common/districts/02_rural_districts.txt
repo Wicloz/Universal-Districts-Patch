@@ -64,6 +64,12 @@ district_generator = {
 		upkeep = {
 			energy = 1
 		}
+		upkeep = {
+		  trigger = {
+				owner = { has_valid_civic = civic_socialistic	}
+			}
+			energy = 0.15
+		}
 	}
 
 	planet_modifier = {
@@ -190,6 +196,21 @@ district_generator = {
 		}
 		modifier = {
 			job_technician_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+			   or = {
+			       has_valid_civic = civic_labour_unions
+				   has_valid_civic = civic_socialistic
+				}
+			}
+		}
+		modifier = {
+			job_technician_add = 1
 		}
 	}
 
@@ -447,6 +468,12 @@ district_mining = {
 		upkeep = {
 			energy = 1
 		}
+		upkeep = {
+		  trigger = {
+				owner = { has_valid_civic = civic_socialistic	}
+			}
+			energy = 0.15
+		}
 	}
 
 	planet_modifier = {
@@ -597,6 +624,20 @@ district_mining = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
+			owner = {
+              or = {
+				has_valid_civic = civic_keepers_harmony
+				}
+			}
+		}
+		modifier = {
+			planet_amenities_add = -1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
 			owner = { is_hive_empire = yes }
 		}
 		modifier = {
@@ -624,6 +665,21 @@ district_mining = {
 		}
 		modifier = {
 			job_miner_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+			   or = {
+			       has_valid_civic = civic_labour_unions
+				   has_valid_civic = civic_socialistic
+				}
+			}
+		}
+		modifier = {
+			job_miner_add = 1
 		}
 	}
 
@@ -886,6 +942,12 @@ district_farming = {
 		upkeep = {
 			energy = 1
 		}
+		upkeep = {
+		  trigger = {
+				owner = { has_valid_civic = civic_socialistic	}
+			}
+			energy = 0.15
+		}
 	}
 
 	planet_modifier = {
@@ -1019,6 +1081,21 @@ district_farming = {
 		}
 		modifier = {
 			job_farmer_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+			   or = {
+			       has_valid_civic = civic_labour_unions
+				   has_valid_civic = civic_socialistic
+				}
+			}
+		}
+		modifier = {
+			job_farmer_add = 1
 		}
 	}
 
@@ -1232,6 +1309,12 @@ district_generator_uncapped = {
 		upkeep = {
 			energy = 1
 		}
+		upkeep = {
+		  trigger = {
+				owner = { has_valid_civic = civic_socialistic	}
+			}
+			energy = 0.15
+		}
 	}
 
 	planet_modifier = {
@@ -1280,6 +1363,21 @@ district_generator_uncapped = {
 		}
 		modifier = {
 			job_technician_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+			   or = {
+			       has_valid_civic = civic_labour_unions
+				   has_valid_civic = civic_socialistic
+				}
+			}
+		}
+		modifier = {
+			job_technician_add = 1
 		}
 	}
 
@@ -1506,6 +1604,12 @@ district_mining_uncapped = {
 		upkeep = {
 			energy = 1
 		}
+		upkeep = {
+		  trigger = {
+				owner = { has_valid_civic = civic_socialistic	}
+			}
+			energy = 0.15
+		}
 	}
 
 	planet_modifier = {
@@ -1578,6 +1682,20 @@ district_mining_uncapped = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
+			owner = {
+              or = {
+				has_valid_civic = civic_keepers_harmony
+				}
+			}
+		}
+		modifier = {
+			planet_amenities_add = -1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
 			owner = { is_hive_empire = yes }
 		}
 		modifier = {
@@ -1605,6 +1723,21 @@ district_mining_uncapped = {
 		}
 		modifier = {
 			job_miner_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+			   or = {
+			       has_valid_civic = civic_labour_unions
+				   has_valid_civic = civic_socialistic
+				}
+			}
+		}
+		modifier = {
+			job_miner_add = 1
 		}
 	}
 
@@ -1848,6 +1981,12 @@ district_farming_uncapped = {
 		upkeep = {
 			energy = 1
 		}
+		upkeep = {
+		  trigger = {
+				owner = { has_valid_civic = civic_socialistic }
+			}
+			energy = 0.15
+		}
 	}
 
 	planet_modifier = {
@@ -1909,6 +2048,21 @@ district_farming_uncapped = {
 		}
 		modifier = {
 			job_farmer_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+			   or = {
+			       has_valid_civic = civic_labour_unions
+				   has_valid_civic = civic_socialistic
+				}
+			}
+		}
+		modifier = {
+			job_farmer_add = 1
 		}
 	}
 
