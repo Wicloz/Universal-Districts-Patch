@@ -7,10 +7,12 @@ district_hab_housing = {
 
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
+		NOT = { has_global_flag = LivingSpace_active }
 	}
 
 	potential = {
 		is_planet_class = pc_habitat
+		NOT = { has_global_flag = LivingSpace_active }
 	}
 
 	resources = {
@@ -84,11 +86,13 @@ district_hab_energy = {
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
 		from = { is_gestalt = yes }
+		NOT = { has_global_flag = LivingSpace_active }
 	}
 
 	potential = {
 		is_planet_class = pc_habitat
 		owner = { is_gestalt = yes }
+		NOT = { has_global_flag = LivingSpace_active }
 	}
 
 	resources = {
@@ -198,11 +202,13 @@ district_hab_cultural = {
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
 		from = { is_gestalt = no }
+		NOT = { has_global_flag = LivingSpace_active }
 	}
 
 	potential = {
 		is_planet_class = pc_habitat
 		owner = { is_gestalt = no }
+		NOT = { has_global_flag = LivingSpace_active }
 	}
 
 	resources = {
@@ -260,10 +266,12 @@ district_hab_science = {
 
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
+		NOT = { has_global_flag = LivingSpace_active }
 	}
 
 	potential = {
 		is_planet_class = pc_habitat
+		NOT = { has_global_flag = LivingSpace_active }
 	}
 
 	resources = {
@@ -361,11 +369,13 @@ district_hab_commercial = {
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
 		from = { is_gestalt = no }
+		NOT = { has_global_flag = LivingSpace_active }
 	}
 
 	potential = {
 		is_planet_class = pc_habitat
 		owner = { is_gestalt = no }
+		NOT = { has_global_flag = LivingSpace_active }
 	}
 
 	resources = {

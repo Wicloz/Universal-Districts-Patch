@@ -25,6 +25,7 @@ district_generator = {
 		NOT = { is_planet_class = pc_asteroid_base }
 		NOT = { is_planet_class = pc_moon_base }
 		NOT = { has_modifier = pm_Utopian_Paradise }
+		NOT = { has_modifier = stpg_planetary_habitat }
 	}
 
 	potential = {
@@ -45,6 +46,7 @@ district_generator = {
 		NOT = { is_planet_class = pc_asteroid_base }
 		NOT = { is_planet_class = pc_moon_base }
 		NOT = { has_modifier = pm_Utopian_Paradise }
+		NOT = { has_modifier = stpg_planetary_habitat }
 	}
 
 	allow = {
@@ -429,6 +431,7 @@ district_mining = {
 		NOT = { is_planet_class = pc_asteroid_base }
 		NOT = { is_planet_class = pc_moon_base }
 		NOT = { has_modifier = pm_Utopian_Paradise }
+		NOT = { has_modifier = stpg_planetary_habitat }
 	}
 
 	potential = {
@@ -449,6 +452,7 @@ district_mining = {
 		NOT = { is_planet_class = pc_asteroid_base }
 		NOT = { is_planet_class = pc_moon_base }
 		NOT = { has_modifier = pm_Utopian_Paradise }
+		NOT = { has_modifier = stpg_planetary_habitat }
 	}
 
 	allow = {
@@ -903,6 +907,7 @@ district_farming = {
 		NOT = { is_planet_class = pc_asteroid_base }
 		NOT = { is_planet_class = pc_moon_base }
 		NOT = { has_modifier = pm_Utopian_Paradise }
+		NOT = { has_modifier = stpg_planetary_habitat }
 	}
 
 	potential = {
@@ -923,6 +928,7 @@ district_farming = {
 		NOT = { is_planet_class = pc_asteroid_base }
 		NOT = { is_planet_class = pc_moon_base }
 		NOT = { has_modifier = pm_Utopian_Paradise }
+		NOT = { has_modifier = stpg_planetary_habitat }
 	}
 
 	allow = {

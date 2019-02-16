@@ -18,6 +18,7 @@ district_city = {
 		NOT = { is_planet_class = pc_asteroid_base }
 		NOT = { is_planet_class = pc_moon_base }
 		NOT = { has_modifier = pm_Utopian_Paradise }
+		NOT = { has_modifier = stpg_planetary_habitat }
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			has_global_flag = lrsk_megastrcutre_district_rework_mod_active
@@ -37,6 +38,7 @@ district_city = {
 		NOT = { is_planet_class = pc_asteroid_base }
 		NOT = { is_planet_class = pc_moon_base }
 		NOT = { has_modifier = pm_Utopian_Paradise }
+		NOT = { has_modifier = stpg_planetary_habitat }
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			has_global_flag = lrsk_megastrcutre_district_rework_mod_active
@@ -316,6 +318,7 @@ district_hive = {
 		NOT = { is_planet_class = pc_asteroid_base }
 		NOT = { is_planet_class = pc_moon_base }
 		NOT = { has_modifier = pm_Utopian_Paradise }
+		NOT = { has_modifier = stpg_planetary_habitat }
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			has_global_flag = lrsk_megastrcutre_district_rework_mod_active
@@ -335,6 +338,7 @@ district_hive = {
 		NOT = { is_planet_class = pc_asteroid_base }
 		NOT = { is_planet_class = pc_moon_base }
 		NOT = { has_modifier = pm_Utopian_Paradise }
+		NOT = { has_modifier = stpg_planetary_habitat }
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			has_global_flag = lrsk_megastrcutre_district_rework_mod_active
@@ -473,6 +477,7 @@ district_nexus = {
 		NOT = { is_planet_class = pc_asteroid_base }
 		NOT = { is_planet_class = pc_moon_base }
 		NOT = { has_modifier = pm_Utopian_Paradise }
+		NOT = { has_modifier = stpg_planetary_habitat }
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			has_global_flag = lrsk_megastrcutre_district_rework_mod_active
@@ -492,6 +497,7 @@ district_nexus = {
 		NOT = { is_planet_class = pc_asteroid_base }
 		NOT = { is_planet_class = pc_moon_base }
 		NOT = { has_modifier = pm_Utopian_Paradise }
+		NOT = { has_modifier = stpg_planetary_habitat }
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			has_global_flag = lrsk_megastrcutre_district_rework_mod_active
