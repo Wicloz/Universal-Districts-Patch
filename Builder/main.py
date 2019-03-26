@@ -126,6 +126,14 @@ if __name__ == '__main__':
 
     stellaris_files = [parse_file(stellaris_folder + '/' + file) for file in district_files]
 
+    #############################
+    # merge ai weights from gai #
+    #############################
+
+    gai_folder = extract_mod(gai_mod_id)
+    gai_files = [parse_file(gai_folder + '/' + file) for file in district_files]
+    shutil.rmtree(gai_folder)
+
     ########################
     # save stellaris files #
     ########################
