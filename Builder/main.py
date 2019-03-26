@@ -135,10 +135,10 @@ if __name__ == '__main__':
     shutil.rmtree(gai_folder)
 
     for stellaris_file, gai_file in zip(stellaris_files, gai_files):
-        for district in stellaris_file:
-            if not district.startswith('@'):
-                stellaris_ai = stellaris_file.safe_get(district).safe_get('ai_weight')
-                gai_ai = gai_file.safe_get(district).safe_get('ai_weight')
+        for district_name in stellaris_file:
+            if not district_name.startswith('@'):
+                stellaris_ai = stellaris_file.safe_get(district_name).safe_get('ai_weight')
+                gai_ai = gai_file.safe_get(district_name).safe_get('ai_weight')
                 combined_ai = StellarisDict({'weight': ['= 0'], 'modifier': []})
 
                 if stellaris_ai.safe_get('weight') != '= 0':
@@ -161,23 +161,23 @@ if __name__ == '__main__':
                     modifier.ensure({'has_global_flag': ['= gai_enabled_flag']})
                     combined_ai.ensure({'modifier': [modifier]})
 
-                stellaris_file[district][0]['ai_weight'] = [combined_ai]
+                stellaris_file[district_name][0]['ai_weight'] = [combined_ai]
 
     #############################
     # uncap district generation #
     #############################
 
     for stellaris_file in stellaris_files:
-        for district in stellaris_file:
-            if not district.startswith('@'):
-                if 'min_for_deposits_on_planet' in stellaris_file.safe_get(district):
-                    stellaris_file[district][0]['min_for_deposits_on_planet'] = ['= 0']
-                if 'max_for_deposits_on_planet' in stellaris_file.safe_get(district):
-                    stellaris_file[district][0]['max_for_deposits_on_planet'] = ['= 999']
+        for district_name in stellaris_file:
+            if not district_name.startswith('@'):
+                if 'min_for_deposits_on_planet' in stellaris_file.safe_get(district_name):
+                    stellaris_file[district_name][0]['min_for_deposits_on_planet'] = ['= 0']
+                if 'max_for_deposits_on_planet' in stellaris_file.safe_get(district_name):
+                    stellaris_file[district_name][0]['max_for_deposits_on_planet'] = ['= 999']
 
     ########################
     # save stellaris files #
     ########################
 
     for stellaris_file, district_file in zip(stellaris_files, district_files):
-        write_data(stellaris_file, './' + os.path.basename(district_file))
+        write_data(stellaris_file, './out/' + os.path.basename(district_file))
