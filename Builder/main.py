@@ -163,6 +163,18 @@ if __name__ == '__main__':
 
                 stellaris_file[district][0]['ai_weight'] = [combined_ai]
 
+    #############################
+    # uncap district generation #
+    #############################
+
+    for stellaris_file in stellaris_files:
+        for district in stellaris_file:
+            if not district.startswith('@'):
+                if 'min_for_deposits_on_planet' in stellaris_file.safe_get(district):
+                    stellaris_file[district][0]['min_for_deposits_on_planet'] = ['= 0']
+                if 'max_for_deposits_on_planet' in stellaris_file.safe_get(district):
+                    stellaris_file[district][0]['max_for_deposits_on_planet'] = ['= 999']
+
     ########################
     # save stellaris files #
     ########################
