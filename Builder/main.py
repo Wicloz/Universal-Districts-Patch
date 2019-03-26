@@ -1,4 +1,9 @@
 import re
+import tempfile
+import zipfile
+import glob
+import os
+import shutil
 
 
 ########
@@ -105,6 +110,13 @@ def write_object(data, file, level):
 def write_tabs(count, file):
     for _ in range(count):
         file.write('\t')
+
+
+def extract_mod(mod_id):
+    folder = tempfile.TemporaryDirectory().name
+    with zipfile.ZipFile(glob.glob(workshop_folder + '/' + mod_id + '/*.zip')[0], 'r') as mod:
+        mod.extractall(folder)
+    return folder
 
 
 if __name__ == '__main__':
