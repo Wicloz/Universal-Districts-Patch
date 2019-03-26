@@ -22,6 +22,23 @@ district_files = [
 ########
 
 
+class StellarisDict(dict):
+    def ensure(self, data):
+        for key, values in data.items():
+            if key not in self:
+                self[key] = []
+            for value in values:
+                self[key].append(value)
+
+    def safe_get(self, key, always_list=False):
+        if key not in self:
+            return []
+        elif not always_list and len(self[key]) == 1:
+            return self[key][0]
+        else:
+            return self[key]
+
+
 def parse_file(path):
     with open(path, 'r') as file:
         text = ''
@@ -41,7 +58,7 @@ def parse_object(tokens):
     if token is not '{':
         return token
 
-    data = {}
+    data = StellarisDict()
     while True:
         key = tokens.pop()
         if key == '}':
