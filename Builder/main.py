@@ -6,7 +6,7 @@ def parse_file(path):
         text = ''
         for line in file.readlines():
             line = line.split('#', 1)[0]
-            for sign in ['=', '>', '<']:
+            for sign in ['=', '>', '<', '{', '}']:
                 line = line.replace(sign, ' ' + sign + ' ')
             line = line.replace('<  =', '<=').replace('>  =', '>=')
             text += line + '\n'
@@ -28,14 +28,15 @@ def parse_object(tokens):
         sign = tokens.pop()
         if sign not in ['=', '>', '<', '>=', '<=']:
             tokens.append(sign)
-            value = ''
+            value = None
         else:
             value = parse_object(tokens)
             if type(value) is str:
                 value = sign + ' ' + value
         if key not in data.keys():
             data[key] = list()
-        data[key].append(value)
+        if value is not None:
+            data[key].append(value)
 
 
 def write_data(data, path):
@@ -45,23 +46,27 @@ def write_data(data, path):
 
 def write_object(data, file, level):
     if type(data) is str:
-        if len(data):
-            file.write(' ' + data)
-        file.write('\n')
+        file.write(' ' + data + '\n')
         return
 
     if level > 0:
         file.write(' = {\n')
     for key, values in data.items():
+        if len(values) == 0:
+            write_tabs(level, file)
+            file.write(key + '\n')
         for value in values:
-            for _ in range(level):
-                file.write('\t')
+            write_tabs(level, file)
             file.write(key)
             write_object(value, file, level + 1)
     if level > 0:
-        for _ in range(level - 1):
-            file.write('\t')
+        write_tabs(level - 1, file)
         file.write('}\n')
+
+
+def write_tabs(count, file):
+    for _ in range(count):
+        file.write('\t')
 
 
 if __name__ == '__main__':
