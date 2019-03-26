@@ -1,6 +1,27 @@
 import re
 
 
+########
+# VARS #
+########
+
+stellaris_folder = r'D:\Game Libraries\Windows - Steam\steamapps\common\Stellaris'
+workshop_folder = r'D:\Game Libraries\Windows - Steam\steamapps\workshop\content\281990'
+
+gai_mod_id = '1584133829'
+
+district_files = [
+    '/common/districts/00_urban_districts.txt',
+    '/common/districts/01_arcology_districts.txt',
+    '/common/districts/02_rural_districts.txt',
+    '/common/districts/03_habitat_districts.txt',
+]
+
+########
+# VARS #
+########
+
+
 def parse_file(path):
     with open(path, 'r') as file:
         text = ''
