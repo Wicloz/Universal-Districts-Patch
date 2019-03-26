@@ -259,106 +259,10 @@ district_generator = {
 		weight = 0
 		modifier = {
 			weight = 1
-			NOT = { has_global_flag = gai_enabled_flag }
-		}
-		# GAI #
-		modifier = {
-			weight = 150
-			factor = 1
-			gai_build_district = yes
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 200
-			factor = 1
-			gai_build_district = yes
-			OR = {
-				owner = {
-					has_monthly_income = {
-						resource = food
-						value > 25
-					}
-				}
-				planet = {
-					num_free_districts = { type = district_farming value = 0 }
-					NOT = { any_deposit = {	is_blocker = yes } }
-				}
+			NOT = {
+				has_global_flag = gai_enabled_flag
 			}
-			planet = {
-				num_free_districts = { type = district_mining value = 0 }
-				NOT = { any_deposit = {	is_blocker = yes } }
-			}
-			has_global_flag = gai_enabled_flag
 		}
-		modifier = {
-			weight = 400
-			factor = 1
-			gai_build_district = yes
-			owner = {
-				has_monthly_income = {
-					resource = energy
-					value < 40
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 2000
-			factor = 1
-			gai_build_district = yes
-			owner = {
-				is_machine_empire = no
-				has_monthly_income = {
-					resource = energy
-					value < 0
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 500
-			factor = 1
-			gai_build_district = yes
-			owner = {
-				has_monthly_income = {
-					resource = energy
-					value < 0
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 900
-			factor = 1
-			gai_good_energy = yes
-			planet = { count_pops = { limit = { is_sapient = yes } count > 3 } }
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 500
-			planet = {
-				free_jobs < 4
-				any_owned_pop = {
-					NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
-					OR = {
-						is_unemployed = yes
-						has_job = servant
-					}
-					NOR = {
-						is_pop_category = specialist
-						is_pop_category = ruler
-					}
-				}
-				owner = {
-					has_monthly_income = {
-						resource = energy
-						value < -15
-					}
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		# VANILLA #
 		modifier = {
 			factor = 3
 			owner = {
@@ -367,12 +271,32 @@ district_generator = {
 					value < 8
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 2
 			free_housing < 0
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
+		}
+		modifier = {
+			factor = 4
+			owner = {
+				OR = {
+					is_machine_empire = yes
+					is_mechanical_empire = yes
+				}
+				has_monthly_income = {
+					resource = energy
+					value < 50
+				}
+			}
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 3
@@ -382,20 +306,98 @@ district_generator = {
 					has_job = servant
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 0
-			free_housing > 0
+			free_jobs > 0
 			NOT = {
-				any_owned_pop = {
-					OR = {
-						is_unemployed = yes
-						has_job = servant
+				has_global_flag = gai_enabled_flag
+			}
+		}
+		modifier = {
+			weight = 500
+			gai_build_district = yes
+			OR = {
+				owner = {
+					has_monthly_income = {
+						resource = energy
+						value < 60
+					}
+				}
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1
+			OR = {
+				gai_good_energy = yes
+				gai_focus_world = yes
+				NOT = {
+					has_district = district_generator
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1000
+			has_planet_flag = gai_get_energy
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 60
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1000
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 0
+				}
+				has_monthly_income = {
+					resource = minerals
+					value > 150
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 825
+			any_owned_pop = {
+				is_unemployed = yes
+				NOT = {
+					has_citizenship_type = {
+						type = citizenship_organic_trophy
 					}
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			owner = {
+				has_valid_civic = civic_machine_servitor
+				has_monthly_income = {
+					resource = energy
+					value < 30
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 850
+			any_owned_pop = {
+				is_unemployed = yes
+				has_citizenship_type = {
+					type = citizenship_slavery
+				}
+			}
+			has_global_flag = gai_enabled_flag
 		}
 	}
 
@@ -731,110 +733,10 @@ district_mining = {
 		weight = 0
 		modifier = {
 			weight = 1
-			NOT = { has_global_flag = gai_enabled_flag }
-		}
-		# GAI #
-		modifier = {
-			weight = 150
-			factor = 1
-			gai_build_district = yes
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 200
-			factor = 1
-			gai_build_district = yes
-			OR = {
-				owner = {
-					has_monthly_income = {
-						resource = food
-						value > 25
-					}
-					has_monthly_income = {
-						resource = energy
-						value > 40
-					}
-				}
-				AND = {
-					OR = {
-						owner = {
-							has_monthly_income = {
-								resource = food
-								value > 25
-							}
-						}
-						planet = {
-							num_free_districts = { type = district_farming value = 0 }
-							NOT = { any_deposit = {	is_blocker = yes } }
-						}
-					}
-					OR = {
-						owner = {
-							has_monthly_income = {
-								resource = energy
-								value > 40
-							}
-						}
-						planet = {
-							num_free_districts = { type = district_generator value = 0 }
-							NOT = { any_deposit = {	is_blocker = yes } }
-						}
-					}
-				}
+			NOT = {
+				has_global_flag = gai_enabled_flag
 			}
-			has_global_flag = gai_enabled_flag
 		}
-		modifier = {
-			weight = 500
-			factor = 1
-			gai_build_district = yes
-			owner = {
-				has_monthly_income = {
-					resource = minerals
-					value < 50
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 900
-			factor = 1
-			gai_good_minerals = yes
-			planet = { count_pops = { limit = { is_sapient = yes } count > 16 } }
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 500
-			factor = 1
-			owner = { is_machine_empire = yes }
-			NOT = { planet = { has_district = district_mining } }
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 500
-			planet = {
-				free_jobs < 4
-				any_owned_pop = {
-					NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
-					OR = {
-						is_unemployed = yes
-						has_job = servant
-					}
-					NOR = {
-						is_pop_category = specialist
-						is_pop_category = ruler
-					}
-				}
-				owner = {
-					has_monthly_income = {
-						resource = energy
-						value > -20
-					}
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		# VANILLA #
 		modifier = {
 			factor = 3
 			owner = {
@@ -843,12 +745,16 @@ district_mining = {
 					value < 0
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 2
 			free_housing < 0
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 3
@@ -858,7 +764,9 @@ district_mining = {
 					has_job = servant
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 0
@@ -871,7 +779,120 @@ district_mining = {
 					}
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
+		}
+		modifier = {
+			weight = 600
+			gai_build_district = yes
+			owner = {
+				OR = {
+					has_monthly_income = {
+						resource = food
+						value > 20
+					}
+					root = {
+						num_free_districts = {
+							type = district_farming
+							value = 0
+						}
+					}
+					NOR = {
+						NOT = {
+							has_authority = auth_machine_intelligence
+						}
+						has_valid_civic = civic_machine_servitor
+						has_valid_civic = civic_machine_assimilator
+					}
+				}
+				OR = {
+					has_monthly_income = {
+						resource = energy
+						value > 30
+					}
+					root = {
+						num_free_districts = {
+							type = district_generator
+							value = 0
+						}
+					}
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1
+			gai_good_minerals = yes
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 850
+			any_owned_pop = {
+				is_unemployed = yes
+				OR = {
+					specialist_job_check_trigger = no
+					has_citizenship_type = {
+						type = citizenship_slavery
+					}
+				}
+				NOT = {
+					has_citizenship_type = {
+						type = citizenship_assimilation
+					}
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 850
+			any_owned_pop = {
+				is_unemployed = yes
+				NOT = {
+					has_citizenship_type = {
+						type = citizenship_organic_trophy
+					}
+				}
+			}
+			owner = {
+				has_valid_civic = civic_machine_servitor
+				OR = {
+					has_monthly_income = {
+						resource = food
+						value > 25
+					}
+					root = {
+						num_free_districts = {
+							type = district_farming
+							value = 0
+						}
+					}
+				}
+				OR = {
+					has_monthly_income = {
+						resource = energy
+						value > 25
+					}
+					root = {
+						num_free_districts = {
+							type = district_generator
+							value = 0
+						}
+					}
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1000
+			gai_build_district = yes
+			owner = {
+				has_monthly_income = {
+					resource = minerals
+					value < 45
+				}
+			}
+			has_global_flag = gai_enabled_flag
 		}
 	}
 
@@ -1148,53 +1169,10 @@ district_farming = {
 		weight = 0
 		modifier = {
 			weight = 1
-			NOT = { has_global_flag = gai_enabled_flag }
-		}
-		# GAI #
-		modifier = {
-			weight = 4000
-			factor = 1
-			gai_build_district = yes
-			planet = { is_capital = no }
-			owner = {
-				has_monthly_income = {
-					resource = food
-					value < 25
-				}
+			NOT = {
+				has_global_flag = gai_enabled_flag
 			}
-			has_global_flag = gai_enabled_flag
 		}
-		modifier = {
-			weight = 4000
-			factor = 1
-			gai_build_district = yes
-			owner = {
-				has_monthly_income = {
-					resource = food
-					value < 0
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 900
-			factor = 1
-			gai_good_food = yes
-			planet = { count_pops = { limit = { is_sapient = yes } count > 16 } }
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			factor = 0
-			owner = {
-				is_machine_empire = yes
-				NOR = {
-					has_valid_civic = civic_machine_servitor
-					has_valid_civic = civic_machine_assimilator
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		# VANILLA #
 		modifier = {
 			factor = 3
 			owner = {
@@ -1203,12 +1181,16 @@ district_farming = {
 					value < 5
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 2
 			free_housing < 0
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 3
@@ -1218,7 +1200,9 @@ district_farming = {
 					has_job = servant
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 0
@@ -1231,7 +1215,193 @@ district_farming = {
 					}
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
+		}
+		modifier = {
+			factor = 0
+			owner = {
+				OR = {
+					is_mechanical_empire = no
+					AND = {
+						is_mechanical_empire = yes
+						OR = {
+							has_civic = civic_machine_servitor
+							has_civic = civic_machine_assimilator
+						}
+					}
+				}
+				has_monthly_income = {
+					resource = energy
+					value < 5
+				}
+			}
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
+		}
+		modifier = {
+			factor = 0
+			owner = {
+				is_mechanical_empire = yes
+				NOR = {
+					has_civic = civic_machine_servitor
+					has_civic = civic_machine_assimilator
+				}
+			}
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
+		}
+		modifier = {
+			weight = 500
+			gai_build_district = yes
+			owner = {
+				gai_uses_food = yes
+			}
+			OR = {
+				owner = {
+					has_monthly_income = {
+						resource = food
+						value < 20
+					}
+				}
+				owner = {
+					has_monthly_income = {
+						resource = energy
+						value > 20
+					}
+					has_monthly_income = {
+						resource = food
+						value < 40
+					}
+				}
+				AND = {
+					num_free_districts = {
+						type = district_generator
+						value = 0
+					}
+					num_free_districts = {
+						type = district_mining
+						value = 0
+					}
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1
+			owner = {
+				is_hive_empire = yes
+			}
+			not = {
+				has_district = district_farming
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1000
+			owner = {
+				is_hive_empire = yes
+			}
+			is_capital = yes
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 600
+			gai_build_district = yes
+			owner = {
+				gai_uses_food = yes
+			}
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value < 0
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1000
+			has_planet_flag = gai_get_food
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value < 40
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 850
+			owner = {
+				gai_uses_food = yes
+			}
+			any_owned_pop = {
+				is_unemployed = yes
+				OR = {
+					specialist_job_check_trigger = no
+					has_citizenship_type = {
+						type = citizenship_slavery
+					}
+				}
+				NOT = {
+					has_citizenship_type = {
+						type = citizenship_assimilation
+					}
+				}
+			}
+			OR = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				owner = {
+					has_monthly_income = {
+						resource = food
+						value < 50
+					}
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 825
+			any_owned_pop = {
+				is_unemployed = yes
+				NOT = {
+					has_citizenship_type = {
+						type = citizenship_organic_trophy
+					}
+				}
+			}
+			owner = {
+				has_valid_civic = civic_machine_servitor
+				has_monthly_income = {
+					resource = food
+					value < 30
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1
+			gai_good_food = yes
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				gai_good_food = yes
+			}
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value > 80
+				}
+			}
+			has_global_flag = gai_enabled_flag
 		}
 	}
 
@@ -1400,106 +1570,10 @@ district_generator_uncapped = {
 		weight = 0
 		modifier = {
 			weight = 1
-			NOT = { has_global_flag = gai_enabled_flag }
-		}
-		# GAI #
-		modifier = {
-			weight = 2
-			factor = 1
-			gai_build_district = yes
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 100
-			factor = 1
-			gai_build_district = yes
-			OR = {
-				owner = {
-					has_monthly_income = {
-						resource = food
-						value > 25
-					}
-				}
-				planet = {
-					num_free_districts = { type = district_farming_uncapped value = 0 }
-					NOT = { any_deposit = {	is_blocker = yes } }
-				}
+			NOT = {
+				has_global_flag = gai_enabled_flag
 			}
-			planet = {
-				num_free_districts = { type = district_mining_uncapped value = 0 }
-				NOT = { any_deposit = {	is_blocker = yes } }
-			}
-			has_global_flag = gai_enabled_flag
 		}
-		modifier = {
-			weight = 200
-			factor = 1
-			gai_build_district = yes
-			owner = {
-				has_monthly_income = {
-					resource = energy
-					value < 40
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 2000
-			factor = 1
-			gai_build_district = yes
-			owner = {
-				is_machine_empire = no
-				has_monthly_income = {
-					resource = energy
-					value < 0
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 500
-			factor = 1
-			gai_build_district = yes
-			owner = {
-				has_monthly_income = {
-					resource = energy
-					value < 0
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 900
-			factor = 1
-			gai_good_energy = yes
-			planet = { count_pops = { limit = { is_sapient = yes } count > 3 } }
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 500
-			planet = {
-				free_jobs < 4
-				any_owned_pop = {
-					NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
-					OR = {
-						is_unemployed = yes
-						has_job = servant
-					}
-					NOR = {
-						is_pop_category = specialist
-						is_pop_category = ruler
-					}
-				}
-				owner = {
-					has_monthly_income = {
-						resource = energy
-						value < -15
-					}
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		# VANILLA #
 		modifier = {
 			factor = 3
 			owner = {
@@ -1508,12 +1582,16 @@ district_generator_uncapped = {
 					value < 8
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 2
 			free_housing < 0
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 3
@@ -1523,20 +1601,43 @@ district_generator_uncapped = {
 					has_job = servant
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 0
-			free_housing > 0
+			free_jobs > 0
 			NOT = {
-				any_owned_pop = {
-					OR = {
-						is_unemployed = yes
-						has_job = servant
+				has_global_flag = gai_enabled_flag
+			}
+		}
+		modifier = {
+			weight = 9000
+			gai_build_district = yes
+			OR = {
+				owner = {
+					has_monthly_income = {
+						resource = energy
+						value < 200
 					}
 				}
+				num_free_districts = {
+					type = district_mining_uncapped
+					value = 0
+				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value > 150
+				}
+			}
+			has_global_flag = gai_enabled_flag
 		}
 	}
 
@@ -1765,110 +1866,10 @@ district_mining_uncapped = {
 		weight = 0
 		modifier = {
 			weight = 1
-			NOT = { has_global_flag = gai_enabled_flag }
-		}
-		# GAI #
-		modifier = {
-			weight = 2
-			factor = 1
-			gai_build_district = yes
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 100
-			factor = 1
-			gai_build_district = yes
-			OR = {
-				owner = {
-					has_monthly_income = {
-						resource = food
-						value > 25
-					}
-					has_monthly_income = {
-						resource = energy
-						value > 40
-					}
-				}
-				AND = {
-					OR = {
-						owner = {
-							has_monthly_income = {
-								resource = food
-								value > 25
-							}
-						}
-						planet = {
-							num_free_districts = { type = district_farming value = 0 }
-							NOT = { any_deposit = {	is_blocker = yes } }
-						}
-					}
-					OR = {
-						owner = {
-							has_monthly_income = {
-								resource = energy
-								value > 40
-							}
-						}
-						planet = {
-							num_free_districts = { type = district_generator value = 0 }
-							NOT = { any_deposit = {	is_blocker = yes } }
-						}
-					}
-				}
+			NOT = {
+				has_global_flag = gai_enabled_flag
 			}
-			has_global_flag = gai_enabled_flag
 		}
-		modifier = {
-			weight = 500
-			factor = 1
-			gai_build_district = yes
-			owner = {
-				has_monthly_income = {
-					resource = minerals
-					value < 50
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 900
-			factor = 1
-			gai_good_minerals = yes
-			planet = { count_pops = { limit = { is_sapient = yes } count > 3 } }
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 500
-			factor = 1
-			owner = { is_machine_empire = yes }
-			NOT = { planet = { has_district = district_mining_uncapped } }
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 500
-			planet = {
-				free_jobs < 4
-				any_owned_pop = {
-					NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
-					OR = {
-						is_unemployed = yes
-						has_job = servant
-					}
-					NOR = {
-						is_pop_category = specialist
-						is_pop_category = ruler
-					}
-				}
-				owner = {
-					has_monthly_income = {
-						resource = energy
-						value > -20
-					}
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		# VANILLA #
 		modifier = {
 			factor = 3
 			owner = {
@@ -1877,12 +1878,16 @@ district_mining_uncapped = {
 					value < 0
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 2
 			free_housing < 0
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 3
@@ -1892,7 +1897,9 @@ district_mining_uncapped = {
 					has_job = servant
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 0
@@ -1905,7 +1912,36 @@ district_mining_uncapped = {
 					}
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
+		}
+		modifier = {
+			weight = 8900
+			gai_build_district = yes
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value > 10
+				}
+				has_monthly_income = {
+					resource = energy
+					value > 200
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 8500
+			any_owned_pop = {
+				is_unemployed = yes
+				NOT = {
+					has_citizenship_type = {
+						type = citizenship_organic_trophy
+					}
+				}
+			}
+			has_global_flag = gai_enabled_flag
 		}
 	}
 
@@ -2085,42 +2121,10 @@ district_farming_uncapped = {
 		weight = 0
 		modifier = {
 			weight = 1
-			NOT = { has_global_flag = gai_enabled_flag }
-		}
-		# GAI #
-		modifier = {
-			weight = 225
-			factor = 1
-			gai_build_district = yes
-			NOT = { gai_low_minerals = yes }
-			owner = {
-				has_monthly_income = {
-					resource = food
-					value < 25
-				}
+			NOT = {
+				has_global_flag = gai_enabled_flag
 			}
-			has_global_flag = gai_enabled_flag
 		}
-		modifier = {
-			weight = 4000
-			factor = 1
-			gai_unemployed = yes
-			owner = {
-				has_monthly_income = {
-					resource = food
-					value < 0
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 900
-			factor = 1
-			gai_good_food = yes
-			planet = { count_pops = { limit = { is_sapient = yes } count > 16 } }
-			has_global_flag = gai_enabled_flag
-		}
-		# VANILLA #
 		modifier = {
 			factor = 3
 			owner = {
@@ -2129,12 +2133,16 @@ district_farming_uncapped = {
 					value < 5
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 2
 			free_housing < 0
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 3
@@ -2144,7 +2152,9 @@ district_farming_uncapped = {
 					has_job = servant
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 0
@@ -2157,7 +2167,48 @@ district_farming_uncapped = {
 					}
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
+		}
+		modifier = {
+			weight = 9500
+			gai_build_district = yes
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value < 15
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 9500
+			any_owned_pop = {
+				is_unemployed = yes
+				NOT = {
+					has_citizenship_type = {
+						type = citizenship_organic_trophy
+					}
+				}
+			}
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value < 50
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value > 80
+				}
+			}
+			has_global_flag = gai_enabled_flag
 		}
 	}
 

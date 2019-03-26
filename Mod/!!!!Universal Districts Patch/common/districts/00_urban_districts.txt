@@ -228,49 +228,10 @@ district_city = {
 		weight = 0
 		modifier = {
 			weight = 1
-			NOT = { has_global_flag = gai_enabled_flag }
-		}
-		# GAI #
-		modifier = {
-			weight = 10000
-			planet = {
-				planet_devastation < 1
-				years_passed > 10
-				count_pops > 6
-				free_housing < 4
-				NOT = {
-					any_owned_pop = {
-						OR = {
-							is_unemployed = yes
-							has_job = servant
-						}
-					}
-				}
+			NOT = {
+				has_global_flag = gai_enabled_flag
 			}
-			has_global_flag = gai_enabled_flag
 		}
-		modifier = {
-			weight = 80
-			planet = {
-				planet_devastation < 1
-				gai_good_research = yes
-				free_housing < 6
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 50
-			factor = 1
-			num_free_districts = { type = district_generator value = 0 }
-			num_free_districts = { type = district_mining value = 0 }
-			num_free_districts = { type = district_farming value = 0 }
-			num_free_districts = { type = district_generator_uncapped value = 0 }
-			num_free_districts = { type = district_mining_uncapped value = 0 }
-			num_free_districts = { type = district_farming_uncapped value = 0 }
-			NOT = { any_deposit = {	is_blocker = yes } }
-			has_global_flag = gai_enabled_flag
-		}
-		# VANILLA #
 		modifier = {
 			factor = 2
 			owner = {
@@ -279,17 +240,102 @@ district_city = {
 					value < 0
 				}
 			}
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 5
-			free_housing < 0
-			NOT = { has_global_flag = gai_enabled_flag }
+			free_housing < 2
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 0
 			free_housing > 2
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
+		}
+		modifier = {
+			weight = 900
+			planet = {
+				planet_devastation < 1
+				years_passed > 10
+				count_pops > 11
+				free_housing < 4
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 999
+			planet = {
+				planet_devastation < 1
+				years_passed > 11
+				gai_focus_world = yes
+				free_housing < 10
+				free_amenities > 2
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 20000
+			gai_focus_world = yes
+			owner = {
+				has_ascension_perk = ap_arcology_project
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				num_free_districts = {
+					type = district_mining
+					value > 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value > 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value > 0
+				}
+			}
+			NOT = {
+				gai_focus_world = yes
+			}
+			count_pops = {
+				limit = {
+					is_unemployed = yes
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
+				}
+				count >= 1
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			owner = {
+				has_resource = {
+					type = minerals
+					amount < 400
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				gai_focus_world = yes
+			}
+			free_jobs > 1
+			free_housing > 1
+			has_global_flag = gai_enabled_flag
 		}
 	}
 
@@ -404,58 +450,102 @@ district_hive = {
 		weight = 0
 		modifier = {
 			weight = 1
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
-		# GAI #
 		modifier = {
-			weight = 10000
+			factor = 5
+			free_housing < 2
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
+		}
+		modifier = {
+			factor = 0
+			free_housing > 2
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
+		}
+		modifier = {
+			weight = 900
 			planet = {
 				planet_devastation < 1
 				years_passed > 10
-				count_pops > 6
+				count_pops > 11
 				free_housing < 4
-				NOT = {
-					any_owned_pop = {
-						OR = {
-							is_unemployed = yes
-							has_job = servant
-						}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 999
+			planet = {
+				planet_devastation < 1
+				years_passed > 11
+				gai_focus_world = yes
+				free_housing < 10
+				free_amenities > 2
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 20000
+			gai_focus_world = yes
+			owner = {
+				has_ascension_perk = ap_arcology_project
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				num_free_districts = {
+					type = district_mining
+					value > 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value > 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value > 0
+				}
+			}
+			NOT = {
+				gai_focus_world = yes
+			}
+			count_pops = {
+				limit = {
+					is_unemployed = yes
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
 					}
+				}
+				count >= 1
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			owner = {
+				has_resource = {
+					type = minerals
+					amount < 400
 				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 80
-			planet = {
-				planet_devastation < 1
-				gai_good_research = yes
-				free_housing < 6
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 50
-			factor = 1
-			num_free_districts = { type = district_generator value = 0 }
-			num_free_districts = { type = district_mining value = 0 }
-			num_free_districts = { type = district_farming value = 0 }
-			num_free_districts = { type = district_generator_uncapped value = 0 }
-			num_free_districts = { type = district_mining_uncapped value = 0 }
-			num_free_districts = { type = district_farming_uncapped value = 0 }
-			NOT = { any_deposit = {	is_blocker = yes } }
-			has_global_flag = gai_enabled_flag
-		}
-		# VANILLA #
-		modifier = {
-			factor = 4
-			free_housing < 0
-			NOT = { has_global_flag = gai_enabled_flag }
-		}
-		modifier = {
 			factor = 0
-			free_housing > 2
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				gai_focus_world = yes
+			}
+			free_jobs > 1
+			free_housing > 1
+			has_global_flag = gai_enabled_flag
 		}
 	}
 }
@@ -565,58 +655,102 @@ district_nexus = {
 		weight = 0
 		modifier = {
 			weight = 1
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
-		# GAI #
 		modifier = {
-			weight = 10000
+			factor = 5
+			free_housing < 2
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
+		}
+		modifier = {
+			factor = 0
+			free_housing > 2
+			NOT = {
+				has_global_flag = gai_enabled_flag
+			}
+		}
+		modifier = {
+			weight = 900
 			planet = {
 				planet_devastation < 1
 				years_passed > 10
-				count_pops > 6
+				count_pops > 11
 				free_housing < 4
-				NOT = {
-					any_owned_pop = {
-						OR = {
-							is_unemployed = yes
-							has_job = servant
-						}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 999
+			planet = {
+				planet_devastation < 1
+				years_passed > 11
+				gai_focus_world = yes
+				free_housing < 10
+				free_amenities > 2
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 20000
+			gai_focus_world = yes
+			owner = {
+				has_ascension_perk = ap_arcology_project
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				num_free_districts = {
+					type = district_mining
+					value > 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value > 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value > 0
+				}
+			}
+			NOT = {
+				gai_focus_world = yes
+			}
+			count_pops = {
+				limit = {
+					is_unemployed = yes
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
 					}
+				}
+				count >= 1
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			owner = {
+				has_resource = {
+					type = minerals
+					amount < 400
 				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 80
-			planet = {
-				planet_devastation < 1
-				gai_good_research = yes
-				free_housing < 6
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 50
-			factor = 1
-			num_free_districts = { type = district_generator value = 0 }
-			num_free_districts = { type = district_mining value = 0 }
-			num_free_districts = { type = district_farming value = 0 }
-			num_free_districts = { type = district_generator_uncapped value = 0 }
-			num_free_districts = { type = district_mining_uncapped value = 0 }
-			num_free_districts = { type = district_farming_uncapped value = 0 }
-			NOT = { any_deposit = {	is_blocker = yes } }
-			has_global_flag = gai_enabled_flag
-		}
-		# VANILLA #
-		modifier = {
-			factor = 5
-			free_housing < 0
-			NOT = { has_global_flag = gai_enabled_flag }
-		}
-		modifier = {
 			factor = 0
-			free_housing > 2
-			NOT = { has_global_flag = gai_enabled_flag }
+			NOT = {
+				gai_focus_world = yes
+			}
+			free_jobs > 1
+			free_housing > 1
+			has_global_flag = gai_enabled_flag
 		}
 	}
 }
