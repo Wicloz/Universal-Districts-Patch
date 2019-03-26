@@ -134,6 +134,35 @@ if __name__ == '__main__':
     gai_files = [parse_file(gai_folder + '/' + file) for file in district_files]
     shutil.rmtree(gai_folder)
 
+    for stellaris_file, gai_file in zip(stellaris_files, gai_files):
+        for district in stellaris_file:
+            if not district.startswith('@'):
+                stellaris_ai = stellaris_file.safe_get(district).safe_get('ai_weight')
+                gai_ai = gai_file.safe_get(district).safe_get('ai_weight')
+                combined_ai = StellarisDict({'weight': ['= 0'], 'modifier': []})
+
+                if stellaris_ai.safe_get('weight') != '= 0':
+                    combined_ai.ensure({'modifier': [{
+                        'weight': stellaris_ai['weight'],
+                        'NOT': [{'has_global_flag': ['= gai_enabled_flag']}],
+                    }]})
+
+                if gai_ai.safe_get('weight') != '= 0':
+                    combined_ai.ensure({'modifier': [{
+                        'weight': gai_ai['weight'],
+                        'has_global_flag': ['= gai_enabled_flag'],
+                    }]})
+
+                for modifier in stellaris_ai.safe_get('modifier', True):
+                    modifier.ensure({'NOT': [{'has_global_flag': ['= gai_enabled_flag']}]})
+                    combined_ai.ensure({'modifier': [modifier]})
+
+                for modifier in gai_ai.safe_get('modifier', True):
+                    modifier.ensure({'has_global_flag': ['= gai_enabled_flag']})
+                    combined_ai.ensure({'modifier': [modifier]})
+
+                stellaris_file[district][0]['ai_weight'] = [combined_ai]
+
     ########################
     # save stellaris files #
     ########################
