@@ -120,6 +120,15 @@ def extract_mod(mod_id):
 
 
 if __name__ == '__main__':
-    parsed = parse_file(r'in.txt')
-    write_data(parsed, r'out.txt')
-    print(parsed)
+    ########################
+    # load stellaris files #
+    ########################
+
+    stellaris_files = [parse_file(stellaris_folder + '/' + file) for file in district_files]
+
+    ########################
+    # save stellaris files #
+    ########################
+
+    for stellaris_file, district_file in zip(stellaris_files, district_files):
+        write_data(stellaris_file, './' + os.path.basename(district_file))
