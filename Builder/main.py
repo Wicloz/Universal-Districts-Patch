@@ -15,12 +15,13 @@ workshop_folder = r'D:\Game Libraries\Windows - Steam\steamapps\workshop\content
 
 gai_mod_id = '1584133829'
 
-district_files = [
-    '/common/districts/00_urban_districts.txt',
-    '/common/districts/01_arcology_districts.txt',
-    '/common/districts/02_rural_districts.txt',
-    '/common/districts/03_habitat_districts.txt',
-]
+########
+# VARS #
+########
+
+files_overwritten = []
+districts_overwritten = []
+output_files = []
 
 ########
 # VARS #
@@ -124,21 +125,36 @@ if __name__ == '__main__':
     # load stellaris files #
     ########################
 
-    stellaris_files = [parse_file(stellaris_folder + '/' + file) for file in district_files]
+    files_overwritten.extend(os.listdir(stellaris_folder + '/common/districts'))
+    for file_name in files_overwritten:
+        file = parse_file(stellaris_folder + '/common/districts/' + file_name)
+        output_files.append((file_name, file))
+        for district_name in file:
+            if not district_name.startswith('@'):
+                districts_overwritten.append(district_name)
+
+    files_overwritten.append('udp_extra_districts.txt')
+    output_files.append(('udp_extra_districts.txt', StellarisDict()))
 
     #############################
     # merge ai weights from gai #
     #############################
 
     gai_folder = extract_mod(gai_mod_id)
-    gai_files = [parse_file(gai_folder + '/' + file) for file in district_files]
+    gai_files = [(os.path.basename(file_path), parse_file(file_path)) for file_path in glob.glob(gai_folder + '/common/districts/*')]
     shutil.rmtree(gai_folder)
 
-    for stellaris_file, gai_file in zip(stellaris_files, gai_files):
-        for district_name in stellaris_file:
+    for output_file in output_files:
+        for gai_file in gai_files:
+            if output_file[0] == gai_file[0]:
+                break
+        else:
+            continue
+        for district_name in output_file[1]:
             if not district_name.startswith('@'):
-                stellaris_ai = stellaris_file.safe_get(district_name).safe_get('ai_weight')
-                gai_ai = gai_file.safe_get(district_name).safe_get('ai_weight')
+
+                stellaris_ai = output_file[1].safe_get(district_name).safe_get('ai_weight')
+                gai_ai = gai_file[1].safe_get(district_name).safe_get('ai_weight')
                 combined_ai = StellarisDict({'weight': ['= 0'], 'modifier': []})
 
                 if stellaris_ai.safe_get('weight') != '= 0':
@@ -161,23 +177,27 @@ if __name__ == '__main__':
                     modifier.ensure({'has_global_flag': ['= gai_enabled_flag']})
                     combined_ai.ensure({'modifier': [modifier]})
 
-                stellaris_file[district_name][0]['ai_weight'] = [combined_ai]
+                output_file[1][district_name][0]['ai_weight'] = [combined_ai]
 
     #############################
     # uncap district generation #
     #############################
 
-    for stellaris_file in stellaris_files:
-        for district_name in stellaris_file:
+    for output_file in output_files:
+        for district_name in output_file[1]:
             if not district_name.startswith('@'):
-                if 'min_for_deposits_on_planet' in stellaris_file.safe_get(district_name):
-                    stellaris_file[district_name][0]['min_for_deposits_on_planet'] = ['= 0']
-                if 'max_for_deposits_on_planet' in stellaris_file.safe_get(district_name):
-                    stellaris_file[district_name][0]['max_for_deposits_on_planet'] = ['= 999']
+                if 'min_for_deposits_on_planet' in output_file[1].safe_get(district_name):
+                    output_file[1][district_name][0]['min_for_deposits_on_planet'] = ['= 0']
+                if 'max_for_deposits_on_planet' in output_file[1].safe_get(district_name):
+                    output_file[1][district_name][0]['max_for_deposits_on_planet'] = ['= 999']
 
-    ########################
-    # save stellaris files #
-    ########################
+    #########################
+    # save all output files #
+    #########################
 
-    for stellaris_file, district_file in zip(stellaris_files, district_files):
-        write_data(stellaris_file, './out/' + os.path.basename(district_file))
+    for output_file in output_files:
+        write_data(output_file[1], './out/' + output_file[0])
+        files_overwritten.remove(output_file[0])
+
+    for file_overwritten in files_overwritten:
+        open('./out/' + file_overwritten, 'w').close()
