@@ -127,9 +127,9 @@ if __name__ == '__main__':
 
     files_overwritten.extend(os.listdir(stellaris_folder + '/common/districts'))
     for file_name in files_overwritten:
-        file = parse_file(stellaris_folder + '/common/districts/' + file_name)
-        output_files.append((file_name, file))
-        for district_name in file:
+        parsed = parse_file(stellaris_folder + '/common/districts/' + file_name)
+        output_files.append((file_name, parsed))
+        for district_name in parsed:
             if not district_name.startswith('@'):
                 districts_overwritten.append(district_name)
 
