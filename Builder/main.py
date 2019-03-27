@@ -248,6 +248,16 @@ if __name__ == '__main__':
                                 if value not in district[0].safe_get(title).safe_get(key, True):
                                     district[0].safe_get(title).ensure({key: [value]})
 
+        # merge triggered modifiers and descriptions
+        for output_file in output_files:
+            for district_name, district in output_file[1].items():
+                if district_name in mod_districts:
+                    mod_district = mod_districts[district_name]
+                    for key in ['triggered_planet_modifier', 'triggered_desc']:
+                        for value in mod_district.safe_get(key, True):
+                            if value not in district[0].safe_get(key, True):
+                                district[0].ensure({key: [value]})
+
     #############################
     # uncap district generation #
     #############################
