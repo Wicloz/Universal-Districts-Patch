@@ -205,7 +205,18 @@ if __name__ == '__main__':
                         districts_overwritten.append(district_name)
         shutil.rmtree(mod_folder)
 
-        # disable missing districts
+        # save certain added districts
+        for district_name, district in mod_districts.items():
+            for output_file in output_files:
+                if district_name in output_file[1]:
+                    break
+            else:
+                for output_file in output_files:
+                    if output_file[0] == 'udp_extra_districts.txt':
+                        output_file[1].ensure({district_name: [district]})
+                        break
+
+        # disable removed districts
         for output_file in output_files:
             if output_file[0] in mod_file_names:
                 for district_name, district in output_file[1].items():
