@@ -15,7 +15,7 @@ workshop_folder = r'D:\Game Libraries\Windows - Steam\steamapps\workshop\content
 
 gai_mod_id = '1584133829'
 other_mods = [
-    ('1653766038', 'LivingSpace_active')
+    ('1653766038', 'LivingSpace_active'),
 ]
 
 ########
