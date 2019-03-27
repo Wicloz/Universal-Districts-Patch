@@ -232,7 +232,7 @@ if __name__ == '__main__':
                     for title in ['show_on_uncolonized', 'potential']:
                         for key, values in mod_district.safe_get(title).items():
                             for value in values:
-                                if value not in district[0].safe_get(title)[key]:
+                                if value not in district[0].safe_get(title).safe_get(key, True):
                                     district[0].safe_get(title).ensure({key: [value]})
 
     #############################
