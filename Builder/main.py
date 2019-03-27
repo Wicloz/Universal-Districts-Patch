@@ -253,6 +253,7 @@ if __name__ == '__main__':
                 for district_name, district in output_file[1].items():
                     if not district_name.startswith('@') and district_name not in mod_districts:
                         for title in ['show_on_uncolonized', 'potential']:
+                            assert mod_flag is not None
                             district[0].safe_get(title).ensure({'NOT': [{'has_global_flag': ['= ' + mod_flag]}]})
 
         # merge build restrictions
