@@ -56,7 +56,7 @@ def parse_file(path):
                 line = line.replace(sign, ' ' + sign + ' ')
             line = line.replace('<  =', '<=').replace('>  =', '>=')
             text += line + '\n'
-        tokens = ['{'] + re.split(r'\s+', text)[:-1] + ['}']
+        tokens = ['{'] + [item for item in re.split(r'\s+', text) if len(item.strip()) > 0] + ['}']
         tokens = list(reversed(tokens))
         return parse_object(tokens)
 
