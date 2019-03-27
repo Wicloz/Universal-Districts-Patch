@@ -14,8 +14,9 @@ stellaris_folder = r'D:\Game Libraries\Windows - Steam\steamapps\common\Stellari
 workshop_folder = r'D:\Game Libraries\Windows - Steam\steamapps\workshop\content\281990'
 
 gai_mod_id = '1584133829'
-other_mods = [
-    ('1653766038', 'LivingSpace_active'),
+other_mod_ids = [
+    '1653766038',
+    '1100284147',
 ]
 
 ########
@@ -185,12 +186,13 @@ if __name__ == '__main__':
     # auto patch mods #
     ###################
 
-    for other_mod in other_mods:
+    for other_mod_id in other_mod_ids:
 
         # load mod data
-        mod_folder = extract_mod(other_mod[0])
+        mod_folder = extract_mod(other_mod_id)
         mod_file_names = os.listdir(mod_folder + '/common/districts')
         mod_districts = {}
+        mod_flag = None
         for mod_file_name in mod_file_names:
             mod_file = parse_file(mod_folder + '/common/districts/' + mod_file_name)
             if mod_file_name not in files_overwritten:
@@ -203,6 +205,17 @@ if __name__ == '__main__':
                     if not district_name.startswith('@'):
                         mod_districts[district_name] = district[0]
                         districts_overwritten.append(district_name)
+        for mod_file_path in glob.glob(mod_folder + '/events/*'):
+            mod_file = parse_file(mod_file_path)
+            for event in mod_file.safe_get('event', True):
+                for effect in event.safe_get('immediate', True):
+                    if 'set_global_flag' in effect:
+                        mod_flag = effect['set_global_flag'][0].replace('= ', '')
+                        break
+                else:
+                    break
+            else:
+                break
         shutil.rmtree(mod_folder)
 
         # save certain added districts
@@ -222,7 +235,7 @@ if __name__ == '__main__':
                 for district_name, district in output_file[1].items():
                     if not district_name.startswith('@') and district_name not in mod_districts:
                         for title in ['show_on_uncolonized', 'potential']:
-                            district[0].safe_get(title).ensure({'NOT': [{'has_global_flag': ['= ' + other_mod[1]]}]})
+                            district[0].safe_get(title).ensure({'NOT': [{'has_global_flag': ['= ' + mod_flag]}]})
 
         # merge build restrictions
         for output_file in output_files:
