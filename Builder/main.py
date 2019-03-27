@@ -14,6 +14,9 @@ stellaris_folder = r'D:\Game Libraries\Windows - Steam\steamapps\common\Stellari
 workshop_folder = r'D:\Game Libraries\Windows - Steam\steamapps\workshop\content\281990'
 
 gai_mod_id = '1584133829'
+other_mods = [
+    ('1653766038', 'LivingSpace_active')
+]
 
 ########
 # VARS #
@@ -177,6 +180,49 @@ if __name__ == '__main__':
                     combined_ai.ensure({'modifier': [modifier]})
 
                 output_file[1][district_name][0]['ai_weight'] = [combined_ai]
+
+    ###################
+    # auto patch mods #
+    ###################
+
+    for other_mod in other_mods:
+
+        # load mod data
+        mod_folder = extract_mod(other_mod[0])
+        mod_file_names = os.listdir(mod_folder + '/common/districts')
+        mod_districts = {}
+        for mod_file_name in mod_file_names:
+            mod_file = parse_file(mod_folder + '/common/districts/' + mod_file_name)
+            if mod_file_name not in files_overwritten:
+                for district_name in districts_overwritten:
+                    if district_name in mod_file:
+                        files_overwritten.append(mod_file_name)
+                        break
+            if mod_file_name in files_overwritten:
+                for district_name, district in mod_file.items():
+                    if not district_name.startswith('@'):
+                        mod_districts[district_name] = district[0]
+                        districts_overwritten.append(district_name)
+        shutil.rmtree(mod_folder)
+
+        # disable missing districts
+        for output_file in output_files:
+            if output_file[0] in mod_file_names:
+                for district_name, district in output_file[1].items():
+                    if not district_name.startswith('@') and district_name not in mod_districts:
+                        for title in ['show_on_uncolonized', 'potential']:
+                            district[0].safe_get(title).ensure({'NOT': [{'has_global_flag': ['= ' + other_mod[1]]}]})
+
+        # merge build restrictions
+        for output_file in output_files:
+            for district_name, district in output_file[1].items():
+                if district_name in mod_districts:
+                    mod_district = mod_districts[district_name]
+                    for title in ['show_on_uncolonized', 'potential']:
+                        for key, values in mod_district.safe_get(title).items():
+                            for value in values:
+                                if value not in district[0].safe_get(title)[key]:
+                                    district[0].safe_get(title).ensure({key: [value]})
 
     #############################
     # uncap district generation #
