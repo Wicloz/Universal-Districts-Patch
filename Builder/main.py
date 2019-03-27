@@ -203,7 +203,11 @@ if __name__ == '__main__':
     for other_mod_id in other_mod_ids:
 
         # load mod data
-        mod_folder = extract_mod(other_mod_id)
+        try:
+            mod_folder = extract_mod(other_mod_id)
+        except IndexError:
+            print('Skipping mod with id: ' + other_mod_id)
+            continue
         mod_file_names = os.listdir(mod_folder + '/common/districts')
         mod_districts = {}
         mod_flag = None
