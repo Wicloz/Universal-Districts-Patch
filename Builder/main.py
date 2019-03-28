@@ -294,8 +294,8 @@ if __name__ == '__main__':
     #########################
 
     for output_file in output_files:
-        write_data(output_file[1], './out/' + output_file[0])
+        write_data(output_file[1], './testing/mod/' + output_file[0])
         files_overwritten.remove(output_file[0])
 
     for file_overwritten in files_overwritten:
-        open('./out/' + file_overwritten, 'w').close()
+        open('./testing/mod/' + file_overwritten, 'w').close()
