@@ -161,7 +161,10 @@ if __name__ == '__main__':
     #############################
 
     gai_folder = extract_mod(gai_mod_id)
-    gai_files = [(os.path.basename(file_path), parse_file(file_path)) for file_path in glob.glob(gai_folder + '/common/districts/*')]
+    gai_files = [
+        (os.path.basename(file_path), parse_file(file_path))
+        for file_path in glob.glob(gai_folder + '/common/districts/*')
+    ]
     shutil.rmtree(gai_folder)
 
     for output_file in output_files:
