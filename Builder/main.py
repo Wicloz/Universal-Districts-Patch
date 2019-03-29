@@ -337,6 +337,15 @@ if __name__ == '__main__':
                         if 'trigger' in upkeep:
                             district[0].get_single('resources').ensure({'upkeep': [upkeep]})
 
+        # merge district conversions
+        for output_file in output_files:
+            for district_name, district in output_file[1].items():
+                if district_name in mod_districts:
+                    mod_district = mod_districts[district_name]
+                    for value in mod_district.get_single('convert_to'):
+                        if value != district_name and value not in district[0].get_single('convert_to'):
+                            district[0].get_single('convert_to').ensure({value: []})
+
     ###########################
     # remove 'original' flags #
     ###########################
