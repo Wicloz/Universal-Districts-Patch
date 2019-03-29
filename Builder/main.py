@@ -292,6 +292,17 @@ if __name__ == '__main__':
                         if 'trigger' in upkeep:
                             district[0].safe_get('resources').ensure({'upkeep': [upkeep]})
 
+    ###########################
+    # remove 'original' flags #
+    ###########################
+
+    for output_file in output_files:
+        for district_name, district in output_file[1].items():
+            if not district_name.startswith('@'):
+                for modifier in district[0].safe_get('triggered_planet_modifier', True):
+                    if 'original' in modifier:
+                        del modifier['original']
+
     #############################
     # uncap district generation #
     #############################
