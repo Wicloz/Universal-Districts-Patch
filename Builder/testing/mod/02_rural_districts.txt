@@ -15,6 +15,12 @@ district_generator = {
 		NOT = {
 			is_planet_class = pc_city
 		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
+		}
 	}
 	potential = {
 		habitable_structure = no
@@ -26,6 +32,12 @@ district_generator = {
 		}
 		NOT = {
 			is_planet_class = pc_city
+		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
 		}
 	}
 	allow = {
@@ -340,6 +352,12 @@ district_mining = {
 		NOT = {
 			is_planet_class = pc_city
 		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
+		}
 	}
 	potential = {
 		habitable_structure = no
@@ -351,6 +369,12 @@ district_mining = {
 		}
 		NOT = {
 			is_planet_class = pc_city
+		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
 		}
 	}
 	allow = {
@@ -709,6 +733,12 @@ district_farming = {
 		NOT = {
 			is_planet_class = pc_city
 		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
+		}
 	}
 	potential = {
 		habitable_structure = no
@@ -720,6 +750,12 @@ district_farming = {
 		}
 		NOT = {
 			is_planet_class = pc_city
+		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
 		}
 	}
 	allow = {

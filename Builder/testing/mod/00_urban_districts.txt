@@ -13,6 +13,12 @@ district_city = {
 		NOT = {
 			is_planet_class = pc_city
 		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
+		}
 	}
 	potential = {
 		exists = owner
@@ -24,6 +30,12 @@ district_city = {
 		}
 		NOT = {
 			is_planet_class = pc_city
+		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
 		}
 	}
 	allow = {
@@ -291,6 +303,12 @@ district_hive = {
 		NOT = {
 			is_planet_class = pc_city
 		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
+		}
 	}
 	potential = {
 		exists = owner
@@ -302,6 +320,12 @@ district_hive = {
 		}
 		NOT = {
 			is_planet_class = pc_city
+		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
 		}
 	}
 	allow = {
@@ -479,6 +503,12 @@ district_nexus = {
 		NOT = {
 			is_planet_class = pc_city
 		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
+		}
 	}
 	potential = {
 		exists = owner
@@ -490,6 +520,12 @@ district_nexus = {
 		}
 		NOT = {
 			is_planet_class = pc_city
+		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
 		}
 	}
 	allow = {
