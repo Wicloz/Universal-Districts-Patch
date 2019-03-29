@@ -56,11 +56,14 @@ class StellarisDict(dict):
                     self[key].append(StellarisDict().ensure(value))
         return self
 
-    def safe_get(self, key, always_list=False):
+    def get_single(self, key):
+        assert key in self
+        assert len(self[key]) == 1
+        return self[key][0]
+
+    def get_list(self, key):
         if key not in self:
             return []
-        elif not always_list and len(self[key]) == 1:
-            return self[key][0]
         else:
             return self[key]
 
@@ -181,27 +184,27 @@ if __name__ == '__main__':
         for district_name in output_file[1]:
             if not district_name.startswith('@'):
 
-                stellaris_ai = output_file[1].safe_get(district_name).safe_get('ai_weight')
-                gai_ai = gai_file[1].safe_get(district_name).safe_get('ai_weight')
+                stellaris_ai = output_file[1].get_single(district_name).get_single('ai_weight')
+                gai_ai = gai_file[1].get_single(district_name).get_single('ai_weight')
                 combined_ai = StellarisDict({'weight': ['= 0'], 'modifier': []})
 
-                if stellaris_ai.safe_get('weight') != '= 0':
+                if stellaris_ai.get_single('weight') != '= 0':
                     combined_ai.ensure({'modifier': [{
                         'weight': stellaris_ai['weight'],
                         'NOT': [{'has_global_flag': ['= gai_enabled_flag']}],
                     }]})
 
-                if gai_ai.safe_get('weight') != '= 0':
+                if gai_ai.get_single('weight') != '= 0':
                     combined_ai.ensure({'modifier': [{
                         'weight': gai_ai['weight'],
                         'has_global_flag': ['= gai_enabled_flag'],
                     }]})
 
-                for modifier in stellaris_ai.safe_get('modifier', True):
+                for modifier in stellaris_ai.get_list('modifier'):
                     modifier.ensure({'NOT': [{'has_global_flag': ['= gai_enabled_flag']}]})
                     combined_ai.ensure({'modifier': [modifier]})
 
-                for modifier in gai_ai.safe_get('modifier', True):
+                for modifier in gai_ai.get_list('modifier'):
                     modifier.ensure({'has_global_flag': ['= gai_enabled_flag']})
                     combined_ai.ensure({'modifier': [modifier]})
 
@@ -236,8 +239,8 @@ if __name__ == '__main__':
                         districts_overwritten.append(district_name)
         for mod_file_path in glob.glob(mod_folder + '/events/*'):
             mod_file = parse_file(mod_file_path)
-            for event in mod_file.safe_get('event', True):
-                for effect in event.safe_get('immediate', True):
+            for event in mod_file.get_list('event'):
+                for effect in event.get_list('immediate'):
                     if 'set_global_flag' in effect and mod_flag is None:
                         mod_flag = effect['set_global_flag'][0].replace('= ', '')
         shutil.rmtree(mod_folder)
@@ -260,7 +263,7 @@ if __name__ == '__main__':
                     if not district_name.startswith('@') and district_name not in mod_districts:
                         for title in ['show_on_uncolonized', 'potential']:
                             assert mod_flag is not None
-                            district[0].safe_get(title).ensure({'NOT': [{'has_global_flag': ['= ' + mod_flag]}]})
+                            district[0].get_single(title).ensure({'NOT': [{'has_global_flag': ['= ' + mod_flag]}]})
 
         # merge build restrictions
         for output_file in output_files:
@@ -268,10 +271,10 @@ if __name__ == '__main__':
                 if district_name in mod_districts:
                     mod_district = mod_districts[district_name]
                     for title in ['show_on_uncolonized', 'potential']:
-                        for key, values in mod_district.safe_get(title).items():
+                        for key, values in mod_district.get_single(title).items():
                             for value in values:
-                                if value not in district[0].safe_get(title).safe_get(key, True):
-                                    district[0].safe_get(title).ensure({key: [value]})
+                                if value not in district[0].get_single(title).get_list(key):
+                                    district[0].get_single(title).ensure({key: [value]})
 
         # merge triggered modifiers and descriptions
         for output_file in output_files:
@@ -279,8 +282,8 @@ if __name__ == '__main__':
                 if district_name in mod_districts:
                     mod_district = mod_districts[district_name]
                     for key in ['triggered_planet_modifier', 'triggered_desc']:
-                        for value in mod_district.safe_get(key, True):
-                            if value not in district[0].safe_get(key, True):
+                        for value in mod_district.get_list(key):
+                            if value not in district[0].get_list(key):
                                 district[0].ensure({key: [value]})
 
         # merge normal modifiers
@@ -291,21 +294,21 @@ if __name__ == '__main__':
                     merge_modifier = True
 
                     if 'planet_modifier' in district[0]:
-                        if (mod_district.safe_get('planet_modifier') == district[0].safe_get('planet_modifier')) or \
-                                (district_name == 'district_nexus' and mod_district.safe_get('planet_modifier') == {'planet_housing_add': ['= 5']}):
+                        if (mod_district.get_single('planet_modifier') == district[0].get_single('planet_modifier')) or \
+                                (district_name == 'district_nexus' and mod_district.get_single('planet_modifier') == {'planet_housing_add': ['= 5']}):
                             merge_modifier = False
                         else:
                             district[0].ensure({'triggered_planet_modifier': [{
                                 'original': [],
                                 'potential': [{'NOR': []}],
-                                'modifier': [district[0].safe_get('planet_modifier')],
+                                'modifier': [district[0].get_single('planet_modifier')],
                             }]})
                             del district[0]['planet_modifier']
                     else:
-                        for modifier in district[0].safe_get('triggered_planet_modifier', True):
+                        for modifier in district[0].get_list('triggered_planet_modifier'):
                             if 'original' in modifier:
-                                if (mod_district.safe_get('planet_modifier') == modifier) or \
-                                        (district_name == 'district_nexus' and mod_district.safe_get('planet_modifier') == {'planet_housing_add': ['= 5']}):
+                                if (mod_district.get_single('planet_modifier') == modifier) or \
+                                        (district_name == 'district_nexus' and mod_district.get_single('planet_modifier') == {'planet_housing_add': ['= 5']}):
                                     merge_modifier = False
                                 break
                         else:
@@ -316,11 +319,11 @@ if __name__ == '__main__':
                         if 'planet_modifier' in mod_district:
                             district[0].ensure({'triggered_planet_modifier': [{
                                 'potential': [{'has_global_flag': ['= ' + mod_flag]}],
-                                'modifier': [mod_district.safe_get('planet_modifier')],
+                                'modifier': [mod_district.get_single('planet_modifier')],
                             }]})
-                        for modifier in district[0].safe_get('triggered_planet_modifier', True):
+                        for modifier in district[0].get_list('triggered_planet_modifier'):
                             if 'original' in modifier:
-                                modifier.safe_get('potential').ensure({'NOR': [{'has_global_flag': ['= ' + mod_flag]}]})
+                                modifier.get_single('potential').ensure({'NOR': [{'has_global_flag': ['= ' + mod_flag]}]})
                                 break
 
         # merge upkeep with triggers
@@ -328,9 +331,9 @@ if __name__ == '__main__':
             for district_name, district in output_file[1].items():
                 if district_name in mod_districts:
                     mod_district = mod_districts[district_name]
-                    for upkeep in mod_district.safe_get('resources').safe_get('upkeep', True):
+                    for upkeep in mod_district.get_single('resources').get_list('upkeep'):
                         if 'trigger' in upkeep:
-                            district[0].safe_get('resources').ensure({'upkeep': [upkeep]})
+                            district[0].get_single('resources').ensure({'upkeep': [upkeep]})
 
     ###########################
     # remove 'original' flags #
@@ -339,7 +342,7 @@ if __name__ == '__main__':
     for output_file in output_files:
         for district_name, district in output_file[1].items():
             if not district_name.startswith('@'):
-                for modifier in district[0].safe_get('triggered_planet_modifier', True):
+                for modifier in district[0].get_list('triggered_planet_modifier'):
                     if 'original' in modifier:
                         del modifier['original']
 
@@ -350,9 +353,9 @@ if __name__ == '__main__':
     for output_file in output_files:
         for district_name in output_file[1]:
             if not district_name.startswith('@'):
-                if 'min_for_deposits_on_planet' in output_file[1].safe_get(district_name):
+                if 'min_for_deposits_on_planet' in output_file[1].get_single(district_name):
                     output_file[1][district_name][0]['min_for_deposits_on_planet'] = ['= 0']
-                if 'max_for_deposits_on_planet' in output_file[1].safe_get(district_name):
+                if 'max_for_deposits_on_planet' in output_file[1].get_single(district_name):
                     output_file[1][district_name][0]['max_for_deposits_on_planet'] = ['= 999']
 
     #########################
