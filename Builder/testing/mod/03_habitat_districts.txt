@@ -102,7 +102,7 @@ district_hab_housing = {
 				owner = {
 					is_regular_empire = yes
 				}
-				not = {
+				NOT = {
 					has_district = district_hab_cultural
 				}
 			}
