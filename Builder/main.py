@@ -57,9 +57,11 @@ class StellarisDict(dict):
         return self
 
     def get_single(self, key):
-        assert key in self
-        assert len(self[key]) == 1
-        return self[key][0]
+        if key in self:
+            assert len(self[key]) == 1
+            return self[key][0]
+        else:
+            return {}
 
     def get_list(self, key):
         if key not in self:
