@@ -92,6 +92,9 @@ def parse_object(tokens):
             value = parse_object(tokens)
             if type(value) is str:
                 value = sign + ' ' + value
+        if key == 'OR' and len(value.keys()) == 1 and len(value[list(value.keys())[0]]) <= 1:
+            key = list(value.keys())[0]
+            value = value[key][0] if len(value[key]) == 1 else None
         if key not in data.keys():
             data[key] = list()
         if value is not None:
