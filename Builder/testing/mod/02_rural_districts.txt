@@ -21,6 +21,24 @@ district_generator = {
 		NOT = {
 			is_planet_class = pc_moon_base
 		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
+		}
+		NOT = {
+			is_planet_class = pc_luna
+		}
+		NOT = {
+			is_planet_class = pc_barren_cold_habitable
+		}
+		NOT = {
+			is_planet_class = pc_barren_habitable
+		}
+		NOT = {
+			is_planet_class = pc_frozen_habitable
+		}
+		NOT = {
+			is_planet_class = pc_molten_habitable
+		}
 	}
 	potential = {
 		habitable_structure = no
@@ -38,6 +56,24 @@ district_generator = {
 		}
 		NOT = {
 			is_planet_class = pc_moon_base
+		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
+		}
+		NOT = {
+			is_planet_class = pc_luna
+		}
+		NOT = {
+			is_planet_class = pc_barren_cold_habitable
+		}
+		NOT = {
+			is_planet_class = pc_barren_habitable
+		}
+		NOT = {
+			is_planet_class = pc_frozen_habitable
+		}
+		NOT = {
+			is_planet_class = pc_molten_habitable
 		}
 	}
 	allow = {
@@ -358,6 +394,24 @@ district_mining = {
 		NOT = {
 			is_planet_class = pc_moon_base
 		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
+		}
+		NOT = {
+			is_planet_class = pc_luna
+		}
+		NOT = {
+			is_planet_class = pc_barren_cold_habitable
+		}
+		NOT = {
+			is_planet_class = pc_barren_habitable
+		}
+		NOT = {
+			is_planet_class = pc_frozen_habitable
+		}
+		NOT = {
+			is_planet_class = pc_molten_habitable
+		}
 	}
 	potential = {
 		habitable_structure = no
@@ -375,6 +429,24 @@ district_mining = {
 		}
 		NOT = {
 			is_planet_class = pc_moon_base
+		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
+		}
+		NOT = {
+			is_planet_class = pc_luna
+		}
+		NOT = {
+			is_planet_class = pc_barren_cold_habitable
+		}
+		NOT = {
+			is_planet_class = pc_barren_habitable
+		}
+		NOT = {
+			is_planet_class = pc_frozen_habitable
+		}
+		NOT = {
+			is_planet_class = pc_molten_habitable
 		}
 	}
 	allow = {
@@ -739,6 +811,24 @@ district_farming = {
 		NOT = {
 			is_planet_class = pc_moon_base
 		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
+		}
+		NOT = {
+			is_planet_class = pc_luna
+		}
+		NOT = {
+			is_planet_class = pc_barren_cold_habitable
+		}
+		NOT = {
+			is_planet_class = pc_barren_habitable
+		}
+		NOT = {
+			is_planet_class = pc_frozen_habitable
+		}
+		NOT = {
+			is_planet_class = pc_molten_habitable
+		}
 	}
 	potential = {
 		habitable_structure = no
@@ -756,6 +846,24 @@ district_farming = {
 		}
 		NOT = {
 			is_planet_class = pc_moon_base
+		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
+		}
+		NOT = {
+			is_planet_class = pc_luna
+		}
+		NOT = {
+			is_planet_class = pc_barren_cold_habitable
+		}
+		NOT = {
+			is_planet_class = pc_barren_habitable
+		}
+		NOT = {
+			is_planet_class = pc_frozen_habitable
+		}
+		NOT = {
+			is_planet_class = pc_molten_habitable
 		}
 	}
 	allow = {

@@ -19,6 +19,9 @@ district_city = {
 		NOT = {
 			is_planet_class = pc_moon_base
 		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
+		}
 	}
 	potential = {
 		exists = owner
@@ -36,6 +39,9 @@ district_city = {
 		}
 		NOT = {
 			is_planet_class = pc_moon_base
+		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
 		}
 	}
 	allow = {
