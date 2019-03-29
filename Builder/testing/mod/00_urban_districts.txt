@@ -122,6 +122,29 @@ district_city = {
 			job_clerk_add = 1
 		}
 	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_master_engineer
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+			planet_amenities_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_tradition = tradition_harmony_simple_beauty
+			}
+		}
+		modifier = {
+			planet_housing_add = -1
+		}
+	}
 	triggered_desc = {
 		trigger = {
 			exists = owner

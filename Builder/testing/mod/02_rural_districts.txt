@@ -45,6 +45,14 @@ district_generator = {
 		upkeep = {
 			energy = 1
 		}
+		upkeep = {
+			trigger = {
+				owner = {
+					has_valid_civic = civic_socialistic
+				}
+			}
+			energy = 0.15
+		}
 	}
 	planet_modifier = {
 		planet_housing_add = 2
@@ -103,6 +111,20 @@ district_generator = {
 		}
 		modifier = {
 			job_fe_acolyte_generator_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_valid_civic = civic_labour_unions
+					has_valid_civic = civic_socialistic
+				}
+			}
+		}
+		modifier = {
+			job_technician_add = 1
 		}
 	}
 	triggered_desc = {
@@ -348,6 +370,22 @@ district_mining = {
 		upkeep = {
 			energy = 1
 		}
+		upkeep = {
+			trigger = {
+				owner = {
+					has_valid_civic = civic_socialistic
+				}
+			}
+			energy = 0.15
+		}
+		upkeep = {
+			trigger = {
+				owner = {
+					has_valid_civic = civic_mining_guilds
+				}
+			}
+			energy = 0.15
+		}
 	}
 	planet_modifier = {
 		planet_housing_add = 2
@@ -406,6 +444,43 @@ district_mining = {
 		}
 		modifier = {
 			job_fe_acolyte_mine_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_mining_guilds
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_miner_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_keepers_harmony
+			}
+		}
+		modifier = {
+			planet_amenities_add = -1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_valid_civic = civic_labour_unions
+					has_valid_civic = civic_socialistic
+				}
+			}
+		}
+		modifier = {
+			job_miner_add = 1
 		}
 	}
 	triggered_desc = {
@@ -664,6 +739,14 @@ district_farming = {
 		upkeep = {
 			energy = 1
 		}
+		upkeep = {
+			trigger = {
+				owner = {
+					has_valid_civic = civic_socialistic
+				}
+			}
+			energy = 0.15
+		}
 	}
 	planet_modifier = {
 		planet_housing_add = 2
@@ -734,6 +817,20 @@ district_farming = {
 		}
 		modifier = {
 			job_fe_acolyte_farm_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_valid_civic = civic_labour_unions
+					has_valid_civic = civic_socialistic
+				}
+			}
+		}
+		modifier = {
+			job_farmer_add = 1
 		}
 	}
 	triggered_desc = {
@@ -897,7 +994,7 @@ district_farming = {
 			owner = {
 				is_hive_empire = yes
 			}
-			not = {
+			NOT = {
 				has_district = district_farming
 			}
 			has_global_flag = gai_enabled_flag
@@ -1055,6 +1152,14 @@ district_generator_uncapped = {
 		upkeep = {
 			energy = 1
 		}
+		upkeep = {
+			trigger = {
+				owner = {
+					has_valid_civic = civic_socialistic
+				}
+			}
+			energy = 0.15
+		}
 	}
 	planet_modifier = {
 		planet_housing_add = 2
@@ -1113,6 +1218,20 @@ district_generator_uncapped = {
 		}
 		modifier = {
 			job_fe_acolyte_generator_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_valid_civic = civic_labour_unions
+					has_valid_civic = civic_socialistic
+				}
+			}
+		}
+		modifier = {
+			job_technician_add = 1
 		}
 	}
 	triggered_desc = {
@@ -1257,6 +1376,14 @@ district_mining_uncapped = {
 		upkeep = {
 			energy = 1
 		}
+		upkeep = {
+			trigger = {
+				owner = {
+					has_valid_civic = civic_socialistic
+				}
+			}
+			energy = 0.15
+		}
 	}
 	planet_modifier = {
 		planet_housing_add = 2
@@ -1315,6 +1442,31 @@ district_mining_uncapped = {
 		}
 		modifier = {
 			job_fe_acolyte_mine_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_keepers_harmony
+			}
+		}
+		modifier = {
+			planet_amenities_add = -1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_valid_civic = civic_labour_unions
+					has_valid_civic = civic_socialistic
+				}
+			}
+		}
+		modifier = {
+			job_miner_add = 1
 		}
 	}
 	triggered_desc = {
@@ -1469,6 +1621,14 @@ district_farming_uncapped = {
 		upkeep = {
 			energy = 1
 		}
+		upkeep = {
+			trigger = {
+				owner = {
+					has_valid_civic = civic_socialistic
+				}
+			}
+			energy = 0.15
+		}
 	}
 	planet_modifier = {
 		planet_housing_add = 2
@@ -1539,6 +1699,20 @@ district_farming_uncapped = {
 		}
 		modifier = {
 			job_fe_acolyte_farm_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_valid_civic = civic_labour_unions
+					has_valid_civic = civic_socialistic
+				}
+			}
+		}
+		modifier = {
+			job_farmer_add = 1
 		}
 	}
 	triggered_desc = {
