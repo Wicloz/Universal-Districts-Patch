@@ -272,7 +272,7 @@ if __name__ == '__main__':
             for district_name, district in output_file[1].items():
                 if district_name in mod_districts:
                     mod_district = mod_districts[district_name]
-                    for title in ['show_on_uncolonized', 'potential']:
+                    for title in ['show_on_uncolonized', 'potential', 'allow']:
                         for key, values in mod_district.get_single(title).items():
                             for value in values:
                                 if value not in district[0].get_single(title).get_list(key):
