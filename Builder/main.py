@@ -233,13 +233,8 @@ if __name__ == '__main__':
             mod_file = parse_file(mod_file_path)
             for event in mod_file.safe_get('event', True):
                 for effect in event.safe_get('immediate', True):
-                    if 'set_global_flag' in effect:
+                    if 'set_global_flag' in effect and mod_flag is None:
                         mod_flag = effect['set_global_flag'][0].replace('= ', '')
-                        break
-                else:
-                    break
-            else:
-                break
         shutil.rmtree(mod_folder)
 
         # save certain added districts
