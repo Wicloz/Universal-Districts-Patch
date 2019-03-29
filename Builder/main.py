@@ -283,6 +283,46 @@ if __name__ == '__main__':
                             if value not in district[0].safe_get(key, True):
                                 district[0].ensure({key: [value]})
 
+        # merge normal modifiers
+        for output_file in output_files:
+            for district_name, district in output_file[1].items():
+                if district_name in mod_districts:
+                    mod_district = mod_districts[district_name]
+                    merge_modifier = True
+
+                    if 'planet_modifier' in district[0]:
+                        if (mod_district.safe_get('planet_modifier') == district[0].safe_get('planet_modifier')) or \
+                                (district_name == 'district_nexus' and mod_district.safe_get('planet_modifier') == {'planet_housing_add': ['= 5']}):
+                            merge_modifier = False
+                        else:
+                            district[0].ensure({'triggered_planet_modifier': [{
+                                'original': [],
+                                'potential': [{'NOR': []}],
+                                'modifier': [district[0].safe_get('planet_modifier')],
+                            }]})
+                            del district[0]['planet_modifier']
+                    else:
+                        for modifier in district[0].safe_get('triggered_planet_modifier', True):
+                            if 'original' in modifier:
+                                if (mod_district.safe_get('planet_modifier') == modifier) or \
+                                        (district_name == 'district_nexus' and mod_district.safe_get('planet_modifier') == {'planet_housing_add': ['= 5']}):
+                                    merge_modifier = False
+                                break
+                        else:
+                            merge_modifier = False
+
+                    if merge_modifier:
+                        assert mod_flag is not None
+                        if 'planet_modifier' in mod_district:
+                            district[0].ensure({'triggered_planet_modifier': [{
+                                'potential': [{'has_global_flag': ['= ' + mod_flag]}],
+                                'modifier': [mod_district.safe_get('planet_modifier')],
+                            }]})
+                        for modifier in district[0].safe_get('triggered_planet_modifier', True):
+                            if 'original' in modifier:
+                                modifier.safe_get('potential').ensure({'NOR': [{'has_global_flag': ['= ' + mod_flag]}]})
+                                break
+
         # merge upkeep with triggers
         for output_file in output_files:
             for district_name, district in output_file[1].items():
