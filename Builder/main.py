@@ -49,7 +49,12 @@ class StellarisDict(dict):
         for key, values in data.items():
             if key not in self:
                 self[key] = []
-            self[key].extend(values)
+            for value in values:
+                if type(value) is str:
+                    self[key].append(value)
+                else:
+                    self[key].append(StellarisDict().ensure(value))
+        return self
 
     def safe_get(self, key, always_list=False):
         if key not in self:
