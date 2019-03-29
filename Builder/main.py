@@ -82,6 +82,8 @@ def parse_object(tokens):
     data = StellarisDict()
     while True:
         key = tokens.pop()
+        if key.upper() in ['IF', 'AND', 'OR', 'NOT', 'NOR', 'NAND']:
+            key = key.upper()
         if key == '}':
             return data
         sign = tokens.pop()
