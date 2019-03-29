@@ -22,6 +22,7 @@ district_city = {
 		NOT = {
 			is_planet_class = pc_habitable_asteroid
 		}
+		does_spawn_housing_districts = no
 	}
 	potential = {
 		exists = owner
@@ -43,6 +44,7 @@ district_city = {
 		NOT = {
 			is_planet_class = pc_habitable_asteroid
 		}
+		does_spawn_housing_districts = no
 	}
 	allow = {
 		NOT = {
@@ -315,6 +317,7 @@ district_hive = {
 		NOT = {
 			is_planet_class = pc_moon_base
 		}
+		does_spawn_housing_districts = no
 	}
 	potential = {
 		exists = owner
@@ -333,6 +336,7 @@ district_hive = {
 		NOT = {
 			is_planet_class = pc_moon_base
 		}
+		does_spawn_housing_districts = no
 	}
 	allow = {
 		NOT = {
@@ -515,6 +519,7 @@ district_nexus = {
 		NOT = {
 			is_planet_class = pc_moon_base
 		}
+		does_spawn_housing_districts = no
 	}
 	potential = {
 		exists = owner
@@ -533,6 +538,7 @@ district_nexus = {
 		NOT = {
 			is_planet_class = pc_moon_base
 		}
+		does_spawn_housing_districts = no
 	}
 	allow = {
 		NOT = {
