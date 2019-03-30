@@ -22,6 +22,9 @@ district_city = {
 		NOT = {
 			is_planet_class = pc_habitable_asteroid
 		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
+		}
 		does_spawn_housing_districts = no
 	}
 	potential = {
@@ -43,6 +46,9 @@ district_city = {
 		}
 		NOT = {
 			is_planet_class = pc_habitable_asteroid
+		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
 		}
 		does_spawn_housing_districts = no
 	}
@@ -317,6 +323,9 @@ district_hive = {
 		NOT = {
 			is_planet_class = pc_moon_base
 		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
+		}
 		does_spawn_housing_districts = no
 	}
 	potential = {
@@ -335,6 +344,9 @@ district_hive = {
 		}
 		NOT = {
 			is_planet_class = pc_moon_base
+		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
 		}
 		does_spawn_housing_districts = no
 	}
@@ -519,6 +531,9 @@ district_nexus = {
 		NOT = {
 			is_planet_class = pc_moon_base
 		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
+		}
 		does_spawn_housing_districts = no
 	}
 	potential = {
@@ -537,6 +552,9 @@ district_nexus = {
 		}
 		NOT = {
 			is_planet_class = pc_moon_base
+		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
 		}
 		does_spawn_housing_districts = no
 	}
