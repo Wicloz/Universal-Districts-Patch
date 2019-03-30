@@ -304,9 +304,19 @@ if __name__ == '__main__':
                 if district_name in mod_districts:
                     mod_district = mod_districts[district_name]
                     for key in ['triggered_planet_modifier', 'triggered_desc']:
+                        trigger_key = 'trigger' if key == 'triggered_desc' else 'potential'
+
                         for value in mod_district.get_list(key):
                             if value not in [item.copy_without('vanilla') for item in district[0].get_list(key)]:
+                                if value.get_single(trigger_key) in [item.get_single(trigger_key) for item in district[0].get_list(key)]:
+                                    assert mod_flag is not None
+                                    value.get_single(trigger_key).ensure({'has_global_flag': ['= ' + mod_flag]})
                                 district[0].ensure({key: [value]})
+
+                        for value in district[0].get_list(key):
+                            if 'vanilla' in value and value.copy_without('vanilla') not in mod_district.get_list(key):
+                                assert mod_flag is not None
+                                value.get_single(trigger_key).ensure({'NOT': [{'has_global_flag': ['= ' + mod_flag]}]})
 
         # merge normal modifiers
         for output_file in output_files:
