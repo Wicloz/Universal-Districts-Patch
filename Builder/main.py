@@ -340,14 +340,15 @@ if __name__ == '__main__':
                             merge_modifier = False
 
                     if merge_modifier:
-                        assert mod_flag is not None
                         if 'planet_modifier' in mod_district:
+                            assert mod_flag is not None
                             district[0].ensure({'triggered_planet_modifier': [{
                                 'potential': [{'has_global_flag': ['= ' + mod_flag]}],
                                 'modifier': [mod_district.get_single('planet_modifier')],
                             }]})
                         for modifier in district[0].get_list('triggered_planet_modifier'):
                             if 'default' in modifier:
+                                assert mod_flag is not None
                                 modifier.get_single('potential').ensure({'NOR': [{'has_global_flag': ['= ' + mod_flag]}]})
                                 break
 
