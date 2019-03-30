@@ -254,10 +254,13 @@ if __name__ == '__main__':
                         districts_overwritten.append(district_name)
         for mod_file_path in glob.glob(mod_folder + '/events/*'):
             mod_file = parse_file(mod_file_path)
-            for event in mod_file.get_list('event'):
-                for effect in event.get_list('immediate'):
-                    if 'set_global_flag' in effect and mod_flag is None:
-                        mod_flag = effect['set_global_flag'][0].replace('= ', '')
+            for events in mod_file.values():
+                for event in events:
+                    if type(event) is not str:
+                        for effect in event.get_list('immediate'):
+                            if 'set_global_flag' in effect and mod_flag is None:
+                                mod_flag = effect['set_global_flag'][0].replace('= ', '')
+        print(other_mod_id, mod_flag)
         shutil.rmtree(mod_folder)
 
         # save certain added districts
