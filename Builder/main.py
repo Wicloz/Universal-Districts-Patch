@@ -328,14 +328,17 @@ if __name__ == '__main__':
                                 modifier.get_single('potential').ensure({'NOR': [{'has_global_flag': ['= ' + mod_flag]}]})
                                 break
 
-        # merge upkeep and produces with triggers
+        # merge upkeep and production
         for output_file in output_files:
             for district_name, district in output_file[1].items():
                 if district_name in mod_districts:
                     mod_district = mod_districts[district_name]
                     for title in ['upkeep', 'produces']:
                         for value in mod_district.get_single('resources').get_list(title):
-                            if 'trigger' in value:
+                            if value not in district[0].get_single('resources').get_list(title):
+                                if 'trigger' not in value:
+                                    assert mod_flag is not None
+                                    value.ensure({'trigger': [{'has_global_flag': ['= ' + mod_flag]}]})
                                 district[0].get_single('resources').ensure({title: [value]})
 
         # merge district conversions
