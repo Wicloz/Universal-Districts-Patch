@@ -1,0 +1,266 @@
+district_hab_production = {
+	base_buildtime = 240
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		is_planet_class = pc_habitat
+		from = {
+			is_gestalt = no
+		}
+	}
+	potential = {
+		is_planet_class = pc_habitat
+	}
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @hab_cost
+		}
+		upkeep = {
+			energy = @hab_maintenance
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_mining_drone_add = 2
+			job_technician_drone_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			job_technician_add = 2
+			job_farmer_add = 2
+			job_miner_add = 1
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		text = job_technician_drone_effect_desc
+		text = job_mining_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		text = job_farmer_effect_desc
+		text = job_technician_effect_desc
+		text = job_miner_effect_desc
+	}
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 3
+			free_amenities < 2
+		}
+	}
+}
+district_hab_thinktank = {
+	base_buildtime = 240
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		is_planet_class = pc_habitat
+	}
+	potential = {
+		is_planet_class = pc_habitat
+	}
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @hab_cost
+		}
+		upkeep = {
+			energy = @hab_maintenance
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			job_researcher_add = 3
+			job_entertainer_add = 2
+			job_culture_worker_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+		}
+		modifier = {
+			job_brain_drone_add = 5
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+		}
+		modifier = {
+			job_calculator_add = 5
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		text = job_researcher_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+		}
+		text = job_brain_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+		}
+		text = job_calculator_effect_desc
+	}
+	ai_weight = {
+		weight = 2
+	}
+}
+district_hab_industry = {
+	base_buildtime = 240
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		is_planet_class = pc_habitat
+	}
+	potential = {
+		is_planet_class = pc_habitat
+	}
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @hab_cost
+		}
+		upkeep = {
+			energy = @hab_maintenance
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+		}
+		modifier = {
+			job_fabricator_add = 2
+			job_artisan_drone_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+		}
+		modifier = {
+			job_alloy_drone_add = 2
+			job_artisan_drone_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			job_foundry_add = 2
+			job_artisan_add = 2
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		text = job_foundry_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+		}
+		text = job_alloy_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+		}
+		text = job_fabricator_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		text = job_artisan_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		text = job_artisan_drone_effect_desc
+	}
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 5
+		}
+	}
+}

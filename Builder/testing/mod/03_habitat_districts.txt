@@ -30,8 +30,19 @@ district_hab_housing = {
 			energy = @hab_maintenance
 		}
 	}
-	planet_modifier = {
-		planet_housing_add = 10
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+			NOR = {
+				has_global_flag = sh_enabled_flag
+			}
+		}
+		modifier = {
+			job_maintenance_drone_add = 2
+		}
 	}
 	triggered_planet_modifier = {
 		potential = {
@@ -39,9 +50,39 @@ district_hab_housing = {
 			owner = {
 				is_gestalt = yes
 			}
+			has_global_flag = sh_enabled_flag
 		}
 		modifier = {
-			job_maintenance_drone_add = 2
+			job_maintenance_drone_add = 8
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			job_clerk_add = 8
+		}
+	}
+	triggered_planet_modifier = {
+		modifier = {
+			planet_housing_add = 10
+		}
+		potential = {
+			NOR = {
+				has_global_flag = sh_enabled_flag
+			}
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_global_flag = sh_enabled_flag
+		}
+		modifier = {
+			planet_housing_add = 15
 		}
 	}
 	triggered_desc = {
@@ -136,6 +177,9 @@ district_hab_energy = {
 		NOT = {
 			has_global_flag = LivingSpace_active
 		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
@@ -147,6 +191,9 @@ district_hab_energy = {
 		}
 		NOT = {
 			has_global_flag = LivingSpace_active
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
 		}
 	}
 	convert_to = {
@@ -278,6 +325,9 @@ district_hab_cultural = {
 		NOT = {
 			has_global_flag = LivingSpace_active
 		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
@@ -289,6 +339,9 @@ district_hab_cultural = {
 		}
 		NOT = {
 			has_global_flag = LivingSpace_active
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
 		}
 	}
 	convert_to = {
@@ -392,6 +445,9 @@ district_hab_science = {
 		NOT = {
 			has_global_flag = LivingSpace_active
 		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
@@ -400,6 +456,9 @@ district_hab_science = {
 		}
 		NOT = {
 			has_global_flag = LivingSpace_active
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
 		}
 	}
 	resources = {
@@ -531,6 +590,9 @@ district_hab_commercial = {
 		NOT = {
 			has_global_flag = LivingSpace_active
 		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
@@ -542,6 +604,9 @@ district_hab_commercial = {
 		}
 		NOT = {
 			has_global_flag = LivingSpace_active
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
 		}
 	}
 	resources = {
