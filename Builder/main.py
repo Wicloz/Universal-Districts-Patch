@@ -103,7 +103,7 @@ def parse_object(tokens):
         else:
             value = parse_object(tokens)
             if type(value) is str:
-                value = sign + ' ' + value
+                value = sign + ' ' + value.strip('\'"`')
         if (key == 'OR' or key == 'AND') and len(value.keys()) == 1 and len(value[list(value.keys())[0]]) <= 1:
             key = list(value.keys())[0]
             value = value[key][0] if len(value[key]) == 1 else None
