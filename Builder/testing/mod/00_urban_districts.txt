@@ -62,6 +62,9 @@ district_city = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
+		NOT = {
+			has_modifier = pm_Utopian_Paradise
+		}
 		does_spawn_housing_districts = no
 	}
 	allow = {

@@ -93,6 +93,9 @@ district_generator = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
+		NOT = {
+			has_modifier = pm_Utopian_Paradise
+		}
 	}
 	allow = {
 		NOT = {
@@ -723,6 +726,9 @@ district_mining = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_modifier = pm_Utopian_Paradise
 		}
 	}
 	allow = {
@@ -1359,6 +1365,9 @@ district_farming = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
+		NOT = {
+			has_modifier = pm_Utopian_Paradise
+		}
 	}
 	allow = {
 		NOT = {
@@ -1972,6 +1981,9 @@ district_generator_uncapped = {
 			is_planet_class = pc_machine
 			is_planet_class = pc_ringworld_habitable
 		}
+		NOT = {
+			has_modifier = pm_Utopian_Paradise
+		}
 	}
 	allow = {
 		NOT = {
@@ -2195,6 +2207,9 @@ district_mining_uncapped = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
+		}
+		NOT = {
+			has_modifier = pm_Utopian_Paradise
 		}
 	}
 	allow = {
@@ -2440,6 +2455,9 @@ district_farming_uncapped = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_ringworld_habitable
+		}
+		NOT = {
+			has_modifier = pm_Utopian_Paradise
 		}
 	}
 	allow = {
