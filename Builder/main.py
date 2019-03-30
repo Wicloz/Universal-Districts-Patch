@@ -61,7 +61,7 @@ class StellarisDict(dict):
             assert len(self[key]) == 1
             return self[key][0]
         else:
-            return {}
+            return StellarisDict()
 
     def get_list(self, key):
         if key not in self:
