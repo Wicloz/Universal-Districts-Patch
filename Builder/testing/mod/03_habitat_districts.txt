@@ -8,11 +8,17 @@ district_hab_housing = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
+		NOT = {
+			has_global_flag = LivingSpace_active
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
 		NOT = {
 			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = LivingSpace_active
 		}
 	}
 	resources = {
@@ -127,6 +133,9 @@ district_hab_energy = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
+		NOT = {
+			has_global_flag = LivingSpace_active
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
@@ -135,6 +144,9 @@ district_hab_energy = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = LivingSpace_active
 		}
 	}
 	convert_to = {
@@ -263,6 +275,9 @@ district_hab_cultural = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
+		NOT = {
+			has_global_flag = LivingSpace_active
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
@@ -271,6 +286,9 @@ district_hab_cultural = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = LivingSpace_active
 		}
 	}
 	convert_to = {
@@ -371,11 +389,17 @@ district_hab_science = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
+		NOT = {
+			has_global_flag = LivingSpace_active
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
 		NOT = {
 			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = LivingSpace_active
 		}
 	}
 	resources = {
@@ -504,6 +528,9 @@ district_hab_commercial = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
+		NOT = {
+			has_global_flag = LivingSpace_active
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
@@ -512,6 +539,9 @@ district_hab_commercial = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = LivingSpace_active
 		}
 	}
 	resources = {

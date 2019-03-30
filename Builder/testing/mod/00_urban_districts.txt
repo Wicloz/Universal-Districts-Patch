@@ -31,6 +31,9 @@ district_city = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
+		NOT = {
+			has_modifier = stpg_planetary_habitat
+		}
 		does_spawn_housing_districts = no
 	}
 	potential = {
@@ -64,6 +67,9 @@ district_city = {
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
+		}
+		NOT = {
+			has_modifier = stpg_planetary_habitat
 		}
 		does_spawn_housing_districts = no
 	}
@@ -347,6 +353,9 @@ district_hive = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
+		NOT = {
+			has_modifier = stpg_planetary_habitat
+		}
 		does_spawn_housing_districts = no
 	}
 	potential = {
@@ -374,6 +383,9 @@ district_hive = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_modifier = stpg_planetary_habitat
 		}
 		does_spawn_housing_districts = no
 	}
@@ -567,6 +579,9 @@ district_nexus = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
+		NOT = {
+			has_modifier = stpg_planetary_habitat
+		}
 		does_spawn_housing_districts = no
 	}
 	potential = {
@@ -594,6 +609,9 @@ district_nexus = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_modifier = stpg_planetary_habitat
 		}
 		does_spawn_housing_districts = no
 	}
