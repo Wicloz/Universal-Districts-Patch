@@ -334,7 +334,7 @@ if __name__ == '__main__':
                     else:
                         for modifier in district[0].get_list('triggered_planet_modifier'):
                             if 'default' in modifier:
-                                if (mod_district.get_single('planet_modifier') == modifier.copy_without('default')) or \
+                                if (mod_district.get_single('planet_modifier') == modifier.get_single('modifier')) or \
                                         (district_name == 'district_nexus' and mod_district.get_single('planet_modifier') == {'planet_housing_add': ['= 5']}):
                                     merge_modifier = False
                                 break
