@@ -172,7 +172,7 @@ if __name__ == '__main__':
     for output_file in output_files:
         for district_name, district in output_file[1].items():
             if not district_name.startswith('@'):
-                for key in ['triggered_planet_modifier', 'triggered_desc']:
+                for key in ['triggered_planet_modifier', 'triggered_desc', 'ai_resource_production']:
                     for modifier in district[0].get_list(key):
                         modifier.ensure({'vanilla': [{'NOR': [{}]}]})
 
@@ -298,8 +298,8 @@ if __name__ == '__main__':
             for district_name, district in output_file[1].items():
                 if district_name in mod_districts:
                     mod_district = mod_districts[district_name]
-                    for key in ['triggered_planet_modifier', 'triggered_desc']:
-                        trigger_key = 'trigger' if key == 'triggered_desc' else 'potential'
+                    for key in ['triggered_planet_modifier', 'triggered_desc', 'ai_resource_production']:
+                        trigger_key = 'potential' if key == 'triggered_planet_modifier' else 'trigger'
 
                         for value in mod_district.get_list(key):
                             if value not in [item.copy_without('vanilla') for item in district[0].get_list(key)]:
@@ -398,8 +398,8 @@ if __name__ == '__main__':
     for output_file in output_files:
         for district_name, district in output_file[1].items():
             if not district_name.startswith('@'):
-                for key in ['triggered_planet_modifier', 'triggered_desc']:
-                    trigger_key = 'trigger' if key == 'triggered_desc' else 'potential'
+                for key in ['triggered_planet_modifier', 'triggered_desc', 'ai_resource_production']:
+                    trigger_key = 'potential' if key == 'triggered_planet_modifier' else 'trigger'
                     for modifier in district[0].get_list(key):
                         for flag in ['default', 'vanilla']:
                             if flag in modifier:
