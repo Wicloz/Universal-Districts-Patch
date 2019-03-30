@@ -174,7 +174,7 @@ if __name__ == '__main__':
             if not district_name.startswith('@'):
                 for key in ['triggered_planet_modifier', 'triggered_desc']:
                     for modifier in district[0].get_list(key):
-                        modifier.ensure({'vanilla': []})
+                        modifier.ensure({'vanilla': [{'NOR': [{}]}]})
 
     files_overwritten.append('udp_extra_districts.txt')
     output_files.append(('udp_extra_districts.txt', StellarisDict()))
@@ -311,7 +311,7 @@ if __name__ == '__main__':
                         for value in district[0].get_list(key):
                             if 'vanilla' in value and value.copy_without('vanilla') not in mod_district.get_list(key):
                                 assert mod_flag is not None
-                                value.get_single(trigger_key).ensure({'NOT': [{'has_global_flag': ['= ' + mod_flag]}]})
+                                value.get_single('vanilla').get_single('NOR').ensure({'has_global_flag': ['= ' + mod_flag]})
 
         # merge normal modifiers
         for output_file in output_files:
@@ -326,8 +326,7 @@ if __name__ == '__main__':
                             merge_modifier = False
                         else:
                             district[0].ensure({'triggered_planet_modifier': [{
-                                'default': [],
-                                'potential': [{'NOR': []}],
+                                'default': [{'NOR': [{}]}],
                                 'modifier': [district[0].get_single('planet_modifier')],
                             }]})
                             del district[0]['planet_modifier']
@@ -351,7 +350,7 @@ if __name__ == '__main__':
                         for modifier in district[0].get_list('triggered_planet_modifier'):
                             if 'default' in modifier:
                                 assert mod_flag is not None
-                                modifier.get_single('potential').ensure({'NOR': [{'has_global_flag': ['= ' + mod_flag]}]})
+                                modifier.get_single('default').get_single('NOR').ensure({'has_global_flag': ['= ' + mod_flag]})
                                 break
 
         # merge upkeep and production
@@ -392,17 +391,22 @@ if __name__ == '__main__':
                                     if len(district[0].get_single(title).get_list(key)) == 0:
                                         del district[0].get_single(title)[key]
 
-    ##########################
-    # remove temporary flags #
-    ##########################
+    ###########################
+    # convert temporary flags #
+    ###########################
 
     for output_file in output_files:
         for district_name, district in output_file[1].items():
             if not district_name.startswith('@'):
                 for key in ['triggered_planet_modifier', 'triggered_desc']:
+                    trigger_key = 'trigger' if key == 'triggered_desc' else 'potential'
                     for modifier in district[0].get_list(key):
                         for flag in ['default', 'vanilla']:
                             if flag in modifier:
+                                if len(modifier.get_single(flag).get_single('NOR').keys()) > 0:
+                                    if trigger_key not in modifier:
+                                        modifier.ensure({trigger_key: [{}]})
+                                    modifier.get_single(trigger_key).ensure(modifier.get_single(flag))
                                 del modifier[flag]
 
     #############################
