@@ -69,6 +69,12 @@ class StellarisDict(dict):
         else:
             return self[key]
 
+    def copy_without(self, key):
+        copy = self.copy()
+        if key in copy:
+            del copy[key]
+        return copy
+
 
 def parse_file(path):
     with open(path, 'r') as file:
@@ -162,6 +168,13 @@ if __name__ == '__main__':
         for district_name in parsed:
             if not district_name.startswith('@'):
                 districts_overwritten.append(district_name)
+
+    for output_file in output_files:
+        for district_name, district in output_file[1].items():
+            if not district_name.startswith('@'):
+                for key in ['triggered_planet_modifier', 'triggered_desc']:
+                    for modifier in district[0].get_list(key):
+                        modifier.ensure({'vanilla': []})
 
     files_overwritten.append('udp_extra_districts.txt')
     output_files.append(('udp_extra_districts.txt', StellarisDict()))
@@ -292,7 +305,7 @@ if __name__ == '__main__':
                     mod_district = mod_districts[district_name]
                     for key in ['triggered_planet_modifier', 'triggered_desc']:
                         for value in mod_district.get_list(key):
-                            if value not in district[0].get_list(key):
+                            if value not in [item.copy_without('vanilla') for item in district[0].get_list(key)]:
                                 district[0].ensure({key: [value]})
 
         # merge normal modifiers
@@ -308,15 +321,15 @@ if __name__ == '__main__':
                             merge_modifier = False
                         else:
                             district[0].ensure({'triggered_planet_modifier': [{
-                                'original': [],
+                                'default': [],
                                 'potential': [{'NOR': []}],
                                 'modifier': [district[0].get_single('planet_modifier')],
                             }]})
                             del district[0]['planet_modifier']
                     else:
                         for modifier in district[0].get_list('triggered_planet_modifier'):
-                            if 'original' in modifier:
-                                if (mod_district.get_single('planet_modifier') == modifier) or \
+                            if 'default' in modifier:
+                                if (mod_district.get_single('planet_modifier') == modifier.copy_without('default')) or \
                                         (district_name == 'district_nexus' and mod_district.get_single('planet_modifier') == {'planet_housing_add': ['= 5']}):
                                     merge_modifier = False
                                 break
@@ -331,7 +344,7 @@ if __name__ == '__main__':
                                 'modifier': [mod_district.get_single('planet_modifier')],
                             }]})
                         for modifier in district[0].get_list('triggered_planet_modifier'):
-                            if 'original' in modifier:
+                            if 'default' in modifier:
                                 modifier.get_single('potential').ensure({'NOR': [{'has_global_flag': ['= ' + mod_flag]}]})
                                 break
 
@@ -357,16 +370,18 @@ if __name__ == '__main__':
                         if value != district_name and value not in district[0].get_single('convert_to'):
                             district[0].get_single('convert_to').ensure({value: []})
 
-    ###########################
-    # remove 'original' flags #
-    ###########################
+    ##########################
+    # remove temporary flags #
+    ##########################
 
     for output_file in output_files:
         for district_name, district in output_file[1].items():
             if not district_name.startswith('@'):
-                for modifier in district[0].get_list('triggered_planet_modifier'):
-                    if 'original' in modifier:
-                        del modifier['original']
+                for key in ['triggered_planet_modifier', 'triggered_desc']:
+                    for modifier in district[0].get_list(key):
+                        for flag in ['default', 'vanilla']:
+                            if flag in modifier:
+                                del modifier[flag]
 
     #############################
     # uncap district generation #
