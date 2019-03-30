@@ -42,6 +42,12 @@ district_generator = {
 		NOT = {
 			is_planet_class = pc_mem_vazuran_habitat
 		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
 	}
 	potential = {
 		habitable_structure = no
@@ -80,6 +86,12 @@ district_generator = {
 		}
 		NOT = {
 			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
 		}
 	}
 	allow = {
@@ -179,6 +191,246 @@ district_generator = {
 		}
 		modifier = {
 			job_technician_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_technoorganic
+		}
+		modifier = {
+			planet_housing_add = 3
+			job_technician_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_technoorganic
+		}
+		modifier = {
+			job_technician_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_technoorganic
+		}
+		modifier = {
+			job_technician_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_graveyard
+		}
+		modifier = {
+			planet_housing_add = 3
+			job_technician_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_graveyard
+		}
+		modifier = {
+			job_technician_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_graveyard
+		}
+		modifier = {
+			job_technician_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_floating
+		}
+		modifier = {
+			planet_housing_add = 3
+			job_technician_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_floating
+		}
+		modifier = {
+			job_technician_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_floating
+		}
+		modifier = {
+			job_technician_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_biolumen
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_technician_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_biolumen
+		}
+		modifier = {
+			job_technician_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_biolumen
+		}
+		modifier = {
+			job_technician_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_geothermal
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_technician_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_geothermal
+		}
+		modifier = {
+			job_technician_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_geothermal
+		}
+		modifier = {
+			job_technician_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_tidallylocked
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_technician_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_tidallylocked
+		}
+		modifier = {
+			job_technician_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_tidallylocked
+		}
+		modifier = {
+			job_technician_drone_add = 1
+			planet_housing_add = 1
 		}
 	}
 	triggered_desc = {
@@ -421,6 +673,12 @@ district_mining = {
 		NOT = {
 			is_planet_class = pc_mem_vazuran_habitat
 		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
 	}
 	potential = {
 		habitable_structure = no
@@ -459,6 +717,12 @@ district_mining = {
 		}
 		NOT = {
 			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
 		}
 	}
 	allow = {
@@ -589,6 +853,206 @@ district_mining = {
 		}
 		modifier = {
 			job_miner_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_graveyard
+		}
+		modifier = {
+			planet_housing_add = 3
+			job_miner_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_graveyard
+		}
+		modifier = {
+			job_mining_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_graveyard
+		}
+		modifier = {
+			job_mining_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_crystal
+		}
+		modifier = {
+			planet_housing_add = 3
+			job_miner_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_crystal
+		}
+		modifier = {
+			job_mining_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_crystal
+		}
+		modifier = {
+			job_mining_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_floating
+		}
+		modifier = {
+			planet_housing_add = 3
+			job_miner_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_floating
+		}
+		modifier = {
+			job_mining_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_floating
+		}
+		modifier = {
+			job_mining_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_geothermal
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_miner_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_geothermal
+		}
+		modifier = {
+			job_mining_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_geothermal
+		}
+		modifier = {
+			job_mining_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_superhabitable
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_miner_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_superhabitable
+		}
+		modifier = {
+			job_mining_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_superhabitable
+		}
+		modifier = {
+			job_mining_drone_add = 1
+			planet_housing_add = 1
 		}
 	}
 	triggered_desc = {
@@ -844,6 +1308,12 @@ district_farming = {
 		NOT = {
 			is_planet_class = pc_mem_vazuran_habitat
 		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
 	}
 	potential = {
 		habitable_structure = no
@@ -882,6 +1352,12 @@ district_farming = {
 		}
 		NOT = {
 			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
 		}
 	}
 	allow = {
@@ -993,6 +1469,206 @@ district_farming = {
 		}
 		modifier = {
 			job_farmer_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_technoorganic
+		}
+		modifier = {
+			planet_housing_add = 3
+			job_farmer_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_technoorganic
+		}
+		modifier = {
+			job_agri_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_technoorganic
+		}
+		modifier = {
+			job_agri_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_crystal
+		}
+		modifier = {
+			planet_housing_add = 3
+			job_farmer_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_crystal
+		}
+		modifier = {
+			job_agri_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_crystal
+		}
+		modifier = {
+			job_agri_drone_add = 3
+			planet_housing_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_biolumen
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_farmer_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_biolumen
+		}
+		modifier = {
+			job_agri_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_biolumen
+		}
+		modifier = {
+			job_agri_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_superhabitable
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_farmer_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_superhabitable
+		}
+		modifier = {
+			job_agri_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_superhabitable
+		}
+		modifier = {
+			job_agri_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_tidallylocked
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_farmer_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_tidallylocked
+		}
+		modifier = {
+			job_agri_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_tidallylocked
+		}
+		modifier = {
+			job_agri_drone_add = 1
+			planet_housing_add = 1
 		}
 	}
 	triggered_desc = {

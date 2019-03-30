@@ -5,9 +5,15 @@ district_hab_housing = {
 	is_capped_by_modifier = no
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
+		NOT = {
+			is_planet_class = pc_archive
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
+		NOT = {
+			is_planet_class = pc_archive
+		}
 	}
 	resources = {
 		category = planet_districts
@@ -118,11 +124,17 @@ district_hab_energy = {
 		from = {
 			is_gestalt = yes
 		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
 		owner = {
 			is_gestalt = yes
+		}
+		NOT = {
+			is_planet_class = pc_archive
 		}
 	}
 	convert_to = {
@@ -248,11 +260,17 @@ district_hab_cultural = {
 		from = {
 			is_gestalt = no
 		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
 		owner = {
 			is_gestalt = no
+		}
+		NOT = {
+			is_planet_class = pc_archive
 		}
 	}
 	convert_to = {
@@ -350,9 +368,15 @@ district_hab_science = {
 	is_capped_by_modifier = no
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
+		NOT = {
+			is_planet_class = pc_archive
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
+		NOT = {
+			is_planet_class = pc_archive
+		}
 	}
 	resources = {
 		category = planet_districts
@@ -477,11 +501,17 @@ district_hab_commercial = {
 		from = {
 			is_gestalt = no
 		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
 		owner = {
 			is_gestalt = no
+		}
+		NOT = {
+			is_planet_class = pc_archive
 		}
 	}
 	resources = {

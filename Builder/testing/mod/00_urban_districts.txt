@@ -25,6 +25,12 @@ district_city = {
 		NOT = {
 			is_planet_class = pc_mem_vazuran_habitat
 		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
 		does_spawn_housing_districts = no
 	}
 	potential = {
@@ -49,6 +55,12 @@ district_city = {
 		}
 		NOT = {
 			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
 		}
 		does_spawn_housing_districts = no
 	}
@@ -326,6 +338,12 @@ district_hive = {
 		NOT = {
 			is_planet_class = pc_mem_vazuran_habitat
 		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
 		does_spawn_housing_districts = no
 	}
 	potential = {
@@ -347,6 +365,12 @@ district_hive = {
 		}
 		NOT = {
 			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
 		}
 		does_spawn_housing_districts = no
 	}
@@ -534,6 +558,12 @@ district_nexus = {
 		NOT = {
 			is_planet_class = pc_mem_vazuran_habitat
 		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
 		does_spawn_housing_districts = no
 	}
 	potential = {
@@ -555,6 +585,12 @@ district_nexus = {
 		}
 		NOT = {
 			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
 		}
 		does_spawn_housing_districts = no
 	}
