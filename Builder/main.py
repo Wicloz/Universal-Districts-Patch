@@ -260,7 +260,6 @@ if __name__ == '__main__':
                         for effect in event.get_list('immediate'):
                             if 'set_global_flag' in effect and mod_flag is None:
                                 mod_flag = effect['set_global_flag'][0].replace('= ', '')
-        print(other_mod_id, mod_flag)
         shutil.rmtree(mod_folder)
 
         # save certain added districts
