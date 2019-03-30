@@ -373,6 +373,22 @@ if __name__ == '__main__':
                         if value != district_name and value not in district[0].get_single('convert_to'):
                             district[0].get_single('convert_to').ensure({value: []})
 
+    ################################
+    # fix OR in build restrictions #
+    ################################
+
+    for output_file in output_files:
+        for district_name, district in output_file[1].items():
+            if not district_name.startswith('@'):
+                for title in ['show_on_uncolonized', 'potential', 'allow']:
+                    for or_block in district[0].get_single(title).get_list('OR'):
+                        for key, values in or_block.items():
+                            for value in values:
+                                if value in district[0].get_single(title).get_list(key):
+                                    district[0].get_single(title).get_list(key).remove(value)
+                                    if len(district[0].get_single(title).get_list(key)) == 0:
+                                        del district[0].get_single(title)[key]
+
     ##########################
     # remove temporary flags #
     ##########################
