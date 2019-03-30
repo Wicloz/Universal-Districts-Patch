@@ -286,17 +286,10 @@ if __name__ == '__main__':
                 if district_name in mod_districts:
                     mod_district = mod_districts[district_name]
                     for title in ['show_on_uncolonized', 'potential', 'allow']:
-                        for key1, values1 in mod_district.get_single(title).items():
-                            for value1 in values1:
-                                if value1 not in district[0].get_single(title).get_list(key1):
-                                    district[0].get_single(title).ensure({key1: [value1]})
-                                    if key1 == 'OR':
-                                        for key2, values2 in value1.items():
-                                            for value2 in values2:
-                                                if value2 in district[0].get_single(title).get_list(key2):
-                                                    district[0].get_single(title).get_list(key2).remove(value2)
-                                                    if len(district[0].get_single(title).get_list(key2)) == 0:
-                                                        del district[0].get_single(title)[key2]
+                        for key, values in mod_district.get_single(title).items():
+                            for value in values:
+                                if value not in district[0].get_single(title).get_list(key):
+                                    district[0].get_single(title).ensure({key: [value]})
 
         # merge triggered modifiers and descriptions
         for output_file in output_files:
