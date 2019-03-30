@@ -37,6 +37,9 @@ district_arcology_housing = {
 			owner = {
 				is_gestalt = yes
 			}
+			NOT = {
+				has_global_flag = EcologyMod_active
+			}
 		}
 		modifier = {
 			job_maintenance_drone_add = 2
@@ -49,9 +52,39 @@ district_arcology_housing = {
 				is_fallen_empire = no
 				is_regular_empire = yes
 			}
+			NOT = {
+				has_global_flag = EcologyMod_active
+			}
 		}
 		modifier = {
 			job_clerk_add = 5
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+			has_global_flag = EcologyMod_active
+		}
+		modifier = {
+			job_waste_drone_add = 1
+			job_maintenance_drone_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_fallen_empire = no
+				is_regular_empire = yes
+			}
+			has_global_flag = EcologyMod_active
+		}
+		modifier = {
+			job_waste_handler_add = 2
+			job_clerk_add = 3
 		}
 	}
 	triggered_desc = {
@@ -72,6 +105,27 @@ district_arcology_housing = {
 			}
 		}
 		text = job_maintenance_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_fallen_empire = no
+				is_regular_empire = yes
+			}
+			has_global_flag = EcologyMod_active
+		}
+		text = job_waste_handler_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+			has_global_flag = EcologyMod_active
+		}
+		text = job_waste_drone_effect_desc
 	}
 	ai_weight = {
 		weight = 0

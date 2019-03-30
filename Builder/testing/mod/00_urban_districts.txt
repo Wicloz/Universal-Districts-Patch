@@ -34,6 +34,9 @@ district_city = {
 		NOT = {
 			has_modifier = stpg_planetary_habitat
 		}
+		NOT = {
+			has_planet_flag = stpg_planetary_habitat
+		}
 		does_spawn_housing_districts = no
 	}
 	potential = {
@@ -70,6 +73,9 @@ district_city = {
 		}
 		NOT = {
 			has_modifier = stpg_planetary_habitat
+		}
+		NOT = {
+			has_planet_flag = stpg_planetary_habitat
 		}
 		does_spawn_housing_districts = no
 	}
@@ -116,6 +122,9 @@ district_city = {
 			owner = {
 				is_regular_empire = yes
 				is_fallen_empire = no
+			}
+			NOT = {
+				has_global_flag = EcologyMod_active
 			}
 		}
 		modifier = {
@@ -192,14 +201,40 @@ district_city = {
 			planet_housing_add = -1
 		}
 	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_fallen_empire = no
+			}
+			has_global_flag = EcologyMod_active
+		}
+		modifier = {
+			job_waste_handler_add = 1
+		}
+	}
 	triggered_desc = {
 		trigger = {
 			exists = owner
 			owner = {
 				is_regular_empire = yes
 			}
+			NOT = {
+				has_global_flag = EcologyMod_active
+			}
 		}
 		text = job_clerk_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+			has_global_flag = EcologyMod_active
+		}
+		text = job_waste_handler_effect_desc
 	}
 	ai_weight = {
 		weight = 0
@@ -356,6 +391,9 @@ district_hive = {
 		NOT = {
 			has_modifier = stpg_planetary_habitat
 		}
+		NOT = {
+			has_planet_flag = stpg_planetary_habitat
+		}
 		does_spawn_housing_districts = no
 	}
 	potential = {
@@ -387,6 +425,9 @@ district_hive = {
 		NOT = {
 			has_modifier = stpg_planetary_habitat
 		}
+		NOT = {
+			has_planet_flag = stpg_planetary_habitat
+		}
 		does_spawn_housing_districts = no
 	}
 	allow = {
@@ -408,9 +449,6 @@ district_hive = {
 		upkeep = {
 			energy = 2
 		}
-	}
-	planet_modifier = {
-		planet_housing_add = 6
 	}
 	triggered_planet_modifier = {
 		potential = {
@@ -443,6 +481,25 @@ district_hive = {
 		}
 		modifier = {
 			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			NOR = {
+				has_global_flag = EcologyMod_active
+			}
+		}
+		modifier = {
+			planet_housing_add = 6
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_global_flag = EcologyMod_active
+		}
+		modifier = {
+			planet_housing_add = 6
+			job_waste_drone_add = 1
 		}
 	}
 	ai_weight = {
@@ -582,6 +639,9 @@ district_nexus = {
 		NOT = {
 			has_modifier = stpg_planetary_habitat
 		}
+		NOT = {
+			has_planet_flag = stpg_planetary_habitat
+		}
 		does_spawn_housing_districts = no
 	}
 	potential = {
@@ -613,6 +673,9 @@ district_nexus = {
 		NOT = {
 			has_modifier = stpg_planetary_habitat
 		}
+		NOT = {
+			has_planet_flag = stpg_planetary_habitat
+		}
 		does_spawn_housing_districts = no
 	}
 	allow = {
@@ -634,11 +697,6 @@ district_nexus = {
 		upkeep = {
 			energy = 2
 		}
-	}
-	planet_modifier = {
-		planet_housing_add = 5
-		job_maintenance_drone_add = 1
-		job_technician_drone_add = 1
 	}
 	triggered_planet_modifier = {
 		potential = {
@@ -671,6 +729,28 @@ district_nexus = {
 		}
 		modifier = {
 			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			NOR = {
+				has_global_flag = EcologyMod_active
+			}
+		}
+		modifier = {
+			planet_housing_add = 5
+			job_maintenance_drone_add = 1
+			job_technician_drone_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_global_flag = EcologyMod_active
+		}
+		modifier = {
+			planet_housing_add = 5
+			job_maintenance_drone_add = 1
+			job_waste_drone_add = 1
 		}
 	}
 	ai_weight = {
