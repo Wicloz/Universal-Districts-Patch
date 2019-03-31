@@ -642,6 +642,11 @@ district_generator = {
 			}
 			has_global_flag = gai_enabled_flag
 		}
+		modifier = {
+			factor = 0
+			free_district_slots = 0
+			has_global_flag = gai_enabled_flag
+		}
 	}
 	ai_resource_production = {
 		energy = 1
@@ -1347,6 +1352,11 @@ district_mining = {
 			}
 			has_global_flag = gai_enabled_flag
 		}
+		modifier = {
+			factor = 0
+			free_district_slots = 0
+			has_global_flag = gai_enabled_flag
+		}
 	}
 	ai_resource_production = {
 		minerals = 1
@@ -2046,6 +2056,11 @@ district_farming = {
 			}
 			has_global_flag = gai_enabled_flag
 		}
+		modifier = {
+			factor = 0
+			free_district_slots = 0
+			has_global_flag = gai_enabled_flag
+		}
 	}
 	ai_resource_production = {
 		food = 1
@@ -2293,6 +2308,11 @@ district_generator_uncapped = {
 					value > 150
 				}
 			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			free_district_slots = 0
 			has_global_flag = gai_enabled_flag
 		}
 	}
@@ -2610,6 +2630,11 @@ district_mining_uncapped = {
 			}
 			has_global_flag = gai_enabled_flag
 		}
+		modifier = {
+			factor = 0
+			free_district_slots = 0
+			has_global_flag = gai_enabled_flag
+		}
 	}
 	ai_resource_production = {
 		minerals = 1
@@ -2885,6 +2910,11 @@ district_farming_uncapped = {
 					value > 80
 				}
 			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			free_district_slots = 0
 			has_global_flag = gai_enabled_flag
 		}
 	}
