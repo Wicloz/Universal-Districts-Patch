@@ -1,28 +1,24 @@
 district_arcology_housing = {
 	base_buildtime = 600
 	is_capped_by_modifier = no
-
 	show_on_uncolonized = {
-		or = {
+		OR = {
 			is_planet_class = pc_city
 			is_planet_class = pc_ecocity
 		}
 	}
-
 	potential = {
-		or = {
+		OR = {
 			is_planet_class = pc_city
 			is_planet_class = pc_ecocity
 		}
 	}
-
 	conversion_ratio = 1
 	convert_to = {
 		district_city
 		district_nexus
 		district_hive
 	}
-
 	resources = {
 		category = planet_districts
 		cost = {
@@ -32,94 +28,65 @@ district_arcology_housing = {
 			energy = 5
 		}
 	}
-
 	planet_modifier = {
 		planet_housing_add = 15
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_gestalt = yes }
+			owner = {
+				is_gestalt = yes
+			}
+			NOR = {
+				has_global_flag = EcologyMod_active
+			}
 		}
 		modifier = {
 			job_maintenance_drone_add = 2
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
 			owner = {
 				is_fallen_empire = no
 				is_regular_empire = yes
+			}
+			NOR = {
+				has_global_flag = EcologyMod_active
 			}
 		}
 		modifier = {
 			job_clerk_add = 5
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
 			owner = {
-				is_regular_empire = yes
-				is_fallen_empire = no
-				or = {
-					has_policy_flag = state_education_preadult
-					has_policy_flag = state_education_postadult
-				}
+				is_gestalt = yes
 			}
+			has_global_flag = EcologyMod_active
 		}
 		modifier = {
-			job_teacher_add = 2
+			job_waste_drone_add = 1
+			job_maintenance_drone_add = 1
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
 			owner = {
-				is_regular_empire = yes
 				is_fallen_empire = no
-				has_policy_flag = alp_private_businesses_prohibited
+				is_regular_empire = yes
 			}
+			has_global_flag = EcologyMod_active
 		}
 		modifier = {
-			job_service_add = 2
-			job_labourer_add = 1
+			job_waste_handler_add = 2
+			job_clerk_add = 3
 		}
 	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire = no
-				has_policy_flag = alp_private_businesses_regulated
-			}
-		}
-		modifier = {
-			job_retailer_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire = no
-				has_policy_flag = alp_private_businesses_freedom
-			}
-		}
-		modifier = {
-			job_retailer_add = 3
-		}
-	}
-
 	triggered_desc = {
 		trigger = {
 			exists = owner
@@ -130,15 +97,36 @@ district_arcology_housing = {
 		}
 		text = job_clerk_effect_desc
 	}
-
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { is_gestalt = yes }
+			owner = {
+				is_gestalt = yes
+			}
 		}
 		text = job_maintenance_drone_effect_desc
 	}
-
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_fallen_empire = no
+				is_regular_empire = yes
+			}
+			has_global_flag = EcologyMod_active
+		}
+		text = job_waste_handler_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+			has_global_flag = EcologyMod_active
+		}
+		text = job_waste_drone_effect_desc
+	}
 	ai_weight = {
 		weight = 0
 		modifier = {
@@ -154,26 +142,21 @@ district_arcology_housing = {
 		}
 	}
 }
-
 district_arcology_arms_industry = {
 	base_buildtime = 600
 	is_capped_by_modifier = no
-
 	show_on_uncolonized = {
 		is_planet_class = pc_city
 	}
-
 	potential = {
 		is_planet_class = pc_city
 	}
-
 	conversion_ratio = 1
 	convert_to = {
 		district_city
 		district_nexus
 		district_hive
 	}
-
 	resources = {
 		category = planet_districts
 		cost = {
@@ -183,65 +166,69 @@ district_arcology_arms_industry = {
 			energy = 5
 		}
 	}
-
 	planet_modifier = {
 		planet_housing_add = 10
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_machine_empire = yes }
+			owner = {
+				is_machine_empire = yes
+			}
 		}
 		modifier = {
 			job_fabricator_add = 10
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_hive_empire = yes }
+			owner = {
+				is_hive_empire = yes
+			}
 		}
 		modifier = {
 			job_alloy_drone_add = 10
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_regular_empire = yes }
+			owner = {
+				is_regular_empire = yes
+			}
 		}
 		modifier = {
 			job_foundry_add = 10
 		}
 	}
-
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { is_regular_empire = yes }
+			owner = {
+				is_regular_empire = yes
+			}
 		}
 		text = job_foundry_effect_desc
 	}
-
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { is_hive_empire = yes }
+			owner = {
+				is_hive_empire = yes
+			}
 		}
 		text = job_alloy_drone_effect_desc
 	}
-
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { is_machine_empire = yes }
+			owner = {
+				is_machine_empire = yes
+			}
 		}
 		text = job_fabricator_effect_desc
 	}
-
 	ai_weight = {
 		weight = 0
 		modifier = {
@@ -284,26 +271,21 @@ district_arcology_arms_industry = {
 		}
 	}
 }
-
 district_arcology_civilian_industry = {
 	base_buildtime = 600
 	is_capped_by_modifier = no
-
 	show_on_uncolonized = {
 		is_planet_class = pc_city
 	}
-
 	potential = {
 		is_planet_class = pc_city
 	}
-
 	conversion_ratio = 1
 	convert_to = {
 		district_city
 		district_nexus
 		district_hive
 	}
-
 	resources = {
 		category = planet_districts
 		cost = {
@@ -313,47 +295,49 @@ district_arcology_civilian_industry = {
 			energy = 5
 		}
 	}
-
 	planet_modifier = {
 		planet_housing_add = 10
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_gestalt = yes }
+			owner = {
+				is_gestalt = yes
+			}
 		}
 		modifier = {
 			job_artisan_drone_add = 10
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_regular_empire = yes }
+			owner = {
+				is_regular_empire = yes
+			}
 		}
 		modifier = {
 			job_artisan_add = 10
 		}
 	}
-
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { is_regular_empire = yes }
+			owner = {
+				is_regular_empire = yes
+			}
 		}
 		text = job_artisan_effect_desc
 	}
-
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { is_gestalt = yes }
+			owner = {
+				is_gestalt = yes
+			}
 		}
 		text = job_artisan_drone_effect_desc
 	}
-
 	ai_weight = {
 		weight = 0
 		modifier = {
@@ -396,18 +380,15 @@ district_arcology_civilian_industry = {
 		}
 	}
 }
-
 district_arcology_leisure = {
 	base_buildtime = 600
 	is_capped_by_modifier = no
-
 	show_on_uncolonized = {
 		is_planet_class = pc_city
 		from = {
 			is_regular_empire = yes
 		}
 	}
-
 	potential = {
 		is_planet_class = pc_city
 		owner = {
@@ -415,7 +396,6 @@ district_arcology_leisure = {
 			is_regular_empire = yes
 		}
 	}
-
 	conversion_ratio = 1
 	convert_to = {
 		district_city
@@ -423,7 +403,6 @@ district_arcology_leisure = {
 		district_hive
 		district_arcology_housing
 	}
-
 	resources = {
 		category = planet_districts
 		cost = {
@@ -433,26 +412,57 @@ district_arcology_leisure = {
 			energy = 5
 		}
 	}
-
 	planet_modifier = {
 		planet_housing_add = 10
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_regular_empire = yes }
+			owner = {
+				is_regular_empire = yes
+				NOT = {
+					has_valid_civic = civic_warrior_culture
+				}
+			}
 		}
 		modifier = {
 			job_entertainer_add = 5
 			job_culture_worker_add = 5
 		}
 	}
-
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				has_valid_civic = civic_warrior_culture
+			}
+		}
+		modifier = {
+			job_duelist_add = 5
+			job_culture_worker_add = 5
+		}
+	}
 	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_warrior_culture
+			}
+		}
+		text = job_duelist_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = {
+					has_valid_civic = civic_warrior_culture
+				}
+			}
+		}
 		text = job_entertainer_effect_desc
 	}
-
 	ai_weight = {
 		weight = 0
 		modifier = {

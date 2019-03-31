@@ -1,62 +1,98 @@
 @base_cost = 300
 @city_cost = 500
-
 district_city = {
 	base_buildtime = 480
 	is_capped_by_modifier = no
-
 	show_on_uncolonized = {
-		exists = from
-		from = { is_regular_empire = yes }
-		NOT = { is_planet_class = pc_habitat }
-		NOT = { is_planet_class = pc_city }
-		NOT = { is_planet_class = pc_ecocity }
-		NOT = { is_planet_class = pc_archive }
-		NOT = { is_planet_class = pc_mem_vazuran_habitat }
-		NOT = { is_planet_class = pc_dyson_swarm }
-		NOT = { is_planet_class = pc_habitable_asteroid }
-		NOT = { is_planet_class = pc_asteroid_base }
-		NOT = { is_planet_class = pc_moon_base }
-		NOT = { has_modifier = pm_Utopian_Paradise }
-		NOT = { has_modifier = stpg_planetary_habitat }
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+		from = {
+			is_regular_empire = yes
 		}
+		NOT = {
+			is_planet_class = pc_habitat
+		}
+		NOT = {
+			is_planet_class = pc_city
+		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
+		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
+		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_modifier = stpg_planetary_habitat
+		}
+		NOT = {
+			has_planet_flag = stpg_planetary_habitat
+		}
+		does_spawn_housing_districts = no
 	}
-
 	potential = {
 		exists = owner
-		owner = { is_regular_empire = yes }
-		NOT = { is_planet_class = pc_habitat }
-		NOT = { is_planet_class = pc_city }
-		NOT = { is_planet_class = pc_ecocity }
-		NOT = { is_planet_class = pc_archive }
-		NOT = { is_planet_class = pc_mem_vazuran_habitat }
-		NOT = { is_planet_class = pc_dyson_swarm }
-		NOT = { is_planet_class = pc_habitable_asteroid }
-		NOT = { is_planet_class = pc_asteroid_base }
-		NOT = { is_planet_class = pc_moon_base }
-		NOT = { has_modifier = pm_Utopian_Paradise }
-		NOT = { has_modifier = stpg_planetary_habitat }
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+		owner = {
+			is_regular_empire = yes
+		}
+		NOT = {
+			is_planet_class = pc_habitat
+		}
+		NOT = {
+			is_planet_class = pc_city
+		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
+		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
+		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_modifier = pm_Utopian_Paradise
+		}
+		NOT = {
+			has_modifier = stpg_planetary_habitat
+		}
+		NOT = {
+			has_planet_flag = stpg_planetary_habitat
+		}
+		does_spawn_housing_districts = no
+	}
+	allow = {
+		NOT = {
+			has_modifier = resort_colony
+		}
+		NOT = {
+			has_modifier = slave_colony
 		}
 	}
-
-	allow = {
-		NOT = { has_modifier = resort_colony }
-		NOT = { has_modifier = slave_colony }
-	}
-
 	conversion_ratio = 0.5
 	convert_to = {
 		district_arcology_housing
 		district_nexus
 		district_hive
 	}
-
 	resources = {
 		category = planet_districts
 		cost = {
@@ -66,23 +102,9 @@ district_city = {
 			energy = 2
 		}
 	}
-
 	planet_modifier = {
 		planet_housing_add = 5
 	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_valid_civic = civic_keepers_harmony
-			}
-		}
-		modifier = {
-			planet_housing_add = -1
-		}
-	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -94,90 +116,32 @@ district_city = {
 			planet_housing_add = -1
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
 			owner = {
 				is_regular_empire = yes
 				is_fallen_empire = no
+			}
+			NOR = {
+				has_global_flag = EcologyMod_active
 			}
 		}
 		modifier = {
 			job_clerk_add = 1
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
 			owner = {
-				is_regular_empire = yes
-				is_fallen_empire = no
-				or = {
-					has_policy_flag = state_education_preadult
-					has_policy_flag = state_education_postadult
-				}
+				has_non_swapped_tradition = tr_prosperity_public_works
 			}
-		}
-		modifier = {
-			job_teacher_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire = no
-				has_policy_flag = alp_private_businesses_prohibited
-			}
-		}
-		modifier = {
-			job_service_add = 1
-			job_labourer_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire = no
-				has_policy_flag = alp_private_businesses_regulated
-			}
-		}
-		modifier = {
-			job_retailer_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire = no
-				has_policy_flag = alp_private_businesses_freedom
-			}
-		}
-		modifier = {
-			job_retailer_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_non_swapped_tradition = tr_prosperity_public_works }
 		}
 		modifier = {
 			planet_housing_add = 1
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -189,14 +153,12 @@ district_city = {
 			planet_housing_add = 1
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
 			owner = {
 				has_technology = tech_housing_2
-				NOR = {
-					has_valid_civic = civic_keepers_harmony
+				NOT = {
 					has_valid_civic = civic_agrarian_idyll
 				}
 			}
@@ -205,25 +167,77 @@ district_city = {
 			planet_housing_add = 1
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_non_swapped_tradition = tr_prosperity_interstellar_franchising }
+			owner = {
+				has_non_swapped_tradition = tr_prosperity_interstellar_franchising
+			}
 		}
 		modifier = {
 			job_clerk_add = 1
 		}
 	}
-
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_master_engineer
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+			planet_amenities_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_tradition = tradition_harmony_simple_beauty
+				}
+			}
+		}
+		modifier = {
+			planet_housing_add = -1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_fallen_empire = no
+			}
+			has_global_flag = EcologyMod_active
+		}
+		modifier = {
+			job_waste_handler_add = 1
+		}
+	}
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { is_regular_empire = yes }
+			owner = {
+				is_regular_empire = yes
+			}
+			NOR = {
+				has_global_flag = EcologyMod_active
+			}
 		}
 		text = job_clerk_effect_desc
 	}
-
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+			has_global_flag = EcologyMod_active
+		}
+		text = job_waste_handler_effect_desc
+	}
 	ai_weight = {
 		weight = 0
 		modifier = {
@@ -273,6 +287,9 @@ district_city = {
 			planet = {
 				planet_devastation < 1
 				years_passed > 11
+				NOT = {
+					has_planet_flag = gai_fleet
+				}
 				gai_focus_world = yes
 				free_housing < 10
 				free_amenities > 2
@@ -338,7 +355,6 @@ district_city = {
 			has_global_flag = gai_enabled_flag
 		}
 	}
-
 	ai_resource_production = {
 		consumer_goods = 1
 		trigger = {
@@ -346,62 +362,87 @@ district_city = {
 		}
 	}
 }
-
 district_hive = {
 	base_buildtime = 480
 	is_capped_by_modifier = no
-
 	show_on_uncolonized = {
-		exists = from
-		from = { is_hive_empire = yes }
-		NOT = { is_planet_class = pc_habitat }
-		NOT = { is_planet_class = pc_city }
-		NOT = { is_planet_class = pc_ecocity }
-		NOT = { is_planet_class = pc_archive }
-		NOT = { is_planet_class = pc_mem_vazuran_habitat }
-		NOT = { is_planet_class = pc_dyson_swarm }
-		NOT = { is_planet_class = pc_habitable_asteroid }
-		NOT = { is_planet_class = pc_asteroid_base }
-		NOT = { is_planet_class = pc_moon_base }
-		NOT = { has_modifier = pm_Utopian_Paradise }
-		NOT = { has_modifier = stpg_planetary_habitat }
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+		from = {
+			is_hive_empire = yes
 		}
+		NOT = {
+			is_planet_class = pc_habitat
+		}
+		NOT = {
+			is_planet_class = pc_city
+		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
+		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_modifier = stpg_planetary_habitat
+		}
+		NOT = {
+			has_planet_flag = stpg_planetary_habitat
+		}
+		does_spawn_housing_districts = no
 	}
-
 	potential = {
 		exists = owner
-		owner = { is_hive_empire = yes }
-		NOT = { is_planet_class = pc_habitat }
-		NOT = { is_planet_class = pc_city }
-		NOT = { is_planet_class = pc_ecocity }
-		NOT = { is_planet_class = pc_archive }
-		NOT = { is_planet_class = pc_mem_vazuran_habitat }
-		NOT = { is_planet_class = pc_dyson_swarm }
-		NOT = { is_planet_class = pc_habitable_asteroid }
-		NOT = { is_planet_class = pc_asteroid_base }
-		NOT = { is_planet_class = pc_moon_base }
-		NOT = { has_modifier = pm_Utopian_Paradise }
-		NOT = { has_modifier = stpg_planetary_habitat }
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+		owner = {
+			is_hive_empire = yes
+		}
+		NOT = {
+			is_planet_class = pc_habitat
+		}
+		NOT = {
+			is_planet_class = pc_city
+		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
+		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_modifier = stpg_planetary_habitat
+		}
+		NOT = {
+			has_planet_flag = stpg_planetary_habitat
+		}
+		does_spawn_housing_districts = no
+	}
+	allow = {
+		NOT = {
+			has_modifier = resort_colony
 		}
 	}
-
-	allow = {
-		NOT = { has_modifier = resort_colony }
-	}
-
 	conversion_ratio = 0.5
 	convert_to = {
 		district_arcology_housing
 		district_nexus
 		district_city
 	}
-
 	resources = {
 		category = planet_districts
 		cost = {
@@ -411,41 +452,58 @@ district_hive = {
 			energy = 2
 		}
 	}
-
-	planet_modifier = {
-		planet_housing_add = 6
-	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_technology = tech_housing_1 }
+			owner = {
+				has_technology = tech_housing_1
+			}
 		}
 		modifier = {
 			planet_housing_add = 1
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_technology = tech_housing_2 }
+			owner = {
+				has_technology = tech_housing_2
+			}
 		}
 		modifier = {
 			planet_housing_add = 1
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_swapped_tradition = tr_prosperity_extended_hives }
+			owner = {
+				has_swapped_tradition = tr_prosperity_extended_hives
+			}
 		}
 		modifier = {
 			planet_housing_add = 1
 		}
 	}
-
+	triggered_planet_modifier = {
+		modifier = {
+			planet_housing_add = 6
+		}
+		potential = {
+			NOR = {
+				has_global_flag = EcologyMod_active
+			}
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_global_flag = EcologyMod_active
+		}
+		modifier = {
+			planet_housing_add = 6
+			job_waste_drone_add = 1
+		}
+	}
 	ai_weight = {
 		weight = 0
 		modifier = {
@@ -483,6 +541,9 @@ district_hive = {
 			planet = {
 				planet_devastation < 1
 				years_passed > 11
+				NOT = {
+					has_planet_flag = gai_fleet
+				}
 				gai_focus_world = yes
 				free_housing < 10
 				free_amenities > 2
@@ -549,62 +610,87 @@ district_hive = {
 		}
 	}
 }
-
 district_nexus = {
 	base_buildtime = 480
 	is_capped_by_modifier = no
-
 	show_on_uncolonized = {
-		exists = from
-		from = { is_machine_empire = yes }
-		NOT = { is_planet_class = pc_habitat }
-		NOT = { is_planet_class = pc_city }
-		NOT = { is_planet_class = pc_ecocity }
-		NOT = { is_planet_class = pc_archive }
-		NOT = { is_planet_class = pc_mem_vazuran_habitat }
-		NOT = { is_planet_class = pc_dyson_swarm }
-		NOT = { is_planet_class = pc_habitable_asteroid }
-		NOT = { is_planet_class = pc_asteroid_base }
-		NOT = { is_planet_class = pc_moon_base }
-		NOT = { has_modifier = pm_Utopian_Paradise }
-		NOT = { has_modifier = stpg_planetary_habitat }
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+		from = {
+			is_machine_empire = yes
 		}
+		NOT = {
+			is_planet_class = pc_habitat
+		}
+		NOT = {
+			is_planet_class = pc_city
+		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
+		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_modifier = stpg_planetary_habitat
+		}
+		NOT = {
+			has_planet_flag = stpg_planetary_habitat
+		}
+		does_spawn_housing_districts = no
 	}
-
 	potential = {
 		exists = owner
-		owner = { is_machine_empire = yes }
-		NOT = { is_planet_class = pc_habitat }
-		NOT = { is_planet_class = pc_city }
-		NOT = { is_planet_class = pc_ecocity }
-		NOT = { is_planet_class = pc_archive }
-		NOT = { is_planet_class = pc_mem_vazuran_habitat }
-		NOT = { is_planet_class = pc_dyson_swarm }
-		NOT = { is_planet_class = pc_habitable_asteroid }
-		NOT = { is_planet_class = pc_asteroid_base }
-		NOT = { is_planet_class = pc_moon_base }
-		NOT = { has_modifier = pm_Utopian_Paradise }
-		NOT = { has_modifier = stpg_planetary_habitat }
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+		owner = {
+			is_machine_empire = yes
+		}
+		NOT = {
+			is_planet_class = pc_habitat
+		}
+		NOT = {
+			is_planet_class = pc_city
+		}
+		NOT = {
+			is_planet_class = pc_asteroid_base
+		}
+		NOT = {
+			is_planet_class = pc_moon_base
+		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_modifier = stpg_planetary_habitat
+		}
+		NOT = {
+			has_planet_flag = stpg_planetary_habitat
+		}
+		does_spawn_housing_districts = no
+	}
+	allow = {
+		NOT = {
+			has_modifier = resort_colony
 		}
 	}
-
-	allow = {
-		NOT = { has_modifier = resort_colony }
-	}
-
 	conversion_ratio = 0.5
 	convert_to = {
 		district_arcology_housing
-		district_nexus
+		district_city
 		district_hive
 	}
-
 	resources = {
 		category = planet_districts
 		cost = {
@@ -614,43 +700,61 @@ district_nexus = {
 			energy = 2
 		}
 	}
-
-	planet_modifier = {
-		planet_housing_add = 5
-		job_maintenance_drone_add = 1
-		job_technician_drone_add = 1
-	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_technology = tech_housing_1 }
+			owner = {
+				has_technology = tech_housing_1
+			}
 		}
 		modifier = {
 			planet_housing_add = 1
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_technology = tech_housing_2 }
+			owner = {
+				has_technology = tech_housing_2
+			}
 		}
 		modifier = {
 			planet_housing_add = 1
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_swapped_tradition = tr_prosperity_optimized_nexus }
+			owner = {
+				has_swapped_tradition = tr_prosperity_optimized_nexus
+			}
 		}
 		modifier = {
 			planet_housing_add = 1
 		}
 	}
-
+	triggered_planet_modifier = {
+		modifier = {
+			planet_housing_add = 5
+			job_maintenance_drone_add = 1
+			job_technician_drone_add = 1
+		}
+		potential = {
+			NOR = {
+				has_global_flag = EcologyMod_active
+			}
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_global_flag = EcologyMod_active
+		}
+		modifier = {
+			planet_housing_add = 5
+			job_maintenance_drone_add = 1
+			job_waste_drone_add = 1
+		}
+	}
 	ai_weight = {
 		weight = 0
 		modifier = {
@@ -688,6 +792,9 @@ district_nexus = {
 			planet = {
 				planet_devastation < 1
 				years_passed > 11
+				NOT = {
+					has_planet_flag = gai_fleet
+				}
 				gai_focus_world = yes
 				free_housing < 10
 				free_amenities > 2

@@ -450,9 +450,12 @@ if __name__ == '__main__':
     # save all output files #
     #########################
 
+    shutil.rmtree('../Mod', True)
+    os.makedirs('../Mod/!!!!Universal Districts Patch/common/districts')
+
     for output_file in output_files:
-        write_data(output_file[1], './testing/mod/' + output_file[0])
+        write_data(output_file[1], '../Mod/!!!!Universal Districts Patch/common/districts/' + output_file[0])
         files_overwritten.remove(output_file[0])
 
     for file_overwritten in files_overwritten:
-        open('./testing/mod/' + file_overwritten, 'w').close()
+        open('../Mod/!!!!Universal Districts Patch/common/districts/' + file_overwritten, 'w').close()

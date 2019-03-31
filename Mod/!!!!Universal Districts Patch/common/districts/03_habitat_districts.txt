@@ -1,20 +1,26 @@
 @hab_cost = 500
 @hab_maintenance = 2
-
 district_hab_housing = {
 	base_buildtime = 240
 	is_capped_by_modifier = no
-
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
-		NOT = { has_global_flag = LivingSpace_active }
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = LivingSpace_active
+		}
 	}
-
 	potential = {
 		is_planet_class = pc_habitat
-		NOT = { has_global_flag = LivingSpace_active }
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = LivingSpace_active
+		}
 	}
-
 	resources = {
 		category = planet_districts
 		cost = {
@@ -24,29 +30,70 @@ district_hab_housing = {
 			energy = @hab_maintenance
 		}
 	}
-
-	planet_modifier = {
-		planet_housing_add = 10
-	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_gestalt = yes }
+			owner = {
+				is_gestalt = yes
+			}
+			NOR = {
+				has_global_flag = sh_enabled_flag
+			}
 		}
 		modifier = {
 			job_maintenance_drone_add = 2
 		}
 	}
-
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+			has_global_flag = sh_enabled_flag
+		}
+		modifier = {
+			job_maintenance_drone_add = 8
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			job_clerk_add = 8
+		}
+	}
+	triggered_planet_modifier = {
+		modifier = {
+			planet_housing_add = 10
+		}
+		potential = {
+			NOR = {
+				has_global_flag = sh_enabled_flag
+			}
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_global_flag = sh_enabled_flag
+		}
+		modifier = {
+			planet_housing_add = 15
+		}
+	}
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { is_gestalt = yes }
+			owner = {
+				is_gestalt = yes
+			}
 		}
 		text = job_maintenance_drone_effect_desc
 	}
-
 	ai_weight = {
 		weight = 0
 		modifier = {
@@ -108,7 +155,7 @@ district_hab_housing = {
 				owner = {
 					is_regular_empire = yes
 				}
-				not = {
+				NOT = {
 					has_district = district_hab_cultural
 				}
 			}
@@ -116,23 +163,42 @@ district_hab_housing = {
 		}
 	}
 }
-
 district_hab_energy = {
 	base_buildtime = 240
 	is_capped_by_modifier = no
-
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
-		from = { is_gestalt = yes }
-		NOT = { has_global_flag = LivingSpace_active }
+		from = {
+			is_gestalt = yes
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = LivingSpace_active
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
 	}
-
 	potential = {
 		is_planet_class = pc_habitat
-		owner = { is_gestalt = yes }
-		NOT = { has_global_flag = LivingSpace_active }
+		owner = {
+			is_gestalt = yes
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = LivingSpace_active
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
 	}
-
+	convert_to = {
+		district_hab_cultural
+	}
 	resources = {
 		category = planet_districts
 		cost = {
@@ -142,27 +208,27 @@ district_hab_energy = {
 			energy = @hab_maintenance
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_hive_empire = no }
+			owner = {
+				is_hive_empire = no
+			}
 		}
 		job_technician_drone_add = 2
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_hive_empire = yes }
+			owner = {
+				is_hive_empire = yes
+			}
 		}
 		job_technician_drone_add = 3
 	}
-
 	triggered_desc = {
 		text = job_technician_drone_effect_desc
 	}
-
 	ai_weight = {
 		weight = 0
 		modifier = {
@@ -238,7 +304,6 @@ district_hab_energy = {
 			has_global_flag = gai_enabled_flag
 		}
 	}
-
 	ai_resource_production = {
 		energy = 1
 		trigger = {
@@ -246,23 +311,42 @@ district_hab_energy = {
 		}
 	}
 }
-
 district_hab_cultural = {
 	base_buildtime = 240
 	is_capped_by_modifier = no
-
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
-		from = { is_gestalt = no }
-		NOT = { has_global_flag = LivingSpace_active }
+		from = {
+			is_gestalt = no
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = LivingSpace_active
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
 	}
-
 	potential = {
 		is_planet_class = pc_habitat
-		owner = { is_gestalt = no }
-		NOT = { has_global_flag = LivingSpace_active }
+		owner = {
+			is_gestalt = no
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = LivingSpace_active
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
 	}
-
+	convert_to = {
+		district_hab_energy
+	}
 	resources = {
 		category = planet_districts
 		cost = {
@@ -272,20 +356,45 @@ district_hab_cultural = {
 			energy = @hab_maintenance
 		}
 	}
-
 	planet_modifier = {
 		job_entertainer_add = 2
 		job_culture_worker_add = 1
 	}
-
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_warrior_culture
+			}
+		}
+		modifier = {
+			job_duelist_add = 2
+			job_entertainer_add = -2
+		}
+	}
 	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_warrior_culture
+			}
+		}
+		text = job_duelist_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = {
+					has_valid_civic = civic_warrior_culture
+				}
+			}
+		}
 		text = job_entertainer_effect_desc
 	}
-
 	triggered_desc = {
 		text = job_culture_worker_effect_desc
 	}
-
 	ai_weight = {
 		weight = 0
 		modifier = {
@@ -318,7 +427,6 @@ district_hab_cultural = {
 			has_global_flag = gai_enabled_flag
 		}
 	}
-
 	ai_resource_production = {
 		unity = 1
 		trigger = {
@@ -326,21 +434,33 @@ district_hab_cultural = {
 		}
 	}
 }
-
 district_hab_science = {
 	base_buildtime = 240
 	is_capped_by_modifier = no
-
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
-		NOT = { has_global_flag = LivingSpace_active }
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = LivingSpace_active
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
 	}
-
 	potential = {
 		is_planet_class = pc_habitat
-		NOT = { has_global_flag = LivingSpace_active }
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = LivingSpace_active
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
 	}
-
 	resources = {
 		category = planet_districts
 		cost = {
@@ -350,61 +470,66 @@ district_hab_science = {
 			energy = @hab_maintenance
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_regular_empire = yes }
+			owner = {
+				is_regular_empire = yes
+			}
 		}
 		modifier = {
 			job_researcher_add = 3
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_hive_empire = yes }
+			owner = {
+				is_hive_empire = yes
+			}
 		}
 		modifier = {
 			job_brain_drone_add = 3
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_machine_empire = yes }
+			owner = {
+				is_machine_empire = yes
+			}
 		}
 		modifier = {
 			job_calculator_add = 3
 		}
 	}
-
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { is_regular_empire = yes }
+			owner = {
+				is_regular_empire = yes
+			}
 		}
 		text = job_researcher_effect_desc
 	}
-
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { is_hive_empire = yes }
+			owner = {
+				is_hive_empire = yes
+			}
 		}
 		text = job_brain_drone_effect_desc
 	}
-
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { is_machine_empire = yes }
+			owner = {
+				is_machine_empire = yes
+			}
 		}
 		text = job_calculator_effect_desc
 	}
-
 	ai_weight = {
 		weight = 0
 		modifier = {
@@ -451,23 +576,39 @@ district_hab_science = {
 		}
 	}
 }
-
 district_hab_commercial = {
 	base_buildtime = 240
 	is_capped_by_modifier = no
-
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
-		from = { is_gestalt = no }
-		NOT = { has_global_flag = LivingSpace_active }
+		from = {
+			is_gestalt = no
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = LivingSpace_active
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
 	}
-
 	potential = {
 		is_planet_class = pc_habitat
-		owner = { is_gestalt = no }
-		NOT = { has_global_flag = LivingSpace_active }
+		owner = {
+			is_gestalt = no
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = LivingSpace_active
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
 	}
-
 	resources = {
 		category = planet_districts
 		cost = {
@@ -477,15 +618,12 @@ district_hab_commercial = {
 			energy = @hab_maintenance
 		}
 	}
-
 	planet_modifier = {
 		job_clerk_add = 5
 	}
-
 	triggered_desc = {
 		text = job_clerk_effect_desc
 	}
-
 	ai_weight = {
 		weight = 0
 		modifier = {
@@ -522,7 +660,6 @@ district_hab_commercial = {
 			has_global_flag = gai_enabled_flag
 		}
 	}
-
 	ai_resource_production = {
 		consumer_goods = 1
 		trigger = {
