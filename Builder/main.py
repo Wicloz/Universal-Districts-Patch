@@ -30,6 +30,9 @@ other_mod_ids = [
     # '1640486360',
     # '1611227475',
 ]
+other_build_restrictions = [
+    {'NOT': [{'is_planet_class': ['= pc_dyson_swarm']}]},
+]
 
 ########
 # VARS #
@@ -178,6 +181,17 @@ if __name__ == '__main__':
 
     files_overwritten.append('udp_extra_districts.txt')
     output_files.append(('udp_extra_districts.txt', StellarisDict()))
+
+    ##################################
+    # apply extra build restrictions #
+    ##################################
+
+    for output_file in output_files:
+        for district_name, district in output_file[1].items():
+            if not district_name.startswith('@'):
+                for title in ['show_on_uncolonized', 'potential']:
+                    for other_build_restriction in other_build_restrictions:
+                        district[0].get_single(title).ensure(other_build_restriction)
 
     #############################
     # merge ai weights from gai #
