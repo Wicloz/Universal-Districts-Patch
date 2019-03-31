@@ -310,7 +310,10 @@ if __name__ == '__main__':
 
                         for value in mod_district.get_list(key):
                             if value not in [item.copy_without('vanilla') for item in district[0].get_list(key)]:
-                                if value.get_single(trigger_key) in [item.get_single(trigger_key) for item in district[0].get_list(key)]:
+                                if trigger_key not in value or \
+                                        value.get_single(trigger_key) in [item.get_single(trigger_key) for item in district[0].get_list(key)]:
+                                    if trigger_key not in value:
+                                        value.ensure({trigger_key: [{}]})
                                     assert mod_flag is not None
                                     value.get_single(trigger_key).ensure({'has_global_flag': ['= ' + mod_flag]})
                                 district[0].ensure({key: [value]})
