@@ -6,9 +6,6 @@ district_hab_housing = {
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
 		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
-		NOT = {
 			is_planet_class = pc_archive
 		}
 		NOT = {
@@ -17,9 +14,6 @@ district_hab_housing = {
 	}
 	potential = {
 		is_planet_class = pc_habitat
-		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
 		NOT = {
 			is_planet_class = pc_archive
 		}
@@ -178,9 +172,6 @@ district_hab_energy = {
 			is_gestalt = yes
 		}
 		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
-		NOT = {
 			is_planet_class = pc_archive
 		}
 		NOT = {
@@ -194,9 +185,6 @@ district_hab_energy = {
 		is_planet_class = pc_habitat
 		owner = {
 			is_gestalt = yes
-		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			is_planet_class = pc_archive
@@ -332,9 +320,6 @@ district_hab_cultural = {
 			is_gestalt = no
 		}
 		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
-		NOT = {
 			is_planet_class = pc_archive
 		}
 		NOT = {
@@ -348,9 +333,6 @@ district_hab_cultural = {
 		is_planet_class = pc_habitat
 		owner = {
 			is_gestalt = no
-		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			is_planet_class = pc_archive
@@ -458,9 +440,6 @@ district_hab_science = {
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
 		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
-		NOT = {
 			is_planet_class = pc_archive
 		}
 		NOT = {
@@ -472,9 +451,6 @@ district_hab_science = {
 	}
 	potential = {
 		is_planet_class = pc_habitat
-		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
 		NOT = {
 			is_planet_class = pc_archive
 		}
@@ -609,9 +585,6 @@ district_hab_commercial = {
 			is_gestalt = no
 		}
 		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
-		NOT = {
 			is_planet_class = pc_archive
 		}
 		NOT = {
@@ -625,9 +598,6 @@ district_hab_commercial = {
 		is_planet_class = pc_habitat
 		owner = {
 			is_gestalt = no
-		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			is_planet_class = pc_archive

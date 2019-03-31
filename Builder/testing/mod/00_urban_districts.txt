@@ -14,9 +14,6 @@ district_city = {
 			is_planet_class = pc_city
 		}
 		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
-		NOT = {
 			is_planet_class = pc_asteroid_base
 		}
 		NOT = {
@@ -52,9 +49,6 @@ district_city = {
 		}
 		NOT = {
 			is_planet_class = pc_city
-		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			is_planet_class = pc_asteroid_base
@@ -382,9 +376,6 @@ district_hive = {
 			is_planet_class = pc_city
 		}
 		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
-		NOT = {
 			is_planet_class = pc_asteroid_base
 		}
 		NOT = {
@@ -417,9 +408,6 @@ district_hive = {
 		}
 		NOT = {
 			is_planet_class = pc_city
-		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			is_planet_class = pc_asteroid_base
@@ -636,9 +624,6 @@ district_nexus = {
 			is_planet_class = pc_city
 		}
 		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
-		NOT = {
 			is_planet_class = pc_asteroid_base
 		}
 		NOT = {
@@ -671,9 +656,6 @@ district_nexus = {
 		}
 		NOT = {
 			is_planet_class = pc_city
-		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			is_planet_class = pc_asteroid_base

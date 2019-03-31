@@ -2,18 +2,12 @@ district_arcology_housing = {
 	base_buildtime = 600
 	is_capped_by_modifier = no
 	show_on_uncolonized = {
-		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
 		OR = {
 			is_planet_class = pc_city
 			is_planet_class = pc_ecocity
 		}
 	}
 	potential = {
-		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
 		OR = {
 			is_planet_class = pc_city
 			is_planet_class = pc_ecocity
@@ -153,15 +147,9 @@ district_arcology_arms_industry = {
 	is_capped_by_modifier = no
 	show_on_uncolonized = {
 		is_planet_class = pc_city
-		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
 	}
 	potential = {
 		is_planet_class = pc_city
-		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
 	}
 	conversion_ratio = 1
 	convert_to = {
@@ -288,15 +276,9 @@ district_arcology_civilian_industry = {
 	is_capped_by_modifier = no
 	show_on_uncolonized = {
 		is_planet_class = pc_city
-		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
 	}
 	potential = {
 		is_planet_class = pc_city
-		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
 	}
 	conversion_ratio = 1
 	convert_to = {
@@ -406,18 +388,12 @@ district_arcology_leisure = {
 		from = {
 			is_regular_empire = yes
 		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
 	}
 	potential = {
 		is_planet_class = pc_city
 		owner = {
 			exists = owner
 			is_regular_empire = yes
-		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
 		}
 	}
 	conversion_ratio = 1

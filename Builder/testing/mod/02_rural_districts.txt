@@ -16,9 +16,6 @@ district_generator = {
 			is_planet_class = pc_city
 		}
 		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
-		NOT = {
 			is_planet_class = pc_asteroid_base
 		}
 		NOT = {
@@ -62,9 +59,6 @@ district_generator = {
 		}
 		NOT = {
 			is_planet_class = pc_city
-		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			is_planet_class = pc_asteroid_base
@@ -666,9 +660,6 @@ district_mining = {
 			is_planet_class = pc_city
 		}
 		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
-		NOT = {
 			is_planet_class = pc_asteroid_base
 		}
 		NOT = {
@@ -712,9 +703,6 @@ district_mining = {
 		}
 		NOT = {
 			is_planet_class = pc_city
-		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			is_planet_class = pc_asteroid_base
@@ -1371,9 +1359,6 @@ district_farming = {
 			is_planet_class = pc_city
 		}
 		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
-		NOT = {
 			is_planet_class = pc_asteroid_base
 		}
 		NOT = {
@@ -1417,9 +1402,6 @@ district_farming = {
 		}
 		NOT = {
 			is_planet_class = pc_city
-		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			is_planet_class = pc_asteroid_base
@@ -2067,9 +2049,6 @@ district_generator_uncapped = {
 				has_global_flag = ringworld_districts_v2
 			}
 		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
 	}
 	potential = {
 		OR = {
@@ -2083,9 +2062,6 @@ district_generator_uncapped = {
 			NOT = {
 				has_global_flag = ringworld_districts_v2
 			}
-		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
@@ -2308,17 +2284,11 @@ district_mining_uncapped = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
 		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
 	}
 	potential = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
-		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
@@ -2629,9 +2599,6 @@ district_farming_uncapped = {
 				has_global_flag = ringworld_districts_v2
 			}
 		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
 	}
 	potential = {
 		OR = {
@@ -2643,9 +2610,6 @@ district_farming_uncapped = {
 			NOT = {
 				has_global_flag = ringworld_districts_v2
 			}
-		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
