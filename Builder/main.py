@@ -32,7 +32,9 @@ other_mod_ids = [
     # '1640486360',
     # '1611227475',
 ]
-other_build_restrictions = []
+other_build_restrictions = [
+    {'NOT': [{'is_planet_class': ['= pc_dyson_swarm']}]},
+]
 
 ########
 # VARS #
