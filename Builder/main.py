@@ -270,6 +270,9 @@ if __name__ == '__main__':
             else:
                 for output_file in output_files:
                     if output_file[0] == 'udp_extra_districts.txt':
+                        for title in ['show_on_uncolonized', 'potential']:
+                            assert mod_flag is not None
+                            district.get_single(title).ensure({'has_global_flag': ['= ' + mod_flag]})
                         output_file[1].ensure({district_name: [district]})
                         break
 

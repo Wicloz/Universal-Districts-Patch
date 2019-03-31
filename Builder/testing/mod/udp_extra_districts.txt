@@ -6,9 +6,11 @@ district_hab_production = {
 		from = {
 			is_gestalt = no
 		}
+		has_global_flag = sh_enabled_flag
 	}
 	potential = {
 		is_planet_class = pc_habitat
+		has_global_flag = sh_enabled_flag
 	}
 	resources = {
 		category = planet_districts
@@ -79,9 +81,11 @@ district_hab_thinktank = {
 	is_capped_by_modifier = no
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
+		has_global_flag = sh_enabled_flag
 	}
 	potential = {
 		is_planet_class = pc_habitat
+		has_global_flag = sh_enabled_flag
 	}
 	resources = {
 		category = planet_districts
@@ -163,9 +167,11 @@ district_hab_industry = {
 	is_capped_by_modifier = no
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
+		has_global_flag = sh_enabled_flag
 	}
 	potential = {
 		is_planet_class = pc_habitat
+		has_global_flag = sh_enabled_flag
 	}
 	resources = {
 		category = planet_districts
