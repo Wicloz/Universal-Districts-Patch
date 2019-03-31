@@ -40,7 +40,6 @@ district_city = {
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
 		}
-		does_spawn_housing_districts = no
 	}
 	potential = {
 		exists = owner
@@ -83,7 +82,6 @@ district_city = {
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
 		}
-		does_spawn_housing_districts = no
 	}
 	allow = {
 		NOT = {
@@ -405,7 +403,6 @@ district_hive = {
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
 		}
-		does_spawn_housing_districts = no
 	}
 	potential = {
 		exists = owner
@@ -442,7 +439,6 @@ district_hive = {
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
 		}
-		does_spawn_housing_districts = no
 	}
 	allow = {
 		NOT = {
@@ -659,7 +655,6 @@ district_nexus = {
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
 		}
-		does_spawn_housing_districts = no
 	}
 	potential = {
 		exists = owner
@@ -696,7 +691,6 @@ district_nexus = {
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
 		}
-		does_spawn_housing_districts = no
 	}
 	allow = {
 		NOT = {

@@ -322,7 +322,7 @@ if __name__ == '__main__':
                     for title in ['show_on_uncolonized', 'potential', 'allow']:
                         for key, values in mod_district.get_single(title).items():
                             for value in values:
-                                if value not in district[0].get_single(title).get_list(key):
+                                if key != 'does_spawn_housing_districts' and value not in district[0].get_single(title).get_list(key):
                                     if key == 'OR':
                                         for or_value in district[0].get_single(title).get_list(key):
                                             for planet in or_value.get_list('is_planet_class'):
