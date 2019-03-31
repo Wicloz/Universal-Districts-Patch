@@ -194,7 +194,9 @@ district_city = {
 		potential = {
 			exists = owner
 			owner = {
-				has_tradition = tradition_harmony_simple_beauty
+				OR = {
+					has_tradition = tradition_harmony_simple_beauty
+				}
 			}
 		}
 		modifier = {
