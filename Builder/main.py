@@ -4,6 +4,7 @@ import zipfile
 import glob
 import os
 import shutil
+from distutils.dir_util import copy_tree
 
 
 ########
@@ -12,6 +13,7 @@ import shutil
 
 stellaris_folder = r'D:\Game Libraries\Windows - Steam\steamapps\common\Stellaris'
 workshop_folder = r'D:\Game Libraries\Windows - Steam\steamapps\workshop\content\281990'
+mods_folder = r'C:\Users\wdboer\Documents\Paradox Interactive\Stellaris\mod'
 
 gai_mod_id = '1584133829'
 other_mod_ids = [
@@ -43,6 +45,19 @@ output_files = []
 ########
 # VARS #
 ########
+
+
+def copytree(src, dst, symlinks=False, ignore=None):
+    if not os.path.exists(dst):
+        os.makedirs(dst)
+    for item in os.listdir(src):
+        s = os.path.join(src, item)
+        d = os.path.join(dst, item)
+        if os.path.isdir(s):
+            copytree(s, d, symlinks, ignore)
+        else:
+            if not os.path.exists(d) or os.stat(s).st_mtime - os.stat(d).st_mtime > 1:
+                shutil.copy2(s, d)
 
 
 class StellarisDict(dict):
@@ -459,3 +474,15 @@ if __name__ == '__main__':
 
     for file_overwritten in files_overwritten:
         open('../Mod/!!!!Universal Districts Patch/common/districts/' + file_overwritten, 'w').close()
+
+    shutil.rmtree(mods_folder + '/!!!!Universal Districts Patch', True)
+    shutil.rmtree(mods_folder + '/!!!!Universal Districts Patch.mod', True)
+
+    for folder in ['../Mod', '../Skeleton']:
+        for item in os.listdir(folder):
+            source = folder + '/' + item
+            destination = mods_folder + '/' + item
+            if os.path.isdir(source):
+                copy_tree(source, destination)
+            else:
+                shutil.copy(source, destination)
