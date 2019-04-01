@@ -258,25 +258,14 @@ district_arcology_arms_industry = {
 		}
 		modifier = {
 			weight = 500
-			has_planet_flag = gai_alloy
 			owner = {
 				has_monthly_income = {
 					resource = alloys
-					value < 1000
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 100
-			owner = {
-				has_monthly_income = {
-					resource = alloys
-					value < 1000
+					value < 500
 				}
 				has_monthly_income = {
-					resource = consumer_goods
-					value > 200
+					resource = minerals
+					value > 99
 				}
 			}
 			has_global_flag = gai_enabled_flag
@@ -373,25 +362,14 @@ district_arcology_civilian_industry = {
 		}
 		modifier = {
 			weight = 500
-			has_planet_flag = gai_goods
 			owner = {
-				has_monthly_income = {
-					resource = consumer_goods
-					value < 201
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 100
-			owner = {
-				has_monthly_income = {
-					resource = alloys
-					value > 100
-				}
 				has_monthly_income = {
 					resource = consumer_goods
 					value < 200
+				}
+				has_monthly_income = {
+					resource = minerals
+					value > 99
 				}
 			}
 			has_global_flag = gai_enabled_flag
@@ -503,15 +481,17 @@ district_arcology_leisure = {
 			}
 		}
 		modifier = {
-			weight = 30
-			NOT = {
-				has_district = district_arcology_leisure
+			weight = 1000
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value > 200
+				}
+				has_monthly_income = {
+					resource = alloys
+					value > 500
+				}
 			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 10
-			is_capital = yes
 			has_global_flag = gai_enabled_flag
 		}
 	}

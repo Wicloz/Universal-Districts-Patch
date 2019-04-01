@@ -303,8 +303,9 @@ district_city = {
 		modifier = {
 			weight = 20000
 			gai_focus_world = yes
-			owner = {
-				has_ascension_perk = ap_arcology_project
+			num_free_districts = {
+				type = district_generator
+				value = 0
 			}
 			has_global_flag = gai_enabled_flag
 		}
