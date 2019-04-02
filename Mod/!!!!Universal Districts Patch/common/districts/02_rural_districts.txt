@@ -600,6 +600,10 @@ district_generator = {
 			weight = 825
 			any_owned_pop = {
 				is_unemployed = yes
+				NOR = {
+					is_pop_category = specialist
+					is_pop_category = ruler
+				}
 				NOT = {
 					has_citizenship_type = {
 						type = citizenship_organic_trophy
@@ -619,6 +623,10 @@ district_generator = {
 			weight = 850
 			any_owned_pop = {
 				is_unemployed = yes
+				NOR = {
+					is_pop_category = specialist
+					is_pop_category = ruler
+				}
 				has_citizenship_type = {
 					type = citizenship_slavery
 				}
@@ -629,6 +637,10 @@ district_generator = {
 			factor = 2
 			any_owned_pop = {
 				is_unemployed = yes
+				NOR = {
+					is_pop_category = specialist
+					is_pop_category = ruler
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
@@ -1281,6 +1293,10 @@ district_mining = {
 			weight = 850
 			any_owned_pop = {
 				is_unemployed = yes
+				NOR = {
+					is_pop_category = specialist
+					is_pop_category = ruler
+				}
 				OR = {
 					specialist_job_check_trigger = no
 					has_citizenship_type = {
@@ -1299,6 +1315,10 @@ district_mining = {
 			weight = 850
 			any_owned_pop = {
 				is_unemployed = yes
+				NOR = {
+					is_pop_category = specialist
+					is_pop_category = ruler
+				}
 				NOT = {
 					has_citizenship_type = {
 						type = citizenship_organic_trophy
@@ -1349,6 +1369,10 @@ district_mining = {
 			factor = 2
 			any_owned_pop = {
 				is_unemployed = yes
+				NOR = {
+					is_pop_category = specialist
+					is_pop_category = ruler
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
@@ -1986,6 +2010,10 @@ district_farming = {
 			}
 			any_owned_pop = {
 				is_unemployed = yes
+				NOR = {
+					is_pop_category = specialist
+					is_pop_category = ruler
+				}
 				OR = {
 					specialist_job_check_trigger = no
 					has_citizenship_type = {
@@ -2016,6 +2044,10 @@ district_farming = {
 			weight = 825
 			any_owned_pop = {
 				is_unemployed = yes
+				NOR = {
+					is_pop_category = specialist
+					is_pop_category = ruler
+				}
 				NOT = {
 					has_citizenship_type = {
 						type = citizenship_organic_trophy
@@ -2053,6 +2085,10 @@ district_farming = {
 			factor = 2
 			any_owned_pop = {
 				is_unemployed = yes
+				NOR = {
+					is_pop_category = specialist
+					is_pop_category = ruler
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
@@ -2622,6 +2658,10 @@ district_mining_uncapped = {
 			weight = 8500
 			any_owned_pop = {
 				is_unemployed = yes
+				NOR = {
+					is_pop_category = specialist
+					is_pop_category = ruler
+				}
 				NOT = {
 					has_citizenship_type = {
 						type = citizenship_organic_trophy
@@ -2888,6 +2928,10 @@ district_farming_uncapped = {
 			weight = 9500
 			any_owned_pop = {
 				is_unemployed = yes
+				NOR = {
+					is_pop_category = specialist
+					is_pop_category = ruler
+				}
 				NOT = {
 					has_citizenship_type = {
 						type = citizenship_organic_trophy
