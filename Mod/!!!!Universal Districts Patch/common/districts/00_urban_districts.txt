@@ -287,12 +287,12 @@ district_city = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 999
+			weight = 9999
 			planet = {
 				planet_devastation < 1
 				years_passed > 11
 				NOT = {
-					has_planet_flag = gai_fleet
+					has_planet_flag = gai_fleet_planet
 				}
 				gai_focus_world = yes
 				free_housing < 10
@@ -302,6 +302,9 @@ district_city = {
 		}
 		modifier = {
 			weight = 25000
+			NOT = {
+				has_planet_flag = gai_fleet_planet
+			}
 			OR = {
 				AND = {
 					gai_focus_world = yes
@@ -316,11 +319,18 @@ district_city = {
 						has_ascension_perk = ap_arcology_project
 					}
 				}
+				has_planet_flag = gai_arc
 			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
 			factor = 0
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			NOT = {
+				gai_focus_world = yes
+			}
 			OR = {
 				num_free_districts = {
 					type = district_mining
@@ -334,9 +344,6 @@ district_city = {
 					type = district_farming
 					value > 0
 				}
-			}
-			NOT = {
-				gai_focus_world = yes
 			}
 			count_pops = {
 				limit = {
@@ -352,6 +359,9 @@ district_city = {
 		}
 		modifier = {
 			factor = 0
+			NOT = {
+				has_planet_flag = gai_arc
+			}
 			owner = {
 				has_resource = {
 					type = minerals
@@ -362,6 +372,9 @@ district_city = {
 		}
 		modifier = {
 			factor = 0
+			NOT = {
+				has_planet_flag = gai_arc
+			}
 			NOT = {
 				gai_focus_world = yes
 			}
@@ -556,12 +569,12 @@ district_hive = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 999
+			weight = 9999
 			planet = {
 				planet_devastation < 1
 				years_passed > 11
 				NOT = {
-					has_planet_flag = gai_fleet
+					has_planet_flag = gai_fleet_planet
 				}
 				gai_focus_world = yes
 				free_housing < 10
@@ -811,16 +824,15 @@ district_nexus = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 999
+			weight = 9999
 			planet = {
 				planet_devastation < 1
 				years_passed > 11
 				NOT = {
-					has_planet_flag = gai_fleet
+					has_planet_flag = gai_fleet_planet
 				}
 				gai_focus_world = yes
 				free_housing < 10
-				free_amenities > 2
 			}
 			has_global_flag = gai_enabled_flag
 		}

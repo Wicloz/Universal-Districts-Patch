@@ -374,6 +374,16 @@ district_arcology_civilian_industry = {
 			}
 			has_global_flag = gai_enabled_flag
 		}
+		modifier = {
+			weight = 50000
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value < 0
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
 	}
 }
 district_arcology_leisure = {
