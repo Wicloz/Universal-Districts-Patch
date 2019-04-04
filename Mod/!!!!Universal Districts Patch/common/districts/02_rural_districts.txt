@@ -1933,16 +1933,6 @@ district_farming = {
 				owner = {
 					has_monthly_income = {
 						resource = food
-						value < 20
-					}
-				}
-				owner = {
-					has_monthly_income = {
-						resource = energy
-						value > 20
-					}
-					has_monthly_income = {
-						resource = food
 						value < 40
 					}
 				}
@@ -1960,21 +1950,16 @@ district_farming = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 1
-			owner = {
-				is_hive_empire = yes
-			}
-			NOT = {
-				has_district = district_farming
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
 			weight = 7000
 			owner = {
 				is_hive_empire = yes
 			}
-			is_capital = yes
+			OR = {
+				NOT = {
+					has_district = district_farming
+				}
+				is_capital = yes
+			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
@@ -1988,17 +1973,6 @@ district_farming = {
 				has_monthly_income = {
 					resource = consumer_goods
 					value >= 0
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 1000
-			has_planet_flag = gai_get_food
-			owner = {
-				has_monthly_income = {
-					resource = food
-					value < 40
 				}
 			}
 			has_global_flag = gai_enabled_flag
