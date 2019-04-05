@@ -2131,16 +2131,9 @@ district_generator_uncapped = {
 	is_capped_by_modifier = no
 	show_on_uncolonized = {
 		OR = {
-			is_planet_class = pc_hive
 			is_planet_class = pc_machine
+			is_planet_class = pc_hive
 			is_planet_class = pc_ringworld_habitable
-		}
-		OR = {
-			is_planet_class = pc_hive
-			is_planet_class = pc_machine
-			NOT = {
-				has_global_flag = ringworld_districts_v2
-			}
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
@@ -2155,16 +2148,9 @@ district_generator_uncapped = {
 	}
 	potential = {
 		OR = {
-			is_planet_class = pc_hive
 			is_planet_class = pc_machine
+			is_planet_class = pc_hive
 			is_planet_class = pc_ringworld_habitable
-		}
-		OR = {
-			is_planet_class = pc_hive
-			is_planet_class = pc_machine
-			NOT = {
-				has_global_flag = ringworld_districts_v2
-			}
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
@@ -2730,12 +2716,6 @@ district_farming_uncapped = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_ringworld_habitable
 		}
-		OR = {
-			is_planet_class = pc_hive
-			NOT = {
-				has_global_flag = ringworld_districts_v2
-			}
-		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
@@ -2751,12 +2731,6 @@ district_farming_uncapped = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_ringworld_habitable
-		}
-		OR = {
-			is_planet_class = pc_hive
-			NOT = {
-				has_global_flag = ringworld_districts_v2
-			}
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm

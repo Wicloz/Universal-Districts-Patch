@@ -327,7 +327,13 @@ if __name__ == '__main__':
                     for title in ['show_on_uncolonized', 'potential', 'allow']:
                         for key, values in mod_district.get_single(title).items():
                             for value in values:
-                                if key != 'does_spawn_housing_districts' and value not in district[0].get_single(title).get_list(key):
+                                merged = False
+                                if key == 'OR' and set(value.keys()) == {'is_planet_class'}:
+                                    for or_block in district[0].get_single(title).get_list(key):
+                                        if set(or_block.keys()) == {'is_planet_class'}:
+                                            or_block['is_planet_class'] = list(set(or_block['is_planet_class'] + value['is_planet_class']))
+                                            merged = True
+                                if not merged and key != 'does_spawn_housing_districts' and value not in district[0].get_single(title).get_list(key):
                                     district[0].get_single(title).ensure({key: [value]})
 
         # merge triggered modifiers and descriptions
