@@ -14,6 +14,13 @@ district_hab_housing = {
 		NOT = {
 			has_global_flag = LivingSpace_active
 		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
@@ -25,6 +32,13 @@ district_hab_housing = {
 		}
 		NOT = {
 			has_global_flag = LivingSpace_active
+		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
 		}
 	}
 	resources = {
@@ -190,6 +204,13 @@ district_hab_energy = {
 		NOT = {
 			has_global_flag = sh_enabled_flag
 		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
@@ -207,6 +228,13 @@ district_hab_energy = {
 		}
 		NOT = {
 			has_global_flag = sh_enabled_flag
+		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
 		}
 	}
 	convert_to = {
@@ -344,6 +372,13 @@ district_hab_cultural = {
 		NOT = {
 			has_global_flag = sh_enabled_flag
 		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
@@ -361,6 +396,13 @@ district_hab_cultural = {
 		}
 		NOT = {
 			has_global_flag = sh_enabled_flag
+		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
 		}
 	}
 	convert_to = {
@@ -470,6 +512,13 @@ district_hab_science = {
 		NOT = {
 			has_global_flag = sh_enabled_flag
 		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
@@ -484,6 +533,13 @@ district_hab_science = {
 		}
 		NOT = {
 			has_global_flag = sh_enabled_flag
+		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
 		}
 	}
 	resources = {
@@ -621,6 +677,13 @@ district_hab_commercial = {
 		NOT = {
 			has_global_flag = sh_enabled_flag
 		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
@@ -638,6 +701,13 @@ district_hab_commercial = {
 		}
 		NOT = {
 			has_global_flag = sh_enabled_flag
+		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
 		}
 	}
 	resources = {

@@ -35,6 +35,10 @@ other_mod_ids = [
 ]
 other_build_restrictions = [
     {'NOT': [{'is_planet_class': ['= pc_dyson_swarm']}]},
+    {'NAND': [{
+        'is_planet_class': ['= pc_ringworld_habitable'],
+        'OR': [{'has_global_flag': ['= ringworld_districts_v2', '= lrsk_megastrcutre_district_rework_mod_active']}],
+    }]},
 ]
 
 ########

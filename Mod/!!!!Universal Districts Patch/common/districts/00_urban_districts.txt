@@ -40,6 +40,13 @@ district_city = {
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
 		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
+		}
 	}
 	potential = {
 		exists = owner
@@ -81,6 +88,13 @@ district_city = {
 		}
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
+		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
 		}
 	}
 	allow = {
@@ -427,6 +441,13 @@ district_hive = {
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
 		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
+		}
 	}
 	potential = {
 		exists = owner
@@ -462,6 +483,13 @@ district_hive = {
 		}
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
+		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
 		}
 	}
 	allow = {
@@ -679,6 +707,13 @@ district_nexus = {
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
 		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
+		}
 	}
 	potential = {
 		exists = owner
@@ -714,6 +749,13 @@ district_nexus = {
 		}
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
+		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
 		}
 	}
 	allow = {
