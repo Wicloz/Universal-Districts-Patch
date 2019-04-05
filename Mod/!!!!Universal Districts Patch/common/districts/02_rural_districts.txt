@@ -2131,8 +2131,8 @@ district_generator_uncapped = {
 	is_capped_by_modifier = no
 	show_on_uncolonized = {
 		OR = {
-			is_planet_class = pc_machine
 			is_planet_class = pc_hive
+			is_planet_class = pc_machine
 			is_planet_class = pc_ringworld_habitable
 		}
 		NOT = {
@@ -2148,8 +2148,8 @@ district_generator_uncapped = {
 	}
 	potential = {
 		OR = {
-			is_planet_class = pc_machine
 			is_planet_class = pc_hive
+			is_planet_class = pc_machine
 			is_planet_class = pc_ringworld_habitable
 		}
 		NOT = {

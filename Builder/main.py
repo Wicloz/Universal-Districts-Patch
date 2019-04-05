@@ -329,9 +329,10 @@ if __name__ == '__main__':
                             for value in values:
                                 merged = False
                                 if key == 'OR' and set(value.keys()) == {'is_planet_class'}:
-                                    for or_block in district[0].get_single(title).get_list(key):
-                                        if set(or_block.keys()) == {'is_planet_class'}:
-                                            or_block['is_planet_class'] = list(set(or_block['is_planet_class'] + value['is_planet_class']))
+                                    for block in district[0].get_single(title).get_list(key):
+                                        if set(block.keys()) == {'is_planet_class'}:
+                                            block['is_planet_class'] = block['is_planet_class'] + \
+                                                                       [x for x in value['is_planet_class'] if x not in block['is_planet_class']]
                                             merged = True
                                 if not merged and key != 'does_spawn_housing_districts' and value not in district[0].get_single(title).get_list(key):
                                     district[0].get_single(title).ensure({key: [value]})
@@ -444,8 +445,8 @@ if __name__ == '__main__':
         for district_name, district in output_file[1].items():
             if not district_name.startswith('@'):
                 for title in ['show_on_uncolonized', 'potential', 'allow']:
-                    for or_block in district[0].get_single(title).get_list('OR'):
-                        for key, values in or_block.items():
+                    for block in district[0].get_single(title).get_list('OR'):
+                        for key, values in block.items():
                             for value in values:
                                 if value in district[0].get_single(title).get_list(key):
                                     district[0].get_single(title).get_list(key).remove(value)
