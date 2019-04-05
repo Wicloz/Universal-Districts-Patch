@@ -345,6 +345,20 @@ if __name__ == '__main__':
                             if value not in [item.copy_without('vanilla') for item in district[0].get_list(key)]:
                                 must_add_flag = trigger_key not in value or \
                                                 value.get_single(trigger_key) in [item.get_single(trigger_key) for item in district[0].get_list(key)]
+                                if not must_add_flag and \
+                                        set(value.get_single(trigger_key).keys()) == {'exists', 'owner'} and \
+                                        value.get_single(trigger_key).get_single('exists') == '= owner' and \
+                                        len(value.get_single(trigger_key).get_list('owner')) == 1 and \
+                                        set(value.get_single(trigger_key).get_single('owner').keys()).issubset({
+                                            'is_regular_empire',
+                                            'is_gestalt',
+                                            'is_machine_empire',
+                                            'is_hive_empire',
+                                            'is_fallen_empire',
+                                            'is_fallen_empire_spiritualist',
+                                            'is_mechanical_empire',
+                                        }):
+                                    must_add_flag = True
                                 if must_add_flag:
                                     if trigger_key not in value:
                                         value.ensure({trigger_key: [{}]})

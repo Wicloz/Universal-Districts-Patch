@@ -68,6 +68,7 @@ district_hab_housing = {
 			owner = {
 				is_regular_empire = yes
 			}
+			has_global_flag = sh_enabled_flag
 		}
 		modifier = {
 			job_clerk_add = 8
