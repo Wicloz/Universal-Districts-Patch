@@ -51,6 +51,9 @@ district_generator = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
+		NOT = {
+			is_planet_class = pc_shrouded_pg
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -108,6 +111,9 @@ district_generator = {
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
+		}
+		NOT = {
+			is_planet_class = pc_shrouded_pg
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -727,6 +733,9 @@ district_mining = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
+		NOT = {
+			is_planet_class = pc_shrouded_pg
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -784,6 +793,9 @@ district_mining = {
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
+		}
+		NOT = {
+			is_planet_class = pc_shrouded_pg
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -1468,6 +1480,9 @@ district_farming = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
+		NOT = {
+			is_planet_class = pc_shrouded_pg
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -1525,6 +1540,9 @@ district_farming = {
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
+		}
+		NOT = {
+			is_planet_class = pc_shrouded_pg
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -2134,6 +2152,7 @@ district_generator_uncapped = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
 			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shrouded_pg
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
@@ -2151,6 +2170,7 @@ district_generator_uncapped = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
 			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shrouded_pg
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
@@ -2382,6 +2402,7 @@ district_mining_uncapped = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
+			is_planet_class = pc_shrouded_pg
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
@@ -2398,6 +2419,7 @@ district_mining_uncapped = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
+			is_planet_class = pc_shrouded_pg
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
@@ -2715,6 +2737,7 @@ district_farming_uncapped = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shrouded_pg
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
@@ -2731,6 +2754,7 @@ district_farming_uncapped = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shrouded_pg
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
