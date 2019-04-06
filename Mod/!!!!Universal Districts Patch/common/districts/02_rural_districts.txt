@@ -1288,7 +1288,7 @@ district_mining = {
 				OR = {
 					has_monthly_income = {
 						resource = food
-						value > 20
+						value > 60
 					}
 					root = {
 						num_free_districts = {
@@ -1375,7 +1375,7 @@ district_mining = {
 				OR = {
 					has_monthly_income = {
 						resource = food
-						value > 20
+						value > 60
 					}
 					root = {
 						num_free_districts = {
@@ -1993,7 +1993,7 @@ district_farming = {
 				owner = {
 					has_monthly_income = {
 						resource = food
-						value < 40
+						value < 60
 					}
 				}
 				AND = {
@@ -2028,7 +2028,7 @@ district_farming = {
 			owner = {
 				has_monthly_income = {
 					resource = food
-					value < 0
+					value < 60
 				}
 				has_monthly_income = {
 					resource = consumer_goods
@@ -2068,7 +2068,7 @@ district_farming = {
 				owner = {
 					has_monthly_income = {
 						resource = food
-						value < 50
+						value < 60
 					}
 				}
 			}
@@ -2092,7 +2092,7 @@ district_farming = {
 				has_valid_civic = civic_machine_servitor
 				has_monthly_income = {
 					resource = food
-					value < 30
+					value < 60
 				}
 			}
 			has_global_flag = gai_enabled_flag
@@ -2132,6 +2132,19 @@ district_farming = {
 					is_pop_category = specialist
 					is_pop_category = ruler
 				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			OWNER = {
+				has_monthly_income = {
+					resource = food
+					value > -1
+				}
+			}
+			NOT = {
+				has_planet_flag = owner_eats_food
 			}
 			has_global_flag = gai_enabled_flag
 		}
