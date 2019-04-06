@@ -317,21 +317,18 @@ district_city = {
 			NOT = {
 				has_planet_flag = gai_fleet_planet
 			}
-			OR = {
-				AND = {
-					gai_focus_world = yes
-					num_free_districts = {
-						type = district_generator
-						value = 0
-					}
-				}
-				AND = {
-					gai_focus_world = yes
-					owner = {
-						has_ascension_perk = ap_arcology_project
-					}
-				}
-				has_planet_flag = gai_arc
+			owner = {
+				has_ascension_perk = ap_arcology_project
+			}
+			has_planet_flag = gai_arc
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1
+			gai_focus_world = yes
+			num_free_districts = {
+				type = district_generator
+				value = 0
 			}
 			has_global_flag = gai_enabled_flag
 		}
