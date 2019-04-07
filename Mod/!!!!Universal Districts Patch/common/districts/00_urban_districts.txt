@@ -40,6 +40,9 @@ district_city = {
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
 		}
+		NOT = {
+			is_planet_class = pc_outpost
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -88,6 +91,9 @@ district_city = {
 		}
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
+		}
+		NOT = {
+			is_planet_class = pc_outpost
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
