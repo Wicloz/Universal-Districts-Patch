@@ -1,4 +1,4 @@
-import re
+import shlex
 import tempfile
 import zipfile
 import glob
@@ -108,7 +108,7 @@ def parse_file(path):
                 line = line.replace(sign, ' ' + sign + ' ')
             line = line.replace('<  =', '<=').replace('>  =', '>=')
             text += line + '\n'
-        tokens = ['{'] + [item for item in re.split(r'\s+', text) if len(item.strip()) > 0] + ['}']
+        tokens = ['{'] + [item for item in shlex.split(text) if len(item.strip()) > 0] + ['}']
         tokens = list(reversed(tokens))
         return parse_object(tokens)
 
@@ -132,7 +132,7 @@ def parse_object(tokens):
         else:
             value = parse_object(tokens)
             if type(value) is str:
-                value = sign + ' ' + value.strip('\'"`')
+                value = sign + ' ' + value
         if (key == 'OR' or key == 'AND') and len(value.keys()) == 1 and len(value[list(value.keys())[0]]) <= 1:
             key = list(value.keys())[0]
             value = value[key][0] if len(value[key]) == 1 else None
