@@ -765,6 +765,9 @@ district_hab_commercial = {
 		consumer_goods = 1
 		trigger = {
 			always = yes
+			NOR = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 	}
 }

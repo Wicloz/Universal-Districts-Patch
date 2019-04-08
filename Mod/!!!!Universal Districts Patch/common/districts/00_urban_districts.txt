@@ -50,6 +50,7 @@ district_city = {
 				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
 			}
 		}
+		exists = from
 	}
 	potential = {
 		exists = owner
@@ -402,6 +403,9 @@ district_city = {
 		consumer_goods = 1
 		trigger = {
 			always = yes
+			NOR = {
+				has_global_flag = gai_enabled_flag
+			}
 		}
 	}
 }

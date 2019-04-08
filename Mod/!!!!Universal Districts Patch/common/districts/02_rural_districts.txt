@@ -19,6 +19,9 @@ district_generator = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
 			is_planet_class = pc_asteroid_base
 		}
 		NOT = {
@@ -41,9 +44,6 @@ district_generator = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			is_planet_class = pc_ecocity
@@ -80,6 +80,9 @@ district_generator = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
 			is_planet_class = pc_asteroid_base
 		}
 		NOT = {
@@ -102,9 +105,6 @@ district_generator = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			is_planet_class = pc_ecocity
@@ -132,6 +132,67 @@ district_generator = {
 	allow = {
 		NOT = {
 			has_modifier = resort_colony
+		}
+		OR = {
+			free_jobs < 2
+			AND = {
+				free_jobs < 3
+				exists = owner
+				owner = {
+					has_monthly_income = {
+						resource = energy
+						value < 20
+					}
+				}
+			}
+			AND = {
+				exists = from
+				from = {
+					is_ai = no
+				}
+			}
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = no
+				}
+			}
+			AND = {
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+			}
+			gai_good_energy = yes
+			num_free_districts = {
+				type = district_generator
+				value = 0
+			}
+			free_district_slots = 0
+			any_owned_pop = {
+				is_unemployed = yes
+				NOT = {
+					has_citizenship_type = {
+						type = citizenship_organic_trophy
+					}
+				}
+				NOR = {
+					is_pop_category = specialist
+					is_pop_category = ruler
+					AND = {
+						has_trait = trait_mechanical
+						NOT = {
+							owner = {
+								has_technology = tech_droid_workers
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 	conversion_ratio = 1
@@ -592,6 +653,9 @@ district_mining = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
 			is_planet_class = pc_asteroid_base
 		}
 		NOT = {
@@ -614,9 +678,6 @@ district_mining = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			is_planet_class = pc_ecocity
@@ -653,6 +714,9 @@ district_mining = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
 			is_planet_class = pc_asteroid_base
 		}
 		NOT = {
@@ -675,9 +739,6 @@ district_mining = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			is_planet_class = pc_ecocity
@@ -705,6 +766,67 @@ district_mining = {
 	allow = {
 		NOT = {
 			has_modifier = resort_colony
+		}
+		OR = {
+			gai_good_minerals = yes
+			num_free_districts = {
+				type = district_mining
+				value = 0
+			}
+			free_district_slots = 0
+			free_jobs < 2
+			AND = {
+				free_jobs < 3
+				exists = owner
+				owner = {
+					has_monthly_income = {
+						resource = minerals
+						value < 40
+					}
+				}
+			}
+			AND = {
+				exists = from
+				from = {
+					is_ai = no
+				}
+			}
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = no
+				}
+			}
+			AND = {
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+			}
+			any_owned_pop = {
+				is_unemployed = yes
+				NOT = {
+					has_citizenship_type = {
+						type = citizenship_organic_trophy
+					}
+				}
+				NOR = {
+					is_pop_category = specialist
+					is_pop_category = ruler
+					AND = {
+						has_trait = trait_mechanical
+						NOT = {
+							owner = {
+								has_technology = tech_droid_workers
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 	conversion_ratio = 1
@@ -1217,6 +1339,9 @@ district_farming = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
 			is_planet_class = pc_asteroid_base
 		}
 		NOT = {
@@ -1239,9 +1364,6 @@ district_farming = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			is_planet_class = pc_ecocity
@@ -1278,6 +1400,9 @@ district_farming = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
+		}
+		NOT = {
 			is_planet_class = pc_asteroid_base
 		}
 		NOT = {
@@ -1300,9 +1425,6 @@ district_farming = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			is_planet_class = pc_ecocity
@@ -1330,6 +1452,66 @@ district_farming = {
 	allow = {
 		NOT = {
 			has_modifier = resort_colony
+		}
+		OR = {
+			free_jobs < 2
+			gai_good_food = yes
+			free_district_slots = 0
+			num_free_districts = {
+				type = district_farming
+				value = 0
+			}
+			AND = {
+				exists = from
+				from = {
+					is_ai = no
+				}
+			}
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = no
+				}
+			}
+			AND = {
+				free_jobs < 3
+				owner = {
+					has_monthly_income = {
+						resource = food
+						value < 20
+					}
+				}
+			}
+			AND = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+			}
+			any_owned_pop = {
+				is_unemployed = yes
+				NOT = {
+					has_citizenship_type = {
+						type = citizenship_organic_trophy
+					}
+				}
+				NOR = {
+					is_pop_category = specialist
+					is_pop_category = ruler
+					AND = {
+						has_trait = trait_mechanical
+						NOT = {
+							owner = {
+								has_technology = tech_droid_workers
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 	conversion_ratio = 1
