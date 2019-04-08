@@ -4,8 +4,9 @@ import zipfile
 import glob
 import os
 import shutil
+import requests
 from distutils.dir_util import copy_tree
-
+from bs4 import BeautifulSoup
 
 ########
 # VARS #
@@ -16,24 +17,10 @@ workshop_folder = r'D:\Game Libraries\Windows - Steam\steamapps\workshop\content
 mods_folder = r'C:\Users\wdboer\Documents\Paradox Interactive\Stellaris\mod'
 
 gai_mod_id = '1584133829'
-other_mod_ids = [
-    '1100284147',
-    '1532624807',
-    '1596737403',
-    '1624127196',
-    '727000451',
-    '819148835',
-    '1604391033',
-    '1653766038',
-    '1311725711',
-    '1597596692',
-    '1603330813',
-    '1681075379',
-    '1639764264',
-    '1588842850',
-    # '1640486360',
-    # '1611227475',
-]
+collection_url = 'https://steamcommunity.com/workshop/filedetails/?id=1642766902'
+ignore_start_mods = 1
+ignore_end_mods = 2
+
 other_build_restrictions = [
     {'NOT': [{'is_planet_class': ['= pc_dyson_swarm']}]},
     {'NAND': [{
@@ -46,6 +33,7 @@ other_build_restrictions = [
 # VARS #
 ########
 
+other_mods = []
 files_overwritten = []
 districts_overwritten = []
 output_files = []
@@ -98,6 +86,14 @@ class StellarisDict(dict):
         if key in copy:
             del copy[key]
         return copy
+
+    def get_values(self):
+        for values in self.values():
+            for value in values:
+                if isinstance(value, StellarisDict):
+                    yield from value.get_values()
+                else:
+                    yield value
 
 
 def parse_file(path):
@@ -180,7 +176,32 @@ def extract_mod(mod_id):
     return folder
 
 
+def use_mod_flag(mod):
+    assert mod[2] is not None
+    mod[3] = True
+
+
 if __name__ == '__main__':
+    ####################################
+    # convert extra build restrictions #
+    ####################################
+
+    for i in range(len(other_build_restrictions)):
+        other_build_restrictions[i] = StellarisDict().ensure(other_build_restrictions[i])
+
+    ####################################
+    # get collection of patchable mods #
+    ####################################
+
+    soup = BeautifulSoup(requests.get(collection_url).text, 'html.parser')
+    for item in soup.find_all('div', 'collectionItem')[ignore_start_mods:-ignore_end_mods]:
+        link = item.find('div', 'collectionItemDetails').find('a')
+        other_mods.append([
+            link.get('href').rsplit('=', 1)[-1],
+            link.text.strip('!~').replace('PJs :: ', '').split('2')[0].split(' : ')[0].split('(')[0].split('-')[0].split('[')[0].strip(),
+            None, False,
+        ])
+
     ########################
     # load stellaris files #
     ########################
@@ -264,17 +285,16 @@ if __name__ == '__main__':
     # auto patch mods #
     ###################
 
-    for other_mod_id in other_mod_ids:
+    for other_mod in other_mods:
 
         # load mod data
         try:
-            mod_folder = extract_mod(other_mod_id)
+            mod_folder = extract_mod(other_mod[0])
         except IndexError:
-            print('Skipping mod with id: ' + other_mod_id)
+            print('Skipping mod with id: ' + other_mod[0])
             continue
         mod_file_names = os.listdir(mod_folder + '/common/districts')
         mod_districts = {}
-        mod_flag = None
         for mod_file_name in mod_file_names:
             mod_file = parse_file(mod_folder + '/common/districts/' + mod_file_name)
             if mod_file_name not in files_overwritten:
@@ -293,8 +313,15 @@ if __name__ == '__main__':
                 for event in events:
                     if type(event) is not str:
                         for effect in event.get_list('immediate'):
-                            if 'set_global_flag' in effect and mod_flag is None:
-                                mod_flag = effect['set_global_flag'][0].replace('= ', '')
+                            if 'set_global_flag' in effect and other_mod[2] is None:
+                                other_mod[2] = effect['set_global_flag'][0].replace('= ', '')
+                                if effect['set_global_flag'][0] == '= gai_enabled_flag':
+                                    other_mod[3] = True
+                                else:
+                                    for other_build_restriction in other_build_restrictions:
+                                        for value in other_build_restriction.get_values():
+                                            if effect['set_global_flag'][0] == value:
+                                                other_mod[3] = True
         shutil.rmtree(mod_folder)
 
         # save certain added districts
@@ -306,8 +333,8 @@ if __name__ == '__main__':
                 for output_file in output_files:
                     if output_file[0] == 'udp_extra_districts.txt':
                         for title in ['show_on_uncolonized', 'potential']:
-                            assert mod_flag is not None
-                            district.get_single(title).ensure({'has_global_flag': ['= ' + mod_flag]})
+                            use_mod_flag(other_mod)
+                            district.get_single(title).ensure({'has_global_flag': ['= ' + other_mod[2]]})
                         output_file[1].ensure({district_name: [district]})
                         break
 
@@ -317,8 +344,8 @@ if __name__ == '__main__':
                 for district_name, district in output_file[1].items():
                     if not district_name.startswith('@') and district_name not in mod_districts:
                         for title in ['show_on_uncolonized', 'potential']:
-                            assert mod_flag is not None
-                            district[0].get_single(title).ensure({'NOT': [{'has_global_flag': ['= ' + mod_flag]}]})
+                            use_mod_flag(other_mod)
+                            district[0].get_single(title).ensure({'NOT': [{'has_global_flag': ['= ' + other_mod[2]]}]})
 
         # merge build restrictions
         for output_file in output_files:
@@ -367,14 +394,14 @@ if __name__ == '__main__':
                                 if must_add_flag:
                                     if trigger_key not in value:
                                         value.ensure({trigger_key: [{}]})
-                                    assert mod_flag is not None
-                                    value.get_single(trigger_key).ensure({'has_global_flag': ['= ' + mod_flag]})
+                                    use_mod_flag(other_mod)
+                                    value.get_single(trigger_key).ensure({'has_global_flag': ['= ' + other_mod[2]]})
                                 district[0].ensure({key: [value]})
 
                         for value in district[0].get_list(key):
                             if 'vanilla' in value and value.copy_without('vanilla') not in mod_district.get_list(key):
-                                assert mod_flag is not None
-                                value.get_single('vanilla').get_single('NOR').ensure({'has_global_flag': ['= ' + mod_flag]})
+                                use_mod_flag(other_mod)
+                                value.get_single('vanilla').get_single('NOR').ensure({'has_global_flag': ['= ' + other_mod[2]]})
 
         # merge normal modifiers
         for output_file in output_files:
@@ -405,15 +432,15 @@ if __name__ == '__main__':
 
                     if merge_modifier:
                         if 'planet_modifier' in mod_district:
-                            assert mod_flag is not None
+                            use_mod_flag(other_mod)
                             district[0].ensure({'triggered_planet_modifier': [{
-                                'potential': [{'has_global_flag': ['= ' + mod_flag]}],
+                                'potential': [{'has_global_flag': ['= ' + other_mod[2]]}],
                                 'modifier': [mod_district.get_single('planet_modifier')],
                             }]})
                         for modifier in district[0].get_list('triggered_planet_modifier'):
                             if 'default' in modifier:
-                                assert mod_flag is not None
-                                modifier.get_single('default').get_single('NOR').ensure({'has_global_flag': ['= ' + mod_flag]})
+                                use_mod_flag(other_mod)
+                                modifier.get_single('default').get_single('NOR').ensure({'has_global_flag': ['= ' + other_mod[2]]})
                                 break
 
         # merge upkeep and production
@@ -425,8 +452,8 @@ if __name__ == '__main__':
                         for value in mod_district.get_single('resources').get_list(title):
                             if value not in district[0].get_single('resources').get_list(title):
                                 if 'trigger' not in value:
-                                    assert mod_flag is not None
-                                    value.ensure({'trigger': [{'has_global_flag': ['= ' + mod_flag]}]})
+                                    use_mod_flag(other_mod)
+                                    value.ensure({'trigger': [{'has_global_flag': ['= ' + other_mod[2]]}]})
                                 district[0].get_single('resources').ensure({title: [value]})
 
         # merge district conversions
@@ -509,3 +536,13 @@ if __name__ == '__main__':
                 copy_tree(source, destination)
             else:
                 shutil.copy(source, destination)
+
+    #########################
+    # create new patch list #
+    #########################
+
+    for other_mod in other_mods:
+        print('- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=' + other_mod[0] + '] ' + other_mod[1] + ' [/url]', end='')
+        if other_mod[3]:
+            print(' (' + other_mod[2] + ')', end='')
+        print()
