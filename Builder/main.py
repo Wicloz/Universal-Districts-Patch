@@ -198,7 +198,9 @@ if __name__ == '__main__':
         link = item.find('div', 'collectionItemDetails').find('a')
         other_mods.append([
             link.get('href').rsplit('=', 1)[-1],
-            link.text.strip('!~').replace('PJs :: ', '').split('2')[0].split(' : ')[0].split('(')[0].split('-')[0].split('[')[0].strip(),
+            link.text.strip('!~').replace('PJs :: ', '')
+                .split('2')[0].split(' : ')[0].split('(')[0].split('-')[0].split('[')[0].split(' for ')[0]
+                .strip(),
             None, False,
         ])
 
