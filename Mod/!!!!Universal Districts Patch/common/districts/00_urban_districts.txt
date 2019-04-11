@@ -340,9 +340,39 @@ district_city = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
+			weight = 1
+			num_free_districts = {
+				type = district_mining
+				value = 0
+			}
+			num_free_districts = {
+				type = district_generator
+				value = 0
+			}
+			num_free_districts = {
+				type = district_farming
+				value = 0
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
 			factor = 0
 			NOT = {
 				has_planet_flag = gai_arc
+			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
 			}
 			NOT = {
 				gai_focus_world = yes
@@ -378,6 +408,20 @@ district_city = {
 			NOT = {
 				has_planet_flag = gai_arc
 			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
+			}
 			owner = {
 				has_resource = {
 					type = minerals
@@ -393,6 +437,20 @@ district_city = {
 			}
 			NOT = {
 				gai_focus_world = yes
+			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
 			}
 			free_jobs > 1
 			free_housing > 1
@@ -616,15 +674,52 @@ district_hive = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 20000
+			weight = 1
 			gai_focus_world = yes
-			owner = {
-				has_ascension_perk = ap_arcology_project
+			num_free_districts = {
+				type = district_generator
+				value = 0
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1
+			num_free_districts = {
+				type = district_mining
+				value = 0
+			}
+			num_free_districts = {
+				type = district_generator
+				value = 0
+			}
+			num_free_districts = {
+				type = district_farming
+				value = 0
 			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
 			factor = 0
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
+			}
+			NOT = {
+				gai_focus_world = yes
+			}
 			OR = {
 				num_free_districts = {
 					type = district_mining
@@ -638,9 +733,6 @@ district_hive = {
 					type = district_farming
 					value > 0
 				}
-			}
-			NOT = {
-				gai_focus_world = yes
 			}
 			count_pops = {
 				limit = {
@@ -656,6 +748,23 @@ district_hive = {
 		}
 		modifier = {
 			factor = 0
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
+			}
 			owner = {
 				has_resource = {
 					type = minerals
@@ -667,7 +776,24 @@ district_hive = {
 		modifier = {
 			factor = 0
 			NOT = {
+				has_planet_flag = gai_arc
+			}
+			NOT = {
 				gai_focus_world = yes
+			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
 			}
 			free_jobs > 1
 			free_housing > 1
@@ -880,19 +1006,57 @@ district_nexus = {
 				}
 				gai_focus_world = yes
 				free_housing < 10
+				free_amenities > 2
 			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 20000
+			weight = 1
 			gai_focus_world = yes
-			owner = {
-				has_ascension_perk = ap_arcology_project
+			num_free_districts = {
+				type = district_generator
+				value = 0
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1
+			num_free_districts = {
+				type = district_mining
+				value = 0
+			}
+			num_free_districts = {
+				type = district_generator
+				value = 0
+			}
+			num_free_districts = {
+				type = district_farming
+				value = 0
 			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
 			factor = 0
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
+			}
+			NOT = {
+				gai_focus_world = yes
+			}
 			OR = {
 				num_free_districts = {
 					type = district_mining
@@ -906,9 +1070,6 @@ district_nexus = {
 					type = district_farming
 					value > 0
 				}
-			}
-			NOT = {
-				gai_focus_world = yes
 			}
 			count_pops = {
 				limit = {
@@ -924,6 +1085,23 @@ district_nexus = {
 		}
 		modifier = {
 			factor = 0
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
+			}
 			owner = {
 				has_resource = {
 					type = minerals
@@ -935,7 +1113,24 @@ district_nexus = {
 		modifier = {
 			factor = 0
 			NOT = {
+				has_planet_flag = gai_arc
+			}
+			NOT = {
 				gai_focus_world = yes
+			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
 			}
 			free_jobs > 1
 			free_housing > 1
