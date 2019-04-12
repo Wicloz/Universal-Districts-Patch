@@ -617,9 +617,15 @@ district_generator = {
 			}
 		}
 		modifier = {
-			weight = 250000
+			weight = 500
 			NOT = {
 				has_planet_flag = gai_arc
+			}
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 150
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
@@ -1284,7 +1290,7 @@ district_mining = {
 			}
 		}
 		modifier = {
-			weight = 250000
+			weight = 500
 			NOT = {
 				has_planet_flag = gai_arc
 			}
@@ -1913,19 +1919,17 @@ district_farming = {
 			}
 		}
 		modifier = {
-			weight = 250000
+			weight = 500
 			NOT = {
 				has_planet_flag = gai_arc
 			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			factor = 0.5
-			owner = {
-				has_monthly_income = {
-					resource = food
-					value > 100
-				}
+			factor = 2
+			OR = {
+				gai_work_minerals = yes
+				gai_work_minerals_goods = yes
 			}
 			has_global_flag = gai_enabled_flag
 		}
@@ -2116,7 +2120,7 @@ district_generator_uncapped = {
 			}
 		}
 		modifier = {
-			weight = 5
+			weight = 1
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
@@ -2158,12 +2162,14 @@ district_generator_uncapped = {
 			}
 		}
 		modifier = {
-			weight = 9500
-			gai_build_district = yes
+			weight = 500
+			NOT = {
+				has_planet_flag = gai_arc
+			}
 			owner = {
 				has_monthly_income = {
 					resource = energy
-					value < 200
+					value < 150
 				}
 			}
 			has_global_flag = gai_enabled_flag
@@ -2427,7 +2433,7 @@ district_mining_uncapped = {
 			}
 		}
 		modifier = {
-			weight = 25
+			weight = 1
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
@@ -2477,13 +2483,17 @@ district_mining_uncapped = {
 			}
 		}
 		modifier = {
-			weight = 9500
-			gai_build_district = yes
-			owner = {
-				has_monthly_income = {
-					resource = minerals
-					value < 600
-				}
+			weight = 200000
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				gai_work_minerals = yes
+				gai_work_minerals_goods = yes
 			}
 			has_global_flag = gai_enabled_flag
 		}
@@ -2734,12 +2744,14 @@ district_farming_uncapped = {
 			}
 		}
 		modifier = {
-			weight = 9500
-			gai_build_district = yes
+			weight = 500
+			NOT = {
+				has_planet_flag = gai_arc
+			}
 			owner = {
 				has_monthly_income = {
 					resource = food
-					value < 200
+					value < 150
 				}
 			}
 			has_global_flag = gai_enabled_flag
