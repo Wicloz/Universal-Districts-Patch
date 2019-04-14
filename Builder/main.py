@@ -16,10 +16,9 @@ stellaris_folder = r'D:\Game Libraries\Windows - Steam\steamapps\common\Stellari
 workshop_folder = r'D:\Game Libraries\Windows - Steam\steamapps\workshop\content\281990'
 mods_folder = r'C:\Users\wdboer\Documents\Paradox Interactive\Stellaris\mod'
 
-gai_mod_id = '1584133829'
 collection_url = 'https://steamcommunity.com/workshop/filedetails/?id=1642766902'
-ignore_start_mods = 1
-ignore_end_mods = 2
+gai_mod_id = '1584133829'
+wip_mod_count = 2
 
 other_build_restrictions = [
     {'NOT': [{'is_planet_class': ['= pc_dyson_swarm']}]},
@@ -33,7 +32,7 @@ other_build_restrictions = [
 # VARS #
 ########
 
-other_mods = []
+mod_collection = []
 
 district_files_overwritten = []
 districts_overwritten = []
@@ -195,9 +194,9 @@ if __name__ == '__main__':
     ####################################
 
     soup = BeautifulSoup(requests.get(collection_url).text, 'html.parser')
-    for item in soup.find_all('div', 'collectionItem')[ignore_start_mods:-ignore_end_mods]:
+    for item in soup.find_all('div', 'collectionItem')[1:-wip_mod_count]:
         link = item.find('div', 'collectionItemDetails').find('a')
-        other_mods.append([
+        mod_collection.append([
             link.get('href').rsplit('=', 1)[-1],
             link.text.strip('!~').replace('PJs :: ', '')
                 .split('2')[0].split(' : ')[0].split('(')[0].split('-')[0].split('[')[0].split(' for ')[0]
@@ -288,7 +287,7 @@ if __name__ == '__main__':
     # auto patch mods #
     ###################
 
-    for other_mod in other_mods:
+    for other_mod in mod_collection:
 
         # load mod data
         try:
@@ -544,7 +543,7 @@ if __name__ == '__main__':
     # create new patch list #
     #########################
 
-    for other_mod in other_mods:
+    for other_mod in mod_collection:
         print('- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=' + other_mod[0] + '] ' + other_mod[1] + ' [/url]', end='')
         if other_mod[3]:
             print(' (' + other_mod[2] + ')', end='')
