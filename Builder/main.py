@@ -317,13 +317,10 @@ if __name__ == '__main__':
                         for effect in event.get_list('immediate'):
                             if 'set_global_flag' in effect and other_mod[2] is None:
                                 other_mod[2] = effect['set_global_flag'][0].replace('= ', '')
-                                if effect['set_global_flag'][0] == '= gai_enabled_flag':
-                                    other_mod[3] = True
-                                else:
-                                    for other_build_restriction in other_build_restrictions:
-                                        for value in other_build_restriction.get_values():
-                                            if effect['set_global_flag'][0] == value:
-                                                other_mod[3] = True
+                                for other_build_restriction in other_build_restrictions:
+                                    for value in other_build_restriction.get_values():
+                                        if effect['set_global_flag'][0] == value:
+                                            other_mod[3] = True
         shutil.rmtree(mod_folder)
 
         # save certain added districts
