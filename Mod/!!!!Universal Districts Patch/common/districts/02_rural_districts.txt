@@ -629,6 +629,16 @@ district_generator = {
 			}
 			has_global_flag = gai_enabled_flag
 		}
+		modifier = {
+			factor = 1.5
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 0
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
 	}
 	ai_resource_production = {
 		energy = 1
@@ -1926,10 +1936,12 @@ district_farming = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			factor = 2
-			OR = {
-				gai_work_minerals = yes
-				gai_work_minerals_goods = yes
+			factor = 1.5
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value < 0
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}

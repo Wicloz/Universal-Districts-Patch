@@ -296,17 +296,23 @@ district_city = {
 			}
 		}
 		modifier = {
-			weight = 2000
+			weight = 900
 			planet = {
 				planet_devastation < 1
 				years_passed > 10
 				count_pops > 11
 				free_housing < 4
 			}
+			owner = {
+				has_resource = {
+					type = minerals
+					amount > 500
+				}
+			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 2000
+			weight = 9999
 			planet = {
 				planet_devastation < 1
 				years_passed > 11
@@ -316,6 +322,12 @@ district_city = {
 				gai_focus_world = yes
 				free_housing < 10
 				free_amenities > 2
+			}
+			owner = {
+				has_resource = {
+					type = minerals
+					amount > 500
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
@@ -360,12 +372,86 @@ district_city = {
 			NOT = {
 				has_planet_flag = gai_arc
 			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
+			}
+			NOT = {
+				gai_focus_world = yes
+			}
+			OR = {
+				num_free_districts = {
+					type = district_mining
+					value > 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value > 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value > 0
+				}
+			}
+			count_pops = {
+				limit = {
+					is_unemployed = yes
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
+				}
+				count >= 1
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				has_planet_flag = gai_arc
+			}
 			owner = {
 				has_resource = {
 					type = minerals
 					amount < 400
 				}
 			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			NOT = {
+				gai_focus_world = yes
+			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
+			}
+			free_jobs > 1
+			free_housing > 1
 			has_global_flag = gai_enabled_flag
 		}
 	}
@@ -562,17 +648,23 @@ district_hive = {
 			}
 		}
 		modifier = {
-			weight = 2000
+			weight = 900
 			planet = {
 				planet_devastation < 1
 				years_passed > 10
 				count_pops > 11
 				free_housing < 4
 			}
+			owner = {
+				has_resource = {
+					type = minerals
+					amount > 500
+				}
+			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 2000
+			weight = 9999
 			planet = {
 				planet_devastation < 1
 				years_passed > 11
@@ -582,6 +674,27 @@ district_hive = {
 				gai_focus_world = yes
 				free_housing < 10
 				free_amenities > 2
+			}
+			owner = {
+				has_resource = {
+					type = minerals
+					amount > 500
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1
+			gai_focus_world = yes
+			num_free_districts = {
+				type = district_generator
+				value = 0
+			}
+			owner = {
+				has_resource = {
+					type = minerals
+					amount > 500
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
@@ -599,16 +712,113 @@ district_hive = {
 				type = district_farming
 				value = 0
 			}
+			owner = {
+				has_resource = {
+					type = minerals
+					amount > 500
+				}
+			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
 			factor = 0
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
+			}
+			NOT = {
+				gai_focus_world = yes
+			}
+			OR = {
+				num_free_districts = {
+					type = district_mining
+					value > 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value > 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value > 0
+				}
+			}
+			count_pops = {
+				limit = {
+					is_unemployed = yes
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
+				}
+				count >= 1
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
+			}
 			owner = {
 				has_resource = {
 					type = minerals
 					amount < 400
 				}
 			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			NOT = {
+				gai_focus_world = yes
+			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
+			}
+			free_jobs > 1
+			free_housing > 1
 			has_global_flag = gai_enabled_flag
 		}
 	}
@@ -799,17 +1009,23 @@ district_nexus = {
 			}
 		}
 		modifier = {
-			weight = 2000
+			weight = 900
 			planet = {
 				planet_devastation < 1
 				years_passed > 10
 				count_pops > 11
 				free_housing < 4
 			}
+			owner = {
+				has_resource = {
+					type = minerals
+					amount > 500
+				}
+			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 2000
+			weight = 9999
 			planet = {
 				planet_devastation < 1
 				years_passed > 11
@@ -819,6 +1035,27 @@ district_nexus = {
 				gai_focus_world = yes
 				free_housing < 10
 				free_amenities > 2
+			}
+			owner = {
+				has_resource = {
+					type = minerals
+					amount > 500
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1
+			gai_focus_world = yes
+			num_free_districts = {
+				type = district_generator
+				value = 0
+			}
+			owner = {
+				has_resource = {
+					type = minerals
+					amount > 500
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
@@ -840,12 +1077,76 @@ district_nexus = {
 		}
 		modifier = {
 			factor = 0
-			owner = {
-				has_resource = {
-					type = minerals
-					amount < 400
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
 				}
 			}
+			NOT = {
+				gai_focus_world = yes
+			}
+			OR = {
+				num_free_districts = {
+					type = district_mining
+					value > 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value > 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value > 0
+				}
+			}
+			count_pops = {
+				limit = {
+					is_unemployed = yes
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
+				}
+				count >= 1
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			NOT = {
+				gai_focus_world = yes
+			}
+			NOT = {
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
+			}
+			free_jobs > 1
+			free_housing > 1
 			has_global_flag = gai_enabled_flag
 		}
 	}
