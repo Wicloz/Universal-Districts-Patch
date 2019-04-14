@@ -34,9 +34,10 @@ other_build_restrictions = [
 ########
 
 other_mods = []
-files_overwritten = []
+
+district_files_overwritten = []
 districts_overwritten = []
-output_files = []
+district_output_files = []
 
 ########
 # VARS #
@@ -208,29 +209,29 @@ if __name__ == '__main__':
     # load stellaris files #
     ########################
 
-    files_overwritten.extend(os.listdir(stellaris_folder + '/common/districts'))
-    for file_name in files_overwritten:
+    district_files_overwritten.extend(os.listdir(stellaris_folder + '/common/districts'))
+    for file_name in district_files_overwritten:
         parsed = parse_file(stellaris_folder + '/common/districts/' + file_name)
-        output_files.append((file_name, parsed))
+        district_output_files.append((file_name, parsed))
         for district_name in parsed:
             if not district_name.startswith('@'):
                 districts_overwritten.append(district_name)
 
-    for output_file in output_files:
+    for output_file in district_output_files:
         for district_name, district in output_file[1].items():
             if not district_name.startswith('@'):
                 for key in ['triggered_planet_modifier', 'triggered_desc', 'ai_resource_production']:
                     for modifier in district[0].get_list(key):
                         modifier.ensure({'vanilla': [{'NOR': [{}]}]})
 
-    files_overwritten.append('udp_extra_districts.txt')
-    output_files.append(('udp_extra_districts.txt', StellarisDict()))
+    district_files_overwritten.append('udp_extra_districts.txt')
+    district_output_files.append(('udp_extra_districts.txt', StellarisDict()))
 
     ##################################
     # apply extra build restrictions #
     ##################################
 
-    for output_file in output_files:
+    for output_file in district_output_files:
         for district_name, district in output_file[1].items():
             if not district_name.startswith('@'):
                 for title in ['show_on_uncolonized', 'potential']:
@@ -248,7 +249,7 @@ if __name__ == '__main__':
     ]
     shutil.rmtree(gai_folder)
 
-    for output_file in output_files:
+    for output_file in district_output_files:
         for gai_file in gai_files:
             if output_file[0] == gai_file[0]:
                 break
@@ -299,12 +300,12 @@ if __name__ == '__main__':
         mod_districts = {}
         for mod_file_name in mod_file_names:
             mod_file = parse_file(mod_folder + '/common/districts/' + mod_file_name)
-            if mod_file_name not in files_overwritten:
+            if mod_file_name not in district_files_overwritten:
                 for district_name in districts_overwritten:
                     if district_name in mod_file:
-                        files_overwritten.append(mod_file_name)
+                        district_files_overwritten.append(mod_file_name)
                         break
-            if mod_file_name in files_overwritten:
+            if mod_file_name in district_files_overwritten:
                 for district_name, district in mod_file.items():
                     if not district_name.startswith('@'):
                         mod_districts[district_name] = district[0]
@@ -328,11 +329,11 @@ if __name__ == '__main__':
 
         # save certain added districts
         for district_name, district in mod_districts.items():
-            for output_file in output_files:
+            for output_file in district_output_files:
                 if district_name in output_file[1]:
                     break
             else:
-                for output_file in output_files:
+                for output_file in district_output_files:
                     if output_file[0] == 'udp_extra_districts.txt':
                         for title in ['show_on_uncolonized', 'potential']:
                             use_mod_flag(other_mod)
@@ -341,7 +342,7 @@ if __name__ == '__main__':
                         break
 
         # disable removed districts
-        for output_file in output_files:
+        for output_file in district_output_files:
             if output_file[0] in mod_file_names:
                 for district_name, district in output_file[1].items():
                     if not district_name.startswith('@') and district_name not in mod_districts:
@@ -350,7 +351,7 @@ if __name__ == '__main__':
                             district[0].get_single(title).ensure({'NOT': [{'has_global_flag': ['= ' + other_mod[2]]}]})
 
         # merge build restrictions
-        for output_file in output_files:
+        for output_file in district_output_files:
             for district_name, district in output_file[1].items():
                 if district_name in mod_districts:
                     mod_district = mod_districts[district_name]
@@ -368,7 +369,7 @@ if __name__ == '__main__':
                                     district[0].get_single(title).ensure({key: [value]})
 
         # merge triggered modifiers and descriptions
-        for output_file in output_files:
+        for output_file in district_output_files:
             for district_name, district in output_file[1].items():
                 if district_name in mod_districts:
                     mod_district = mod_districts[district_name]
@@ -406,7 +407,7 @@ if __name__ == '__main__':
                                 value.get_single('vanilla').get_single('NOR').ensure({'has_global_flag': ['= ' + other_mod[2]]})
 
         # merge normal modifiers
-        for output_file in output_files:
+        for output_file in district_output_files:
             for district_name, district in output_file[1].items():
                 if district_name in mod_districts:
                     mod_district = mod_districts[district_name]
@@ -446,7 +447,7 @@ if __name__ == '__main__':
                                 break
 
         # merge upkeep and production
-        for output_file in output_files:
+        for output_file in district_output_files:
             for district_name, district in output_file[1].items():
                 if district_name in mod_districts:
                     mod_district = mod_districts[district_name]
@@ -459,7 +460,7 @@ if __name__ == '__main__':
                                 district[0].get_single('resources').ensure({title: [value]})
 
         # merge district conversions
-        for output_file in output_files:
+        for output_file in district_output_files:
             for district_name, district in output_file[1].items():
                 if district_name in mod_districts:
                     mod_district = mod_districts[district_name]
@@ -471,7 +472,7 @@ if __name__ == '__main__':
     # fix OR in build restrictions #
     ################################
 
-    for output_file in output_files:
+    for output_file in district_output_files:
         for district_name, district in output_file[1].items():
             if not district_name.startswith('@'):
                 for title in ['show_on_uncolonized', 'potential', 'allow']:
@@ -487,7 +488,7 @@ if __name__ == '__main__':
     # convert temporary flags #
     ###########################
 
-    for output_file in output_files:
+    for output_file in district_output_files:
         for district_name, district in output_file[1].items():
             if not district_name.startswith('@'):
                 for key in ['triggered_planet_modifier', 'triggered_desc', 'ai_resource_production']:
@@ -505,7 +506,7 @@ if __name__ == '__main__':
     # uncap district generation #
     #############################
 
-    for output_file in output_files:
+    for output_file in district_output_files:
         for district_name in output_file[1]:
             if not district_name.startswith('@'):
                 if 'min_for_deposits_on_planet' in output_file[1].get_single(district_name):
@@ -520,11 +521,11 @@ if __name__ == '__main__':
     shutil.rmtree('../Mod', True)
     os.makedirs('../Mod/!!!!Universal Districts Patch/common/districts')
 
-    for output_file in output_files:
+    for output_file in district_output_files:
         write_data(output_file[1], '../Mod/!!!!Universal Districts Patch/common/districts/' + output_file[0])
-        files_overwritten.remove(output_file[0])
+        district_files_overwritten.remove(output_file[0])
 
-    for file_overwritten in files_overwritten:
+    for file_overwritten in district_files_overwritten:
         open('../Mod/!!!!Universal Districts Patch/common/districts/' + file_overwritten, 'w').close()
 
     shutil.rmtree(mods_folder + '/!!!!Universal Districts Patch', True)
