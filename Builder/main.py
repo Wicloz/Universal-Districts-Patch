@@ -17,7 +17,7 @@ workshop_folder = r'D:\Game Libraries\Windows - Steam\steamapps\workshop\content
 mods_folder = r'C:\Users\wdboer\Documents\Paradox Interactive\Stellaris\mod'
 
 collection_url = 'https://steamcommunity.com/workshop/filedetails/?id=1642766902'
-gai_mod_id = '1584133829'
+ai_mod_count = 1
 wip_mod_count = 2
 
 other_build_restrictions = [
@@ -237,57 +237,11 @@ if __name__ == '__main__':
                     for other_build_restriction in other_build_restrictions:
                         district[0].get_single(title).ensure(other_build_restriction)
 
-    #############################
-    # merge ai weights from gai #
-    #############################
-
-    gai_folder = extract_mod(gai_mod_id)
-    gai_files = [
-        (os.path.basename(file_path), parse_file(file_path))
-        for file_path in glob.glob(gai_folder + '/common/districts/*')
-    ]
-    shutil.rmtree(gai_folder)
-
-    for output_file in district_output_files:
-        for gai_file in gai_files:
-            if output_file[0] == gai_file[0]:
-                break
-        else:
-            continue
-        for district_name in output_file[1]:
-            if not district_name.startswith('@'):
-
-                stellaris_ai = output_file[1].get_single(district_name).get_single('ai_weight')
-                gai_ai = gai_file[1].get_single(district_name).get_single('ai_weight')
-                combined_ai = StellarisDict({'weight': ['= 0'], 'modifier': []})
-
-                if stellaris_ai.get_single('weight') != '= 0':
-                    combined_ai.ensure({'modifier': [{
-                        'weight': stellaris_ai['weight'],
-                        'NOT': [{'has_global_flag': ['= gai_enabled_flag']}],
-                    }]})
-
-                if gai_ai.get_single('weight') != '= 0':
-                    combined_ai.ensure({'modifier': [{
-                        'weight': gai_ai['weight'],
-                        'has_global_flag': ['= gai_enabled_flag'],
-                    }]})
-
-                for modifier in stellaris_ai.get_list('modifier'):
-                    modifier.ensure({'NOT': [{'has_global_flag': ['= gai_enabled_flag']}]})
-                    combined_ai.ensure({'modifier': [modifier]})
-
-                for modifier in gai_ai.get_list('modifier'):
-                    modifier.ensure({'has_global_flag': ['= gai_enabled_flag']})
-                    combined_ai.ensure({'modifier': [modifier]})
-
-                output_file[1][district_name][0]['ai_weight'] = [combined_ai]
-
     ###################
     # auto patch mods #
     ###################
 
-    for other_mod in mod_collection:
+    for i, other_mod in enumerate(mod_collection):
 
         # load mod data
         try:
@@ -345,6 +299,44 @@ if __name__ == '__main__':
                         for title in ['show_on_uncolonized', 'potential']:
                             use_mod_flag(other_mod)
                             district[0].get_single(title).ensure({'NOT': [{'has_global_flag': ['= ' + other_mod[2]]}]})
+
+        # merge ai behaviours for ai mods
+        if i < ai_mod_count:
+            for output_file in district_output_files:
+                for district_name, district in output_file[1].items():
+                    if district_name in mod_districts:
+                        mod_district = mod_districts[district_name]
+                        use_mod_flag(other_mod)
+
+                        current_ai = district[0].get_single('ai_weight')
+                        new_ai = mod_district.get_single('ai_weight')
+                        combined_ai = StellarisDict({'weight': ['= 0'], 'modifier': []})
+
+                        if current_ai.get_single('weight') != '= 0':
+                            combined_ai.ensure({'modifier': [{
+                                'weight': current_ai['weight'],
+                                'NOT': [{'has_global_flag': ['= ' + other_mod[2]]}],
+                            }]})
+                        if new_ai.get_single('weight') != '= 0':
+                            combined_ai.ensure({'modifier': [{
+                                'weight': new_ai['weight'],
+                                'has_global_flag': ['= ' + other_mod[2]],
+                            }]})
+
+                        for modifier in current_ai.get_list('modifier'):
+                            mod_flag_set = False
+                            for item in modifier.get_list('has_global_flag'):
+                                for mod in mod_collection:
+                                    if item.replace('= ', '') == mod[2]:
+                                        mod_flag_set = True
+                            if not mod_flag_set:
+                                modifier.ensure({'NOT': [{'has_global_flag': ['= ' + other_mod[2]]}]})
+                            combined_ai.ensure({'modifier': [modifier]})
+                        for modifier in new_ai.get_list('modifier'):
+                            modifier.ensure({'has_global_flag': ['= ' + other_mod[2]]})
+                            combined_ai.ensure({'modifier': [modifier]})
+
+                        district[0]['ai_weight'] = [combined_ai]
 
         # merge build restrictions
         for output_file in district_output_files:
