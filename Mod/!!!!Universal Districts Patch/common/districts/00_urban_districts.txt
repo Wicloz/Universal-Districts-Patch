@@ -264,9 +264,16 @@ district_city = {
 	ai_weight = {
 		weight = 0
 		modifier = {
+			weight = 0.5
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
 			weight = 1
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -280,6 +287,9 @@ district_city = {
 			NOT = {
 				has_global_flag = gai_enabled_flag
 			}
+			NOT = {
+				has_global_flag = str_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 5
@@ -287,12 +297,18 @@ district_city = {
 			NOT = {
 				has_global_flag = gai_enabled_flag
 			}
+			NOT = {
+				has_global_flag = str_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 0
 			free_housing > 2
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -458,6 +474,29 @@ district_city = {
 			free_jobs > 1
 			free_housing > 1
 			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0.001
+			num_pops < 8
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 20
+			free_housing < 2
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 0.1
+			free_housing > 5
+			NOT = {
+				has_planet_flag = ecumen
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 5000
+			has_planet_flag = ecumen
+			has_global_flag = str_enabled_flag
 		}
 	}
 	ai_resource_production = {
@@ -634,8 +673,15 @@ district_hive = {
 		weight = 0
 		modifier = {
 			weight = 1
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			weight = 1
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -644,12 +690,18 @@ district_hive = {
 			NOT = {
 				has_global_flag = gai_enabled_flag
 			}
+			NOT = {
+				has_global_flag = str_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 0
 			free_housing > 2
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -831,6 +883,16 @@ district_hive = {
 			free_housing > 1
 			has_global_flag = gai_enabled_flag
 		}
+		modifier = {
+			factor = 5000
+			free_housing < 0
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			free_housing > 2
+			has_global_flag = str_enabled_flag
+		}
 	}
 }
 district_nexus = {
@@ -1000,8 +1062,15 @@ district_nexus = {
 		weight = 0
 		modifier = {
 			weight = 1
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			weight = 1
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -1010,12 +1079,18 @@ district_nexus = {
 			NOT = {
 				has_global_flag = gai_enabled_flag
 			}
+			NOT = {
+				has_global_flag = str_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 0
 			free_housing > 2
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -1163,6 +1238,16 @@ district_nexus = {
 			free_jobs > 1
 			free_housing > 1
 			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 5000
+			free_housing < 0
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			free_housing > 2
+			has_global_flag = str_enabled_flag
 		}
 	}
 }

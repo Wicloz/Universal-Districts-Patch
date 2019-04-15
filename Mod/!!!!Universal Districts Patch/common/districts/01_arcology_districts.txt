@@ -150,15 +150,27 @@ district_arcology_housing = {
 	ai_weight = {
 		weight = 0
 		modifier = {
+			weight = 0.1
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
 			weight = 1
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
 			weight = 5
 			free_housing < 10
 			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			free_district_slots = 0
+			has_global_flag = str_enabled_flag
 		}
 	}
 }
@@ -272,9 +284,16 @@ district_arcology_arms_industry = {
 	ai_weight = {
 		weight = 0
 		modifier = {
+			weight = 2
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
 			weight = 1
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -282,6 +301,9 @@ district_arcology_arms_industry = {
 			free_jobs > 0
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -297,6 +319,15 @@ district_arcology_arms_industry = {
 				}
 			}
 			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				any_owned_pop = {
+					has_job = clerk
+				}
+			}
+			has_global_flag = str_enabled_flag
 		}
 	}
 }
@@ -398,8 +429,15 @@ district_arcology_civilian_industry = {
 		weight = 0
 		modifier = {
 			weight = 1
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			weight = 1
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -407,6 +445,9 @@ district_arcology_civilian_industry = {
 			free_jobs > 0
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -432,6 +473,29 @@ district_arcology_civilian_industry = {
 				}
 			}
 			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 1.5
+			owner = {
+				needs_goods = yes
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 3
+			owner = {
+				really_needs_goods = yes
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 0.1
+			NOT = {
+				any_owned_pop = {
+					has_job = clerk
+				}
+			}
+			has_global_flag = str_enabled_flag
 		}
 	}
 }
@@ -542,8 +606,15 @@ district_arcology_leisure = {
 		weight = 0
 		modifier = {
 			weight = 1
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			weight = 1
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -551,6 +622,9 @@ district_arcology_leisure = {
 			free_jobs > 0
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -566,6 +640,16 @@ district_arcology_leisure = {
 				}
 			}
 			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0.1
+			free_amenities > 100
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 9999
+			free_amenities < -10
+			has_global_flag = str_enabled_flag
 		}
 	}
 }

@@ -118,9 +118,16 @@ district_hab_housing = {
 	ai_weight = {
 		weight = 0
 		modifier = {
+			weight = 3
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
 			weight = 1
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -128,6 +135,9 @@ district_hab_housing = {
 			free_housing < 0
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -181,6 +191,16 @@ district_hab_housing = {
 				}
 			}
 			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 10
+			free_housing < 5
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 0.1
+			free_housing > 15
+			has_global_flag = str_enabled_flag
 		}
 	}
 }
@@ -273,9 +293,16 @@ district_hab_energy = {
 	ai_weight = {
 		weight = 0
 		modifier = {
+			weight = 0.1
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
 			weight = 1
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -289,12 +316,18 @@ district_hab_energy = {
 			NOT = {
 				has_global_flag = gai_enabled_flag
 			}
+			NOT = {
+				has_global_flag = str_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 2
 			free_housing < 0
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -307,6 +340,9 @@ district_hab_energy = {
 			}
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -322,6 +358,9 @@ district_hab_energy = {
 			}
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -343,6 +382,16 @@ district_hab_energy = {
 				}
 			}
 			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 90
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 50
+				}
+			}
+			has_global_flag = str_enabled_flag
 		}
 	}
 	ai_resource_production = {
@@ -460,8 +509,15 @@ district_hab_cultural = {
 		weight = 0
 		modifier = {
 			weight = 1
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			weight = 1
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -470,12 +526,18 @@ district_hab_cultural = {
 			NOT = {
 				has_global_flag = gai_enabled_flag
 			}
+			NOT = {
+				has_global_flag = str_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 0
 			free_jobs > 0
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -486,6 +548,11 @@ district_hab_cultural = {
 				}
 			}
 			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 10
+			free_amenities < 2
+			has_global_flag = str_enabled_flag
 		}
 	}
 	ai_resource_production = {
@@ -618,12 +685,18 @@ district_hab_science = {
 			NOT = {
 				has_global_flag = gai_enabled_flag
 			}
+			NOT = {
+				has_global_flag = str_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 0
 			free_jobs > 0
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
@@ -737,6 +810,9 @@ district_hab_commercial = {
 			NOT = {
 				has_global_flag = gai_enabled_flag
 			}
+			NOT = {
+				has_global_flag = str_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 5
@@ -744,12 +820,18 @@ district_hab_commercial = {
 			NOT = {
 				has_global_flag = gai_enabled_flag
 			}
+			NOT = {
+				has_global_flag = str_enabled_flag
+			}
 		}
 		modifier = {
 			factor = 0
 			free_jobs > 0
 			NOT = {
 				has_global_flag = gai_enabled_flag
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {

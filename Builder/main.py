@@ -17,7 +17,7 @@ workshop_folder = r'D:\Game Libraries\Windows - Steam\steamapps\workshop\content
 mods_folder = r'C:\Users\wdboer\Documents\Paradox Interactive\Stellaris\mod'
 
 collection_url = 'https://steamcommunity.com/workshop/filedetails/?id=1642766902'
-ai_mod_count = 1
+ai_mod_count = 2
 wip_mod_count = 2
 
 other_build_restrictions = [
