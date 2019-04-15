@@ -353,6 +353,11 @@ district_city = {
 		}
 		modifier = {
 			weight = 1
+			free_housing < -1
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1
 			num_free_districts = {
 				type = district_mining
 				value = 0
@@ -721,6 +726,11 @@ district_hive = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
+			weight = 1
+			free_housing < -1
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
 			factor = 0
 			NOT = {
 				has_planet_flag = gai_arc
@@ -1073,6 +1083,11 @@ district_nexus = {
 				type = district_farming
 				value = 0
 			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1
+			free_housing < -1
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
