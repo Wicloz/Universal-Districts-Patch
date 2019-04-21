@@ -163,7 +163,7 @@ district_arcology_housing = {
 			}
 		}
 		modifier = {
-			weight = 5
+			weight = 500000
 			free_housing < 10
 			has_global_flag = gai_enabled_flag
 		}
@@ -307,7 +307,7 @@ district_arcology_arms_industry = {
 			}
 		}
 		modifier = {
-			weight = 500
+			weight = 650000
 			owner = {
 				has_monthly_income = {
 					resource = alloys
@@ -451,7 +451,7 @@ district_arcology_civilian_industry = {
 			}
 		}
 		modifier = {
-			weight = 500
+			weight = 750000
 			owner = {
 				has_monthly_income = {
 					resource = consumer_goods
@@ -465,7 +465,7 @@ district_arcology_civilian_industry = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 50000
+			weight = 850000
 			owner = {
 				has_monthly_income = {
 					resource = consumer_goods
@@ -628,7 +628,7 @@ district_arcology_leisure = {
 			}
 		}
 		modifier = {
-			weight = 1000
+			weight = 400000
 			owner = {
 				has_monthly_income = {
 					resource = consumer_goods

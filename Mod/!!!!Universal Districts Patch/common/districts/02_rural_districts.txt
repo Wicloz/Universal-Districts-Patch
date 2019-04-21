@@ -133,6 +133,18 @@ district_generator = {
 		NOT = {
 			has_modifier = resort_colony
 		}
+		IF = {
+			limit = {
+				exists = owner
+				owner = {
+					is_ai = yes
+					NOT = {
+						is_machine_empire = yes
+					}
+				}
+			}
+			years_passed > 2
+		}
 		OR = {
 			free_jobs < 2
 			controller = {
@@ -142,26 +154,23 @@ district_generator = {
 				is_ai = no
 			}
 			AND = {
-				free_jobs < 3
+				free_jobs < 4
 				exists = owner
 				owner = {
 					has_monthly_income = {
 						resource = energy
-						value < 20
+						value < 0
+					}
+					has_monthly_income = {
+						resource = food
+						value > -1
 					}
 				}
 			}
 			AND = {
-				num_free_districts = {
-					type = district_farming
-					value = 0
-				}
-				num_free_districts = {
-					type = district_mining
-					value = 0
-				}
+				gai_good_energy = yes
+				free_jobs < 3
 			}
-			gai_good_energy = yes
 			num_free_districts = {
 				type = district_generator
 				value = 0
@@ -557,7 +566,7 @@ district_generator = {
 	ai_weight = {
 		weight = 0
 		modifier = {
-			weight = 3
+			weight = 10
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
@@ -662,7 +671,19 @@ district_generator = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			factor = 0.002
+			weight = 250000
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			free_jobs = 0
+			num_free_districts = {
+				type = district_mining
+				value = 0
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 0.0003
 			NOR = {
 				any_owned_pop = {
 					has_job = clerk
@@ -672,8 +693,10 @@ district_generator = {
 					owner = {
 						is_gestalt = yes
 					}
-					free_amenities > 10
-					free_jobs < 6
+					OR = {
+						free_amenities > 12
+						free_jobs < 4
+					}
 				}
 			}
 			has_global_flag = str_enabled_flag
@@ -745,37 +768,37 @@ district_generator = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
+			factor = 3
+			owner = {
+				resource_stockpile_compare = {
+					resource = energy
+					value < 50
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 3
+			owner = {
+				resource_stockpile_compare = {
+					resource = energy
+					value < 100
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
 			factor = 4
 			owner = {
 				resource_income_compare = {
 					resource = energy
-					value < -150
+					value < -60
 				}
 			}
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
 			factor = 3
-			owner = {
-				resource_income_compare = {
-					resource = energy
-					value < -100
-				}
-			}
-			has_global_flag = str_enabled_flag
-		}
-		modifier = {
-			factor = 3
-			owner = {
-				resource_income_compare = {
-					resource = energy
-					value < -75
-				}
-			}
-			has_global_flag = str_enabled_flag
-		}
-		modifier = {
-			factor = 2
 			owner = {
 				resource_income_compare = {
 					resource = energy
@@ -785,7 +808,7 @@ district_generator = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 2
+			factor = 3
 			owner = {
 				resource_income_compare = {
 					resource = energy
@@ -795,11 +818,31 @@ district_generator = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 1.5
+			factor = 2
+			owner = {
+				resource_income_compare = {
+					resource = energy
+					value < -20
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 2
 			owner = {
 				resource_income_compare = {
 					resource = energy
 					value < -10
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 1.5
+			owner = {
+				resource_income_compare = {
+					resource = energy
+					value < -5
 				}
 			}
 			has_global_flag = str_enabled_flag
@@ -815,7 +858,7 @@ district_generator = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.85
+			factor = 0.8
 			owner = {
 				resource_income_compare = {
 					resource = energy
@@ -825,7 +868,7 @@ district_generator = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.65
+			factor = 0.75
 			owner = {
 				resource_income_compare = {
 					resource = energy
@@ -835,12 +878,35 @@ district_generator = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.4
+			factor = 0.7
 			owner = {
 				resource_income_compare = {
 					resource = energy
 					value > 120
 				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 3
+			NOT = {
+				owner = {
+					has_country_flag = acceptable_energy_economy
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 0.5
+			owner = {
+				has_country_flag = fine_energy_economy
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				has_country_flag = good_energy_economy
 			}
 			has_global_flag = str_enabled_flag
 		}
@@ -985,8 +1051,30 @@ district_mining = {
 		NOT = {
 			has_modifier = resort_colony
 		}
+		IF = {
+			limit = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+			}
+			years_passed > 2
+		}
 		OR = {
-			gai_good_minerals = yes
+			AND = {
+				gai_good_minerals = yes
+				free_jobs < 3
+			}
+			AND = {
+				free_jobs < 4
+				exists = owner
+				owner = {
+					has_monthly_income = {
+						resource = minerals
+						value < 40
+					}
+				}
+			}
 			num_free_districts = {
 				type = district_mining
 				value = 0
@@ -998,26 +1086,6 @@ district_mining = {
 			}
 			owner = {
 				is_ai = no
-			}
-			AND = {
-				free_jobs < 3
-				exists = owner
-				owner = {
-					has_monthly_income = {
-						resource = minerals
-						value < 40
-					}
-				}
-			}
-			AND = {
-				num_free_districts = {
-					type = district_farming
-					value = 0
-				}
-				num_free_districts = {
-					type = district_generator
-					value = 0
-				}
 			}
 			any_owned_pop = {
 				is_unemployed = yes
@@ -1453,7 +1521,7 @@ district_mining = {
 	ai_weight = {
 		weight = 0
 		modifier = {
-			weight = 3
+			weight = 14
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
@@ -1539,25 +1607,32 @@ district_mining = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
+			weight = 250000
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			OR = {
+				free_jobs = 0
+				any_owned_pop = {
+					is_unemployed = yes
+					NOT = {
+						has_citizenship_type = {
+							type = citizenship_organic_trophy
+						}
+					}
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
 			factor = 2
 			owner = {
 				is_machine_empire = yes
 			}
-			has_global_flag = str_enabled_flag
-		}
-		modifier = {
-			factor = 1.2
-			years_passed > 30
-			has_global_flag = str_enabled_flag
-		}
-		modifier = {
-			factor = 1.3
-			years_passed > 50
-			has_global_flag = str_enabled_flag
-		}
-		modifier = {
-			factor = 1.5
-			years_passed > 100
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
@@ -1591,7 +1666,7 @@ district_mining = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.75
 			owner = {
 				resource_stockpile_compare = {
 					resource = minerals
@@ -1652,6 +1727,43 @@ district_mining = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
+			factor = 3
+			owner = {
+				has_deficit = minerals
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 2
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value < 100
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 2
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value < 50
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 4
+			owner = {
+				resource_income_compare = {
+					resource = minerals
+					value < 20.0
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
 			factor = 4
 			owner = {
 				resource_income_compare = {
@@ -1692,7 +1804,7 @@ district_mining = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.85
+			factor = 0.9
 			owner = {
 				resource_income_compare = {
 					resource = minerals
@@ -1702,7 +1814,7 @@ district_mining = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.85
+			factor = 0.9
 			owner = {
 				resource_income_compare = {
 					resource = minerals
@@ -1712,7 +1824,7 @@ district_mining = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.85
+			factor = 0.9
 			owner = {
 				resource_income_compare = {
 					resource = minerals
@@ -1722,7 +1834,7 @@ district_mining = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.85
+			factor = 0.9
 			owner = {
 				resource_income_compare = {
 					resource = minerals
@@ -1732,7 +1844,7 @@ district_mining = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.9
 			owner = {
 				resource_income_compare = {
 					resource = minerals
@@ -1742,12 +1854,35 @@ district_mining = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.25
+			factor = 0.9
 			owner = {
 				resource_income_compare = {
 					resource = minerals
-					value < 500.0
+					value > 500.0
 				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 3
+			NOT = {
+				owner = {
+					has_country_flag = acceptable_mineral_economy
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 0.5
+			owner = {
+				has_country_flag = fine_mineral_economy
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				has_country_flag = good_mineral_economy
 			}
 			has_global_flag = str_enabled_flag
 		}
@@ -1773,7 +1908,7 @@ district_mining = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.002
+			factor = 0.0003
 			NOR = {
 				any_owned_pop = {
 					OR = {
@@ -1789,9 +1924,19 @@ district_mining = {
 					owner = {
 						is_gestalt = yes
 					}
-					free_amenities > 10
-					free_jobs < 6
+					OR = {
+						free_amenities > 12
+						free_jobs < 4
+					}
 				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 50
+			any_owned_pop = {
+				is_shackled_robot = yes
+				is_unemployed = yes
 			}
 			has_global_flag = str_enabled_flag
 		}
@@ -1938,13 +2083,27 @@ district_farming = {
 		}
 		OR = {
 			free_jobs < 2
+			years_passed < 2
 			controller = {
 				is_ai = no
 			}
 			owner = {
 				is_ai = no
 			}
-			gai_good_food = yes
+			AND = {
+				free_jobs < 3
+				gai_good_food = yes
+			}
+			AND = {
+				free_jobs < 4
+				exists = owner
+				owner = {
+					has_monthly_income = {
+						resource = food
+						value < 0
+					}
+				}
+			}
 			free_district_slots = 0
 			num_free_districts = {
 				type = district_farming
@@ -1960,25 +2119,6 @@ district_farming = {
 				NOR = {
 					is_pop_category = specialist
 					is_pop_category = ruler
-				}
-			}
-			AND = {
-				free_jobs < 3
-				owner = {
-					has_monthly_income = {
-						resource = food
-						value < 0
-					}
-				}
-			}
-			AND = {
-				num_free_districts = {
-					type = district_mining
-					value = 0
-				}
-				num_free_districts = {
-					type = district_generator
-					value = 0
 				}
 			}
 		}
@@ -2323,7 +2463,7 @@ district_farming = {
 	ai_weight = {
 		weight = 0
 		modifier = {
-			weight = 3
+			weight = 14
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
@@ -2452,20 +2592,37 @@ district_farming = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			factor = 2
+			weight = 250000
+			num_free_districts = {
+				type = district_mining
+				value = 0
+			}
+			num_free_districts = {
+				type = district_generator
+				value = 0
+			}
+			OR = {
+				free_jobs = 0
+				any_owned_pop = {
+					is_unemployed = yes
+					NOT = {
+						has_citizenship_type = {
+							type = citizenship_organic_trophy
+						}
+					}
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 2.5
 			owner = {
 				is_hive_empire = yes
 			}
-			has_global_flag = str_enabled_flag
-		}
-		modifier = {
-			factor = 2
-			years_passed > 40
-			has_global_flag = str_enabled_flag
-		}
-		modifier = {
-			factor = 2
-			years_passed > 100
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
@@ -2506,7 +2663,7 @@ district_farming = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.002
+			factor = 0.0003
 			NOR = {
 				any_owned_pop = {
 					OR = {
@@ -2522,9 +2679,19 @@ district_farming = {
 					owner = {
 						is_gestalt = yes
 					}
-					free_amenities > 10
-					free_jobs < 6
+					OR = {
+						free_amenities > 12
+						free_jobs < 4
+					}
 				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 50
+			any_owned_pop = {
+				is_shackled_robot = yes
+				is_unemployed = yes
 			}
 			has_global_flag = str_enabled_flag
 		}
@@ -2546,6 +2713,28 @@ district_farming = {
 				resource_stockpile_compare = {
 					resource = food
 					value < 100
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 1.5
+			years_passed > 10
+			owner = {
+				resource_stockpile_compare = {
+					resource = food
+					value < 200
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 1.5
+			years_passed > 10
+			owner = {
+				resource_stockpile_compare = {
+					resource = food
+					value < 300
 				}
 			}
 			has_global_flag = str_enabled_flag
@@ -2581,9 +2770,19 @@ district_farming = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 5
+			factor = 3
 			owner = {
 				has_deficit = food
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 3
+			owner = {
+				resource_stockpile_compare = {
+					resource = food
+					value < 100
+				}
 			}
 			has_global_flag = str_enabled_flag
 		}
@@ -2638,7 +2837,7 @@ district_farming = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.8
+			factor = 0.9
 			owner = {
 				resource_income_compare = {
 					resource = food
@@ -2648,7 +2847,7 @@ district_farming = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.8
+			factor = 0.9
 			owner = {
 				resource_income_compare = {
 					resource = food
@@ -2678,11 +2877,62 @@ district_farming = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
+			factor = 0.8
+			owner = {
+				resource_income_compare = {
+					resource = food
+					value > 60
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 0.8
+			owner = {
+				resource_income_compare = {
+					resource = food
+					value > 80
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
 			factor = 0.75
 			owner = {
 				resource_income_compare = {
 					resource = food
-					value > 50
+					value > 100
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 0.6
+			owner = {
+				resource_income_compare = {
+					resource = food
+					value > 150
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 3
+			owner = {
+				is_hive_empire = yes
+				years_passed < 30
+				resource_income_compare = {
+					resource = food
+					value < 30
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 3
+			NOT = {
+				owner = {
+					has_country_flag = acceptable_food_economy
 				}
 			}
 			has_global_flag = str_enabled_flag
@@ -2690,9 +2940,24 @@ district_farming = {
 		modifier = {
 			factor = 0.5
 			owner = {
+				has_country_flag = fine_food_economy
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				has_country_flag = good_food_economy
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 0.7
+			owner = {
+				is_machine_empire = yes
 				resource_income_compare = {
 					resource = food
-					value > 100
+					value > 20
 				}
 			}
 			has_global_flag = str_enabled_flag
@@ -2758,6 +3023,17 @@ district_generator_uncapped = {
 	allow = {
 		NOT = {
 			has_modifier = resort_colony
+		}
+		OR = {
+			free_jobs < 2
+			controller = {
+				is_ai = no
+			}
+			owner = {
+				is_ai = no
+			}
+			gai_good_energy = yes
+			free_district_slots = 0
 		}
 	}
 	conversion_ratio = 1
@@ -2965,7 +3241,7 @@ district_generator_uncapped = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			factor = 0.002
+			factor = 0.001
 			NOR = {
 				any_owned_pop = {
 					has_job = clerk
@@ -3199,6 +3475,17 @@ district_mining_uncapped = {
 	allow = {
 		NOT = {
 			has_modifier = resort_colony
+		}
+		OR = {
+			free_jobs < 2
+			controller = {
+				is_ai = no
+			}
+			owner = {
+				is_ai = no
+			}
+			gai_good_minerals = yes
+			free_district_slots = 0
 		}
 	}
 	conversion_ratio = 1
@@ -3724,7 +4011,7 @@ district_mining_uncapped = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.002
+			factor = 0.001
 			NOR = {
 				any_owned_pop = {
 					OR = {
@@ -3798,6 +4085,17 @@ district_farming_uncapped = {
 	allow = {
 		NOT = {
 			has_modifier = resort_colony
+		}
+		OR = {
+			free_jobs < 2
+			controller = {
+				is_ai = no
+			}
+			owner = {
+				is_ai = no
+			}
+			gai_good_food = yes
+			free_district_slots = 0
 		}
 	}
 	conversion_ratio = 1
@@ -4079,7 +4377,7 @@ district_farming_uncapped = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.002
+			factor = 0.001
 			NOR = {
 				any_owned_pop = {
 					OR = {
