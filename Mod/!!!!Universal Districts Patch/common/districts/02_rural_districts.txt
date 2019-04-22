@@ -134,8 +134,11 @@ district_generator = {
 			has_modifier = resort_colony
 		}
 		OR = {
-			owner = {
-				is_ai = no
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = no
+				}
 			}
 			AND = {
 				exists = owner
@@ -1050,8 +1053,11 @@ district_mining = {
 			has_modifier = resort_colony
 		}
 		OR = {
-			owner = {
-				is_ai = no
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = no
+				}
 			}
 			owner = {
 				has_monthly_income = {

@@ -487,6 +487,12 @@ district_hive = {
 				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
 			}
 		}
+		AND = {
+			exists = from
+			from = {
+				is_hive_empire = yes
+			}
+		}
 	}
 	potential = {
 		exists = owner
@@ -769,6 +775,12 @@ district_nexus = {
 			OR = {
 				has_global_flag = ringworld_districts_v2
 				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
+		}
+		AND = {
+			exists = from
+			from = {
+				is_machine_empire = yes
 			}
 		}
 	}
