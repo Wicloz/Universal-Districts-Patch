@@ -18,7 +18,7 @@ mods_folder = r'C:\Users\wdboer\Documents\Paradox Interactive\Stellaris\mod'
 
 collection_url = 'https://steamcommunity.com/workshop/filedetails/?id=1642766902'
 ai_mod_count = 2
-working_mod_count = 16
+working_mod_count = 17
 
 other_build_restrictions = [
     {'NOT': [{'is_planet_class': ['= pc_dyson_swarm']}]},
