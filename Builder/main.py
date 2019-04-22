@@ -107,10 +107,10 @@ def parse_file(path):
             text += line + '\n'
         tokens = ['{'] + [item for item in shlex.split(text) if len(item.strip()) > 0] + ['}']
         tokens = list(reversed(tokens))
-        return parse_object(tokens)
+        return parse_object(tokens, {})
 
 
-def parse_object(tokens):
+def parse_object(tokens, variables):
     token = tokens.pop()
     if token is not '{':
         return token
@@ -127,7 +127,7 @@ def parse_object(tokens):
             tokens.append(sign)
             value = None
         else:
-            value = parse_object(tokens)
+            value = parse_object(tokens, variables.copy())
             if type(value) is str:
                 value = sign + ' ' + value
         if (key == 'OR' or key == 'AND') and len(value.keys()) == 1 and len(value[list(value.keys())[0]]) <= 1:
