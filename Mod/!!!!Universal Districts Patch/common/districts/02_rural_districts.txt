@@ -133,17 +133,23 @@ district_generator = {
 		NOT = {
 			has_modifier = resort_colony
 		}
-		IF = {
-			limit = {
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			AND = {
 				exists = owner
+				num_free_districts = {
+					type = district_farming
+					value > 0
+				}
 				owner = {
-					is_ai = yes
-					NOT = {
-						is_machine_empire = yes
+					has_monthly_income = {
+						resource = food
+						value > -1
 					}
 				}
 			}
-			years_passed > 2
 		}
 		OR = {
 			free_jobs < 2
@@ -176,26 +182,18 @@ district_generator = {
 				value = 0
 			}
 			free_district_slots = 0
-			any_owned_pop = {
-				is_unemployed = yes
-				NOT = {
-					has_citizenship_type = {
-						type = citizenship_organic_trophy
-					}
-				}
-				NOR = {
-					is_pop_category = specialist
-					is_pop_category = ruler
-					AND = {
-						has_trait = trait_mechanical
-						NOT = {
-							owner = {
-								has_technology = tech_droid_workers
-							}
-						}
+		}
+		IF = {
+			limit = {
+				exists = owner
+				owner = {
+					is_ai = yes
+					NOT = {
+						is_machine_empire = yes
 					}
 				}
 			}
+			years_passed > 2
 		}
 	}
 	conversion_ratio = 1
@@ -1051,14 +1049,16 @@ district_mining = {
 		NOT = {
 			has_modifier = resort_colony
 		}
-		IF = {
-			limit = {
-				exists = owner
-				owner = {
-					is_ai = yes
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value > -1
 				}
 			}
-			years_passed > 2
 		}
 		OR = {
 			AND = {
@@ -1099,6 +1099,15 @@ district_mining = {
 					is_pop_category = ruler
 				}
 			}
+		}
+		IF = {
+			limit = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+			}
+			years_passed > 2
 		}
 	}
 	conversion_ratio = 1
@@ -1599,7 +1608,7 @@ district_mining = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			factor = 2
+			factor = 1.75
 			OR = {
 				gai_work_minerals = yes
 				gai_work_minerals_goods = yes
@@ -2083,7 +2092,6 @@ district_farming = {
 		}
 		OR = {
 			free_jobs < 2
-			years_passed < 2
 			controller = {
 				is_ai = no
 			}
@@ -2582,7 +2590,7 @@ district_farming = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			factor = 1.5
+			factor = 2
 			owner = {
 				has_monthly_income = {
 					resource = food

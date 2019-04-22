@@ -374,7 +374,7 @@ district_city = {
 				owner = {
 					has_monthly_income = {
 						resource = energy
-						value > 149
+						value > 150
 					}
 				}
 			}
@@ -382,7 +382,7 @@ district_city = {
 				owner = {
 					has_monthly_income = {
 						resource = food
-						value > 74
+						value > 150
 					}
 				}
 				owner = {
@@ -672,6 +672,9 @@ district_hive = {
 				type = district_mining
 				value = 0
 			}
+			NOT = {
+				is_planet_class = pc_hive
+			}
 			OR = {
 				num_free_districts = {
 					type = district_generator
@@ -680,7 +683,7 @@ district_hive = {
 				owner = {
 					has_monthly_income = {
 						resource = energy
-						value > 149
+						value > 150
 					}
 				}
 			}
@@ -688,7 +691,7 @@ district_hive = {
 				owner = {
 					has_monthly_income = {
 						resource = food
-						value > 74
+						value > 150
 					}
 				}
 				num_free_districts = {
@@ -952,6 +955,9 @@ district_nexus = {
 		}
 		modifier = {
 			weight = 1000000
+			NOT = {
+				is_planet_class = pc_machine
+			}
 			num_free_districts = {
 				type = district_mining
 				value = 0
@@ -964,7 +970,7 @@ district_nexus = {
 				owner = {
 					has_monthly_income = {
 						resource = energy
-						value > 149
+						value > 150
 					}
 				}
 			}
@@ -972,7 +978,7 @@ district_nexus = {
 				owner = {
 					has_monthly_income = {
 						resource = food
-						value > 74
+						value > 150
 					}
 				}
 				owner = {

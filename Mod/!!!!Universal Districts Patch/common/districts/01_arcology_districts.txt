@@ -308,6 +308,7 @@ district_arcology_arms_industry = {
 		}
 		modifier = {
 			weight = 650000
+			free_jobs < 6
 			owner = {
 				has_monthly_income = {
 					resource = alloys
@@ -452,6 +453,7 @@ district_arcology_civilian_industry = {
 		}
 		modifier = {
 			weight = 750000
+			free_jobs < 6
 			owner = {
 				has_monthly_income = {
 					resource = consumer_goods
@@ -466,6 +468,7 @@ district_arcology_civilian_industry = {
 		}
 		modifier = {
 			weight = 850000
+			free_jobs < 6
 			owner = {
 				has_monthly_income = {
 					resource = consumer_goods
@@ -629,6 +632,7 @@ district_arcology_leisure = {
 		}
 		modifier = {
 			weight = 400000
+			free_jobs < 6
 			owner = {
 				has_monthly_income = {
 					resource = consumer_goods
