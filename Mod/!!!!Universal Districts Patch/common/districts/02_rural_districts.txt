@@ -133,15 +133,14 @@ district_generator = {
 		NOT = {
 			has_modifier = resort_colony
 		}
-		OR = {
-			AND = {
+		IF = {
+			limit = {
 				exists = owner
 				owner = {
-					is_ai = no
+					is_ai = yes
 				}
 			}
 			AND = {
-				exists = owner
 				num_free_districts = {
 					type = district_farming
 					value > 0
@@ -153,50 +152,39 @@ district_generator = {
 					}
 				}
 			}
-		}
-		OR = {
-			free_jobs < 2
-			controller = {
-				is_ai = no
-			}
-			owner = {
-				is_ai = no
-			}
-			AND = {
-				free_jobs < 4
-				exists = owner
-				owner = {
-					has_monthly_income = {
-						resource = energy
-						value < 0
-					}
-					has_monthly_income = {
-						resource = food
-						value > -1
-					}
-				}
-			}
-			AND = {
-				gai_good_energy = yes
-				free_jobs < 3
-			}
-			num_free_districts = {
-				type = district_generator
-				value = 0
-			}
-			free_district_slots = 0
-		}
-		IF = {
-			limit = {
-				exists = owner
-				owner = {
-					is_ai = yes
-					NOT = {
-						is_machine_empire = yes
-					}
-				}
-			}
 			years_passed > 2
+			OR = {
+				free_jobs < 2
+				controller = {
+					is_ai = no
+				}
+				owner = {
+					is_ai = no
+				}
+				AND = {
+					free_jobs < 4
+					exists = owner
+					owner = {
+						has_monthly_income = {
+							resource = energy
+							value < 0
+						}
+						has_monthly_income = {
+							resource = food
+							value > -1
+						}
+					}
+				}
+				AND = {
+					gai_good_energy = yes
+					free_jobs < 3
+				}
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				free_district_slots = 0
+			}
 		}
 	}
 	conversion_ratio = 1
@@ -1052,11 +1040,11 @@ district_mining = {
 		NOT = {
 			has_modifier = resort_colony
 		}
-		OR = {
-			AND = {
+		IF = {
+			limit = {
 				exists = owner
 				owner = {
-					is_ai = no
+					is_ai = yes
 				}
 			}
 			owner = {
@@ -1065,55 +1053,44 @@ district_mining = {
 					value > -1
 				}
 			}
-		}
-		OR = {
-			AND = {
-				gai_good_minerals = yes
-				free_jobs < 3
-			}
-			AND = {
-				free_jobs < 4
-				exists = owner
-				owner = {
-					has_monthly_income = {
-						resource = minerals
-						value < 40
-					}
-				}
-			}
-			num_free_districts = {
-				type = district_mining
-				value = 0
-			}
-			free_district_slots = 0
-			free_jobs < 2
-			controller = {
-				is_ai = no
-			}
-			owner = {
-				is_ai = no
-			}
-			any_owned_pop = {
-				is_unemployed = yes
-				NOT = {
-					has_citizenship_type = {
-						type = citizenship_organic_trophy
-					}
-				}
-				NOR = {
-					is_pop_category = specialist
-					is_pop_category = ruler
-				}
-			}
-		}
-		IF = {
-			limit = {
-				exists = owner
-				owner = {
-					is_ai = yes
-				}
-			}
 			years_passed > 2
+			OR = {
+				AND = {
+					gai_good_minerals = yes
+					free_jobs < 3
+				}
+				AND = {
+					free_jobs < 4
+					exists = owner
+					owner = {
+						has_monthly_income = {
+							resource = minerals
+							value < 40
+						}
+					}
+				}
+				num_free_districts = {
+					type = district_mining
+					value = 0
+				}
+				free_district_slots = 0
+				free_jobs < 2
+				controller = {
+					is_ai = no
+				}
+				any_owned_pop = {
+					is_unemployed = yes
+					NOT = {
+						has_citizenship_type = {
+							type = citizenship_organic_trophy
+						}
+					}
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
+				}
+			}
 		}
 	}
 	conversion_ratio = 1
@@ -2096,43 +2073,45 @@ district_farming = {
 		NOT = {
 			has_modifier = resort_colony
 		}
-		OR = {
-			free_jobs < 2
-			controller = {
-				is_ai = no
-			}
-			owner = {
-				is_ai = no
-			}
-			AND = {
-				free_jobs < 3
-				gai_good_food = yes
-			}
-			AND = {
-				free_jobs < 4
+		IF = {
+			limit = {
 				exists = owner
 				owner = {
-					has_monthly_income = {
-						resource = food
-						value < 0
-					}
+					is_ai = yes
 				}
 			}
-			free_district_slots = 0
-			num_free_districts = {
-				type = district_farming
-				value = 0
-			}
-			any_owned_pop = {
-				is_unemployed = yes
-				NOT = {
-					has_citizenship_type = {
-						type = citizenship_organic_trophy
+			OR = {
+				free_jobs < 2
+				AND = {
+					free_jobs < 3
+					gai_good_food = yes
+				}
+				AND = {
+					free_jobs < 4
+					exists = owner
+					owner = {
+						has_monthly_income = {
+							resource = food
+							value < 0
+						}
 					}
 				}
-				NOR = {
-					is_pop_category = specialist
-					is_pop_category = ruler
+				free_district_slots = 0
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
+				any_owned_pop = {
+					is_unemployed = yes
+					NOT = {
+						has_citizenship_type = {
+							type = citizenship_organic_trophy
+						}
+					}
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
 				}
 			}
 		}
@@ -3038,6 +3017,8 @@ district_generator_uncapped = {
 		NOT = {
 			has_modifier = resort_colony
 		}
+		exists = owner
+		exists = controller
 		OR = {
 			free_jobs < 2
 			controller = {
@@ -3490,6 +3471,8 @@ district_mining_uncapped = {
 		NOT = {
 			has_modifier = resort_colony
 		}
+		exists = owner
+		exists = controller
 		OR = {
 			free_jobs < 2
 			controller = {
@@ -4100,6 +4083,8 @@ district_farming_uncapped = {
 		NOT = {
 			has_modifier = resort_colony
 		}
+		exists = owner
+		exists = controller
 		OR = {
 			free_jobs < 2
 			controller = {
