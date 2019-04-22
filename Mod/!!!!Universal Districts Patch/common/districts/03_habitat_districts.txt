@@ -1,5 +1,3 @@
-@hab_cost = 500
-@hab_maintenance = 2
 district_hab_housing = {
 	base_buildtime = 240
 	is_capped_by_modifier = no
@@ -44,10 +42,10 @@ district_hab_housing = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @hab_cost
+			minerals = 500
 		}
 		upkeep = {
-			energy = @hab_maintenance
+			energy = 2
 		}
 	}
 	triggered_planet_modifier = {
@@ -263,10 +261,10 @@ district_hab_energy = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @hab_cost
+			minerals = 500
 		}
 		upkeep = {
-			energy = @hab_maintenance
+			energy = 2
 		}
 	}
 	triggered_planet_modifier = {
@@ -460,10 +458,10 @@ district_hab_cultural = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @hab_cost
+			minerals = 500
 		}
 		upkeep = {
-			energy = @hab_maintenance
+			energy = 2
 		}
 	}
 	planet_modifier = {
@@ -612,10 +610,10 @@ district_hab_science = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @hab_cost
+			minerals = 500
 		}
 		upkeep = {
-			energy = @hab_maintenance
+			energy = 2
 		}
 	}
 	triggered_planet_modifier = {
@@ -791,10 +789,10 @@ district_hab_commercial = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @hab_cost
+			minerals = 500
 		}
 		upkeep = {
-			energy = @hab_maintenance
+			energy = 2
 		}
 	}
 	planet_modifier = {

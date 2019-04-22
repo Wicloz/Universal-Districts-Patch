@@ -15,10 +15,10 @@ district_hab_production = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @hab_cost
+			minerals = 500
 		}
 		upkeep = {
-			energy = @hab_maintenance
+			energy = 2
 		}
 	}
 	triggered_planet_modifier = {
@@ -90,10 +90,10 @@ district_hab_thinktank = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @hab_cost
+			minerals = 500
 		}
 		upkeep = {
-			energy = @hab_maintenance
+			energy = 2
 		}
 	}
 	triggered_planet_modifier = {
@@ -176,10 +176,10 @@ district_hab_industry = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @hab_cost
+			minerals = 500
 		}
 		upkeep = {
-			energy = @hab_maintenance
+			energy = 2
 		}
 	}
 	triggered_planet_modifier = {

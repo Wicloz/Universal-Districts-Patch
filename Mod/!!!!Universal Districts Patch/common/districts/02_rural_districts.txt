@@ -1,5 +1,3 @@
-@base_cost = 300
-@city_cost = 500
 district_generator = {
 	base_buildtime = 240
 	min_for_deposits_on_planet = 0
@@ -194,7 +192,7 @@ district_generator = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @base_cost
+			minerals = 300
 		}
 		upkeep = {
 			energy = 1
@@ -1100,7 +1098,7 @@ district_mining = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @base_cost
+			minerals = 300
 		}
 		upkeep = {
 			energy = 1
@@ -2123,7 +2121,7 @@ district_farming = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @base_cost
+			minerals = 300
 		}
 		upkeep = {
 			energy = 1
@@ -3038,7 +3036,7 @@ district_generator_uncapped = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @base_cost
+			minerals = 300
 		}
 		upkeep = {
 			energy = 1
@@ -3492,7 +3490,7 @@ district_mining_uncapped = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @base_cost
+			minerals = 300
 		}
 		upkeep = {
 			energy = 1
@@ -4104,7 +4102,7 @@ district_farming_uncapped = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @base_cost
+			minerals = 300
 		}
 		upkeep = {
 			energy = 1

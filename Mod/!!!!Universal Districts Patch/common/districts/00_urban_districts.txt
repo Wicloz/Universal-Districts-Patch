@@ -1,5 +1,3 @@
-@base_cost = 300
-@city_cost = 500
 district_city = {
 	base_buildtime = 480
 	is_capped_by_modifier = no
@@ -121,7 +119,7 @@ district_city = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @city_cost
+			minerals = 500
 		}
 		upkeep = {
 			energy = 2
@@ -554,7 +552,7 @@ district_hive = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @city_cost
+			minerals = 500
 		}
 		upkeep = {
 			energy = 2
@@ -844,7 +842,7 @@ district_nexus = {
 	resources = {
 		category = planet_districts
 		cost = {
-			minerals = @city_cost
+			minerals = 500
 		}
 		upkeep = {
 			energy = 2

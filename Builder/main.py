@@ -128,15 +128,20 @@ def parse_object(tokens, variables):
             value = None
         else:
             value = parse_object(tokens, variables.copy())
-            if type(value) is str:
+            if type(value) is str and not key.startswith('@'):
+                if value in variables:
+                    value = variables[value]
                 value = sign + ' ' + value
         if (key == 'OR' or key == 'AND') and len(value.keys()) == 1 and len(value[list(value.keys())[0]]) <= 1:
             key = list(value.keys())[0]
             value = value[key][0] if len(value[key]) == 1 else None
-        if key not in data.keys():
-            data[key] = list()
-        if value is not None:
-            data[key].append(value)
+        if key.startswith('@'):
+            variables[key] = value
+        else:
+            if key not in data.keys():
+                data[key] = list()
+            if value is not None:
+                data[key].append(value)
 
 
 def write_data(data, path):
