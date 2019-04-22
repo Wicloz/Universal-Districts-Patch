@@ -198,7 +198,7 @@ if __name__ == '__main__':
         link = item.find('div', 'collectionItemDetails').find('a')
         mod_collection.append([
             link.get('href').rsplit('=', 1)[-1],
-            link.text.strip('!~').replace('PJs :: ', '')
+            link.text.strip('!~').split(' :: ')[-1]
                 .split('2')[0].split(' : ')[0].split('(')[0].split('-')[0].split('[')[0].split(' for ')[0]
                 .strip(),
             None, False,
