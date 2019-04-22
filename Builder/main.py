@@ -18,7 +18,7 @@ mods_folder = r'C:\Users\wdboer\Documents\Paradox Interactive\Stellaris\mod'
 
 collection_url = 'https://steamcommunity.com/workshop/filedetails/?id=1642766902'
 ai_mod_count = 2
-wip_mod_count = 2
+working_mod_count = 16
 
 other_build_restrictions = [
     {'NOT': [{'is_planet_class': ['= pc_dyson_swarm']}]},
@@ -194,7 +194,7 @@ if __name__ == '__main__':
     ####################################
 
     soup = BeautifulSoup(requests.get(collection_url).text, 'html.parser')
-    for item in soup.find_all('div', 'collectionItem')[1:-wip_mod_count]:
+    for item in soup.find_all('div', 'collectionItem')[1:1+ai_mod_count+working_mod_count]:
         link = item.find('div', 'collectionItemDetails').find('a')
         mod_collection.append([
             link.get('href').rsplit('=', 1)[-1],
