@@ -1003,7 +1003,17 @@ district_nexus = {
 					}
 				}
 				owner = {
+					has_monthly_income = {
+						resource = food
+						value > 20
+					}
+					has_country_flag = gai_machines_have_organics
+				}
+				owner = {
 					gai_uses_food = no
+					NOT = {
+						has_country_flag = gai_machines_have_organics
+					}
 				}
 				num_free_districts = {
 					type = district_farming
@@ -1019,7 +1029,17 @@ district_nexus = {
 		}
 		modifier = {
 			factor = 20
-			free_housing < 1
+			free_housing < 2
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 200
+			has_planet_flag = ecumen
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 20
+			free_housing < 0
 			has_global_flag = str_enabled_flag
 		}
 	}
