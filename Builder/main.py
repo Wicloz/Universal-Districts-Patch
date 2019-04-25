@@ -218,15 +218,13 @@ if __name__ == '__main__':
         parsed = parse_file(stellaris_folder + '/common/districts/' + file_name)
         district_output_files.append((file_name, parsed))
         for district_name in parsed:
-            if not district_name.startswith('@'):
-                districts_overwritten.append(district_name)
+            districts_overwritten.append(district_name)
 
     for output_file in district_output_files:
         for district_name, district in output_file[1].items():
-            if not district_name.startswith('@'):
-                for key in ['triggered_planet_modifier', 'triggered_desc', 'ai_resource_production']:
-                    for modifier in district[0].get_list(key):
-                        modifier.ensure({'vanilla': [{'NOR': [{}]}]})
+            for key in ['triggered_planet_modifier', 'triggered_desc', 'ai_resource_production']:
+                for modifier in district[0].get_list(key):
+                    modifier.ensure({'vanilla': [{'NOR': [{}]}]})
 
     district_files_overwritten.append('udp_extra_districts.txt')
     district_output_files.append(('udp_extra_districts.txt', StellarisDict()))
@@ -237,10 +235,9 @@ if __name__ == '__main__':
 
     for output_file in district_output_files:
         for district_name, district in output_file[1].items():
-            if not district_name.startswith('@'):
-                for title in ['show_on_uncolonized', 'potential']:
-                    for other_build_restriction in other_build_restrictions:
-                        district[0].get_single(title).ensure(other_build_restriction)
+            for title in ['show_on_uncolonized', 'potential']:
+                for other_build_restriction in other_build_restrictions:
+                    district[0].get_single(title).ensure(other_build_restriction)
 
     ###################
     # auto patch mods #
@@ -265,9 +262,8 @@ if __name__ == '__main__':
                         break
             if mod_file_name in district_files_overwritten:
                 for district_name, district in mod_file.items():
-                    if not district_name.startswith('@'):
-                        mod_districts[district_name] = district[0]
-                        districts_overwritten.append(district_name)
+                    mod_districts[district_name] = district[0]
+                    districts_overwritten.append(district_name)
         for mod_file_path in glob.glob(mod_folder + '/events/*'):
             mod_file = parse_file(mod_file_path)
             for events in mod_file.values():
@@ -300,7 +296,7 @@ if __name__ == '__main__':
         for output_file in district_output_files:
             if output_file[0] in mod_file_names:
                 for district_name, district in output_file[1].items():
-                    if not district_name.startswith('@') and district_name not in mod_districts:
+                    if district_name not in mod_districts:
                         for title in ['show_on_uncolonized', 'potential']:
                             use_mod_flag(other_mod)
                             district[0].get_single(title).ensure({'NOT': [{'has_global_flag': ['= ' + other_mod[2]]}]})
@@ -467,15 +463,14 @@ if __name__ == '__main__':
 
     for output_file in district_output_files:
         for district_name, district in output_file[1].items():
-            if not district_name.startswith('@'):
-                for title in ['show_on_uncolonized', 'potential', 'allow']:
-                    for block in district[0].get_single(title).get_list('OR'):
-                        for key, values in block.items():
-                            for value in values:
-                                if value in district[0].get_single(title).get_list(key):
-                                    district[0].get_single(title).get_list(key).remove(value)
-                                    if len(district[0].get_single(title).get_list(key)) == 0:
-                                        del district[0].get_single(title)[key]
+            for title in ['show_on_uncolonized', 'potential', 'allow']:
+                for block in district[0].get_single(title).get_list('OR'):
+                    for key, values in block.items():
+                        for value in values:
+                            if value in district[0].get_single(title).get_list(key):
+                                district[0].get_single(title).get_list(key).remove(value)
+                                if len(district[0].get_single(title).get_list(key)) == 0:
+                                    del district[0].get_single(title)[key]
 
     ###########################
     # convert temporary flags #
@@ -483,17 +478,16 @@ if __name__ == '__main__':
 
     for output_file in district_output_files:
         for district_name, district in output_file[1].items():
-            if not district_name.startswith('@'):
-                for key in ['triggered_planet_modifier', 'triggered_desc', 'ai_resource_production']:
-                    trigger_key = 'potential' if key == 'triggered_planet_modifier' else 'trigger'
-                    for modifier in district[0].get_list(key):
-                        for flag in ['default', 'vanilla']:
-                            if flag in modifier:
-                                if len(modifier.get_single(flag).get_single('NOR').keys()) > 0:
-                                    if trigger_key not in modifier:
-                                        modifier.ensure({trigger_key: [{}]})
-                                    modifier.get_single(trigger_key).ensure(modifier.get_single(flag))
-                                del modifier[flag]
+            for key in ['triggered_planet_modifier', 'triggered_desc', 'ai_resource_production']:
+                trigger_key = 'potential' if key == 'triggered_planet_modifier' else 'trigger'
+                for modifier in district[0].get_list(key):
+                    for flag in ['default', 'vanilla']:
+                        if flag in modifier:
+                            if len(modifier.get_single(flag).get_single('NOR').keys()) > 0:
+                                if trigger_key not in modifier:
+                                    modifier.ensure({trigger_key: [{}]})
+                                modifier.get_single(trigger_key).ensure(modifier.get_single(flag))
+                            del modifier[flag]
 
     #############################
     # uncap district generation #
@@ -501,11 +495,10 @@ if __name__ == '__main__':
 
     for output_file in district_output_files:
         for district_name in output_file[1]:
-            if not district_name.startswith('@'):
-                if 'min_for_deposits_on_planet' in output_file[1].get_single(district_name):
-                    output_file[1][district_name][0]['min_for_deposits_on_planet'] = ['= 0']
-                if 'max_for_deposits_on_planet' in output_file[1].get_single(district_name):
-                    output_file[1][district_name][0]['max_for_deposits_on_planet'] = ['= 999']
+            if 'min_for_deposits_on_planet' in output_file[1].get_single(district_name):
+                output_file[1][district_name][0]['min_for_deposits_on_planet'] = ['= 0']
+            if 'max_for_deposits_on_planet' in output_file[1].get_single(district_name):
+                output_file[1][district_name][0]['max_for_deposits_on_planet'] = ['= 999']
 
     #########################
     # save all output files #
