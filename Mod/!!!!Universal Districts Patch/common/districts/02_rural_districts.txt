@@ -670,6 +670,11 @@ district_generator = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
+			factor = 2
+			years_passed > 40
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
 			factor = 0.0003
 			NOR = {
 				any_owned_pop = {
@@ -1617,6 +1622,24 @@ district_mining = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
+			factor = 4
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value < 22000
+				}
+				has_ascension_perk = ap_arcology_project
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 6
+			owner = {
+				beta_arcology = yes
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
 			factor = 2
 			owner = {
 				is_machine_empire = yes
@@ -2074,13 +2097,9 @@ district_farming = {
 					is_ai = yes
 				}
 			}
-			OR = {
-				owner = {
-					gai_uses_food = yes
-				}
-				owner = {
-					has_country_flag = gai_machines_have_organics
-				}
+			exists = owner
+			owner = {
+				gai_uses_food = yes
 			}
 			OR = {
 				free_jobs < 2
@@ -2090,7 +2109,6 @@ district_farming = {
 				}
 				AND = {
 					free_jobs < 4
-					exists = owner
 					owner = {
 						has_monthly_income = {
 							resource = food

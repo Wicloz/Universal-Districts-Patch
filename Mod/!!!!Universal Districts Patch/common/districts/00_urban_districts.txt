@@ -407,6 +407,9 @@ district_city = {
 		modifier = {
 			factor = 0.001
 			num_pops < 8
+			NOT = {
+				has_planet_flag = ecumen
+			}
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {

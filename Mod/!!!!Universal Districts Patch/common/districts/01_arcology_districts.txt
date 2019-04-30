@@ -284,7 +284,7 @@ district_arcology_arms_industry = {
 	ai_weight = {
 		weight = 0
 		modifier = {
-			weight = 2
+			weight = 200
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
@@ -322,10 +322,16 @@ district_arcology_arms_industry = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			factor = 0
-			NOT = {
+			factor = 0.001
+			NOR = {
 				any_owned_pop = {
 					has_job = clerk
+				}
+				any_owned_pop = {
+					has_job = soldier
+				}
+				any_owned_pop = {
+					is_unemployed = yes
 				}
 			}
 			has_global_flag = str_enabled_flag
@@ -429,7 +435,7 @@ district_arcology_civilian_industry = {
 	ai_weight = {
 		weight = 0
 		modifier = {
-			weight = 1
+			weight = 100
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
@@ -492,10 +498,20 @@ district_arcology_civilian_industry = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.1
-			NOT = {
+			factor = 0.001
+			NOR = {
 				any_owned_pop = {
 					has_job = clerk
+					is_enslaved = no
+					NOT = {
+						has_trait = trait_syncretic_proles
+					}
+				}
+				any_owned_pop = {
+					has_job = soldier
+				}
+				any_owned_pop = {
+					is_unemployed = yes
 				}
 			}
 			has_global_flag = str_enabled_flag
@@ -608,7 +624,7 @@ district_arcology_leisure = {
 	ai_weight = {
 		weight = 0
 		modifier = {
-			weight = 1
+			weight = 10
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
@@ -646,12 +662,31 @@ district_arcology_leisure = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			factor = 0.1
+			factor = 0.0005
+			NOR = {
+				any_owned_pop = {
+					has_job = clerk
+					is_enslaved = no
+					NOT = {
+						has_trait = trait_syncretic_proles
+					}
+				}
+				any_owned_pop = {
+					has_job = soldier
+				}
+				any_owned_pop = {
+					is_unemployed = yes
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 0.01
 			free_amenities > 100
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 9999
+			factor = 100
 			free_amenities < -10
 			has_global_flag = str_enabled_flag
 		}
