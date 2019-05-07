@@ -435,12 +435,12 @@ if __name__ == '__main__':
                                 modifier.get_single('default').get_single('NOR').ensure({'has_global_flag': ['= ' + other_mod[2]]})
                                 break
 
-        # merge upkeep and production
+        # merge resources
         for output_file in district_output_files:
             for district_name, district in output_file[1].items():
                 if district_name in mod_districts:
                     mod_district = mod_districts[district_name]
-                    for title in ['upkeep', 'produces']:
+                    for title in ['cost', 'upkeep', 'produces']:
                         for value in mod_district.get_single('resources').get_list(title):
                             if value not in district[0].get_single('resources').get_list(title):
                                 if 'trigger' not in value:
