@@ -384,25 +384,31 @@ district_city = {
 			weight = 1000000
 			num_districts = {
 				type = district_mining
-				value > 2
-			}
-			num_districts = {
-				type = district_generator
-				value > 2
+				value > 0
 			}
 			num_free_districts = {
 				type = district_mining
 				value = 0
 			}
 			OR = {
-				num_free_districts = {
-					type = district_generator
-					value = 0
+				free_jobs < 2
+				free_housing = 0
+			}
+			OR = {
+				AND = {
+					num_free_districts = {
+						type = district_generator
+						value = 0
+					}
+					num_districts = {
+						type = district_generator
+						value > 2
+					}
 				}
 				owner = {
 					has_monthly_income = {
 						resource = energy
-						value > 150
+						value > 250
 					}
 				}
 			}
@@ -410,11 +416,8 @@ district_city = {
 				owner = {
 					has_monthly_income = {
 						resource = food
-						value > 150
+						value > 80
 					}
-				}
-				owner = {
-					gai_uses_food = no
 				}
 				num_free_districts = {
 					type = district_farming
@@ -709,31 +712,30 @@ district_hive = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 1000000
+			weight = 1
 			num_districts = {
 				type = district_mining
-				value > 2
-			}
-			num_districts = {
-				type = district_generator
-				value > 2
+				value > 0
 			}
 			num_free_districts = {
 				type = district_mining
 				value = 0
 			}
-			NOT = {
-				is_planet_class = pc_hive
-			}
 			OR = {
-				num_free_districts = {
-					type = district_generator
-					value = 0
+				AND = {
+					num_free_districts = {
+						type = district_generator
+						value = 0
+					}
+					num_districts = {
+						type = district_generator
+						value > 2
+					}
 				}
 				owner = {
 					has_monthly_income = {
 						resource = energy
-						value > 150
+						value > 250
 					}
 				}
 			}
@@ -741,7 +743,7 @@ district_hive = {
 				owner = {
 					has_monthly_income = {
 						resource = food
-						value > 150
+						value > 80
 					}
 				}
 				num_free_districts = {
@@ -1015,25 +1017,31 @@ district_nexus = {
 			}
 			num_districts = {
 				type = district_mining
-				value > 2
-			}
-			num_districts = {
-				type = district_generator
-				value > 2
+				value > 0
 			}
 			num_free_districts = {
 				type = district_mining
 				value = 0
 			}
 			OR = {
-				num_free_districts = {
-					type = district_generator
-					value = 0
+				free_jobs < 2
+				free_housing = 0
+			}
+			OR = {
+				AND = {
+					num_free_districts = {
+						type = district_generator
+						value = 0
+					}
+					num_districts = {
+						type = district_generator
+						value > 2
+					}
 				}
 				owner = {
 					has_monthly_income = {
 						resource = energy
-						value > 150
+						value > 250
 					}
 				}
 			}
@@ -1041,25 +1049,22 @@ district_nexus = {
 				owner = {
 					has_monthly_income = {
 						resource = food
-						value > 150
-					}
-				}
-				owner = {
-					has_monthly_income = {
-						resource = food
-						value > 20
+						value > 80
 					}
 					has_country_flag = gai_machines_have_organics
 				}
 				owner = {
 					gai_uses_food = no
-					NOT = {
-						has_country_flag = gai_machines_have_organics
-					}
 				}
-				num_free_districts = {
-					type = district_farming
-					value = 0
+				AND = {
+					num_free_districts = {
+						type = district_farming
+						value = 0
+					}
+					num_districts = {
+						type = district_farming
+						value > 2
+					}
 				}
 			}
 			has_global_flag = gai_enabled_flag

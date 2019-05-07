@@ -143,59 +143,6 @@ district_generator = {
 		NOT = {
 			has_modifier = resort_colony
 		}
-		IF = {
-			limit = {
-				exists = owner
-				owner = {
-					is_ai = yes
-				}
-			}
-			OR = {
-				owner = {
-					has_monthly_income = {
-						resource = food
-						value > -1
-					}
-				}
-				num_free_districts = {
-					type = district_farming
-					value = 0
-				}
-			}
-			OR = {
-				free_jobs < 2
-				controller = {
-					is_ai = no
-				}
-				owner = {
-					is_ai = no
-				}
-				AND = {
-					free_jobs < 4
-					exists = owner
-					owner = {
-						has_monthly_income = {
-							resource = energy
-							value < 0
-						}
-						has_monthly_income = {
-							resource = food
-							value > -1
-						}
-					}
-				}
-				AND = {
-					gai_good_energy = yes
-					free_jobs < 3
-				}
-				num_free_districts = {
-					type = district_generator
-					value = 0
-				}
-				free_district_slots = 0
-			}
-			years_passed > 4
-		}
 	}
 	conversion_ratio = 1
 	convert_to = {
@@ -727,7 +674,14 @@ district_generator = {
 			}
 		}
 		modifier = {
-			weight = 500
+			weight = 3
+			OR = {
+				free_jobs < 3
+				AND = {
+					gai_good_energy = yes
+					free_jobs < 4
+				}
+			}
 			NOT = {
 				has_planet_flag = gai_arc
 			}
@@ -740,24 +694,39 @@ district_generator = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			factor = 1.5
+			weight = 999999
+			free_jobs < 3
+			years_passed > 4
+			NOT = {
+				has_planet_flag = gai_arc
+			}
 			owner = {
 				has_monthly_income = {
 					resource = energy
 					value < 0
 				}
+				has_monthly_income = {
+					resource = minerals
+					value > 100
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 250000
+			weight = 3
 			NOT = {
 				has_planet_flag = gai_arc
 			}
-			free_jobs = 0
+			free_jobs < 2
 			num_free_districts = {
 				type = district_mining
 				value = 0
+			}
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 250
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
@@ -1138,64 +1107,6 @@ district_mining = {
 	allow = {
 		NOT = {
 			has_modifier = resort_colony
-		}
-		IF = {
-			limit = {
-				exists = owner
-				owner = {
-					is_ai = yes
-				}
-			}
-			OR = {
-				owner = {
-					has_monthly_income = {
-						resource = food
-						value > -1
-					}
-				}
-				num_free_districts = {
-					type = district_farming
-					value = 0
-				}
-			}
-			OR = {
-				AND = {
-					gai_good_minerals = yes
-					free_jobs < 3
-				}
-				AND = {
-					free_jobs < 4
-					exists = owner
-					owner = {
-						has_monthly_income = {
-							resource = minerals
-							value < 40
-						}
-					}
-				}
-				num_free_districts = {
-					type = district_mining
-					value = 0
-				}
-				free_district_slots = 0
-				free_jobs < 2
-				controller = {
-					is_ai = no
-				}
-				any_owned_pop = {
-					is_unemployed = yes
-					NOT = {
-						has_citizenship_type = {
-							type = citizenship_organic_trophy
-						}
-					}
-					NOR = {
-						is_pop_category = specialist
-						is_pop_category = ruler
-					}
-				}
-			}
-			years_passed > 6
 		}
 	}
 	conversion_ratio = 1
@@ -1729,19 +1640,13 @@ district_mining = {
 			}
 		}
 		modifier = {
-			weight = 500
-			NOT = {
-				has_planet_flag = gai_arc
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 250000
-			NOT = {
-				has_planet_flag = gai_arc
-			}
+			weight = 3
 			OR = {
-				free_jobs = 0
+				free_jobs < 2
+				AND = {
+					gai_good_minerals = yes
+					free_jobs < 4
+				}
 				any_owned_pop = {
 					is_unemployed = yes
 					NOT = {
@@ -1753,6 +1658,32 @@ district_mining = {
 						is_pop_category = specialist
 						is_pop_category = ruler
 					}
+				}
+			}
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 999999
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			years_passed > 10
+			OR = {
+				free_jobs < 3
+				owner = {
+					has_ascension_perk = ap_arcology_project
+				}
+			}
+			owner = {
+				OR = {
+					has_monthly_income = {
+						resource = minerals
+						value < 100
+					}
+					has_ascension_perk = ap_arcology_project
 				}
 			}
 			has_global_flag = gai_enabled_flag
@@ -2237,51 +2168,6 @@ district_farming = {
 	allow = {
 		NOT = {
 			has_modifier = resort_colony
-		}
-		IF = {
-			limit = {
-				exists = owner
-				owner = {
-					is_ai = yes
-				}
-			}
-			exists = owner
-			owner = {
-				gai_uses_food = yes
-			}
-			OR = {
-				free_jobs < 2
-				AND = {
-					free_jobs < 3
-					gai_good_food = yes
-				}
-				AND = {
-					free_jobs < 4
-					owner = {
-						has_monthly_income = {
-							resource = food
-							value < 30
-						}
-					}
-				}
-				free_district_slots = 0
-				num_free_districts = {
-					type = district_farming
-					value = 0
-				}
-				any_owned_pop = {
-					is_unemployed = yes
-					NOT = {
-						has_citizenship_type = {
-							type = citizenship_organic_trophy
-						}
-					}
-					NOR = {
-						is_pop_category = specialist
-						is_pop_category = ruler
-					}
-				}
-			}
 		}
 	}
 	conversion_ratio = 1
@@ -2776,34 +2662,25 @@ district_farming = {
 			}
 		}
 		modifier = {
-			weight = 500
-			NOT = {
-				has_planet_flag = gai_arc
+			weight = 3
+			owner = {
+				gai_uses_food = yes
 			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			factor = 2
 			owner = {
 				has_monthly_income = {
 					resource = food
-					value < 30
+					value < 100
 				}
 			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 250000
-			num_free_districts = {
-				type = district_mining
-				value = 0
-			}
-			num_free_districts = {
-				type = district_generator
-				value = 0
+			NOT = {
+				has_planet_flag = gai_arc
 			}
 			OR = {
-				free_jobs = 0
+				free_jobs < 3
+				AND = {
+					gai_good_food = yes
+					free_jobs < 4
+				}
 				any_owned_pop = {
 					is_unemployed = yes
 					NOT = {
@@ -2817,6 +2694,59 @@ district_farming = {
 					}
 				}
 			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1200000
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			free_jobs < 4
+			owner = {
+				gai_uses_food = yes
+				has_monthly_income = {
+					resource = food
+					value < 50
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1200000
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			free_jobs < 3
+			owner = {
+				gai_uses_food = no
+				has_monthly_income = {
+					resource = food
+					value < -1
+				}
+				has_monthly_income = {
+					resource = food
+					value > -2
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 3
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			num_free_districts = {
+				type = district_mining
+				value = 0
+			}
+			num_free_districts = {
+				type = district_generator
+				value = 0
+			}
+			owner = {
+				gai_uses_food = yes
+			}
+			free_jobs < 3
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
@@ -3223,19 +3153,6 @@ district_generator_uncapped = {
 		NOT = {
 			has_modifier = resort_colony
 		}
-		exists = owner
-		exists = controller
-		OR = {
-			free_jobs < 2
-			controller = {
-				is_ai = no
-			}
-			owner = {
-				is_ai = no
-			}
-			gai_good_energy = yes
-			free_district_slots = 0
-		}
 	}
 	conversion_ratio = 1
 	convert_to = {
@@ -3375,10 +3292,6 @@ district_generator_uncapped = {
 			}
 		}
 		modifier = {
-			weight = 1
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
 			factor = 3
 			owner = {
 				has_monthly_income = {
@@ -3429,16 +3342,42 @@ district_generator_uncapped = {
 			}
 		}
 		modifier = {
-			weight = 500
+			weight = 3
+			OR = {
+				free_jobs < 3
+				AND = {
+					gai_good_energy = yes
+					free_jobs < 4
+				}
+			}
 			NOT = {
 				has_planet_flag = gai_arc
 			}
 			owner = {
 				has_monthly_income = {
 					resource = energy
-					value < 150
+					value < 300
 				}
 			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 1.5
+			free_jobs < 3
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 0
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 3
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			free_jobs < 2
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
@@ -3675,19 +3614,6 @@ district_mining_uncapped = {
 		NOT = {
 			has_modifier = resort_colony
 		}
-		exists = owner
-		exists = controller
-		OR = {
-			free_jobs < 2
-			controller = {
-				is_ai = no
-			}
-			owner = {
-				is_ai = no
-			}
-			gai_good_minerals = yes
-			free_district_slots = 0
-		}
 	}
 	conversion_ratio = 1
 	convert_to = {
@@ -3901,10 +3827,6 @@ district_mining_uncapped = {
 			}
 		}
 		modifier = {
-			weight = 1
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
 			factor = 3
 			owner = {
 				has_monthly_income = {
@@ -3963,17 +3885,67 @@ district_mining_uncapped = {
 			}
 		}
 		modifier = {
-			weight = 200000
+			weight = 3
+			OR = {
+				free_jobs < 3
+				AND = {
+					gai_good_minerals = yes
+					free_jobs < 4
+				}
+				any_owned_pop = {
+					is_unemployed = yes
+					NOT = {
+						has_citizenship_type = {
+							type = citizenship_organic_trophy
+						}
+					}
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
+				}
+			}
 			NOT = {
 				has_planet_flag = gai_arc
+			}
+			owner = {
+				has_monthly_income = {
+					resource = minerals
+					value < 300
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			factor = 2
+			factor = 1.35
+			free_jobs < 3
+			owner = {
+				has_monthly_income = {
+					resource = minerals
+					value < 100
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 3
+			NOT = {
+				has_planet_flag = gai_arc
+			}
 			OR = {
-				gai_work_minerals = yes
-				gai_work_minerals_goods = yes
+				free_jobs < 3
+				any_owned_pop = {
+					is_unemployed = yes
+					NOT = {
+						has_citizenship_type = {
+							type = citizenship_organic_trophy
+						}
+					}
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
+				}
 			}
 			has_global_flag = gai_enabled_flag
 		}
@@ -4279,19 +4251,6 @@ district_farming_uncapped = {
 		NOT = {
 			has_modifier = resort_colony
 		}
-		exists = owner
-		exists = controller
-		OR = {
-			free_jobs < 2
-			controller = {
-				is_ai = no
-			}
-			owner = {
-				is_ai = no
-			}
-			gai_good_food = yes
-			free_district_slots = 0
-		}
 	}
 	conversion_ratio = 1
 	convert_to = {
@@ -4443,10 +4402,6 @@ district_farming_uncapped = {
 			}
 		}
 		modifier = {
-			weight = 1
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
 			factor = 3
 			owner = {
 				has_monthly_income = {
@@ -4505,14 +4460,47 @@ district_farming_uncapped = {
 			}
 		}
 		modifier = {
-			weight = 500
-			NOT = {
-				has_planet_flag = gai_arc
+			weight = 3
+			owner = {
+				gai_uses_food = yes
 			}
 			owner = {
 				has_monthly_income = {
 					resource = food
-					value < 150
+					value < 50
+				}
+			}
+			NOT = {
+				has_planet_flag = gai_arc
+			}
+			OR = {
+				free_jobs < 3
+				AND = {
+					gai_good_food = yes
+					free_jobs < 4
+				}
+				any_owned_pop = {
+					is_unemployed = yes
+					NOT = {
+						has_citizenship_type = {
+							type = citizenship_organic_trophy
+						}
+					}
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			factor = 2
+			free_jobs < 3
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value < 15
 				}
 			}
 			has_global_flag = gai_enabled_flag
