@@ -1592,14 +1592,6 @@ district_mining = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			factor = 1.75
-			OR = {
-				gai_work_minerals = yes
-				gai_work_minerals_goods = yes
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
 			weight = 250000
 			NOT = {
 				has_planet_flag = gai_arc

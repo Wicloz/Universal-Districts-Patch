@@ -333,7 +333,6 @@ district_city = {
 			planet = {
 				planet_devastation < 1
 				years_passed > 10
-				count_pops > 11
 				free_housing < 4
 			}
 			owner = {
@@ -371,6 +370,14 @@ district_city = {
 		}
 		modifier = {
 			weight = 1000000
+			num_districts = {
+				type = district_mining
+				value > 2
+			}
+			num_districts = {
+				type = district_generator
+				value > 2
+			}
 			num_free_districts = {
 				type = district_mining
 				value = 0
@@ -653,7 +660,6 @@ district_hive = {
 			planet = {
 				planet_devastation < 1
 				years_passed > 10
-				count_pops > 11
 				free_housing < 4
 			}
 			owner = {
@@ -686,6 +692,14 @@ district_hive = {
 		}
 		modifier = {
 			weight = 1000000
+			num_districts = {
+				type = district_mining
+				value > 2
+			}
+			num_districts = {
+				type = district_generator
+				value > 2
+			}
 			num_free_districts = {
 				type = district_mining
 				value = 0
@@ -946,7 +960,6 @@ district_nexus = {
 			planet = {
 				planet_devastation < 1
 				years_passed > 10
-				count_pops > 11
 				free_housing < 4
 			}
 			owner = {
@@ -981,6 +994,14 @@ district_nexus = {
 			weight = 1000000
 			NOT = {
 				is_planet_class = pc_machine
+			}
+			num_districts = {
+				type = district_mining
+				value > 2
+			}
+			num_districts = {
+				type = district_generator
+				value > 2
 			}
 			num_free_districts = {
 				type = district_mining
