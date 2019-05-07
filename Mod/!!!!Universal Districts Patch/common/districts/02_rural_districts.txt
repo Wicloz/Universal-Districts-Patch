@@ -50,6 +50,12 @@ district_generator = {
 			is_planet_class = pc_archive
 		}
 		NOT = {
+			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_bioforge
+		}
+		NOT = {
 			is_planet_class = pc_shrouded_pg
 		}
 		NOT = {
@@ -109,6 +115,12 @@ district_generator = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
+		}
+		NOT = {
+			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_bioforge
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
@@ -513,6 +525,86 @@ district_generator = {
 				is_machine_empire = yes
 			}
 			is_planet_class = pc_tidallylocked
+		}
+		modifier = {
+			job_technician_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_ammonia
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_technician_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_ammonia
+		}
+		modifier = {
+			job_technician_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_ammonia
+		}
+		modifier = {
+			job_technician_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_methane
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_technician_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_methane
+		}
+		modifier = {
+			job_technician_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_methane
 		}
 		modifier = {
 			job_technician_drone_add = 1
@@ -954,6 +1046,12 @@ district_mining = {
 			is_planet_class = pc_archive
 		}
 		NOT = {
+			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_bioforge
+		}
+		NOT = {
 			is_planet_class = pc_shrouded_pg
 		}
 		NOT = {
@@ -1013,6 +1111,12 @@ district_mining = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
+		}
+		NOT = {
+			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_bioforge
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
@@ -1413,6 +1517,46 @@ district_mining = {
 				is_machine_empire = yes
 			}
 			is_planet_class = pc_superhabitable
+		}
+		modifier = {
+			job_mining_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_methane
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_miner_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_methane
+		}
+		modifier = {
+			job_mining_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_methane
 		}
 		modifier = {
 			job_mining_drone_add = 1
@@ -2001,6 +2145,12 @@ district_farming = {
 			is_planet_class = pc_archive
 		}
 		NOT = {
+			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_bioforge
+		}
+		NOT = {
 			is_planet_class = pc_shrouded_pg
 		}
 		NOT = {
@@ -2060,6 +2210,12 @@ district_farming = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
+		}
+		NOT = {
+			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_bioforge
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
@@ -2428,6 +2584,46 @@ district_farming = {
 				is_machine_empire = yes
 			}
 			is_planet_class = pc_tidallylocked
+		}
+		modifier = {
+			job_agri_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_ammonia
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_farmer_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_ammonia
+		}
+		modifier = {
+			job_agri_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_ammonia
 		}
 		modifier = {
 			job_agri_drone_add = 1

@@ -33,6 +33,12 @@ district_city = {
 			is_planet_class = pc_archive
 		}
 		NOT = {
+			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_bioforge
+		}
+		NOT = {
 			has_modifier = stpg_planetary_habitat
 		}
 		NOT = {
@@ -81,6 +87,12 @@ district_city = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
+		}
+		NOT = {
+			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_bioforge
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
@@ -483,6 +495,9 @@ district_hive = {
 			is_planet_class = pc_archive
 		}
 		NOT = {
+			is_planet_class = pc_machine_factory
+		}
+		NOT = {
 			has_modifier = stpg_planetary_habitat
 		}
 		NOT = {
@@ -533,6 +548,9 @@ district_hive = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
+		}
+		NOT = {
+			is_planet_class = pc_machine_factory
 		}
 		NOT = {
 			has_modifier = stpg_planetary_habitat
