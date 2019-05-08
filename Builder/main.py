@@ -451,6 +451,8 @@ if __name__ == '__main__':
                                 if 'trigger' not in value:
                                     use_mod_flag(other_mod)
                                     value.ensure({'trigger': [{'has_global_flag': ['= ' + other_mod[2]]}]})
+                                elif value.get_single('trigger').get_single('owner').has_single('NOT'):
+                                    district[0].get_single('resources').get_list(title).remove(value.copy_without('trigger'))
                                 district[0].get_single('resources').ensure({title: [value]})
 
         # merge district conversions
