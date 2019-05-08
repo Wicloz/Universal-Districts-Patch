@@ -85,7 +85,7 @@ class StellarisDict(dict):
             return self[key]
 
     def copy_without(self, key):
-        copy = self.copy()
+        copy = StellarisDict(self.copy())
         if key in copy:
             del copy[key]
         return copy
