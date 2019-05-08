@@ -18,7 +18,7 @@ mods_folder = r'C:\Users\wdboer\Documents\Paradox Interactive\Stellaris\mod'
 
 collection_url = 'https://steamcommunity.com/workshop/filedetails/?id=1642766902'
 ai_mod_count = 2
-working_mod_count = 18
+working_mod_count = 19
 
 other_build_restrictions = [
     {'NOT': [{'is_planet_class': ['= pc_dyson_swarm']}]},
@@ -496,17 +496,21 @@ if __name__ == '__main__':
         for district_name, district in output_file[1].items():
             for key in ['triggered_planet_modifier', 'triggered_desc', 'ai_resource_production']:
                 trigger_key = 'potential' if key == 'triggered_planet_modifier' else 'trigger'
-                for modifier in district[0].get_list(key):
+                i = 0
+                while i < len(district[0].get_list(key)):
+                    modifier = district[0].get_list(key)[i]
                     for flag in ['default', 'vanilla']:
                         if flag in modifier:
                             if 'delete' in modifier.get_single(flag):
                                 district[0].get_list(key).remove(modifier)
+                                i -= 1
                                 break
                             if len(modifier.get_single(flag).get_single('NOR').keys()) > 0:
                                 if trigger_key not in modifier:
                                     modifier.ensure({trigger_key: [{}]})
                                 modifier.get_single(trigger_key).ensure(modifier.get_single(flag))
                             del modifier[flag]
+                    i += 1
 
     #############################
     # uncap district generation #
