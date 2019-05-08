@@ -61,6 +61,12 @@ district_generator = {
 		NOT = {
 			is_planet_class = pc_outpost
 		}
+		NOT = {
+			is_planet_class = pc_matryoshka
+		}
+		NOT = {
+			is_planet_class = pc_hollow
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -130,6 +136,12 @@ district_generator = {
 		}
 		NOT = {
 			is_planet_class = pc_outpost
+		}
+		NOT = {
+			is_planet_class = pc_matryoshka
+		}
+		NOT = {
+			is_planet_class = pc_hollow
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -1026,6 +1038,12 @@ district_mining = {
 		NOT = {
 			is_planet_class = pc_outpost
 		}
+		NOT = {
+			is_planet_class = pc_matryoshka
+		}
+		NOT = {
+			is_planet_class = pc_hollow
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -1095,6 +1113,12 @@ district_mining = {
 		}
 		NOT = {
 			is_planet_class = pc_outpost
+		}
+		NOT = {
+			is_planet_class = pc_matryoshka
+		}
+		NOT = {
+			is_planet_class = pc_hollow
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -2087,6 +2111,12 @@ district_farming = {
 		NOT = {
 			is_planet_class = pc_outpost
 		}
+		NOT = {
+			is_planet_class = pc_matryoshka
+		}
+		NOT = {
+			is_planet_class = pc_hollow
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -2156,6 +2186,12 @@ district_farming = {
 		}
 		NOT = {
 			is_planet_class = pc_outpost
+		}
+		NOT = {
+			is_planet_class = pc_matryoshka
+		}
+		NOT = {
+			is_planet_class = pc_hollow
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable

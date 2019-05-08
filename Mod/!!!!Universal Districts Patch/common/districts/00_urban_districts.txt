@@ -47,6 +47,12 @@ district_city = {
 		NOT = {
 			is_planet_class = pc_outpost
 		}
+		NOT = {
+			is_planet_class = pc_matryoshka
+		}
+		NOT = {
+			is_planet_class = pc_hollow
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -106,6 +112,12 @@ district_city = {
 		NOT = {
 			is_planet_class = pc_outpost
 		}
+		NOT = {
+			is_planet_class = pc_matryoshka
+		}
+		NOT = {
+			is_planet_class = pc_hollow
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -127,6 +139,8 @@ district_city = {
 		district_arcology_housing
 		district_nexus
 		district_hive
+		district_hollow_housing
+		district_matryoshka_housing
 	}
 	resources = {
 		category = planet_districts
@@ -506,6 +520,12 @@ district_hive = {
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
 		}
+		NOT = {
+			is_planet_class = pc_matryoshka
+		}
+		NOT = {
+			is_planet_class = pc_hollow
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -561,6 +581,12 @@ district_hive = {
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
 		}
+		NOT = {
+			is_planet_class = pc_matryoshka
+		}
+		NOT = {
+			is_planet_class = pc_hollow
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -579,6 +605,8 @@ district_hive = {
 		district_arcology_housing
 		district_nexus
 		district_city
+		district_hollow_housing
+		district_matryoshka_housing
 	}
 	resources = {
 		category = planet_districts
@@ -805,6 +833,12 @@ district_nexus = {
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
 		}
+		NOT = {
+			is_planet_class = pc_matryoshka
+		}
+		NOT = {
+			is_planet_class = pc_hollow
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -857,6 +891,12 @@ district_nexus = {
 		NOT = {
 			has_planet_flag = stpg_planetary_habitat
 		}
+		NOT = {
+			is_planet_class = pc_matryoshka
+		}
+		NOT = {
+			is_planet_class = pc_hollow
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -875,6 +915,8 @@ district_nexus = {
 		district_arcology_housing
 		district_city
 		district_hive
+		district_hollow_housing
+		district_matryoshka_housing
 	}
 	resources = {
 		category = planet_districts
