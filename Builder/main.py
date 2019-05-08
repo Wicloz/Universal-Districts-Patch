@@ -68,6 +68,9 @@ class StellarisDict(dict):
                     self[key].append(StellarisDict().ensure(value))
         return self
 
+    def has_single(self, key):
+        return key in self and len(self[key]) == 1
+
     def get_single(self, key):
         if key in self:
             assert len(self[key]) == 1
@@ -270,6 +273,8 @@ if __name__ == '__main__':
                 for event in events:
                     if type(event) is not str:
                         for effect in event.get_list('immediate'):
+                            if effect.has_single('IF'):
+                                effect = effect.get_single('IF')
                             if 'set_global_flag' in effect and other_mod[2] is None:
                                 other_mod[2] = effect['set_global_flag'][0].replace('= ', '')
                                 for other_build_restriction in other_build_restrictions:
