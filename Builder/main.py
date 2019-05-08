@@ -395,10 +395,19 @@ if __name__ == '__main__':
                                     value.get_single(trigger_key).ensure({'has_global_flag': ['= ' + other_mod[2]]})
                                 district[0].ensure({key: [value]})
 
-                        for value in district[0].get_list(key):
-                            if 'vanilla' in value and value.copy_without('vanilla') not in mod_district.get_list(key):
-                                use_mod_flag(other_mod)
-                                value.get_single('vanilla').get_single('NOR').ensure({'has_global_flag': ['= ' + other_mod[2]]})
+                        for old_modifier in district[0].get_list(key):
+                            if 'vanilla' in old_modifier:
+                                for new_modifier in mod_district.get_list(key):
+                                    if old_modifier.copy_without(trigger_key).copy_without('vanilla') == new_modifier.copy_without(trigger_key) and \
+                                            new_modifier.get_single(trigger_key).get_single('owner').get_single('AND').has_single('NOT') and \
+                                            old_modifier.get_single(trigger_key).get_single('owner') == \
+                                            new_modifier.get_single(trigger_key).get_single('owner').get_single('AND').copy_without('NOT'):
+                                        old_modifier.get_single('vanilla').ensure({'delete': []})
+                                        break
+                                else:
+                                    if old_modifier.copy_without('vanilla') not in mod_district.get_list(key):
+                                        use_mod_flag(other_mod)
+                                        old_modifier.get_single('vanilla').get_single('NOR').ensure({'has_global_flag': ['= ' + other_mod[2]]})
 
         # merge normal modifiers
         for output_file in district_output_files:
@@ -490,6 +499,9 @@ if __name__ == '__main__':
                 for modifier in district[0].get_list(key):
                     for flag in ['default', 'vanilla']:
                         if flag in modifier:
+                            if 'delete' in modifier.get_single(flag):
+                                district[0].get_list(key).remove(modifier)
+                                break
                             if len(modifier.get_single(flag).get_single('NOR').keys()) > 0:
                                 if trigger_key not in modifier:
                                     modifier.ensure({trigger_key: [{}]})
