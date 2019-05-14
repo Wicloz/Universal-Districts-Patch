@@ -526,6 +526,9 @@ district_hive = {
 		NOT = {
 			is_planet_class = pc_hollow
 		}
+		NOT = {
+			is_planet_class = pc_bioform
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -586,6 +589,9 @@ district_hive = {
 		}
 		NOT = {
 			is_planet_class = pc_hollow
+		}
+		NOT = {
+			is_planet_class = pc_bioform
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
