@@ -284,6 +284,17 @@ district_generator = {
 		potential = {
 			exists = owner
 			owner = {
+				has_valid_civic = civic_socialistic
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
@@ -1317,13 +1328,24 @@ district_mining = {
 			exists = owner
 			owner = {
 				OR = {
-					has_valid_civic = civic_labour_unions
 					has_valid_civic = civic_socialistic
+					has_valid_civic = civic_labour_unions
 				}
 			}
 		}
 		modifier = {
 			job_miner_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_socialistic
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
 		}
 	}
 	triggered_planet_modifier = {
@@ -2414,13 +2436,24 @@ district_farming = {
 			exists = owner
 			owner = {
 				OR = {
-					has_valid_civic = civic_labour_unions
 					has_valid_civic = civic_socialistic
+					has_valid_civic = civic_labour_unions
 				}
 			}
 		}
 		modifier = {
 			job_farmer_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_socialistic
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
 		}
 	}
 	triggered_planet_modifier = {
@@ -3409,6 +3442,17 @@ district_generator_uncapped = {
 			job_technician_add = 1
 		}
 	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_socialistic
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
 	triggered_desc = {
 		trigger = {
 			exists = owner
@@ -3903,6 +3947,17 @@ district_mining_uncapped = {
 		}
 		modifier = {
 			job_miner_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_socialistic
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
 		}
 	}
 	triggered_planet_modifier = {
@@ -4554,6 +4609,17 @@ district_farming_uncapped = {
 		}
 		modifier = {
 			job_farmer_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_socialistic
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
 		}
 	}
 	triggered_planet_modifier = {
