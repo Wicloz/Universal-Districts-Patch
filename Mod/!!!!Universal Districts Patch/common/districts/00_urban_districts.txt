@@ -390,11 +390,6 @@ district_city = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 25000
-			has_planet_flag = gai_arc
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
 			weight = 1000000
 			num_districts = {
 				type = district_mining
@@ -438,6 +433,11 @@ district_city = {
 					value = 0
 				}
 			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1200000
+			has_planet_flag = gai_arc
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {

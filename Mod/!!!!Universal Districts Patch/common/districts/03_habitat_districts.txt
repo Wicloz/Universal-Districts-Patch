@@ -365,9 +365,14 @@ district_hab_energy = {
 			weight = 20000
 			OR = {
 				owner = {
-					has_monthly_income = {
-						resource = energy
-						value < 200
+					OR = {
+						has_monthly_income = {
+							resource = energy
+							value < 200
+						}
+						owner = {
+							has_country_flag = enough_research
+						}
 					}
 				}
 				planet = {
@@ -728,7 +733,12 @@ district_hab_science = {
 		}
 		modifier = {
 			factor = 0
-			has_district = district_hab_commercial
+			OR = {
+				has_district = district_hab_commercial
+				owner = {
+					has_country_flag = enough_research
+				}
+			}
 			has_global_flag = gai_enabled_flag
 		}
 	}
@@ -836,6 +846,9 @@ district_hab_commercial = {
 			weight = 25000
 			OR = {
 				has_district = district_hab_commercial
+				owner = {
+					has_country_flag = enough_research
+				}
 				owner = {
 					has_monthly_income = {
 						resource = consumer_goods

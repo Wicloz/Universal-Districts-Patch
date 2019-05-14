@@ -715,7 +715,7 @@ district_generator = {
 				free_jobs < 3
 				AND = {
 					gai_good_energy = yes
-					free_jobs < 4
+					free_jobs < 5
 				}
 			}
 			NOT = {
@@ -736,14 +736,22 @@ district_generator = {
 			NOT = {
 				has_planet_flag = gai_arc
 			}
+			OR = {
+				owner = {
+					has_monthly_income = {
+						resource = food
+						value >= 0
+					}
+				}
+				num_free_districts = {
+					type = district_farming
+					value = 0
+				}
+			}
 			owner = {
 				has_monthly_income = {
 					resource = energy
 					value < 0
-				}
-				has_monthly_income = {
-					resource = minerals
-					value > 100
 				}
 			}
 			has_global_flag = gai_enabled_flag
@@ -1717,7 +1725,7 @@ district_mining = {
 				free_jobs < 2
 				AND = {
 					gai_good_minerals = yes
-					free_jobs < 4
+					free_jobs < 6
 				}
 				any_owned_pop = {
 					is_unemployed = yes
@@ -1748,12 +1756,36 @@ district_mining = {
 				owner = {
 					has_ascension_perk = ap_arcology_project
 				}
+				any_owned_pop = {
+					is_unemployed = yes
+					NOT = {
+						has_citizenship_type = {
+							type = citizenship_organic_trophy
+						}
+					}
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
+				}
+			}
+			OR = {
+				num_free_districts = {
+					type = district_generator
+					value = 0
+				}
+				owner = {
+					has_monthly_income = {
+						resource = energy
+						value >= 0
+					}
+				}
 			}
 			owner = {
 				OR = {
 					has_monthly_income = {
 						resource = minerals
-						value < 100
+						value < 75
 					}
 					has_ascension_perk = ap_arcology_project
 				}
@@ -2789,25 +2821,12 @@ district_farming = {
 			}
 		}
 		modifier = {
-			weight = 3
-			owner = {
-				gai_uses_food = yes
-			}
-			owner = {
-				has_monthly_income = {
-					resource = food
-					value < 100
-				}
-			}
+			weight = 1200000
 			NOT = {
 				has_planet_flag = gai_arc
 			}
 			OR = {
 				free_jobs < 3
-				AND = {
-					gai_good_food = yes
-					free_jobs < 4
-				}
 				any_owned_pop = {
 					is_unemployed = yes
 					NOT = {
@@ -2821,38 +2840,11 @@ district_farming = {
 					}
 				}
 			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 1200000
-			NOT = {
-				has_planet_flag = gai_arc
-			}
-			free_jobs < 4
 			owner = {
 				gai_uses_food = yes
 				has_monthly_income = {
 					resource = food
-					value < 50
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 1200000
-			NOT = {
-				has_planet_flag = gai_arc
-			}
-			free_jobs < 3
-			owner = {
-				gai_uses_food = no
-				has_monthly_income = {
-					resource = food
-					value < -1
-				}
-				has_monthly_income = {
-					resource = food
-					value > -2
+					value < 15
 				}
 			}
 			has_global_flag = gai_enabled_flag
