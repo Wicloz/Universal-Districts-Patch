@@ -171,13 +171,8 @@ district_generator = {
 		cost = {
 			minerals = 300
 		}
-		cost = {
-			trigger = {
-				owner = {
-					has_civic = gbhmc_civic_bioform
-				}
-			}
-			food = -200
+		upkeep = {
+			energy = 1
 		}
 		upkeep = {
 			trigger = {
@@ -186,25 +181,6 @@ district_generator = {
 				}
 			}
 			energy = 0.15
-		}
-		upkeep = {
-			trigger = {
-				owner = {
-					has_civic = gbhmc_civic_bioform
-				}
-			}
-			food = 1
-			exotic_gases = 1
-		}
-		upkeep = {
-			trigger = {
-				owner = {
-					NOT = {
-						has_civic = gbhmc_civic_bioform
-					}
-				}
-			}
-			energy = 1
 		}
 	}
 	planet_modifier = {
@@ -1197,13 +1173,8 @@ district_mining = {
 		cost = {
 			minerals = 300
 		}
-		cost = {
-			trigger = {
-				owner = {
-					has_civic = gbhmc_civic_bioform
-				}
-			}
-			food = -200
+		upkeep = {
+			energy = 1
 		}
 		upkeep = {
 			trigger = {
@@ -1220,25 +1191,6 @@ district_mining = {
 				}
 			}
 			energy = 0.15
-		}
-		upkeep = {
-			trigger = {
-				owner = {
-					has_civic = gbhmc_civic_bioform
-				}
-			}
-			food = 1
-			exotic_gases = 1
-		}
-		upkeep = {
-			trigger = {
-				owner = {
-					NOT = {
-						has_civic = gbhmc_civic_bioform
-					}
-				}
-			}
-			energy = 1
 		}
 	}
 	planet_modifier = {
@@ -2335,13 +2287,8 @@ district_farming = {
 		cost = {
 			minerals = 300
 		}
-		cost = {
-			trigger = {
-				owner = {
-					has_civic = gbhmc_civic_bioform
-				}
-			}
-			food = -200
+		upkeep = {
+			energy = 1
 		}
 		upkeep = {
 			trigger = {
@@ -2350,25 +2297,6 @@ district_farming = {
 				}
 			}
 			energy = 0.15
-		}
-		upkeep = {
-			trigger = {
-				owner = {
-					has_civic = gbhmc_civic_bioform
-				}
-			}
-			food = 1
-			exotic_gases = 1
-		}
-		upkeep = {
-			trigger = {
-				owner = {
-					NOT = {
-						has_civic = gbhmc_civic_bioform
-					}
-				}
-			}
-			energy = 1
 		}
 	}
 	planet_modifier = {
@@ -2395,6 +2323,17 @@ district_farming = {
 		}
 		modifier = {
 			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+		}
+		modifier = {
+			job_agri_drone_add = 3
 		}
 	}
 	triggered_planet_modifier = {
@@ -2694,36 +2633,6 @@ district_farming = {
 		modifier = {
 			job_agri_drone_add = 1
 			planet_housing_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				AND = {
-					is_hive_empire = yes
-					NOT = {
-						has_civic = gbhmc_civic_bioform
-					}
-				}
-			}
-		}
-		modifier = {
-			job_agri_drone_add = 3
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				AND = {
-					is_hive_empire = yes
-					has_civic = gbhmc_civic_bioform
-				}
-			}
-		}
-		modifier = {
-			job_gbhmc_agri_drone_add = 3
 		}
 	}
 	triggered_desc = {
@@ -3290,6 +3199,9 @@ district_generator_uncapped = {
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
+		NOT = {
+			is_planet_class = pc_bioform
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -3310,6 +3222,9 @@ district_generator_uncapped = {
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
+		}
+		NOT = {
+			is_planet_class = pc_bioform
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -3333,13 +3248,8 @@ district_generator_uncapped = {
 		cost = {
 			minerals = 300
 		}
-		cost = {
-			trigger = {
-				owner = {
-					has_civic = gbhmc_civic_bioform
-				}
-			}
-			food = -200
+		upkeep = {
+			energy = 1
 		}
 		upkeep = {
 			trigger = {
@@ -3348,25 +3258,6 @@ district_generator_uncapped = {
 				}
 			}
 			energy = 0.15
-		}
-		upkeep = {
-			trigger = {
-				owner = {
-					has_civic = gbhmc_civic_bioform
-				}
-			}
-			food = 1
-			exotic_gases = 1
-		}
-		upkeep = {
-			trigger = {
-				owner = {
-					NOT = {
-						has_civic = gbhmc_civic_bioform
-					}
-				}
-			}
-			energy = 1
 		}
 	}
 	planet_modifier = {
@@ -3787,6 +3678,9 @@ district_mining_uncapped = {
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
+		NOT = {
+			is_planet_class = pc_bioform
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -3806,6 +3700,9 @@ district_mining_uncapped = {
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
+		}
+		NOT = {
+			is_planet_class = pc_bioform
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -3829,13 +3726,8 @@ district_mining_uncapped = {
 		cost = {
 			minerals = 300
 		}
-		cost = {
-			trigger = {
-				owner = {
-					has_civic = gbhmc_civic_bioform
-				}
-			}
-			food = -200
+		upkeep = {
+			energy = 1
 		}
 		upkeep = {
 			trigger = {
@@ -3844,25 +3736,6 @@ district_mining_uncapped = {
 				}
 			}
 			energy = 0.15
-		}
-		upkeep = {
-			trigger = {
-				owner = {
-					has_civic = gbhmc_civic_bioform
-				}
-			}
-			food = 1
-			exotic_gases = 1
-		}
-		upkeep = {
-			trigger = {
-				owner = {
-					NOT = {
-						has_civic = gbhmc_civic_bioform
-					}
-				}
-			}
-			energy = 1
 		}
 	}
 	planet_modifier = {
@@ -4459,6 +4332,9 @@ district_farming_uncapped = {
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
+		NOT = {
+			is_planet_class = pc_bioform
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -4478,6 +4354,9 @@ district_farming_uncapped = {
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
+		}
+		NOT = {
+			is_planet_class = pc_bioform
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -4501,13 +4380,8 @@ district_farming_uncapped = {
 		cost = {
 			minerals = 300
 		}
-		cost = {
-			trigger = {
-				owner = {
-					has_civic = gbhmc_civic_bioform
-				}
-			}
-			food = -200
+		upkeep = {
+			energy = 1
 		}
 		upkeep = {
 			trigger = {
@@ -4516,25 +4390,6 @@ district_farming_uncapped = {
 				}
 			}
 			energy = 0.15
-		}
-		upkeep = {
-			trigger = {
-				owner = {
-					has_civic = gbhmc_civic_bioform
-				}
-			}
-			food = 1
-			exotic_gases = 1
-		}
-		upkeep = {
-			trigger = {
-				owner = {
-					NOT = {
-						has_civic = gbhmc_civic_bioform
-					}
-				}
-			}
-			energy = 1
 		}
 	}
 	planet_modifier = {
@@ -4561,6 +4416,17 @@ district_farming_uncapped = {
 		}
 		modifier = {
 			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+		}
+		modifier = {
+			job_agri_drone_add = 3
 		}
 	}
 	triggered_planet_modifier = {
@@ -4620,36 +4486,6 @@ district_farming_uncapped = {
 		}
 		modifier = {
 			planet_housing_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				AND = {
-					is_hive_empire = yes
-					NOT = {
-						has_civic = gbhmc_civic_bioform
-					}
-				}
-			}
-		}
-		modifier = {
-			job_agri_drone_add = 3
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				AND = {
-					is_hive_empire = yes
-					has_civic = gbhmc_civic_bioform
-				}
-			}
-		}
-		modifier = {
-			job_gbhmc_agri_drone_add = 3
 		}
 	}
 	triggered_desc = {
