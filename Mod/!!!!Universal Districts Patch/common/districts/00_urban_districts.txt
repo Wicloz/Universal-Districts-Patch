@@ -53,6 +53,9 @@ district_city = {
 		NOT = {
 			is_planet_class = pc_hollow
 		}
+		NOT = {
+			is_planet_class = pc_starborn_habitat_start
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -117,6 +120,9 @@ district_city = {
 		}
 		NOT = {
 			is_planet_class = pc_hollow
+		}
+		NOT = {
+			is_planet_class = pc_starborn_habitat_start
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable

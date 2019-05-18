@@ -431,6 +431,13 @@ district_hab_cultural = {
 				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
 			}
 		}
+		NOR = {
+			has_deposit = d_starborn_energy
+			has_deposit = d_starborn_mineral_surface
+			has_deposit = d_starborn_alloy_surface
+			has_deposit = d_starborn_habitable_surface
+			has_deposit = d_starborn_tomb_surface
+		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
@@ -456,6 +463,13 @@ district_hab_cultural = {
 				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
 			}
 		}
+		NOR = {
+			has_deposit = d_starborn_energy
+			has_deposit = d_starborn_mineral_surface
+			has_deposit = d_starborn_alloy_surface
+			has_deposit = d_starborn_habitable_surface
+			has_deposit = d_starborn_tomb_surface
+		}
 	}
 	convert_to = {
 		district_hab_energy
@@ -479,6 +493,9 @@ district_hab_cultural = {
 			owner = {
 				has_valid_civic = civic_warrior_culture
 			}
+			NOR = {
+				has_global_flag = starborn_hab_size_2
+			}
 		}
 		modifier = {
 			job_duelist_add = 2
@@ -491,6 +508,9 @@ district_hab_cultural = {
 			owner = {
 				has_valid_civic = civic_warrior_culture
 			}
+			NOR = {
+				has_global_flag = starborn_hab_size_2
+			}
 		}
 		text = job_duelist_effect_desc
 	}
@@ -502,11 +522,20 @@ district_hab_cultural = {
 					has_valid_civic = civic_warrior_culture
 				}
 			}
+			NOR = {
+				has_global_flag = starborn_hab_size_2
+			}
 		}
 		text = job_entertainer_effect_desc
 	}
 	triggered_desc = {
 		text = job_culture_worker_effect_desc
+	}
+	triggered_desc = {
+		text = job_entertainer_effect_desc
+		trigger = {
+			has_global_flag = starborn_hab_size_2
+		}
 	}
 	ai_weight = {
 		weight = 0
