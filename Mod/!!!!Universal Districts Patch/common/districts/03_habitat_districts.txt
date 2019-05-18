@@ -494,7 +494,7 @@ district_hab_cultural = {
 				has_valid_civic = civic_warrior_culture
 			}
 			NOR = {
-				has_global_flag = starborn_hab_size_2
+				has_global_flag = starborn_installed
 			}
 		}
 		modifier = {
@@ -509,7 +509,7 @@ district_hab_cultural = {
 				has_valid_civic = civic_warrior_culture
 			}
 			NOR = {
-				has_global_flag = starborn_hab_size_2
+				has_global_flag = starborn_installed
 			}
 		}
 		text = job_duelist_effect_desc
@@ -523,7 +523,7 @@ district_hab_cultural = {
 				}
 			}
 			NOR = {
-				has_global_flag = starborn_hab_size_2
+				has_global_flag = starborn_installed
 			}
 		}
 		text = job_entertainer_effect_desc
@@ -534,7 +534,7 @@ district_hab_cultural = {
 	triggered_desc = {
 		text = job_entertainer_effect_desc
 		trigger = {
-			has_global_flag = starborn_hab_size_2
+			has_global_flag = starborn_installed
 		}
 	}
 	ai_weight = {
