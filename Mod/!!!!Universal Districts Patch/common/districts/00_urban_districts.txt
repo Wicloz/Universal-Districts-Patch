@@ -396,47 +396,62 @@ district_city = {
 			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
-			weight = 1000000
-			num_districts = {
-				type = district_mining
-				value > 0
-			}
-			num_free_districts = {
-				type = district_mining
-				value = 0
-			}
-			OR = {
-				free_jobs < 2
-				free_housing = 0
-			}
+			weight = 1
 			OR = {
 				AND = {
+					free_jobs = 0
 					num_free_districts = {
-						type = district_generator
+						type = district_mining
 						value = 0
 					}
+					any_owned_pop = {
+						is_unemployed = yes
+						is_pop_category = worker
+					}
+				}
+				AND = {
 					num_districts = {
-						type = district_generator
-						value > 2
+						type = district_mining
+						value > 0
 					}
-				}
-				owner = {
-					has_monthly_income = {
-						resource = energy
-						value > 250
+					num_free_districts = {
+						type = district_mining
+						value = 0
 					}
-				}
-			}
-			OR = {
-				owner = {
-					has_monthly_income = {
-						resource = food
-						value > 80
+					OR = {
+						free_jobs < 2
+						free_housing = 0
 					}
-				}
-				num_free_districts = {
-					type = district_farming
-					value = 0
+					OR = {
+						AND = {
+							num_free_districts = {
+								type = district_generator
+								value = 0
+							}
+							num_districts = {
+								type = district_generator
+								value > 2
+							}
+						}
+						owner = {
+							has_monthly_income = {
+								resource = energy
+								value > 250
+							}
+						}
+					}
+					OR = {
+						owner = {
+							has_monthly_income = {
+								resource = food
+								value > 80
+							}
+						}
+						num_free_districts = {
+							type = district_farming
+							value = 0
+						}
+					}
 				}
 			}
 			has_global_flag = gai_enabled_flag

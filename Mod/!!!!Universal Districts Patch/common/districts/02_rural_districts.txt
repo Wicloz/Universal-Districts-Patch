@@ -1769,9 +1769,9 @@ district_mining = {
 			}
 			owner = {
 				OR = {
-					has_monthly_income = {
+					has_resource = {
 						resource = minerals
-						value < 75
+						amount < 750
 					}
 					has_ascension_perk = ap_arcology_project
 				}
