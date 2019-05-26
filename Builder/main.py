@@ -222,6 +222,10 @@ if __name__ == '__main__':
                     for title in ['show_on_uncolonized', 'potential', 'allow']:
                         for key, values in mod_district.get_single(title).items():
                             for value in values:
+                                if key == 'has_deposit' or (isinstance(value, StellarisDict) and 'has_deposit' in value.get_keys()):
+                                    use_mod_flag(other_mod)
+                                    value = {'NOT': [{'has_global_flag': ['= ' + other_mod[2]]}], key: [value]}
+                                    key = 'OR'
                                 merged = False
                                 if key == 'OR' and set(value.keys()) == {'is_planet_class'}:
                                     for block in district[0].get_single(title).get_list(key):

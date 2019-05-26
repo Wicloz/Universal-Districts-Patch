@@ -431,12 +431,17 @@ district_hab_cultural = {
 				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
 			}
 		}
-		NOR = {
-			has_deposit = d_starborn_energy
-			has_deposit = d_starborn_mineral_surface
-			has_deposit = d_starborn_alloy_surface
-			has_deposit = d_starborn_habitable_surface
-			has_deposit = d_starborn_tomb_surface
+		OR = {
+			NOT = {
+				has_global_flag = starborn_installed
+			}
+			NOR = {
+				has_deposit = d_starborn_energy
+				has_deposit = d_starborn_mineral_surface
+				has_deposit = d_starborn_alloy_surface
+				has_deposit = d_starborn_habitable_surface
+				has_deposit = d_starborn_tomb_surface
+			}
 		}
 	}
 	potential = {
@@ -463,12 +468,17 @@ district_hab_cultural = {
 				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
 			}
 		}
-		NOR = {
-			has_deposit = d_starborn_energy
-			has_deposit = d_starborn_mineral_surface
-			has_deposit = d_starborn_alloy_surface
-			has_deposit = d_starborn_habitable_surface
-			has_deposit = d_starborn_tomb_surface
+		OR = {
+			NOT = {
+				has_global_flag = starborn_installed
+			}
+			NOR = {
+				has_deposit = d_starborn_energy
+				has_deposit = d_starborn_mineral_surface
+				has_deposit = d_starborn_alloy_surface
+				has_deposit = d_starborn_habitable_surface
+				has_deposit = d_starborn_tomb_surface
+			}
 		}
 	}
 	convert_to = {
