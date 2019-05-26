@@ -379,6 +379,21 @@ district_city = {
 			weight = 1000000
 			planet = {
 				planet_devastation < 1
+				num_pops > 40
+				free_housing < 15
+			}
+			owner = {
+				has_resource = {
+					type = minerals
+					amount > 500
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1000000
+			planet = {
+				planet_devastation < 1
 				years_passed > 11
 				NOT = {
 					has_planet_flag = gai_fleet_planet
@@ -750,6 +765,21 @@ district_hive = {
 			weight = 1000000
 			planet = {
 				planet_devastation < 1
+				num_pops > 40
+				free_housing < 15
+			}
+			owner = {
+				has_resource = {
+					type = minerals
+					amount > 500
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1000000
+			planet = {
+				planet_devastation < 1
 				years_passed > 11
 				NOT = {
 					has_planet_flag = gai_fleet_planet
@@ -1050,6 +1080,21 @@ district_nexus = {
 				planet_devastation < 1
 				years_passed > 10
 				free_housing < 4
+			}
+			owner = {
+				has_resource = {
+					type = minerals
+					amount > 500
+				}
+			}
+			has_global_flag = gai_enabled_flag
+		}
+		modifier = {
+			weight = 1000000
+			planet = {
+				planet_devastation < 1
+				num_pops > 40
+				free_housing < 15
 			}
 			owner = {
 				has_resource = {
