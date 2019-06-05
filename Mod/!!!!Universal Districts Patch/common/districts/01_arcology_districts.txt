@@ -154,18 +154,11 @@ district_arcology_housing = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			weight = 1
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
+			weight = 5
+			free_housing < 10
 			NOT = {
 				has_global_flag = str_enabled_flag
 			}
-		}
-		modifier = {
-			weight = 500000
-			free_housing < 10
-			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
 			factor = 0
@@ -213,9 +206,23 @@ district_arcology_arms_industry = {
 		category = planet_districts
 		cost = {
 			minerals = 1000
+			volatile_motes = 50
+		}
+		cost = {
+			minerals = 1000
+			trigger = {
+				has_global_flag = migrating_forests_global
+			}
 		}
 		upkeep = {
 			energy = 5
+			volatile_motes = 2
+		}
+		upkeep = {
+			energy = 5
+			trigger = {
+				has_global_flag = migrating_forests_global
+			}
 		}
 	}
 	planet_modifier = {
@@ -288,56 +295,20 @@ district_arcology_arms_industry = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			weight = 1
-			NOT = {
-				has_global_flag = gai_enabled_flag
+			weight = 500
+			owner = {
+				has_monthly_income = {
+					resource = alloys
+					value < 500
+				}
+				has_monthly_income = {
+					resource = minerals
+					value > 99
+				}
 			}
 			NOT = {
 				has_global_flag = str_enabled_flag
 			}
-		}
-		modifier = {
-			factor = 0
-			free_jobs > 0
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
-			weight = 1000000
-			OR = {
-				AND = {
-					num_districts = {
-						type = district_arcology_civilian_industry
-						value >= 3
-					}
-					num_districts = {
-						type = district_arcology_leisure
-						value >= 1
-					}
-					OR = {
-						free_jobs < 10
-						any_owned_pop = {
-							is_unemployed = yes
-							is_pop_category = worker
-						}
-					}
-					owner = {
-						has_monthly_income = {
-							resource = alloys
-							value < 500
-						}
-					}
-				}
-				num_districts = {
-					type = district_arcology_arms_industry
-					value < 3
-				}
-			}
-			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
 			factor = 0.001
@@ -375,6 +346,13 @@ district_arcology_civilian_industry = {
 	}
 	potential = {
 		is_planet_class = pc_city
+		exists = owner
+		owner = {
+			OR = {
+				is_gestalt = no
+				has_valid_civic = civic_machine_servitor
+			}
+		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
@@ -383,13 +361,6 @@ district_arcology_civilian_industry = {
 			OR = {
 				has_global_flag = ringworld_districts_v2
 				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
-		exists = owner
-		owner = {
-			OR = {
-				is_gestalt = no
-				has_valid_civic = civic_machine_servitor
 			}
 		}
 	}
@@ -403,9 +374,23 @@ district_arcology_civilian_industry = {
 		category = planet_districts
 		cost = {
 			minerals = 1000
+			rare_crystals = 50
+		}
+		cost = {
+			minerals = 1000
+			trigger = {
+				has_global_flag = migrating_forests_global
+			}
 		}
 		upkeep = {
 			energy = 5
+			rare_crystals = 2
+		}
+		upkeep = {
+			energy = 5
+			trigger = {
+				has_global_flag = migrating_forests_global
+			}
 		}
 	}
 	planet_modifier = {
@@ -458,56 +443,32 @@ district_arcology_civilian_industry = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			weight = 1
-			NOT = {
-				has_global_flag = gai_enabled_flag
+			weight = 500
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value < 200
+				}
+				has_monthly_income = {
+					resource = minerals
+					value > 99
+				}
 			}
 			NOT = {
 				has_global_flag = str_enabled_flag
 			}
 		}
 		modifier = {
-			factor = 0
-			free_jobs > 0
-			NOT = {
-				has_global_flag = gai_enabled_flag
+			weight = 50000
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value < 0
+				}
 			}
 			NOT = {
 				has_global_flag = str_enabled_flag
 			}
-		}
-		modifier = {
-			weight = 1100000
-			OR = {
-				AND = {
-					num_districts = {
-						type = district_arcology_arms_industry
-						value >= 3
-					}
-					num_districts = {
-						type = district_arcology_leisure
-						value >= 1
-					}
-					OR = {
-						free_jobs < 10
-						any_owned_pop = {
-							is_unemployed = yes
-							is_pop_category = worker
-						}
-					}
-					owner = {
-						has_monthly_income = {
-							resource = consumer_goods
-							value < 200
-						}
-					}
-				}
-				num_districts = {
-					type = district_arcology_civilian_industry
-					value < 3
-				}
-			}
-			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
 			factor = 1.5
@@ -592,9 +553,23 @@ district_arcology_leisure = {
 		category = planet_districts
 		cost = {
 			minerals = 1000
+			exotic_gases = 50
+		}
+		cost = {
+			minerals = 1000
+			trigger = {
+				has_global_flag = migrating_forests_global
+			}
 		}
 		upkeep = {
 			energy = 5
+			exotic_gases = 2
+		}
+		upkeep = {
+			energy = 5
+			trigger = {
+				has_global_flag = migrating_forests_global
+			}
 		}
 	}
 	planet_modifier = {
@@ -655,33 +630,7 @@ district_arcology_leisure = {
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			weight = 1
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
-			factor = 0
-			free_jobs > 0
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
-			weight = 400000
-			OR = {
-				free_jobs < 10
-				any_owned_pop = {
-					is_unemployed = yes
-					is_pop_category = worker
-				}
-			}
+			weight = 1000
 			owner = {
 				has_monthly_income = {
 					resource = consumer_goods
@@ -692,15 +641,9 @@ district_arcology_leisure = {
 					value > 500
 				}
 			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 500000
-			num_districts = {
-				type = district_arcology_leisure
-				value = 0
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
-			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
 			factor = 0.00005

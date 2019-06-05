@@ -9,9 +9,6 @@ district_hab_housing = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
-		NOT = {
-			has_global_flag = LivingSpace_active
-		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -27,9 +24,6 @@ district_hab_housing = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
-		}
-		NOT = {
-			has_global_flag = LivingSpace_active
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -55,11 +49,43 @@ district_hab_housing = {
 				is_gestalt = yes
 			}
 			NOR = {
+				has_global_flag = migrating_forests_global
 				has_global_flag = sh_enabled_flag
 			}
 		}
 		modifier = {
+			job_maintenance_drone_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+			has_global_flag = migrating_forests_global
+		}
+		modifier = {
 			job_maintenance_drone_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		modifier = {
+			planet_housing_add = 8
+		}
+		potential = {
+			NOR = {
+				has_global_flag = migrating_forests_global
+				has_global_flag = sh_enabled_flag
+			}
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_global_flag = migrating_forests_global
+		}
+		modifier = {
+			planet_housing_add = 10
 		}
 	}
 	triggered_planet_modifier = {
@@ -87,16 +113,6 @@ district_hab_housing = {
 		}
 	}
 	triggered_planet_modifier = {
-		modifier = {
-			planet_housing_add = 10
-		}
-		potential = {
-			NOR = {
-				has_global_flag = sh_enabled_flag
-			}
-		}
-	}
-	triggered_planet_modifier = {
 		potential = {
 			has_global_flag = sh_enabled_flag
 		}
@@ -116,53 +132,16 @@ district_hab_housing = {
 	ai_weight = {
 		weight = 0
 		modifier = {
-			weight = 3
-			has_global_flag = str_enabled_flag
-		}
-		modifier = {
-			weight = 1
-			NOT = {
-				has_global_flag = gai_enabled_flag
+			weight = 90000
+			planet = {
+				num_districts = {
+					type = district_hab_housing
+					value < 0
+				}
 			}
 			NOT = {
 				has_global_flag = str_enabled_flag
 			}
-		}
-		modifier = {
-			factor = 12
-			free_housing < 0
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
-			weight = 90000
-			planet = {
-				owner = {
-					is_regular_empire = no
-				}
-				num_districts = {
-					type = district_hab_housing
-					value < 2
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 90000
-			planet = {
-				owner = {
-					is_regular_empire = yes
-				}
-				num_districts = {
-					type = district_hab_housing
-					value < 2
-				}
-			}
-			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
 			weight = 90000
@@ -173,31 +152,35 @@ district_hab_housing = {
 				}
 				num_districts = {
 					type = district_hab_housing
-					value < 3
+					value < 1
 				}
 			}
-			has_global_flag = gai_enabled_flag
+			NOT = {
+				has_global_flag = str_enabled_flag
+			}
 		}
 		modifier = {
-			factor = 0
+			weight = 90000
 			planet = {
-				owner = {
-					is_regular_empire = yes
-				}
-				NOT = {
-					has_district = district_hab_cultural
+				num_districts = {
+					type = district_hab_housing
+					value < 0
 				}
 			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			factor = 10
-			free_housing < 5
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
-			factor = 0.1
-			free_housing > 15
+			weight = 90000
+			planet = {
+				owner = {
+					is_regular_empire = yes
+					has_ascension_perk = ap_master_builders
+				}
+				num_districts = {
+					type = district_hab_housing
+					value < 1
+				}
+			}
 			has_global_flag = str_enabled_flag
 		}
 	}
@@ -207,17 +190,20 @@ district_hab_energy = {
 	is_capped_by_modifier = no
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
-		from = {
-			is_gestalt = yes
+		OR = {
+			has_planet_flag = energy_habitat
+			AND = {
+				exists = from
+				from = {
+					is_gestalt = yes
+				}
+			}
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			is_planet_class = pc_archive
-		}
-		NOT = {
-			has_global_flag = LivingSpace_active
 		}
 		NOT = {
 			has_global_flag = sh_enabled_flag
@@ -228,21 +214,27 @@ district_hab_energy = {
 				has_global_flag = ringworld_districts_v2
 				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
 			}
+		}
+		from = {
+			is_gestalt = yes
 		}
 	}
 	potential = {
 		is_planet_class = pc_habitat
-		owner = {
-			is_gestalt = yes
+		OR = {
+			has_planet_flag = energy_habitat
+			AND = {
+				exists = owner
+				owner = {
+					is_gestalt = yes
+				}
+			}
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			is_planet_class = pc_archive
-		}
-		NOT = {
-			has_global_flag = LivingSpace_active
 		}
 		NOT = {
 			has_global_flag = sh_enabled_flag
@@ -254,12 +246,12 @@ district_hab_energy = {
 				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
 			}
 		}
-	}
-	convert_to = {
-		district_hab_cultural
+		owner = {
+			is_gestalt = yes
+		}
 	}
 	resources = {
-		category = planet_districts
+		category = planet_districts_hab_energy
 		cost = {
 			minerals = 500
 		}
@@ -271,8 +263,62 @@ district_hab_energy = {
 		potential = {
 			exists = owner
 			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			NOR = {
+				has_global_flag = migrating_forests_global
+			}
+		}
+		modifier = {
+			job_technician_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_fallen_empire_spiritualist = yes
+			}
+			NOR = {
+				has_global_flag = migrating_forests_global
+			}
+		}
+		modifier = {
+			job_fe_acolyte_generator_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			NOR = {
+				has_global_flag = migrating_forests_global
+			}
+		}
+		job_technician_drone_add = 3
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			NOR = {
+				has_global_flag = migrating_forests_global
+			}
+		}
+		job_technician_drone_add = 4
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
 				is_hive_empire = no
 			}
+			has_global_flag = migrating_forests_global
 		}
 		job_technician_drone_add = 2
 	}
@@ -282,97 +328,72 @@ district_hab_energy = {
 			owner = {
 				is_hive_empire = yes
 			}
+			has_global_flag = migrating_forests_global
 		}
 		job_technician_drone_add = 3
 	}
+	triggered_planet_modifier = {
+		modifier = {
+			planet_housing_add = 3
+		}
+		potential = {
+			NOR = {
+				has_global_flag = migrating_forests_global
+			}
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+			NOR = {
+				has_global_flag = migrating_forests_global
+			}
+		}
+		text = job_technician_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			NOR = {
+				has_global_flag = migrating_forests_global
+			}
+		}
+		text = job_technician_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_fallen_empire_spiritualist = yes
+			}
+			NOR = {
+				has_global_flag = migrating_forests_global
+			}
+		}
+		text = job_fe_acolyte_generator_effect_desc
+	}
 	triggered_desc = {
 		text = job_technician_drone_effect_desc
+		trigger = {
+			has_global_flag = migrating_forests_global
+		}
 	}
 	ai_weight = {
 		weight = 0
 		modifier = {
-			weight = 0.1
-			has_global_flag = str_enabled_flag
-		}
-		modifier = {
-			weight = 1
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
-			factor = 3
-			owner = {
-				has_monthly_income = {
-					resource = energy
-					value < 8
-				}
-			}
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
-			factor = 2
-			free_housing < 0
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
-			factor = 3
-			any_owned_pop = {
-				OR = {
-					is_unemployed = yes
-					has_job = servant
-				}
-			}
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
-			factor = 0
-			free_housing > 0
-			NOT = {
-				any_owned_pop = {
-					OR = {
-						is_unemployed = yes
-						has_job = servant
-					}
-				}
-			}
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
 			weight = 20000
 			OR = {
 				owner = {
-					OR = {
-						has_monthly_income = {
-							resource = energy
-							value < 200
-						}
-						owner = {
-							has_country_flag = enough_research
-						}
+					has_monthly_income = {
+						resource = energy
+						value < 200
 					}
 				}
 				planet = {
@@ -384,14 +405,26 @@ district_hab_energy = {
 					has_district = district_hab_science
 				}
 			}
-			has_global_flag = gai_enabled_flag
+			NOT = {
+				has_global_flag = str_enabled_flag
+			}
 		}
 		modifier = {
-			factor = 90
-			owner = {
-				has_monthly_income = {
-					resource = energy
-					value < 50
+			weight = 20000
+			OR = {
+				owner = {
+					has_monthly_income = {
+						resource = energy
+						value < 200
+					}
+				}
+				planet = {
+					has_district = district_hab_energy
+				}
+			}
+			NOT = {
+				planet = {
+					has_district = district_hab_science
 				}
 			}
 			has_global_flag = str_enabled_flag
@@ -404,219 +437,17 @@ district_hab_energy = {
 		}
 	}
 }
-district_hab_cultural = {
-	base_buildtime = 240
-	is_capped_by_modifier = no
-	show_on_uncolonized = {
-		is_planet_class = pc_habitat
-		from = {
-			is_gestalt = no
-		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
-		NOT = {
-			is_planet_class = pc_archive
-		}
-		NOT = {
-			has_global_flag = LivingSpace_active
-		}
-		NOT = {
-			has_global_flag = sh_enabled_flag
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
-		OR = {
-			NOT = {
-				has_global_flag = starborn_installed
-			}
-			NOR = {
-				has_deposit = d_starborn_energy
-				has_deposit = d_starborn_mineral_surface
-				has_deposit = d_starborn_alloy_surface
-				has_deposit = d_starborn_habitable_surface
-				has_deposit = d_starborn_tomb_surface
-			}
-		}
-	}
-	potential = {
-		is_planet_class = pc_habitat
-		owner = {
-			is_gestalt = no
-		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
-		}
-		NOT = {
-			is_planet_class = pc_archive
-		}
-		NOT = {
-			has_global_flag = LivingSpace_active
-		}
-		NOT = {
-			has_global_flag = sh_enabled_flag
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
-		OR = {
-			NOT = {
-				has_global_flag = starborn_installed
-			}
-			NOR = {
-				has_deposit = d_starborn_energy
-				has_deposit = d_starborn_mineral_surface
-				has_deposit = d_starborn_alloy_surface
-				has_deposit = d_starborn_habitable_surface
-				has_deposit = d_starborn_tomb_surface
-			}
-		}
-	}
-	convert_to = {
-		district_hab_energy
-	}
-	resources = {
-		category = planet_districts
-		cost = {
-			minerals = 500
-		}
-		upkeep = {
-			energy = 2
-		}
-	}
-	planet_modifier = {
-		job_entertainer_add = 2
-		job_culture_worker_add = 1
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_valid_civic = civic_warrior_culture
-			}
-			NOR = {
-				has_global_flag = starborn_installed
-			}
-		}
-		modifier = {
-			job_duelist_add = 2
-			job_entertainer_add = -2
-		}
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_valid_civic = civic_warrior_culture
-			}
-			NOR = {
-				has_global_flag = starborn_installed
-			}
-		}
-		text = job_duelist_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				NOT = {
-					has_valid_civic = civic_warrior_culture
-				}
-			}
-			NOR = {
-				has_global_flag = starborn_installed
-			}
-		}
-		text = job_entertainer_effect_desc
-	}
-	triggered_desc = {
-		text = job_culture_worker_effect_desc
-	}
-	triggered_desc = {
-		text = job_entertainer_effect_desc
-		trigger = {
-			has_global_flag = starborn_installed
-		}
-	}
-	ai_weight = {
-		weight = 0
-		modifier = {
-			weight = 1
-			has_global_flag = str_enabled_flag
-		}
-		modifier = {
-			weight = 1
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
-			factor = 3
-			free_amenities < 2
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
-			factor = 0
-			free_jobs > 0
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
-			weight = 80000
-			planet = {
-				NOT = {
-					has_district = district_hab_cultural
-				}
-			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			factor = 10
-			free_amenities < 2
-			has_global_flag = str_enabled_flag
-		}
-	}
-	ai_resource_production = {
-		unity = 1
-		trigger = {
-			always = yes
-		}
-	}
-}
 district_hab_science = {
 	base_buildtime = 240
 	is_capped_by_modifier = no
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
+		has_planet_flag = research_habitat
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			is_planet_class = pc_archive
-		}
-		NOT = {
-			has_global_flag = LivingSpace_active
 		}
 		NOT = {
 			has_global_flag = sh_enabled_flag
@@ -631,14 +462,12 @@ district_hab_science = {
 	}
 	potential = {
 		is_planet_class = pc_habitat
+		has_planet_flag = research_habitat
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			is_planet_class = pc_archive
-		}
-		NOT = {
-			has_global_flag = LivingSpace_active
 		}
 		NOT = {
 			has_global_flag = sh_enabled_flag
@@ -652,7 +481,7 @@ district_hab_science = {
 		}
 	}
 	resources = {
-		category = planet_districts
+		category = planet_districts_hab_research
 		cost = {
 			minerals = 500
 		}
@@ -693,6 +522,16 @@ district_hab_science = {
 			job_calculator_add = 3
 		}
 	}
+	triggered_planet_modifier = {
+		modifier = {
+			planet_housing_add = 3
+		}
+		potential = {
+			NOR = {
+				has_global_flag = migrating_forests_global
+			}
+		}
+	}
 	triggered_desc = {
 		trigger = {
 			exists = owner
@@ -723,32 +562,14 @@ district_hab_science = {
 	ai_weight = {
 		weight = 0
 		modifier = {
-			weight = 2
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
-			factor = 0
-			free_jobs > 0
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
+			weight = 90000
+			has_global_flag = str_enabled_flag
 		}
 		modifier = {
 			weight = 9000
 			planet = {
 				NOT = {
 					has_district = district_hab_energy
-				}
-				NOT = {
-					has_district = district_hab_cultural
 				}
 			}
 			owner = {
@@ -757,28 +578,14 @@ district_hab_science = {
 					value > 80
 				}
 			}
-			has_global_flag = gai_enabled_flag
-		}
-		modifier = {
-			weight = 9000
-			has_district = district_hab_cultural
-			owner = {
-				has_monthly_income = {
-					resource = consumer_goods
-					value > 6
-				}
+			NOT = {
+				has_global_flag = str_enabled_flag
 			}
-			has_global_flag = gai_enabled_flag
 		}
 		modifier = {
 			factor = 0
-			OR = {
-				has_district = district_hab_commercial
-				owner = {
-					has_country_flag = enough_research
-				}
-			}
-			has_global_flag = gai_enabled_flag
+			lategame = yes
+			has_global_flag = str_enabled_flag
 		}
 	}
 }
@@ -787,6 +594,7 @@ district_hab_commercial = {
 	is_capped_by_modifier = no
 	show_on_uncolonized = {
 		is_planet_class = pc_habitat
+		exists = from
 		from = {
 			is_gestalt = no
 		}
@@ -795,9 +603,6 @@ district_hab_commercial = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
-		}
-		NOT = {
-			has_global_flag = LivingSpace_active
 		}
 		NOT = {
 			has_global_flag = sh_enabled_flag
@@ -812,6 +617,7 @@ district_hab_commercial = {
 	}
 	potential = {
 		is_planet_class = pc_habitat
+		exists = owner
 		owner = {
 			is_gestalt = no
 		}
@@ -820,9 +626,6 @@ district_hab_commercial = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
-		}
-		NOT = {
-			has_global_flag = LivingSpace_active
 		}
 		NOT = {
 			has_global_flag = sh_enabled_flag
@@ -836,7 +639,7 @@ district_hab_commercial = {
 		}
 	}
 	resources = {
-		category = planet_districts
+		category = planet_districts_hab_trade
 		cost = {
 			minerals = 500
 		}
@@ -844,79 +647,539 @@ district_hab_commercial = {
 			energy = 2
 		}
 	}
-	planet_modifier = {
-		job_clerk_add = 5
-	}
 	triggered_desc = {
 		text = job_clerk_effect_desc
 	}
 	ai_weight = {
 		weight = 0
 		modifier = {
-			weight = 1
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
-			factor = 5
-			free_amenities < 2
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
-			factor = 0
-			free_jobs > 0
-			NOT = {
-				has_global_flag = gai_enabled_flag
-			}
-			NOT = {
-				has_global_flag = str_enabled_flag
-			}
-		}
-		modifier = {
-			weight = 25000
+			weight = 9000
 			OR = {
 				has_district = district_hab_commercial
-				owner = {
-					has_country_flag = enough_research
-				}
 				owner = {
 					has_monthly_income = {
 						resource = consumer_goods
 						value < 6
 					}
 				}
-				owner = {
-					has_monthly_income = {
-						resource = minerals
-						value < 50
-					}
-				}
-				owner = {
-					has_monthly_income = {
-						resource = energy
-						value < 50
-					}
-				}
 			}
-			has_global_flag = gai_enabled_flag
+			NOT = {
+				has_global_flag = str_enabled_flag
+			}
 		}
 	}
 	ai_resource_production = {
 		consumer_goods = 1
 		trigger = {
 			always = yes
+		}
+	}
+	triggered_planet_modifier = {
+		modifier = {
+			planet_housing_add = 3
+			job_clerk_add = 5
+		}
+		potential = {
 			NOR = {
-				has_global_flag = gai_enabled_flag
+				has_global_flag = migrating_forests_global
 			}
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_global_flag = migrating_forests_global
+		}
+		modifier = {
+			job_clerk_add = 5
+		}
+	}
+}
+district_hab_mining = {
+	base_buildtime = 240
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		is_planet_class = pc_habitat
+		has_planet_flag = mining_habitat
+		NOT = {
+			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			has_global_flag = migrating_forests_global
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
+		}
+	}
+	potential = {
+		is_planet_class = pc_habitat
+		has_planet_flag = mining_habitat
+		NOT = {
+			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			has_global_flag = migrating_forests_global
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 3
+	}
+	resources = {
+		category = planet_districts_hab_mining
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+		}
+		modifier = {
+			job_mining_drone_add = 4
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+		}
+		modifier = {
+			job_mining_drone_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		modifier = {
+			job_miner_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_fallen_empire_spiritualist = yes
+			}
+		}
+		modifier = {
+			job_fe_acolyte_mine_add = 3
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		text = job_mining_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		text = job_miner_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_fallen_empire_spiritualist = yes
+			}
+		}
+		text = job_fe_acolyte_mine_effect_desc
+	}
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 20000
+			OR = {
+				owner = {
+					has_monthly_income = {
+						resource = energy
+						value < 200
+					}
+				}
+				planet = {
+					has_district = district_hab_energy
+				}
+			}
+			NOT = {
+				planet = {
+					has_district = district_hab_science
+				}
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
+			}
+		}
+		modifier = {
+			weight = 20000
+			OR = {
+				owner = {
+					has_monthly_income = {
+						resource = energy
+						value < 200
+					}
+				}
+				planet = {
+					has_district = district_hab_energy
+				}
+			}
+			NOT = {
+				planet = {
+					has_district = district_hab_science
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+	}
+	ai_resource_production = {
+		minerals = 1
+		trigger = {
+			always = yes
+		}
+	}
+}
+district_hab_cultural = {
+	base_buildtime = 240
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		is_planet_class = pc_habitat
+		exists = from
+		from = {
+			OR = {
+				is_gestalt = no
+				has_valid_civic = civic_machine_servitor
+			}
+		}
+		from = {
+			is_gestalt = no
+		}
+		NOT = {
+			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
+		}
+		OR = {
+			NOT = {
+				has_global_flag = starborn_installed
+			}
+			NOR = {
+				has_deposit = d_starborn_energy
+				has_deposit = d_starborn_mineral_surface
+				has_deposit = d_starborn_alloy_surface
+				has_deposit = d_starborn_habitable_surface
+				has_deposit = d_starborn_tomb_surface
+			}
+		}
+	}
+	potential = {
+		is_planet_class = pc_habitat
+		exists = owner
+		owner = {
+			OR = {
+				is_gestalt = no
+				has_valid_civic = civic_machine_servitor
+			}
+		}
+		owner = {
+			is_gestalt = no
+		}
+		NOT = {
+			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			has_global_flag = sh_enabled_flag
+		}
+		NAND = {
+			is_planet_class = pc_ringworld_habitable
+			OR = {
+				has_global_flag = ringworld_districts_v2
+				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
+			}
+		}
+		OR = {
+			NOT = {
+				has_global_flag = starborn_installed
+			}
+			NOR = {
+				has_deposit = d_starborn_energy
+				has_deposit = d_starborn_mineral_surface
+				has_deposit = d_starborn_alloy_surface
+				has_deposit = d_starborn_habitable_surface
+				has_deposit = d_starborn_tomb_surface
+			}
+		}
+	}
+	resources = {
+		category = planet_districts_hab_leisure
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				NOT = {
+					has_valid_civic = civic_warrior_culture
+				}
+			}
+			NOR = {
+				has_global_flag = migrating_forests_global
+				has_global_flag = starborn_installed
+			}
+		}
+		modifier = {
+			job_entertainer_add = 2
+			job_culture_worker_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				has_valid_civic = civic_warrior_culture
+			}
+			NOR = {
+				has_global_flag = migrating_forests_global
+				has_global_flag = starborn_installed
+			}
+		}
+		modifier = {
+			job_duelist_add = 2
+			job_culture_worker_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+				has_valid_civic = civic_machine_servitor
+			}
+			NOR = {
+				has_global_flag = migrating_forests_global
+				has_global_flag = starborn_installed
+			}
+		}
+		modifier = {
+			job_bio_trophy_add = 5
+			job_maintenance_drone_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_warrior_culture
+			}
+		}
+		modifier = {
+			job_duelist_add = 2
+			job_entertainer_add = -2
+		}
+	}
+	triggered_planet_modifier = {
+		modifier = {
+			planet_housing_add = 3
+		}
+		potential = {
+			NOR = {
+				has_global_flag = migrating_forests_global
+				has_global_flag = starborn_installed
+			}
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_global_flag = migrating_forests_global
+		}
+		modifier = {
+			job_entertainer_add = 2
+			job_culture_worker_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_global_flag = starborn_installed
+		}
+		modifier = {
+			job_entertainer_add = 2
+			job_culture_worker_add = 1
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				has_valid_civic = civic_warrior_culture
+			}
+			NOR = {
+				has_global_flag = migrating_forests_global
+				has_global_flag = starborn_installed
+			}
+		}
+		text = job_duelist_effect_desc
+		text = job_culture_worker_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				NOT = {
+					has_valid_civic = civic_warrior_culture
+				}
+			}
+			NOR = {
+				has_global_flag = migrating_forests_global
+				has_global_flag = starborn_installed
+			}
+		}
+		text = job_entertainer_effect_desc
+		text = job_culture_worker_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+				has_valid_civic = civic_machine_servitor
+			}
+			NOR = {
+				has_global_flag = migrating_forests_global
+				has_global_flag = starborn_installed
+			}
+		}
+		text = job_bio_trophy_effect_desc
+		text = job_maintenance_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_warrior_culture
+			}
+		}
+		text = job_duelist_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = {
+					has_valid_civic = civic_warrior_culture
+				}
+			}
+		}
+		text = job_entertainer_effect_desc
+	}
+	triggered_desc = {
+		text = job_culture_worker_effect_desc
+		trigger = {
+			has_global_flag = migrating_forests_global
+		}
+	}
+	triggered_desc = {
+		text = job_entertainer_effect_desc
+		trigger = {
+			has_global_flag = starborn_installed
+		}
+	}
+	triggered_desc = {
+		text = job_culture_worker_effect_desc
+		trigger = {
+			has_global_flag = starborn_installed
+		}
+	}
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 1000
+			owner = {
+				has_valid_civic = civic_machine_servitor
+			}
+			NOT = {
+				planet = {
+					has_district = district_hab_cultural
+				}
+			}
+			NOT = {
+				has_global_flag = str_enabled_flag
+			}
+		}
+		modifier = {
+			weight = 1000
+			owner = {
+				has_valid_civic = civic_machine_servitor
+			}
+			NOT = {
+				planet = {
+					has_district = district_hab_cultural
+				}
+			}
+			has_global_flag = str_enabled_flag
+		}
+	}
+	ai_resource_production = {
+		unity = 1
+		trigger = {
+			always = yes
 		}
 	}
 }
