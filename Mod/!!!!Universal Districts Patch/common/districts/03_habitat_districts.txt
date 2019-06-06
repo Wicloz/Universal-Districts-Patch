@@ -49,43 +49,11 @@ district_hab_housing = {
 				is_gestalt = yes
 			}
 			NOR = {
-				has_global_flag = migrating_forests_global
 				has_global_flag = sh_enabled_flag
 			}
 		}
 		modifier = {
 			job_maintenance_drone_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_gestalt = yes
-			}
-			has_global_flag = migrating_forests_global
-		}
-		modifier = {
-			job_maintenance_drone_add = 2
-		}
-	}
-	triggered_planet_modifier = {
-		modifier = {
-			planet_housing_add = 8
-		}
-		potential = {
-			NOR = {
-				has_global_flag = migrating_forests_global
-				has_global_flag = sh_enabled_flag
-			}
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			has_global_flag = migrating_forests_global
-		}
-		modifier = {
-			planet_housing_add = 10
 		}
 	}
 	triggered_planet_modifier = {
@@ -110,6 +78,16 @@ district_hab_housing = {
 		}
 		modifier = {
 			job_clerk_add = 8
+		}
+	}
+	triggered_planet_modifier = {
+		modifier = {
+			planet_housing_add = 8
+		}
+		potential = {
+			NOR = {
+				has_global_flag = sh_enabled_flag
+			}
 		}
 	}
 	triggered_planet_modifier = {
@@ -199,11 +177,20 @@ district_hab_energy = {
 				}
 			}
 		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
+		OR = {
+			has_planet_flag = energy_habitat
+			AND = {
+				exists = from
+				from = {
+					is_gestalt = yes
+				}
+				NOT = {
+					is_planet_class = pc_archive
+				}
+			}
 		}
 		NOT = {
-			is_planet_class = pc_archive
+			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			has_global_flag = sh_enabled_flag
@@ -214,9 +201,6 @@ district_hab_energy = {
 				has_global_flag = ringworld_districts_v2
 				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
 			}
-		}
-		from = {
-			is_gestalt = yes
 		}
 	}
 	potential = {
@@ -230,11 +214,20 @@ district_hab_energy = {
 				}
 			}
 		}
-		NOT = {
-			is_planet_class = pc_dyson_swarm
+		OR = {
+			has_planet_flag = energy_habitat
+			AND = {
+				exists = owner
+				owner = {
+					is_gestalt = yes
+				}
+				NOT = {
+					is_planet_class = pc_archive
+				}
+			}
 		}
 		NOT = {
-			is_planet_class = pc_archive
+			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
 			has_global_flag = sh_enabled_flag
@@ -246,9 +239,9 @@ district_hab_energy = {
 				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
 			}
 		}
-		owner = {
-			is_gestalt = yes
-		}
+	}
+	planet_modifier = {
+		planet_housing_add = 3
 	}
 	resources = {
 		category = planet_districts_hab_energy
@@ -266,9 +259,6 @@ district_hab_energy = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
-			NOR = {
-				has_global_flag = migrating_forests_global
-			}
 		}
 		modifier = {
 			job_technician_add = 3
@@ -279,9 +269,6 @@ district_hab_energy = {
 			exists = owner
 			owner = {
 				is_fallen_empire_spiritualist = yes
-			}
-			NOR = {
-				has_global_flag = migrating_forests_global
 			}
 		}
 		modifier = {
@@ -294,9 +281,6 @@ district_hab_energy = {
 			owner = {
 				is_machine_empire = yes
 			}
-			NOR = {
-				has_global_flag = migrating_forests_global
-			}
 		}
 		job_technician_drone_add = 3
 	}
@@ -305,51 +289,15 @@ district_hab_energy = {
 			exists = owner
 			owner = {
 				is_hive_empire = yes
-			}
-			NOR = {
-				has_global_flag = migrating_forests_global
 			}
 		}
 		job_technician_drone_add = 4
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_hive_empire = no
-			}
-			has_global_flag = migrating_forests_global
-		}
-		job_technician_drone_add = 2
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_hive_empire = yes
-			}
-			has_global_flag = migrating_forests_global
-		}
-		job_technician_drone_add = 3
-	}
-	triggered_planet_modifier = {
-		modifier = {
-			planet_housing_add = 3
-		}
-		potential = {
-			NOR = {
-				has_global_flag = migrating_forests_global
-			}
-		}
 	}
 	triggered_desc = {
 		trigger = {
 			exists = owner
 			owner = {
 				is_gestalt = yes
-			}
-			NOR = {
-				has_global_flag = migrating_forests_global
 			}
 		}
 		text = job_technician_drone_effect_desc
@@ -361,9 +309,6 @@ district_hab_energy = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
-			NOR = {
-				has_global_flag = migrating_forests_global
-			}
 		}
 		text = job_technician_effect_desc
 	}
@@ -373,17 +318,8 @@ district_hab_energy = {
 			owner = {
 				is_fallen_empire_spiritualist = yes
 			}
-			NOR = {
-				has_global_flag = migrating_forests_global
-			}
 		}
 		text = job_fe_acolyte_generator_effect_desc
-	}
-	triggered_desc = {
-		text = job_technician_drone_effect_desc
-		trigger = {
-			has_global_flag = migrating_forests_global
-		}
 	}
 	ai_weight = {
 		weight = 0
@@ -489,6 +425,9 @@ district_hab_science = {
 			energy = 2
 		}
 	}
+	planet_modifier = {
+		planet_housing_add = 3
+	}
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -520,16 +459,6 @@ district_hab_science = {
 		}
 		modifier = {
 			job_calculator_add = 3
-		}
-	}
-	triggered_planet_modifier = {
-		modifier = {
-			planet_housing_add = 3
-		}
-		potential = {
-			NOR = {
-				has_global_flag = migrating_forests_global
-			}
 		}
 	}
 	triggered_desc = {
@@ -647,6 +576,10 @@ district_hab_commercial = {
 			energy = 2
 		}
 	}
+	planet_modifier = {
+		planet_housing_add = 3
+		job_clerk_add = 5
+	}
 	triggered_desc = {
 		text = job_clerk_effect_desc
 	}
@@ -674,25 +607,6 @@ district_hab_commercial = {
 			always = yes
 		}
 	}
-	triggered_planet_modifier = {
-		modifier = {
-			planet_housing_add = 3
-			job_clerk_add = 5
-		}
-		potential = {
-			NOR = {
-				has_global_flag = migrating_forests_global
-			}
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			has_global_flag = migrating_forests_global
-		}
-		modifier = {
-			job_clerk_add = 5
-		}
-	}
 }
 district_hab_mining = {
 	base_buildtime = 240
@@ -704,7 +618,7 @@ district_hab_mining = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
-			has_global_flag = migrating_forests_global
+			is_planet_class = pc_archive
 		}
 		NOT = {
 			has_global_flag = sh_enabled_flag
@@ -724,7 +638,7 @@ district_hab_mining = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
-			has_global_flag = migrating_forests_global
+			is_planet_class = pc_archive
 		}
 		NOT = {
 			has_global_flag = sh_enabled_flag
@@ -978,7 +892,6 @@ district_hab_cultural = {
 				}
 			}
 			NOR = {
-				has_global_flag = migrating_forests_global
 				has_global_flag = starborn_installed
 			}
 		}
@@ -995,7 +908,6 @@ district_hab_cultural = {
 				has_valid_civic = civic_warrior_culture
 			}
 			NOR = {
-				has_global_flag = migrating_forests_global
 				has_global_flag = starborn_installed
 			}
 		}
@@ -1012,7 +924,6 @@ district_hab_cultural = {
 				has_valid_civic = civic_machine_servitor
 			}
 			NOR = {
-				has_global_flag = migrating_forests_global
 				has_global_flag = starborn_installed
 			}
 		}
@@ -1022,35 +933,13 @@ district_hab_cultural = {
 		}
 	}
 	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_valid_civic = civic_warrior_culture
-			}
-		}
-		modifier = {
-			job_duelist_add = 2
-			job_entertainer_add = -2
-		}
-	}
-	triggered_planet_modifier = {
 		modifier = {
 			planet_housing_add = 3
 		}
 		potential = {
 			NOR = {
-				has_global_flag = migrating_forests_global
 				has_global_flag = starborn_installed
 			}
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			has_global_flag = migrating_forests_global
-		}
-		modifier = {
-			job_entertainer_add = 2
-			job_culture_worker_add = 1
 		}
 	}
 	triggered_planet_modifier = {
@@ -1070,7 +959,6 @@ district_hab_cultural = {
 				has_valid_civic = civic_warrior_culture
 			}
 			NOR = {
-				has_global_flag = migrating_forests_global
 				has_global_flag = starborn_installed
 			}
 		}
@@ -1087,7 +975,6 @@ district_hab_cultural = {
 				}
 			}
 			NOR = {
-				has_global_flag = migrating_forests_global
 				has_global_flag = starborn_installed
 			}
 		}
@@ -1102,38 +989,11 @@ district_hab_cultural = {
 				has_valid_civic = civic_machine_servitor
 			}
 			NOR = {
-				has_global_flag = migrating_forests_global
 				has_global_flag = starborn_installed
 			}
 		}
 		text = job_bio_trophy_effect_desc
 		text = job_maintenance_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_valid_civic = civic_warrior_culture
-			}
-		}
-		text = job_duelist_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				NOT = {
-					has_valid_civic = civic_warrior_culture
-				}
-			}
-		}
-		text = job_entertainer_effect_desc
-	}
-	triggered_desc = {
-		text = job_culture_worker_effect_desc
-		trigger = {
-			has_global_flag = migrating_forests_global
-		}
 	}
 	triggered_desc = {
 		text = job_entertainer_effect_desc

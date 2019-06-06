@@ -208,21 +208,9 @@ district_arcology_arms_industry = {
 			minerals = 1000
 			volatile_motes = 50
 		}
-		cost = {
-			minerals = 1000
-			trigger = {
-				has_global_flag = migrating_forests_global
-			}
-		}
 		upkeep = {
 			energy = 5
 			volatile_motes = 2
-		}
-		upkeep = {
-			energy = 5
-			trigger = {
-				has_global_flag = migrating_forests_global
-			}
 		}
 	}
 	planet_modifier = {
@@ -376,21 +364,9 @@ district_arcology_civilian_industry = {
 			minerals = 1000
 			rare_crystals = 50
 		}
-		cost = {
-			minerals = 1000
-			trigger = {
-				has_global_flag = migrating_forests_global
-			}
-		}
 		upkeep = {
 			energy = 5
 			rare_crystals = 2
-		}
-		upkeep = {
-			energy = 5
-			trigger = {
-				has_global_flag = migrating_forests_global
-			}
 		}
 	}
 	planet_modifier = {
@@ -555,21 +531,9 @@ district_arcology_leisure = {
 			minerals = 1000
 			exotic_gases = 50
 		}
-		cost = {
-			minerals = 1000
-			trigger = {
-				has_global_flag = migrating_forests_global
-			}
-		}
 		upkeep = {
 			energy = 5
 			exotic_gases = 2
-		}
-		upkeep = {
-			energy = 5
-			trigger = {
-				has_global_flag = migrating_forests_global
-			}
 		}
 	}
 	planet_modifier = {

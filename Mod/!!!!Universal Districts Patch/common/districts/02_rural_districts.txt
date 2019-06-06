@@ -455,6 +455,86 @@ district_generator = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
+			is_planet_class = pc_karst
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_technician_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_karst
+		}
+		modifier = {
+			job_technician_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_karst
+		}
+		modifier = {
+			job_technician_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			is_planet_class = pc_irradiated
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_technician_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_irradiated
+		}
+		modifier = {
+			job_technician_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_irradiated
+		}
+		modifier = {
+			job_technician_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
 			is_planet_class = pc_biolumen
 		}
 		modifier = {
@@ -1480,6 +1560,46 @@ district_mining = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
+			is_planet_class = pc_karst
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_miner_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_karst
+		}
+		modifier = {
+			job_mining_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_karst
+		}
+		modifier = {
+			job_mining_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
 			is_planet_class = pc_geothermal
 		}
 		modifier = {
@@ -1811,6 +1931,13 @@ district_mining = {
 		modifier = {
 			factor = 5
 			free_jobs < 5
+			has_global_flag = str_enabled_flag
+		}
+		modifier = {
+			factor = 10
+			owner = {
+				has_country_flag = has_unrestored_relic
+			}
 			has_global_flag = str_enabled_flag
 		}
 		modifier = {
@@ -2591,6 +2718,46 @@ district_farming = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
+			is_planet_class = pc_irradiated
+		}
+		modifier = {
+			planet_housing_add = 1
+			job_farmer_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			is_planet_class = pc_irradiated
+		}
+		modifier = {
+			job_agri_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			is_planet_class = pc_irradiated
+		}
+		modifier = {
+			job_agri_drone_add = 1
+			planet_housing_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
 			is_planet_class = pc_superhabitable
 		}
 		modifier = {
@@ -2769,33 +2936,30 @@ district_farming = {
 			weight = 1200000
 			OR = {
 				free_jobs < 3
-				any_owned_pop = {
-					is_unemployed = yes
-					NOT = {
-						has_citizenship_type = {
-							type = citizenship_organic_trophy
-						}
+				AND = {
+					num_free_districts = {
+						type = district_mining
+						value = 0
 					}
-					NOR = {
-						is_pop_category = specialist
-						is_pop_category = ruler
+					any_owned_pop = {
+						is_unemployed = yes
+						NOT = {
+							has_citizenship_type = {
+								type = citizenship_organic_trophy
+							}
+						}
+						NOR = {
+							is_pop_category = specialist
+							is_pop_category = ruler
+						}
 					}
 				}
 			}
-			OR = {
-				owner = {
-					country_uses_food = yes
-					has_monthly_income = {
-						resource = food
-						value < 50
-					}
-				}
-				owner = {
-					country_uses_food = no
-					has_monthly_income = {
-						resource = food
-						value < -0.5
-					}
+			owner = {
+				country_uses_food = yes
+				has_monthly_income = {
+					resource = food
+					value < 50
 				}
 			}
 			has_global_flag = gai_enabled_flag
