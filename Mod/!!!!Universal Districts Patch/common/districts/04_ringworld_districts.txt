@@ -586,6 +586,7 @@ district_rw_science = {
 				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
 			}
 		}
+		has_planet_flag = rw_spec_science
 	}
 	potential = {
 		is_planet_class = pc_ringworld_habitable
@@ -599,6 +600,7 @@ district_rw_science = {
 				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
 			}
 		}
+		has_planet_flag = rw_spec_science
 	}
 	resources = {
 		category = planet_districts
