@@ -7,6 +7,9 @@ district_hab_housing = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
+		}
+		NOT = {
 			is_planet_class = pc_archive
 		}
 		NAND = {
@@ -21,6 +24,9 @@ district_hab_housing = {
 		is_planet_class = pc_habitat
 		NOT = {
 			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
 			is_planet_class = pc_archive
@@ -193,6 +199,9 @@ district_hab_energy = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
+		}
+		NOT = {
 			has_global_flag = sh_enabled_flag
 		}
 		NAND = {
@@ -228,6 +237,9 @@ district_hab_energy = {
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
 			has_global_flag = sh_enabled_flag
@@ -383,6 +395,9 @@ district_hab_science = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
+		}
+		NOT = {
 			is_planet_class = pc_archive
 		}
 		NOT = {
@@ -401,6 +416,9 @@ district_hab_science = {
 		has_planet_flag = research_habitat
 		NOT = {
 			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
 			is_planet_class = pc_archive
@@ -531,6 +549,9 @@ district_hab_commercial = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
+		}
+		NOT = {
 			is_planet_class = pc_archive
 		}
 		NOT = {
@@ -552,6 +573,9 @@ district_hab_commercial = {
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
 			is_planet_class = pc_archive
@@ -618,6 +642,9 @@ district_hab_mining = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
+		}
+		NOT = {
 			is_planet_class = pc_archive
 		}
 		NOT = {
@@ -636,6 +663,9 @@ district_hab_mining = {
 		has_planet_flag = mining_habitat
 		NOT = {
 			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
 			is_planet_class = pc_archive
@@ -807,6 +837,9 @@ district_hab_cultural = {
 			is_planet_class = pc_dyson_swarm
 		}
 		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
+		}
+		NOT = {
 			is_planet_class = pc_archive
 		}
 		NOT = {
@@ -846,6 +879,9 @@ district_hab_cultural = {
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
 			is_planet_class = pc_archive

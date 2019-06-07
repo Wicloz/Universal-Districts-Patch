@@ -16,7 +16,7 @@ mods_folder = r'C:\Users\wdboer\Documents\Paradox Interactive\Stellaris\mod'
 
 collection_url = 'https://steamcommunity.com/workshop/filedetails/?id=1642766902'
 ai_mod_count = 2
-working_mod_count = 19
+working_mod_count = 20
 
 other_build_restrictions = [
     {'NOT': [{'is_planet_class': ['= pc_dyson_swarm']}]},
@@ -24,6 +24,7 @@ other_build_restrictions = [
         'is_planet_class': ['= pc_ringworld_habitable'],
         'OR': [{'has_global_flag': ['= ringworld_districts_v2', '= lrsk_megastrcutre_district_rework_mod_active']}],
     }]},
+    {'NOT': [{'has_planet_flag': ['= xvcv_machinedlcmod_planet']}]},
 ]
 
 ########

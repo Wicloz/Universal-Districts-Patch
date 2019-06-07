@@ -10,6 +10,9 @@ district_rw_city = {
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -26,6 +29,9 @@ district_rw_city = {
 		is_planet_class = pc_ringworld_habitable
 		NOT = {
 			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -145,6 +151,9 @@ district_rw_hive = {
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -161,6 +170,9 @@ district_rw_hive = {
 		is_planet_class = pc_ringworld_habitable
 		NOT = {
 			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -233,6 +245,9 @@ district_rw_nexus = {
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -249,6 +264,9 @@ district_rw_nexus = {
 		is_planet_class = pc_ringworld_habitable
 		NOT = {
 			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -326,6 +344,9 @@ district_rw_generator = {
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -342,6 +363,9 @@ district_rw_generator = {
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -483,6 +507,9 @@ district_rw_commercial = {
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -500,6 +527,9 @@ district_rw_commercial = {
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -579,6 +609,9 @@ district_rw_science = {
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -592,6 +625,9 @@ district_rw_science = {
 		is_planet_class = pc_ringworld_habitable
 		NOT = {
 			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -715,6 +751,9 @@ district_rw_farming = {
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
+		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -731,6 +770,9 @@ district_rw_farming = {
 		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
+		}
+		NOT = {
+			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
