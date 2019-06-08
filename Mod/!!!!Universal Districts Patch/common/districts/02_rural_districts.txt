@@ -3326,7 +3326,6 @@ district_generator_uncapped = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
-			is_planet_class = pc_ringworld_habitable
 			is_planet_class = pc_shrouded_pg
 		}
 		NOT = {
@@ -3343,7 +3342,6 @@ district_generator_uncapped = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
-			is_planet_class = pc_ringworld_habitable
 			is_planet_class = pc_shrouded_pg
 		}
 		NOT = {
@@ -4375,7 +4373,6 @@ district_farming_uncapped = {
 		}
 		OR = {
 			is_planet_class = pc_hive
-			is_planet_class = pc_ringworld_habitable
 			is_planet_class = pc_shrouded_pg
 		}
 	}
@@ -4394,7 +4391,6 @@ district_farming_uncapped = {
 		}
 		OR = {
 			is_planet_class = pc_hive
-			is_planet_class = pc_ringworld_habitable
 			is_planet_class = pc_shrouded_pg
 		}
 	}

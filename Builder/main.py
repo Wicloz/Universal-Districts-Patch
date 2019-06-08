@@ -226,6 +226,8 @@ if __name__ == '__main__':
                                     key = 'OR'
                                 merged = False
                                 if key == 'OR' and set(value.keys()) == {'is_planet_class'}:
+                                    if 'uncapped' in district_name:
+                                        value['is_planet_class'] = [x for x in value['is_planet_class'] if x != '= pc_ringworld_habitable']
                                     for block in district[0].get_single(title).get_list(key):
                                         if set(block.keys()) == {'is_planet_class'}:
                                             block['is_planet_class'] = block['is_planet_class'] + \
