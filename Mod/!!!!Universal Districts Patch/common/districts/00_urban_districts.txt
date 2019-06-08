@@ -22,10 +22,10 @@ district_city = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
-			is_planet_class = pc_asteroid_base
+			has_planet_flag = asteroid_habitat
 		}
 		NOT = {
-			is_planet_class = pc_moon_base
+			has_planet_flag = moon_habitat
 		}
 		NOT = {
 			is_planet_class = pc_habitable_asteroid
@@ -82,10 +82,10 @@ district_city = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
-			is_planet_class = pc_asteroid_base
+			has_planet_flag = asteroid_habitat
 		}
 		NOT = {
-			is_planet_class = pc_moon_base
+			has_planet_flag = moon_habitat
 		}
 		NOT = {
 			is_planet_class = pc_habitable_asteroid
@@ -582,10 +582,10 @@ district_hive = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
-			is_planet_class = pc_asteroid_base
+			has_planet_flag = asteroid_habitat
 		}
 		NOT = {
-			is_planet_class = pc_moon_base
+			has_planet_flag = moon_habitat
 		}
 		NOT = {
 			is_planet_class = pc_habitable_asteroid
@@ -636,10 +636,10 @@ district_hive = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
-			is_planet_class = pc_asteroid_base
+			has_planet_flag = asteroid_habitat
 		}
 		NOT = {
-			is_planet_class = pc_moon_base
+			has_planet_flag = moon_habitat
 		}
 		NOT = {
 			is_planet_class = pc_habitable_asteroid
@@ -936,10 +936,10 @@ district_nexus = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
-			is_planet_class = pc_asteroid_base
+			has_planet_flag = asteroid_habitat
 		}
 		NOT = {
-			is_planet_class = pc_moon_base
+			has_planet_flag = moon_habitat
 		}
 		NOT = {
 			is_planet_class = pc_habitable_asteroid
@@ -984,10 +984,10 @@ district_nexus = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
-			is_planet_class = pc_asteroid_base
+			has_planet_flag = asteroid_habitat
 		}
 		NOT = {
-			is_planet_class = pc_moon_base
+			has_planet_flag = moon_habitat
 		}
 		NOT = {
 			is_planet_class = pc_habitable_asteroid

@@ -23,10 +23,10 @@ district_generator = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
-			is_planet_class = pc_asteroid_base
+			has_planet_flag = asteroid_habitat
 		}
 		NOT = {
-			is_planet_class = pc_moon_base
+			has_planet_flag = moon_habitat
 		}
 		NOT = {
 			is_planet_class = pc_habitable_asteroid
@@ -45,9 +45,6 @@ district_generator = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			is_planet_class = pc_ecocity
@@ -98,10 +95,10 @@ district_generator = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
-			is_planet_class = pc_asteroid_base
+			has_planet_flag = asteroid_habitat
 		}
 		NOT = {
-			is_planet_class = pc_moon_base
+			has_planet_flag = moon_habitat
 		}
 		NOT = {
 			is_planet_class = pc_habitable_asteroid
@@ -120,9 +117,6 @@ district_generator = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			is_planet_class = pc_ecocity
@@ -1096,10 +1090,10 @@ district_mining = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
-			is_planet_class = pc_asteroid_base
+			has_planet_flag = asteroid_habitat
 		}
 		NOT = {
-			is_planet_class = pc_moon_base
+			has_planet_flag = moon_habitat
 		}
 		NOT = {
 			is_planet_class = pc_habitable_asteroid
@@ -1118,9 +1112,6 @@ district_mining = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			is_planet_class = pc_ecocity
@@ -1171,10 +1162,10 @@ district_mining = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
-			is_planet_class = pc_asteroid_base
+			has_planet_flag = asteroid_habitat
 		}
 		NOT = {
-			is_planet_class = pc_moon_base
+			has_planet_flag = moon_habitat
 		}
 		NOT = {
 			is_planet_class = pc_habitable_asteroid
@@ -1193,9 +1184,6 @@ district_mining = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			is_planet_class = pc_ecocity
@@ -2270,10 +2258,10 @@ district_farming = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
-			is_planet_class = pc_asteroid_base
+			has_planet_flag = asteroid_habitat
 		}
 		NOT = {
-			is_planet_class = pc_moon_base
+			has_planet_flag = moon_habitat
 		}
 		NOT = {
 			is_planet_class = pc_habitable_asteroid
@@ -2292,9 +2280,6 @@ district_farming = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			is_planet_class = pc_ecocity
@@ -2345,10 +2330,10 @@ district_farming = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
 		NOT = {
-			is_planet_class = pc_asteroid_base
+			has_planet_flag = asteroid_habitat
 		}
 		NOT = {
-			is_planet_class = pc_moon_base
+			has_planet_flag = moon_habitat
 		}
 		NOT = {
 			is_planet_class = pc_habitable_asteroid
@@ -2367,9 +2352,6 @@ district_farming = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			is_planet_class = pc_ecocity
