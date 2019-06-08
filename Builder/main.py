@@ -229,7 +229,8 @@ if __name__ == '__main__':
                                     for block in district[0].get_single(title).get_list(key):
                                         if set(block.keys()) == {'is_planet_class'}:
                                             block['is_planet_class'] = block['is_planet_class'] + \
-                                                                       [x for x in value['is_planet_class'] if x not in block['is_planet_class']]
+                                                                       [x for x in value['is_planet_class'] if x not in block['is_planet_class'] and
+                                                                        (x != '= pc_ringworld_habitable' or 'uncapped' not in district_name)]
                                             merged = True
                                 if not merged and key != 'does_spawn_housing_districts' and value not in district[0].get_single(title).get_list(key):
                                     district[0].get_single(title).ensure({key: [value]})
