@@ -13,13 +13,6 @@ district_rw_city = {
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 	}
 	potential = {
 		exists = owner
@@ -32,13 +25,6 @@ district_rw_city = {
 		}
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 	}
 	conversion_ratio = 0.5
@@ -154,13 +140,6 @@ district_rw_hive = {
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 	}
 	potential = {
 		exists = owner
@@ -173,13 +152,6 @@ district_rw_hive = {
 		}
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 	}
 	conversion_ratio = 0.5
@@ -248,13 +220,6 @@ district_rw_nexus = {
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 	}
 	potential = {
 		exists = owner
@@ -267,13 +232,6 @@ district_rw_nexus = {
 		}
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 	}
 	conversion_ratio = 0.5
@@ -347,13 +305,6 @@ district_rw_generator = {
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 	}
 	potential = {
 		is_planet_class = pc_ringworld_habitable
@@ -366,13 +317,6 @@ district_rw_generator = {
 		}
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 	}
 	convert_to = {
@@ -510,13 +454,6 @@ district_rw_commercial = {
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 	}
 	potential = {
 		is_planet_class = pc_ringworld_habitable
@@ -530,13 +467,6 @@ district_rw_commercial = {
 		}
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 	}
 	convert_to = {
@@ -612,13 +542,6 @@ district_rw_science = {
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 		has_planet_flag = rw_spec_science
 	}
 	potential = {
@@ -628,13 +551,6 @@ district_rw_science = {
 		}
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 		has_planet_flag = rw_spec_science
 	}
@@ -754,13 +670,6 @@ district_rw_farming = {
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 	}
 	potential = {
 		is_planet_class = pc_ringworld_habitable
@@ -773,13 +682,6 @@ district_rw_farming = {
 		}
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 	}
 	resources = {

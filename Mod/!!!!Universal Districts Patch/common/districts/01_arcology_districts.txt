@@ -8,13 +8,6 @@ district_arcology_housing = {
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 		OR = {
 			is_planet_class = pc_city
 			is_planet_class = pc_ecocity
@@ -26,13 +19,6 @@ district_arcology_housing = {
 		}
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 		OR = {
 			is_planet_class = pc_city
@@ -130,13 +116,6 @@ district_arcology_arms_industry = {
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 	}
 	potential = {
 		is_planet_class = pc_city
@@ -145,13 +124,6 @@ district_arcology_arms_industry = {
 		}
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 	}
 	conversion_ratio = 1
@@ -285,13 +257,6 @@ district_arcology_civilian_industry = {
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 	}
 	potential = {
 		is_planet_class = pc_city
@@ -307,13 +272,6 @@ district_arcology_civilian_industry = {
 		}
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 	}
 	conversion_ratio = 1
@@ -460,13 +418,6 @@ district_arcology_leisure = {
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 	}
 	potential = {
 		is_planet_class = pc_city
@@ -479,13 +430,6 @@ district_arcology_leisure = {
 		}
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 	}
 	conversion_ratio = 1

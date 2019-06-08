@@ -76,13 +76,6 @@ district_generator = {
 		NOT = {
 			is_planet_class = pc_bioform
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 	}
 	potential = {
 		habitable_structure = no
@@ -160,13 +153,6 @@ district_generator = {
 		}
 		NOT = {
 			is_planet_class = pc_bioform
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 	}
 	allow = {
@@ -1163,13 +1149,6 @@ district_mining = {
 		NOT = {
 			is_planet_class = pc_bioform
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 	}
 	potential = {
 		habitable_structure = no
@@ -1247,13 +1226,6 @@ district_mining = {
 		}
 		NOT = {
 			is_planet_class = pc_bioform
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 	}
 	allow = {
@@ -2351,13 +2323,6 @@ district_farming = {
 		NOT = {
 			is_planet_class = pc_bioform
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 	}
 	potential = {
 		habitable_structure = no
@@ -2435,13 +2400,6 @@ district_farming = {
 		}
 		NOT = {
 			is_planet_class = pc_bioform
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 	}
 	allow = {
@@ -3398,13 +3356,6 @@ district_generator_uncapped = {
 		NOT = {
 			is_planet_class = pc_bioform
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 	}
 	potential = {
 		OR = {
@@ -3424,13 +3375,6 @@ district_generator_uncapped = {
 		}
 		NOT = {
 			is_planet_class = pc_bioform
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 	}
 	allow = {
@@ -3835,13 +3779,6 @@ district_mining_uncapped = {
 		NOT = {
 			is_planet_class = pc_bioform
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 	}
 	potential = {
 		OR = {
@@ -3860,13 +3797,6 @@ district_mining_uncapped = {
 		}
 		NOT = {
 			is_planet_class = pc_bioform
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 	}
 	allow = {
@@ -4461,13 +4391,6 @@ district_farming_uncapped = {
 		NOT = {
 			is_planet_class = pc_bioform
 		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
-		}
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_ringworld_habitable
@@ -4486,13 +4409,6 @@ district_farming_uncapped = {
 		}
 		NOT = {
 			is_planet_class = pc_bioform
-		}
-		NAND = {
-			is_planet_class = pc_ringworld_habitable
-			OR = {
-				has_global_flag = ringworld_districts_v2
-				has_global_flag = lrsk_megastrcutre_district_rework_mod_active
-			}
 		}
 		OR = {
 			is_planet_class = pc_hive
