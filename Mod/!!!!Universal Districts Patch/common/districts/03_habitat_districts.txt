@@ -48,60 +48,18 @@ district_hab_housing = {
 			energy = 2
 		}
 	}
+	planet_modifier = {
+		planet_housing_add = 8
+	}
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
 			owner = {
 				is_gestalt = yes
-			}
-			NOR = {
-				has_global_flag = sh_enabled_flag
 			}
 		}
 		modifier = {
 			job_maintenance_drone_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_gestalt = yes
-			}
-			has_global_flag = sh_enabled_flag
-		}
-		modifier = {
-			job_maintenance_drone_add = 8
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-			}
-			has_global_flag = sh_enabled_flag
-		}
-		modifier = {
-			job_clerk_add = 8
-		}
-	}
-	triggered_planet_modifier = {
-		modifier = {
-			planet_housing_add = 8
-		}
-		potential = {
-			NOR = {
-				has_global_flag = sh_enabled_flag
-			}
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			has_global_flag = sh_enabled_flag
-		}
-		modifier = {
-			planet_housing_add = 15
 		}
 	}
 	triggered_desc = {
@@ -201,9 +159,6 @@ district_hab_energy = {
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
-		NOT = {
-			has_global_flag = sh_enabled_flag
-		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -240,9 +195,6 @@ district_hab_energy = {
 		}
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
-		}
-		NOT = {
-			has_global_flag = sh_enabled_flag
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -400,9 +352,6 @@ district_hab_science = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
-		NOT = {
-			has_global_flag = sh_enabled_flag
-		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -422,9 +371,6 @@ district_hab_science = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
-		}
-		NOT = {
-			has_global_flag = sh_enabled_flag
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -554,9 +500,6 @@ district_hab_commercial = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
-		NOT = {
-			has_global_flag = sh_enabled_flag
-		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -579,9 +522,6 @@ district_hab_commercial = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
-		}
-		NOT = {
-			has_global_flag = sh_enabled_flag
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -647,9 +587,6 @@ district_hab_mining = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
-		NOT = {
-			has_global_flag = sh_enabled_flag
-		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -669,9 +606,6 @@ district_hab_mining = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
-		}
-		NOT = {
-			has_global_flag = sh_enabled_flag
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
@@ -842,9 +776,6 @@ district_hab_cultural = {
 		NOT = {
 			is_planet_class = pc_archive
 		}
-		NOT = {
-			has_global_flag = sh_enabled_flag
-		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
 			OR = {
@@ -885,9 +816,6 @@ district_hab_cultural = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
-		}
-		NOT = {
-			has_global_flag = sh_enabled_flag
 		}
 		NAND = {
 			is_planet_class = pc_ringworld_habitable
