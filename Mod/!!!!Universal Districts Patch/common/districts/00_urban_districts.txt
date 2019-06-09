@@ -198,7 +198,7 @@ district_city = {
 				has_non_swapped_tradition = tr_prosperity_public_works
 			}
 			NOR = {
-				has_global_flag = cultural_overhaul_active
+				has_global_flag = cultural_overhaul_traditions_active
 			}
 		}
 		modifier = {
@@ -237,7 +237,7 @@ district_city = {
 				has_non_swapped_tradition = tr_prosperity_interstellar_franchising
 			}
 			NOR = {
-				has_global_flag = cultural_overhaul_active
+				has_global_flag = cultural_overhaul_traditions_active
 			}
 		}
 		modifier = {
