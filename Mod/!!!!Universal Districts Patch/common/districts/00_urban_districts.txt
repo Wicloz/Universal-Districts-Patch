@@ -28,12 +28,6 @@ district_city = {
 			has_planet_flag = moon_habitat
 		}
 		NOT = {
-			is_planet_class = pc_habitable_asteroid
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
-		}
-		NOT = {
 			is_planet_class = pc_ecocity
 		}
 		NOT = {
@@ -44,6 +38,12 @@ district_city = {
 		}
 		NOT = {
 			is_planet_class = pc_bioforge
+		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
+		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			has_modifier = stpg_planetary_habitat
@@ -88,12 +88,6 @@ district_city = {
 			has_planet_flag = moon_habitat
 		}
 		NOT = {
-			is_planet_class = pc_habitable_asteroid
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
-		}
-		NOT = {
 			is_planet_class = pc_ecocity
 		}
 		NOT = {
@@ -104,6 +98,12 @@ district_city = {
 		}
 		NOT = {
 			is_planet_class = pc_bioforge
+		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
+		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
@@ -588,12 +588,6 @@ district_hive = {
 			has_planet_flag = moon_habitat
 		}
 		NOT = {
-			is_planet_class = pc_habitable_asteroid
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
-		}
-		NOT = {
 			is_planet_class = pc_ecocity
 		}
 		NOT = {
@@ -601,6 +595,12 @@ district_hive = {
 		}
 		NOT = {
 			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
+		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			has_modifier = stpg_planetary_habitat
@@ -642,12 +642,6 @@ district_hive = {
 			has_planet_flag = moon_habitat
 		}
 		NOT = {
-			is_planet_class = pc_habitable_asteroid
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
-		}
-		NOT = {
 			is_planet_class = pc_ecocity
 		}
 		NOT = {
@@ -655,6 +649,12 @@ district_hive = {
 		}
 		NOT = {
 			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
+		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			has_modifier = stpg_planetary_habitat
@@ -942,16 +942,16 @@ district_nexus = {
 			has_planet_flag = moon_habitat
 		}
 		NOT = {
-			is_planet_class = pc_habitable_asteroid
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
-		}
-		NOT = {
 			is_planet_class = pc_ecocity
 		}
 		NOT = {
 			is_planet_class = pc_archive
+		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
+		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			has_modifier = stpg_planetary_habitat
@@ -990,16 +990,16 @@ district_nexus = {
 			has_planet_flag = moon_habitat
 		}
 		NOT = {
-			is_planet_class = pc_habitable_asteroid
-		}
-		NOT = {
-			is_planet_class = pc_mem_vazuran_habitat
-		}
-		NOT = {
 			is_planet_class = pc_ecocity
 		}
 		NOT = {
 			is_planet_class = pc_archive
+		}
+		NOT = {
+			is_planet_class = pc_habitable_asteroid
+		}
+		NOT = {
+			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
 			has_modifier = stpg_planetary_habitat

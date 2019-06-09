@@ -29,6 +29,18 @@ district_generator = {
 			has_planet_flag = moon_habitat
 		}
 		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_bioforge
+		}
+		NOT = {
 			is_planet_class = pc_habitable_asteroid
 		}
 		NOT = {
@@ -45,18 +57,6 @@ district_generator = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_ecocity
-		}
-		NOT = {
-			is_planet_class = pc_archive
-		}
-		NOT = {
-			is_planet_class = pc_machine_factory
-		}
-		NOT = {
-			is_planet_class = pc_bioforge
 		}
 		NOT = {
 			is_planet_class = pc_shrouded_pg
@@ -101,6 +101,18 @@ district_generator = {
 			has_planet_flag = moon_habitat
 		}
 		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_bioforge
+		}
+		NOT = {
 			is_planet_class = pc_habitable_asteroid
 		}
 		NOT = {
@@ -117,18 +129,6 @@ district_generator = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_ecocity
-		}
-		NOT = {
-			is_planet_class = pc_archive
-		}
-		NOT = {
-			is_planet_class = pc_machine_factory
-		}
-		NOT = {
-			is_planet_class = pc_bioforge
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
@@ -1096,6 +1096,18 @@ district_mining = {
 			has_planet_flag = moon_habitat
 		}
 		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_bioforge
+		}
+		NOT = {
 			is_planet_class = pc_habitable_asteroid
 		}
 		NOT = {
@@ -1112,18 +1124,6 @@ district_mining = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_ecocity
-		}
-		NOT = {
-			is_planet_class = pc_archive
-		}
-		NOT = {
-			is_planet_class = pc_machine_factory
-		}
-		NOT = {
-			is_planet_class = pc_bioforge
 		}
 		NOT = {
 			is_planet_class = pc_shrouded_pg
@@ -1168,6 +1168,18 @@ district_mining = {
 			has_planet_flag = moon_habitat
 		}
 		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_bioforge
+		}
+		NOT = {
 			is_planet_class = pc_habitable_asteroid
 		}
 		NOT = {
@@ -1184,18 +1196,6 @@ district_mining = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_ecocity
-		}
-		NOT = {
-			is_planet_class = pc_archive
-		}
-		NOT = {
-			is_planet_class = pc_machine_factory
-		}
-		NOT = {
-			is_planet_class = pc_bioforge
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
@@ -2264,6 +2264,18 @@ district_farming = {
 			has_planet_flag = moon_habitat
 		}
 		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_bioforge
+		}
+		NOT = {
 			is_planet_class = pc_habitable_asteroid
 		}
 		NOT = {
@@ -2280,18 +2292,6 @@ district_farming = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_ecocity
-		}
-		NOT = {
-			is_planet_class = pc_archive
-		}
-		NOT = {
-			is_planet_class = pc_machine_factory
-		}
-		NOT = {
-			is_planet_class = pc_bioforge
 		}
 		NOT = {
 			is_planet_class = pc_shrouded_pg
@@ -2336,6 +2336,18 @@ district_farming = {
 			has_planet_flag = moon_habitat
 		}
 		NOT = {
+			is_planet_class = pc_ecocity
+		}
+		NOT = {
+			is_planet_class = pc_archive
+		}
+		NOT = {
+			is_planet_class = pc_machine_factory
+		}
+		NOT = {
+			is_planet_class = pc_bioforge
+		}
+		NOT = {
 			is_planet_class = pc_habitable_asteroid
 		}
 		NOT = {
@@ -2352,18 +2364,6 @@ district_farming = {
 		}
 		NOT = {
 			is_planet_class = pc_molten_habitable
-		}
-		NOT = {
-			is_planet_class = pc_ecocity
-		}
-		NOT = {
-			is_planet_class = pc_archive
-		}
-		NOT = {
-			is_planet_class = pc_machine_factory
-		}
-		NOT = {
-			is_planet_class = pc_bioforge
 		}
 		NOT = {
 			has_modifier = pm_Utopian_Paradise
