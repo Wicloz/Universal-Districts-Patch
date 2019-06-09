@@ -694,9 +694,6 @@ district_hab_cultural = {
 				has_valid_civic = civic_machine_servitor
 			}
 		}
-		from = {
-			is_gestalt = no
-		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
@@ -705,18 +702,6 @@ district_hab_cultural = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
-		}
-		OR = {
-			NOT = {
-				has_global_flag = starborn_installed
-			}
-			NOR = {
-				has_deposit = d_starborn_energy
-				has_deposit = d_starborn_mineral_surface
-				has_deposit = d_starborn_alloy_surface
-				has_deposit = d_starborn_habitable_surface
-				has_deposit = d_starborn_tomb_surface
-			}
 		}
 	}
 	potential = {
@@ -728,9 +713,6 @@ district_hab_cultural = {
 				has_valid_civic = civic_machine_servitor
 			}
 		}
-		owner = {
-			is_gestalt = no
-		}
 		NOT = {
 			is_planet_class = pc_dyson_swarm
 		}
@@ -739,18 +721,6 @@ district_hab_cultural = {
 		}
 		NOT = {
 			is_planet_class = pc_archive
-		}
-		OR = {
-			NOT = {
-				has_global_flag = starborn_installed
-			}
-			NOR = {
-				has_deposit = d_starborn_energy
-				has_deposit = d_starborn_mineral_surface
-				has_deposit = d_starborn_alloy_surface
-				has_deposit = d_starborn_habitable_surface
-				has_deposit = d_starborn_tomb_surface
-			}
 		}
 	}
 	resources = {
@@ -762,6 +732,9 @@ district_hab_cultural = {
 			energy = 2
 		}
 	}
+	planet_modifier = {
+		planet_housing_add = 3
+	}
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -770,9 +743,6 @@ district_hab_cultural = {
 				NOT = {
 					has_valid_civic = civic_warrior_culture
 				}
-			}
-			NOR = {
-				has_global_flag = starborn_installed
 			}
 		}
 		modifier = {
@@ -786,9 +756,6 @@ district_hab_cultural = {
 			owner = {
 				is_regular_empire = yes
 				has_valid_civic = civic_warrior_culture
-			}
-			NOR = {
-				has_global_flag = starborn_installed
 			}
 		}
 		modifier = {
@@ -803,32 +770,10 @@ district_hab_cultural = {
 				is_machine_empire = yes
 				has_valid_civic = civic_machine_servitor
 			}
-			NOR = {
-				has_global_flag = starborn_installed
-			}
 		}
 		modifier = {
 			job_bio_trophy_add = 5
 			job_maintenance_drone_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		modifier = {
-			planet_housing_add = 3
-		}
-		potential = {
-			NOR = {
-				has_global_flag = starborn_installed
-			}
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			has_global_flag = starborn_installed
-		}
-		modifier = {
-			job_entertainer_add = 2
-			job_culture_worker_add = 1
 		}
 	}
 	triggered_desc = {
@@ -837,9 +782,6 @@ district_hab_cultural = {
 			owner = {
 				is_regular_empire = yes
 				has_valid_civic = civic_warrior_culture
-			}
-			NOR = {
-				has_global_flag = starborn_installed
 			}
 		}
 		text = job_duelist_effect_desc
@@ -854,9 +796,6 @@ district_hab_cultural = {
 					has_valid_civic = civic_warrior_culture
 				}
 			}
-			NOR = {
-				has_global_flag = starborn_installed
-			}
 		}
 		text = job_entertainer_effect_desc
 		text = job_culture_worker_effect_desc
@@ -868,24 +807,9 @@ district_hab_cultural = {
 				is_machine_empire = yes
 				has_valid_civic = civic_machine_servitor
 			}
-			NOR = {
-				has_global_flag = starborn_installed
-			}
 		}
 		text = job_bio_trophy_effect_desc
 		text = job_maintenance_drone_effect_desc
-	}
-	triggered_desc = {
-		text = job_entertainer_effect_desc
-		trigger = {
-			has_global_flag = starborn_installed
-		}
-	}
-	triggered_desc = {
-		text = job_culture_worker_effect_desc
-		trigger = {
-			has_global_flag = starborn_installed
-		}
 	}
 	ai_weight = {
 		weight = 0
