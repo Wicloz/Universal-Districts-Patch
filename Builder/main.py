@@ -220,7 +220,8 @@ if __name__ == '__main__':
                     for title in ['show_on_uncolonized', 'potential', 'allow']:
                         for key, values in mod_district.get_single(title).items():
                             for value in values:
-                                if key == 'has_deposit' or (isinstance(value, StellarisDict) and 'has_deposit' in value.get_keys()):
+                                if key == 'has_deposit' or (isinstance(value, StellarisDict) and 'has_deposit' in value.get_keys()) \
+                                        or (key == 'has_planet_flag' and output_file[0] == '04_ringworld_districts.txt'):
                                     use_mod_flag(other_mod)
                                     value = {'NOT': [{'has_global_flag': ['= ' + other_mod[2]]}], key: [value]}
                                     key = 'OR'

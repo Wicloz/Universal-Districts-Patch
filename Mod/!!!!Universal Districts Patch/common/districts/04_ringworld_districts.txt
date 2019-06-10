@@ -542,7 +542,12 @@ district_rw_science = {
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
-		has_planet_flag = rw_spec_science
+		OR = {
+			NOT = {
+				has_global_flag = pjs_better_ringworlds_global
+			}
+			has_planet_flag = rw_spec_science
+		}
 	}
 	potential = {
 		is_planet_class = pc_ringworld_habitable
@@ -552,7 +557,12 @@ district_rw_science = {
 		NOT = {
 			has_planet_flag = xvcv_machinedlcmod_planet
 		}
-		has_planet_flag = rw_spec_science
+		OR = {
+			NOT = {
+				has_global_flag = pjs_better_ringworlds_global
+			}
+			has_planet_flag = rw_spec_science
+		}
 	}
 	resources = {
 		category = planet_districts
