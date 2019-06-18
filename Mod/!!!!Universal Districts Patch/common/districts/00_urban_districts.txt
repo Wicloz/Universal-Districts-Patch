@@ -46,7 +46,7 @@ district_city = {
 			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
-			has_modifier = stpg_planetary_habitat
+			has_planet_flag = stpg_planetary_habitat
 		}
 		NOT = {
 			is_planet_class = pc_outpost
@@ -109,7 +109,7 @@ district_city = {
 			has_modifier = pm_Utopian_Paradise
 		}
 		NOT = {
-			has_modifier = stpg_planetary_habitat
+			has_planet_flag = stpg_planetary_habitat
 		}
 		NOT = {
 			is_planet_class = pc_outpost
@@ -159,7 +159,7 @@ district_city = {
 		upkeep = {
 			trigger = {
 				owner = {
-					has_non_swapped_tradition = tr_commonwealth_education
+					has_non_swapped_tradition = tr_commonwealth_social
 				}
 			}
 			energy = 0.5
@@ -292,7 +292,7 @@ district_city = {
 		potential = {
 			exists = owner
 			owner = {
-				has_non_swapped_tradition = tr_commonwealth_education
+				has_non_swapped_tradition = tr_commonwealth_social
 			}
 		}
 		modifier = {
@@ -603,7 +603,7 @@ district_hive = {
 			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
-			has_modifier = stpg_planetary_habitat
+			has_planet_flag = stpg_planetary_habitat
 		}
 		NOT = {
 			is_planet_class = pc_matryoshka
@@ -657,7 +657,7 @@ district_hive = {
 			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
-			has_modifier = stpg_planetary_habitat
+			has_planet_flag = stpg_planetary_habitat
 		}
 		NOT = {
 			is_planet_class = pc_matryoshka
@@ -954,7 +954,7 @@ district_nexus = {
 			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
-			has_modifier = stpg_planetary_habitat
+			has_planet_flag = stpg_planetary_habitat
 		}
 		NOT = {
 			is_planet_class = pc_matryoshka
@@ -1002,7 +1002,7 @@ district_nexus = {
 			is_planet_class = pc_mem_vazuran_habitat
 		}
 		NOT = {
-			has_modifier = stpg_planetary_habitat
+			has_planet_flag = stpg_planetary_habitat
 		}
 		NOT = {
 			is_planet_class = pc_matryoshka
