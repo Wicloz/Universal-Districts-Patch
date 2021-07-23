@@ -71,7 +71,7 @@ def parse_file(path):
 
 def parse_object(tokens, variables):
     token = tokens.pop()
-    if token is not '{':
+    if token != '{':
         return token
 
     data = StellarisDict()
