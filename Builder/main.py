@@ -10,8 +10,8 @@ from tools import StellarisDict, parse_file, write_data, extract_mod
 # VARS #
 ########
 
-stellaris_folder = r'D:\Game Libraries\Windows - Steam\steamapps\common\Stellaris'
-workshop_folder = r'D:\Game Libraries\Windows - Steam\steamapps\workshop\content\281990'
+stellaris_folder = r'D:\Game Libraries\Steam\steamapps\common\Stellaris'
+workshop_folder = r'D:\Game Libraries\Steam\steamapps\workshop\content\281990'
 mods_folder = r'C:\Users\wdboer\Documents\Paradox Interactive\Stellaris\mod'
 
 collection_url = 'https://steamcommunity.com/workshop/filedetails/?id=1642766902'
