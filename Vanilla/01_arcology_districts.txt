@@ -3,11 +3,11 @@ district_arcology_housing = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		is_planet_class = pc_city
+		uses_district_set = city_world
 	}
 
 	potential = {
-		is_planet_class = pc_city
+		uses_district_set = city_world
 	}
 
 	conversion_ratio = 1
@@ -37,7 +37,17 @@ district_arcology_housing = {
 			owner = { is_gestalt = yes }
 		}
 		modifier = {
-			job_maintenance_drone_add = 2
+			job_maintenance_drone_add = 9
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_non_swapped_tradition = tr_prosperity_public_works }
+		}
+		modifier = {
+			planet_housing_add = 3
 		}
 	}
 
@@ -45,12 +55,59 @@ district_arcology_housing = {
 		potential = {
 			exists = owner
 			owner = {
-				is_fallen_empire = no
+				has_technology = tech_housing_1
+			}
+		}
+		modifier = {
+			planet_housing_add = 3
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_housing_2
+				NOT = { has_valid_civic = civic_agrarian_idyll }
+			}
+		}
+		modifier = {
+			planet_housing_add = 3
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_housing_2
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+		modifier = {
+			job_maintenance_drone_add = 3
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
 				is_regular_empire = yes
 			}
 		}
 		modifier = {
-			job_clerk_add = 5
+			job_clerk_add = 3
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_non_swapped_tradition = tr_prosperity_interstellar_franchising }
+		}
+		modifier = {
+			job_clerk_add = 3
 		}
 	}
 
@@ -58,7 +115,6 @@ district_arcology_housing = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_fallen_empire = no
 				is_regular_empire = yes
 			}
 		}
@@ -72,14 +128,6 @@ district_arcology_housing = {
 		}
 		text = job_maintenance_drone_effect_desc
 	}
-
-	ai_weight = {
-		weight = 0
-		modifier = {
-			weight = 5
-			free_housing < 10
-		}
-	}
 }
 
 district_arcology_arms_industry = {
@@ -87,11 +135,11 @@ district_arcology_arms_industry = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		is_planet_class = pc_city
+		uses_district_set = city_world
 	}
 
 	potential = {
-		is_planet_class = pc_city
+		uses_district_set = city_world
 	}
 
 	conversion_ratio = 1
@@ -109,7 +157,16 @@ district_arcology_arms_industry = {
 		}
 		upkeep = {
 			energy = 5
-			volatile_motes = 2
+			volatile_motes = 1
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_edict = industrial_maintenance
+				}
+			}
+			energy = 2
 		}
 	}
 
@@ -123,7 +180,7 @@ district_arcology_arms_industry = {
 			owner = { is_machine_empire = yes }
 		}
 		modifier = {
-			job_fabricator_add = 10
+			job_fabricator_add = 6
 		}
 	}
 
@@ -133,7 +190,7 @@ district_arcology_arms_industry = {
 			owner = { is_hive_empire = yes }
 		}
 		modifier = {
-			job_alloy_drone_add = 10
+			job_alloy_drone_add = 6
 		}
 	}
 
@@ -143,7 +200,7 @@ district_arcology_arms_industry = {
 			owner = { is_regular_empire = yes }
 		}
 		modifier = {
-			job_foundry_add = 10
+			job_foundry_add = 6
 		}
 	}
 
@@ -171,21 +228,28 @@ district_arcology_arms_industry = {
 		text = job_fabricator_effect_desc
 	}
 
-	ai_weight = {
-		weight = 0
-		modifier = {
-			weight = 500
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
 			owner = {
-				has_monthly_income = {
-					resource = alloys
-					value < 500
-				}
-				has_monthly_income = {
-					resource = minerals
-					value > 99
-				}
+				is_machine_empire = yes
+				has_edict = industrial_maintenance
 			}
 		}
+		modifier = {
+			job_maintenance_drone_add = 1
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+				has_edict = industrial_maintenance
+			}
+		}
+		text = job_maintenance_drone_effect_desc
 	}
 }
 
@@ -194,11 +258,11 @@ district_arcology_civilian_industry = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		is_planet_class = pc_city
+		uses_district_set = city_world
 	}
 
 	potential = {
-		is_planet_class = pc_city
+		uses_district_set = city_world
 		exists = owner
 		owner = {
 			OR = {
@@ -223,7 +287,16 @@ district_arcology_civilian_industry = {
 		}
 		upkeep = {
 			energy = 5
-			rare_crystals = 2
+			rare_crystals = 1
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_edict = industrial_maintenance
+				}
+			}
+			energy = 2
 		}
 	}
 
@@ -237,7 +310,7 @@ district_arcology_civilian_industry = {
 			owner = { is_gestalt = yes }
 		}
 		modifier = {
-			job_artisan_drone_add = 10
+			job_artisan_drone_add = 6
 		}
 	}
 
@@ -247,7 +320,7 @@ district_arcology_civilian_industry = {
 			owner = { is_regular_empire = yes }
 		}
 		modifier = {
-			job_artisan_add = 10
+			job_artisan_add = 6
 		}
 	}
 
@@ -262,35 +335,36 @@ district_arcology_civilian_industry = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { is_gestalt = yes }
+			owner = {
+				is_machine_empire = yes
+				has_valid_civic = civic_machine_servitor
+			}
 		}
 		text = job_artisan_drone_effect_desc
 	}
 
-	ai_weight = {
-		weight = 0
-		modifier = {
-			weight = 500
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
 			owner = {
-				has_monthly_income = {
-					resource = consumer_goods
-					value < 200
-				}
-				has_monthly_income = {
-					resource = minerals
-					value > 99
-				}
+				is_machine_empire = yes
+				has_edict = industrial_maintenance
 			}
 		}
 		modifier = {
-			weight = 50000
+			job_maintenance_drone_add = 1
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
 			owner = {
-				has_monthly_income = {
-					resource = consumer_goods
-					value < 0
-				}
+				is_machine_empire = yes
+				has_edict = industrial_maintenance
 			}
 		}
+		text = job_maintenance_drone_effect_desc
 	}
 }
 
@@ -299,14 +373,14 @@ district_arcology_leisure = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		is_planet_class = pc_city
+		uses_district_set = city_world
 		from = {
 			is_regular_empire = yes
 		}
 	}
 
 	potential = {
-		is_planet_class = pc_city
+		uses_district_set = city_world
 		owner = {
 			exists = owner
 			is_regular_empire = yes
@@ -329,7 +403,7 @@ district_arcology_leisure = {
 		}
 		upkeep = {
 			energy = 5
-			exotic_gases = 2
+			exotic_gases = 1
 		}
 	}
 
@@ -346,8 +420,8 @@ district_arcology_leisure = {
 			}
 		}
 		modifier = {
-			job_entertainer_add = 5
-			job_culture_worker_add = 5
+			job_entertainer_add = 4
+			job_culture_worker_add = 4
 		}
 	}
 
@@ -360,8 +434,8 @@ district_arcology_leisure = {
 			}
 		}
 		modifier = {
-			job_duelist_add = 5
-			job_culture_worker_add = 5
+			job_duelist_add = 4
+			job_culture_worker_add = 4
 		}
 	}
 
@@ -379,22 +453,5 @@ district_arcology_leisure = {
 			owner = { NOT = { has_valid_civic = civic_warrior_culture } }
 		}
 		text = job_entertainer_effect_desc
-	}
-
-	ai_weight = {
-		weight = 0
-		modifier = {
-			weight = 1000
-			owner = {
-				has_monthly_income = {
-					resource = consumer_goods
-					value > 200
-				}
-				has_monthly_income = {
-					resource = alloys
-					value > 500
-				}
-			}
-		}
 	}
 }
